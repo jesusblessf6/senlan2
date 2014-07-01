@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7f1ba8a2-eace-46d4-aa9a-0c0d9460b1cb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/ContractUDFService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ContractUDFService2.xsd" MetadataType="Schema" ID="4a92f2c6-1db9-42bf-bce3-9727ea9b8c3c" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ContractUDFService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ContractUDFService.disco" MetadataType="Disco" ID="fc9f8261-72e7-491b-92c5-9a00ab61e096" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ContractUDFService.svc?disco" />
+    <MetadataFile FileName="ContractUDFService3.xsd" MetadataType="Schema" ID="9b2a0578-0dea-406b-a72a-85807a6588b5" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ContractUDFService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ContractUDFService1.xsd" MetadataType="Schema" ID="4b17bce0-e2d3-48f5-9260-4a6d5b725e74" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ContractUDFService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ContractUDFService.xsd" MetadataType="Schema" ID="8c4b880b-004c-40b8-9274-ffa52c638ffe" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ContractUDFService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ContractUDFService4.xsd" MetadataType="Schema" ID="4ba7c8a0-5d05-4d0d-a143-c604480a83d9" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ContractUDFService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ContractUDFService.wsdl" MetadataType="Wsdl" ID="b4e655a6-5382-42c7-a60c-a53db22be035" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ContractUDFService.svc?wsdl" />
+    <MetadataFile FileName="ContractUDFService5.xsd" MetadataType="Schema" ID="d5a9316c-5c12-47ef-987a-b7bd6d68367b" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ContractUDFService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

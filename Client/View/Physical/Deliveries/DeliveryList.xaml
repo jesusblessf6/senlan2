@@ -1,0 +1,166 @@
+﻿<baseClient:BasePage xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+               x:Class="Client.View.Physical.Deliveries.DeliveryList"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               ResxExtension.DefaultResxName="Client.View.Physical.Deliveries.ResDelivery" 
+               Language="{UICulture}"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:Converters="clr-namespace:Client.Converters" xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+                     xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                     xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+                     mc:Ignorable="d" d:DesignHeight="517" d:DesignWidth="1053" Title="{Resx DeliveryList}">
+    
+    <Page.Resources>
+        <Converters:VisibilityConverter x:Key="VisibilityConverter" />
+        <Converters:TradeTypeConverter x:Key="TradeTypeConverter" />
+        <Converters:DeliveryTypeConverter x:Key="DeliveryTypeConverter" />
+        <Converters:IsVerifiedConverter x:Key="IsVerifiedConverter" />
+        <!--<Converters:InvoicePrintVisibleConverter x:Key="InvoicePrintVisibleConverter" />-->
+        <RoutedCommand x:Key="DeliveryEdit"></RoutedCommand>
+        <RoutedCommand x:Key="DeliveryPrint"></RoutedCommand>
+        <RoutedCommand x:Key="DeliveryLineDelete"></RoutedCommand>
+        <RoutedCommand x:Key="ShowCirculDetail"></RoutedCommand>
+        <RoutedCommand x:Key="MDView"></RoutedCommand>
+        <RoutedCommand x:Key="ConvertWR"></RoutedCommand>
+        <DataTemplate x:Key="DeliveryActions" DataType="DBEntity:Delivery">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btDeliveryEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource DeliveryEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <!--<Button Name="btDeliveryPrint" Content="打印" Command="{StaticResource DeliveryPrint}" Visibility="{Binding Quota.Contract.ContractType,Converter={StaticResource InvoicePrintVisibleConverter}}"
+                        CommandParameter="{Binding Id}" ></Button>-->
+                <Button Name="btDeliveryConvertWR" Content="转仓单" Command="{StaticResource ConvertWR}"
+                        CommandParameter="{Binding Id}" IsEnabled="{Binding CanConvertWR}"></Button>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="DeliveryLineActions" DataType="DBEntity:DeliveryLine">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Name="btDeliveryLinedelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Nullify}" Command="{StaticResource DeliveryLineDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <Style x:Key="dgCell" TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+    </Page.Resources>
+    
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource DeliveryEdit}" CanExecute="DeliveryEditCanExecute"
+                        Executed="DeliveryEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource DeliveryPrint}"
+                        Executed="DeliveryPrintExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource DeliveryLineDelete}" CanExecute="DeliveryLineDeleteCanExecute"
+                        Executed="DeliveryLineDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource ShowCirculDetail}" CanExecute="ShowCirculDetailCanExecute"
+                        Executed="ShowCirculDetailExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource MDView}" CanExecute="MDViewCanExecute"
+                        Executed="MDViewExecuted">
+        </CommandBinding>
+        <CommandBinding Command="{StaticResource ConvertWR}" CanExecute="ConvertWRCanExecute"
+                        Executed="ConvertWRExecuted">
+        </CommandBinding>
+    </Page.CommandBindings>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="rootGrid">
+            <Label x:Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16"  Content="{Binding Title}"></Label>
+            
+            <StackPanel Orientation="Horizontal" Margin="6,40,0,0" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Width="Auto">
+                <my:PagingControl x:Name="pagerDelivery"  HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Label Content="实际数量" Foreground="Red" Margin="10,0,0,0" VerticalContentAlignment="Center"></Label>
+                <Label Content="{Binding TotalVerifiedQty}" Margin="10,0,0,0" VerticalContentAlignment="Center"></Label>
+                <Button Content="打印提单" Margin="10,0,0,0" Click="ButtonClick" Visibility="{Binding IsPrintControlsVisible}" Height="23"></Button>
+            </StackPanel>
+            
+            <DataGrid Margin="6,77,0,0" x:Name="deliveryGrid" AutoGenerateColumns="False" CanUserAddRows="False" Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}"
+                      LoadingRow="DeliveryGridLoadingRow" ItemsSource="{Binding}" HorizontalAlignment="Left" VerticalAlignment="Top" RowDetailsVisibilityMode="Visible">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="Auto" IsReadOnly="True">
+                        <DataGridTemplateColumn.Header>
+                            <CheckBox IsChecked="{Binding IsSelectAll}" Name="cbSelectAll" Content="全选" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsPrintControlsVisible}"></CheckBox>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="DBEntity:Delivery">
+                                <CheckBox IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Printable}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsPrintControlsVisible}"></CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn IsReadOnly="true" Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" Binding="{Binding Quota.QuotaNo}" ElementStyle="{StaticResource dgCell}"/>
+                    <DataGridTextColumn IsReadOnly="true" Header="{Resx ResxName=Client.Properties.Resources, Key=Price}" Binding="{Binding Quota.FinalPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" ElementStyle="{StaticResource dgCell}"/>
+                    <DataGridTextColumn IsReadOnly="true" Header="{Resx ResxName=Client.Properties.Resources, Key=BP}" Binding="{Binding Quota.Contract.BusinessPartner.ShortName}" ElementStyle="{StaticResource dgCell}"/>
+                    <DataGridTemplateColumn Header="单据号" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" SortMemberPath="DeliveryNo" CanUserSort="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="DBEntity:Delivery">
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock Visibility="{Binding IsTD, Converter={StaticResource VisibilityConverter}}">
+                                    <Hyperlink Command="{StaticResource MDView}" CommandParameter="{Binding Id}">
+                                        <Run Text="{Binding DeliveryNoStr, Mode=OneWay}"></Run>
+                                    </Hyperlink>
+                                    </TextBlock>
+                                    <TextBlock Visibility="{Binding IsMD, Converter={StaticResource VisibilityConverter}}">
+                                        <Run Text="{Binding DeliveryNo}"></Run>
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn IsReadOnly="true" Header="单据类型"
+                                        Binding="{Binding DeliveryType, Converter={StaticResource DeliveryTypeConverter}}" ElementStyle="{StaticResource dgCell}"/>
+                    <DataGridTextColumn IsReadOnly="true" Header="{Resx ResxName=Client.Properties.Resources, Key=Date}" Binding="{Binding IssueDate, StringFormat='yyyy-MM-dd'}" ElementStyle="{StaticResource dgCell}"/>
+                    <DataGridTextColumn IsReadOnly="true" Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Binding="{Binding Quota.Commodity.Name}" ElementStyle="{StaticResource dgCell}"/>
+                    <DataGridTextColumn IsReadOnly="true" Header="{Resx ResxName=Client.View.Physical.Deliveries.ResDelivery, Key=CargoOwner}" Binding="{Binding Quota.Contract.InternalCustomer.ShortName}" ElementStyle="{StaticResource dgCell}"/>
+                    <DataGridTextColumn IsReadOnly="true" Header="{Resx ResxName=Client.Properties.Resources, Key=Warehouse}" Binding="{Binding Warehouse.Name}" ElementStyle="{StaticResource dgCell}"/>
+                    <DataGridTextColumn IsReadOnly="true" Header="{Resx ResxName=Client.Properties.Resources, Key=TradeType}"
+                                        Binding="{Binding Quota.Contract.TradeType, Converter={StaticResource TradeTypeConverter}}" ElementStyle="{StaticResource dgCell}"/>
+                    <DataGridTextColumn IsReadOnly="true" Header="{Resx ResxName=Client.Properties.Resources, Key=QuantityConfirm}" Binding="{Binding IsVerified, Converter={StaticResource IsVerifiedConverter}}" ElementStyle="{StaticResource dgCell}"/>
+                    <DataGridTextColumn Header="提单号" Binding="{Binding ConvertedTd.DeliveryNo}"/>
+                    <DataGridTemplateColumn IsReadOnly="true" Header="流转标识号">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="DBEntity:Delivery">
+                                <TextBlock VerticalAlignment="Center">
+                                    <Hyperlink Command="{StaticResource ShowCirculDetail}" CommandParameter="{Binding CirculNo}">
+                                        <Run Text="{Binding CirculNo}"></Run>
+                                    </Hyperlink>
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="流转信息" Width="Auto" Visibility="Hidden"  HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock TextWrapping="Wrap" Width="300" Text="{Binding Quota.RelQuotaStr}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn IsReadOnly="true" Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                            CellTemplate="{StaticResource DeliveryActions}" ></DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate DataType="DBEntity:Delivery">
+                        <DataGrid Name="dataGridDetail" ItemsSource="{Binding DeliveryLines}"
+                                  AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="true" Margin="6,2,0,15">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=CommodityType}" Binding="{Binding CommodityType.Name}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Specification}" Binding="{Binding Specification.Name}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Binding="{Binding Brand.Name}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=CardNo}" Binding="{Binding PBNo}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=NetWeight}" Binding="{Binding NetWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=GrossWeight}" Binding="{Binding GrossWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.View.Physical.Deliveries.ResDelivery, Key=ActualWeight}" Binding="{Binding VerifiedWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Bundle}" Binding="{Binding PackingQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuantityConfirm}" Binding="{Binding IsVerified, Converter={StaticResource IsVerifiedConverter}}"/>
+                                
+                                <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                                        CellTemplate="{StaticResource DeliveryLineActions}"></DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

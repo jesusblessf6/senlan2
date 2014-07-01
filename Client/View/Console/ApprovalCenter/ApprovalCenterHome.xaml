@@ -1,0 +1,339 @@
+﻿<baseClient:BasePage x:Class="Client.View.Console.ApprovalCenter.ApprovalCenterHome"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	  ResxExtension.DefaultResxName="Client.View.Console.ApprovalCenter.ResApprovalCenter"
+	  Language="{UICulture}"
+	  xmlns:c="clr-namespace:Client.Converters" xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+	  xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+	  xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+	  mc:Ignorable="d" 
+	  d:DesignHeight="294" d:DesignWidth="1061"
+	  Title="{Resx ApprovalCenter}">
+	
+	<Page.Resources>
+		<c:PricingTypeConverter x:Key="PTC"></c:PricingTypeConverter>
+		<c:BusinessPartnerTypeConverter x:Key="BPTypeConverter"></c:BusinessPartnerTypeConverter>
+
+		<RoutedCommand x:Key="QuotaApprove"></RoutedCommand>
+		<RoutedCommand x:Key="QuotaReject"></RoutedCommand>
+		<RoutedCommand x:Key="PaymentRequestApprove"></RoutedCommand>
+		<RoutedCommand x:Key="PaymentRequestReject"></RoutedCommand>
+		<RoutedCommand x:Key="VATInvoiceRequestLineApprove"></RoutedCommand>
+		<RoutedCommand x:Key="VATInvoiceRequestLineReject"></RoutedCommand>
+        <RoutedCommand x:Key="BPApprove"></RoutedCommand>
+        <RoutedCommand x:Key="BPReject"></RoutedCommand>
+		
+		<DataTemplate x:Key="PaymentRequestActions" DataType="DBEntity:PaymentRequest">
+			<StackPanel Orientation="Horizontal">
+				<Button Content="同意" Command="{StaticResource PaymentRequestApprove}" CommandParameter="{Binding Id}"></Button>
+				<Button Content="拒绝" Command="{StaticResource PaymentRequestReject}" CommandParameter="{Binding Id}"></Button>
+			</StackPanel>
+		</DataTemplate>
+
+		<DataTemplate x:Key="VATInvoiceRequestLineActions" DataType="DBEntity:VATInvoiceRequestLine">
+			<StackPanel Orientation="Horizontal">
+				<Button Content="同意" Command="{StaticResource VATInvoiceRequestLineApprove}" CommandParameter="{Binding Id}"></Button>
+				<Button Content="拒绝" Command="{StaticResource VATInvoiceRequestLineReject}" CommandParameter="{Binding Id}"></Button>
+			</StackPanel>
+		</DataTemplate>
+
+        <DataTemplate x:Key="BPApproveActions" DataType="DBEntity:BusinessPartner">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="同意" Command="{StaticResource BPApprove}" CommandParameter="{Binding Id}"></Button>
+                <Button Content="拒绝" Command="{StaticResource BPReject}" CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+	
+	<Page.CommandBindings>
+		<CommandBinding Command="{StaticResource QuotaApprove}" CanExecute="QuotaApproveCanExecute" Executed="QuotaApproveExecuted"></CommandBinding>
+		<CommandBinding Command="{StaticResource QuotaReject}" CanExecute="QuotaRejectCanExecute" Executed="QuotaRejectExecuted"></CommandBinding>
+
+		<CommandBinding Command="{StaticResource PaymentRequestApprove}" CanExecute="PaymentRequestApproveCanExecute" Executed="PaymentRequestApproveExecuted"/>
+		<CommandBinding Command="{StaticResource PaymentRequestReject}" CanExecute="PaymentRequestRejectCanExecute" Executed="PaymentRequestRejectExecuted"/>
+
+		<CommandBinding Command="{StaticResource VATInvoiceRequestLineApprove}" CanExecute="VATInvoiceRequestLineApproveCanExecute" Executed="VATInvoiceRequestLineApproveExecuted"/>
+		<CommandBinding Command="{StaticResource VATInvoiceRequestLineReject}" CanExecute="VATInvoiceRequestLineRejectCanExecute" Executed="VATInvoiceRequestLineRejectExecuted"/>
+
+        <CommandBinding Command="{StaticResource BPApprove}" CanExecute="BPApproveCanExecute" Executed="BPApproveExecuted"/>
+        <CommandBinding Command="{StaticResource BPReject}" CanExecute="BPRejectCanExecute" Executed="BPRejectExecuted"/>
+    </Page.CommandBindings>
+	
+	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+		<Grid Name="rootGrid">
+			<Label Content="{Resx ApprovalCenter}" Name="lbTitle" HorizontalAlignment="Left" Margin="6,6,0,0" Height="32" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+			<TabControl Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Width="Auto" Margin="6,40,0,0">
+				<TabItem Header="{Resx QuotaApproval}">
+					<Grid Name="quotaGrid">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Label Content="{Resx PurchaseList}" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label1" VerticalAlignment="Top" />
+						<DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="6,40,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="Auto"
+						  IsReadOnly="True" ItemsSource="{Binding PurchaseQuotas}" LoadingRow="PurchaseQuotasLoadingRow"
+								  Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" Width="Auto" CanUserSort="True" Binding="{Binding QuotaNo}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Supplier}" Width="Auto" CanUserSort="True" Binding="{Binding Contract.BusinessPartner.ShortName}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Width="Auto" CanUserSort="True" Binding="{Binding Commodity.Name}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Width="Auto" CanUserSort="True" Binding="{Binding Brand.Name}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Quantity}" Width="Auto" CanUserSort="True" Binding="{Binding Quantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Price}" Width="Auto" CanUserSort="True" Binding="{Binding StrPrice}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Currency}" Width="Auto" CanUserSort="True" Binding="{Binding Currency.Name}"></DataGridTextColumn>
+								
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding PricingType, Converter={StaticResource PTC}}">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=PricingTypeShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=PricingType}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding Contract.InternalCustomer.ShortName}">
+									<DataGridTextColumn.Header>
+										<TextBlock ToolTip="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Text="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomerShort}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTextColumn Header="申请人" Width="Auto" CanUserSort="True" Binding="{Binding User.Name}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True" Binding="{Binding Contract.Description}"></DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding Approval.Name}" Visibility="Hidden">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=ApprovalShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=Approval}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTemplateColumn Width="Auto" CanUserSort="False">
+									<DataGridTemplateColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=ApprovalDetailShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=ApprovalDetail}"></TextBlock>
+									</DataGridTemplateColumn.Header>
+									<DataGridTemplateColumn.CellTemplate>
+										<DataTemplate DataType="DBEntity:Quota">
+											<TextBlock>
+												<Run Foreground="Green" Text="{Binding CustomerStrField1}"></Run>
+												<Run Foreground="Red" Text="{Binding CustomerStrField2}"></Run>
+											</TextBlock>
+										</DataTemplate>
+									</DataGridTemplateColumn.CellTemplate>
+								</DataGridTemplateColumn>
+								<DataGridTextColumn Header="流转" Width="Auto" CanUserSort="True" Binding="{Binding RelQuotaStr}"></DataGridTextColumn>
+								<DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" CanUserSort="False" Width="Auto" >
+									<DataGridTemplateColumn.CellTemplate>
+										<DataTemplate DataType="DBEntity:Quota">
+											<StackPanel Orientation="Horizontal">
+												<Button Content="同意" Command="{StaticResource QuotaApprove}" CommandParameter="{Binding Id}" IsEnabled="{Binding ApprovalCanEdit}"></Button>
+												<Button Content="拒绝" Command="{StaticResource QuotaReject}" CommandParameter="{Binding Id}" IsEnabled="{Binding ApprovalCanEdit}"></Button>
+											</StackPanel>
+										</DataTemplate>
+									</DataGridTemplateColumn.CellTemplate>
+								</DataGridTemplateColumn>
+							</DataGrid.Columns>
+						</DataGrid>
+						
+						<Label Content="{Resx SalesList}" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label2" VerticalAlignment="Top" Grid.Row="1" />
+						<DataGrid AutoGenerateColumns="False" Grid.Row="1" Height="Auto" HorizontalAlignment="Left" Margin="6,40,0,0" Name="dataGrid2" VerticalAlignment="Top" Width="Auto" 
+						  IsReadOnly="True" ItemsSource="{Binding SalesQuotas}" LoadingRow="SalesQuotasLoadingRow" Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" Width="Auto" CanUserSort="True" Binding="{Binding QuotaNo}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Buyer}" Width="Auto" CanUserSort="True" Binding="{Binding Contract.BusinessPartner.ShortName}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Width="Auto" CanUserSort="True" Binding="{Binding Commodity.Name}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Width="Auto" CanUserSort="True" Binding="{Binding Brand.Name}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Quantity}" Width="Auto" CanUserSort="True" Binding="{Binding Quantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Price}" Width="Auto" CanUserSort="True" Binding="{Binding StrPrice}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Currency}" Width="Auto" CanUserSort="True" Binding="{Binding Currency.Name}"></DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding PricingType, Converter={StaticResource PTC}}">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=PricingTypeShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=PricingType}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomerShort}" Width="Auto" CanUserSort="True" Binding="{Binding Contract.InternalCustomer.ShortName}"></DataGridTextColumn>
+								<DataGridTextColumn Header="申请人" Width="Auto" CanUserSort="True" Binding="{Binding User.Name}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True" Binding="{Binding Contract.Description}"></DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding Approval.Name}">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=ApprovalShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=Approval}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTemplateColumn  Width="Auto"  CanUserSort="False">
+									<DataGridTemplateColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=ApprovalDetailShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=ApprovalDetail}"></TextBlock>
+									</DataGridTemplateColumn.Header>
+									<DataGridTemplateColumn.CellTemplate>
+										<DataTemplate DataType="DBEntity:Quota">
+											<TextBlock>
+										<Run Foreground="Green" Text="{Binding CustomerStrField1}"></Run>
+										<Run Foreground="Red" Text="{Binding CustomerStrField2}"></Run>
+											</TextBlock>
+										</DataTemplate>
+									</DataGridTemplateColumn.CellTemplate>
+								</DataGridTemplateColumn>
+								<DataGridTextColumn Header="流转" Width="Auto" CanUserSort="True" Binding="{Binding RelQuotaStr}"></DataGridTextColumn>
+								<DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" CanUserSort="False" >
+									<DataGridTemplateColumn.CellTemplate>
+										<DataTemplate DataType="DBEntity:Quota">
+											<StackPanel Orientation="Horizontal">
+												<Button Content="同意" Command="{StaticResource QuotaApprove}" CommandParameter="{Binding Id}"></Button>
+												<Button Content="拒绝" Command="{StaticResource QuotaReject}" CommandParameter="{Binding Id}"></Button>
+											</StackPanel>
+										</DataTemplate>
+									</DataGridTemplateColumn.CellTemplate>
+								</DataGridTemplateColumn>
+							</DataGrid.Columns>
+						</DataGrid>
+					</Grid>
+				</TabItem>
+				<TabItem Header="{Resx PaymentApproval}">
+					<Grid>
+						<DataGrid Name="dgPaymentRequest" AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="6,6,0,0" VerticalAlignment="Top" 
+								  Width="Auto" IsReadOnly="True" ItemsSource="{Binding PaymentRequests}" LoadingRow="PaymentRequestsLoadingRow"
+								  Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" Width="Auto" CanUserSort="True" Binding="{Binding Quota.QuotaNo}"></DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding RequestDate, StringFormat={}{0:yyyy-MM-dd}}">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=ApplyDateShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=ApplyDate}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding RequestAmount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=AppliedAmountShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=AppliedAmount}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding Currency.Name}">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=PaymentCurrencyShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=PaymentCurrency}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding PayBusinessPartner.ShortName}" Visibility="Hidden">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=PaymentBPShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=PaymentBP}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding PayBankAccount.Bank.Name}" Visibility="Hidden">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.View.Console.ApprovalCenter.ResApprovalCenter, Key=PaymentBankShort}" ToolTip="{Resx ResxName=Client.View.Console.ApprovalCenter.ResApprovalCenter, Key=PaymentBank}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding PayBankAccount.AccountCode}" Visibility="Hidden">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=PaymentAccountShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=PaymentAccount}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ReceiptBP}" Width="Auto" CanUserSort="True" Binding="{Binding ReceiveBusinessPartner.ShortName}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.View.Console.ApprovalCenter.ResApprovalCenter, Key=ReceiptBank}" Width="Auto" CanUserSort="True" Binding="{Binding ReceiveBankAccount.Bank.Name}" Visibility="Hidden"></DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding ReceiveBankAccount.AccountCode}" Visibility="Hidden">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=ReceiptAccountShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=ReceiptAccount}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding PaymentUsage.Name}">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=PaymentUsageShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=PaymentUsage}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding PaymentMean.Name}" Visibility="Hidden">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=PaymentMeanShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=PaymentMean}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTextColumn Header="流转" Width="Auto" CanUserSort="True" Binding="{Binding Quota.RelQuotaStr}"></DataGridTextColumn>
+								<DataGridTextColumn Header="申请人" Width="Auto" CanUserSort="True" Binding="{Binding User.Name}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True" Binding="{Binding Comment}"></DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding Approval.Name}">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=ApprovalShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=Approval}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTemplateColumn CanUserSort="False">
+									<DataGridTemplateColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=ApprovalDetailShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=ApprovalDetail}"></TextBlock>
+									</DataGridTemplateColumn.Header>
+									<DataGridTemplateColumn.CellTemplate>
+										<DataTemplate DataType="DBEntity:PaymentRequest">
+											<TextBlock>
+										<Run Foreground="Green" Text="{Binding CustomerStrField1}"></Run>
+										<Run Foreground="Red" Text="{Binding CustomerStrField2}"></Run>
+											</TextBlock>
+										</DataTemplate>
+									</DataGridTemplateColumn.CellTemplate>
+								</DataGridTemplateColumn>
+								<DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CellTemplate="{StaticResource PaymentRequestActions}"></DataGridTemplateColumn>
+							</DataGrid.Columns>
+						</DataGrid>
+					</Grid>
+				</TabItem>
+				<TabItem Header="{Resx VATInvoiceApproval}">
+					<Grid>
+						<DataGrid Name="dbVATInvoiceRequestLine" AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="6,6,0,0" VerticalAlignment="Top" 
+								  Width="Auto" IsReadOnly="True" ItemsSource="{Binding VATInvoiceRequestLines}" LoadingRow="VATInvoiceRequestLinesLoadingRow"
+								  Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" Width="Auto" CanUserSort="True" Binding="{Binding Quota.QuotaNo}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Buyer}" Width="Auto" CanUserSort="True" Binding="{Binding VATInvoiceRequest.BusinessPartner.ShortName}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.View.Console.ApprovalCenter.ResApprovalCenter, Key=InvoicedBP}" Width="Auto" CanUserSort="True" Binding="{Binding VATInvoiceRequest.InternalCustomer.ShortName}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ApplyDate}" Width="Auto" CanUserSort="True" Binding="{Binding VATInvoiceRequest.RequestDate,StringFormat={}{0:yyyy-MM-dd}}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Amount}" Width="Auto" CanUserSort="True" Binding="{Binding RequestAmount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ApplyQuantity}" Width="Auto" CanUserSort="True" Binding="{Binding RequestQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+								<DataGridTextColumn Header="申请人" Width="Auto" CanUserSort="True" Binding="{Binding User.Name}"></DataGridTextColumn>
+								<DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True" Binding="{Binding Comment}"></DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding Approval.Name}">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=ApprovalShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=Approval}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTemplateColumn CanUserSort="False">
+									<DataGridTemplateColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=ApprovalDetailShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=ApprovalDetail}"></TextBlock>
+									</DataGridTemplateColumn.Header>
+									<DataGridTemplateColumn.CellTemplate>
+										<DataTemplate DataType="DBEntity:VATInvoiceRequestLine">
+											<TextBlock>
+										<Run Foreground="Green" Text="{Binding CustomerStrField1}"></Run>
+										<Run Foreground="Red" Text="{Binding CustomerStrField2}"></Run>
+											</TextBlock>
+										</DataTemplate>
+									</DataGridTemplateColumn.CellTemplate>
+								</DataGridTemplateColumn>
+								<DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CellTemplate="{StaticResource VATInvoiceRequestLineActions}"></DataGridTemplateColumn>
+							</DataGrid.Columns>
+						</DataGrid>
+					</Grid>
+				</TabItem>
+				<TabItem Header="客户/经纪行审批">
+					<Grid>
+						<DataGrid Name="bpApproveLines" AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="6,6,0,0" VerticalAlignment="Top"
+								  Width="Auto" IsReadOnly="True" ItemsSource="{Binding BPApproveLines}" LoadingRow="BPApproveLinesLoadingRow"
+								  Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}">
+							<DataGrid.Columns>
+                                <DataGridTextColumn Header="客户类型" Width="Auto" CanUserSort="True" Binding="{Binding CustomerType, Converter={StaticResource BPTypeConverter}}"></DataGridTextColumn>
+								<DataGridTextColumn Header="客户简称" Width="Auto" CanUserSort="True" Binding="{Binding ShortName}"></DataGridTextColumn>
+								<DataGridTextColumn Header="客户全称" Width="Auto" CanUserSort="True" Binding="{Binding Name}"></DataGridTextColumn>
+								<DataGridTextColumn Header="客户代码" Width="Auto" CanUserSort="True" Binding="{Binding Code}"></DataGridTextColumn>
+								<DataGridTextColumn Header="联系人" Width="Auto" CanUserSort="True" Binding="{Binding ContactPerson}"></DataGridTextColumn>
+								<DataGridTextColumn Header="联系电话" Width="Auto" CanUserSort="True" Binding="{Binding ContactPhone}"></DataGridTextColumn>
+								<DataGridTextColumn Header="申请人" Width="Auto" CanUserSort="True" Binding="{Binding User.Name}"></DataGridTextColumn>
+								<DataGridTextColumn Width="Auto" CanUserSort="True" Binding="{Binding Approval.Name}">
+									<DataGridTextColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=ApprovalShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=Approval}"></TextBlock>
+									</DataGridTextColumn.Header>
+								</DataGridTextColumn>
+								<DataGridTemplateColumn CanUserSort="False">
+									<DataGridTemplateColumn.Header>
+										<TextBlock Text="{Resx ResxName=Client.Properties.Resources, Key=ApprovalDetailShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=ApprovalDetail}"></TextBlock>
+									</DataGridTemplateColumn.Header>
+									<DataGridTemplateColumn.CellTemplate>
+										<DataTemplate DataType="DBEntity:BusinessPartner">
+											<TextBlock>
+										<Run Foreground="Green" Text="{Binding CustomerStrField1}"></Run>
+										<Run Foreground="Red" Text="{Binding CustomerStrField2}"></Run>
+											</TextBlock>
+										</DataTemplate>
+									</DataGridTemplateColumn.CellTemplate>
+								</DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CellTemplate="{StaticResource BPApproveActions}"></DataGridTemplateColumn>
+							</DataGrid.Columns>
+						</DataGrid>
+					</Grid>
+				</TabItem>
+			</TabControl>
+		</Grid>
+	</ScrollViewer>
+</baseClient:BasePage>

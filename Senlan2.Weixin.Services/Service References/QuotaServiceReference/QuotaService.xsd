@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Services.Physical.Contracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Services.Physical.Contracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfARAPClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ARAPClass" nillable="true" type="tns:ARAPClass" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfARAPClass" nillable="true" type="tns:ArrayOfARAPClass" />
+  <xs:complexType name="ARAPClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AmountRemain" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AmountRemainCNY" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BPaid" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BReceived" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BeforeAmount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BrandName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BusinessPartnerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CommodityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InnerCustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InternalCustomerId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PricingCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuotaNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SPaid" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SReceived" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SettleCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VatInvoiceAmount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VatInvoiceAmountRemain" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VatInvoiceQty" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VerQty" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ARAPClass" nillable="true" type="tns:ARAPClass" />
+  <xs:complexType name="ArrayOfLedgerClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LedgerClass" nillable="true" type="tns:LedgerClass" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLedgerClass" nillable="true" type="tns:ArrayOfLedgerClass" />
+  <xs:complexType name="LedgerClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MetalName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PBrandName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PPaid" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PPay" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PPrice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PQty" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PQuotaDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PQuotaNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PQuotaSupplier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PReceived" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PSalesQty" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PSettle" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PSettleCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PVerifiedQty" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Profit" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SBrandName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SPaid" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SPrice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SQty" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SQuotaBuyer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SQuotaDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SQuotaNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SReceive" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SReceived" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SSettle" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SSettleCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SVerifiedQty" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LedgerClass" nillable="true" type="tns:LedgerClass" />
+  <xs:complexType name="ArrayOfMarginLineClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MarginLineClass" nillable="true" type="tns:MarginLineClass" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMarginLineClass" nillable="true" type="tns:ArrayOfMarginLineClass" />
+  <xs:complexType name="MarginLineClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BPName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BPartnerId" type="xs:int" />
+      <xs:element minOccurs="0" name="ExitPrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="InitMargin" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LastPrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OurAppendMargin" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OurNeedToAppendMargin" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OurNeedToReturnMargin" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OurReturnMargin" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Payment" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PaymentStr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PricingQuantity" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="QuotaId" type="xs:int" />
+      <xs:element minOccurs="0" name="QuotaNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuotaQuantity" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TheirAppendMargin" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TheirNeedToAppendMargin" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TheirNeedToReturnMargin" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TheirReturnMargin" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarginLineClass" nillable="true" type="tns:MarginLineClass" />
+  <xs:complexType name="ArrayOfPhysicalPNLClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PhysicalPNLClass" nillable="true" type="tns:PhysicalPNLClass" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhysicalPNLClass" nillable="true" type="tns:ArrayOfPhysicalPNLClass" />
+  <xs:complexType name="PhysicalPNLClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BuyAvgPrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BuySumQty" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CommodityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FloatPNL" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="InventorySumQty" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LatestPrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SellAvgPrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SellPNL" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SellSumQty" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalPNL" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PhysicalPNLClass" nillable="true" type="tns:PhysicalPNLClass" />
+  <xs:complexType name="ArrayOfDashBoardTotalClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DashBoardTotalClass" nillable="true" type="tns:DashBoardTotalClass" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDashBoardTotalClass" nillable="true" type="tns:ArrayOfDashBoardTotalClass" />
+  <xs:complexType name="DashBoardTotalClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CommodityId" type="xs:int" />
+      <xs:element minOccurs="0" name="CommodityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PurchaseQty" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SaleQty" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DashBoardTotalClass" nillable="true" type="tns:DashBoardTotalClass" />
+  <xs:complexType name="ArrayOfDashBoardClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DashBoardClass" nillable="true" type="tns:DashBoardClass" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDashBoardClass" nillable="true" type="tns:ArrayOfDashBoardClass" />
+  <xs:complexType name="DashBoardClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CommodityId" type="xs:int" />
+      <xs:element minOccurs="0" name="CommodityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrencyId" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrencyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PurchaseAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SaleAmount" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DashBoardClass" nillable="true" type="tns:DashBoardClass" />
+  <xs:complexType name="ArrayOfBPartnerContractOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BPartnerContractOrder" nillable="true" type="tns:BPartnerContractOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBPartnerContractOrder" nillable="true" type="tns:ArrayOfBPartnerContractOrder" />
+  <xs:complexType name="BPartnerContractOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AvgPrice" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BusinessParnterName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qty" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BPartnerContractOrder" nillable="true" type="tns:BPartnerContractOrder" />
+</xs:schema>

@@ -1,0 +1,84 @@
+﻿<baseClient:BasePage x:Class="Client.View.Console.MonitorCenter.MonitorCenter"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:c="clr-namespace:Client.Converters" xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                     xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+                     ResxExtension.DefaultResxName="Client.View.Console.MonitorCenter.ResMonitorCenter"
+                     Language="{UICulture}"
+                     mc:Ignorable="d"
+                     d:DesignHeight="313" d:DesignWidth="772"
+                     Title="{Resx MonitorCenter}">
+
+    <Page.Resources>
+        <c:PricingTypeConverter x:Key="PricingTypeConverter"></c:PricingTypeConverter>
+    </Page.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx MonitorCenter}" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0"
+                   Name="lbTitle" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Width="auto" />
+            <TabControl Height="Auto" HorizontalAlignment="Left" Margin="6,40,0,0" Name="tabControl1"
+                        VerticalAlignment="Top" Width="Auto">
+                <TabItem Header="{Resx PricingMonitor}" Name="tabItem1">
+                    <Grid>
+                        <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="6,6,0,0"
+                                  Name="dataGrid1" VerticalAlignment="Top" Width="Auto"
+                                  ItemsSource="{Binding PricingLines}" Style="{StaticResource DataGridStyle}"
+                                  RowStyle="{StaticResource DataGridRowStyle}" IsReadOnly="True"
+                                  LoadingRow="DataGrid1LoadingRow" MaxHeight="500">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding QuotaNo}"
+                                                    Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}"
+                                                    CanUserSort="True" Width="Auto">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding BPName}"
+                                                    Header="{Resx ResxName=Client.Properties.Resources, Key=BP}"
+                                                    CanUserSort="True" Width="Auto">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding QuotaQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"
+                                                    Header="{Resx ResxName=Client.Properties.Resources, Key=Quantity}"
+                                                    CanUserSort="True" Width="Auto">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding UnpricedQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"
+                                                    Header="{Resx ResxName=Client.Properties.Resources, Key=UnpricingQuantity}"
+                                                    CanUserSort="True" Width="Auto">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding PricingTypeId, Converter={StaticResource PricingTypeConverter}}"
+                                                    Header="{Resx ResxName=Client.Properties.Resources, Key=PricingType}"
+                                                    CanUserSort="True" Width="Auto">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding StartDate, StringFormat=yyyy-MM-dd}"
+                                                    Header="{Resx ResxName=Client.Properties.Resources, Key=PricingStartDate}"
+                                                    CanUserSort="True" Width="Auto">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding EndDate, StringFormat=yyyy-MM-dd}"
+                                                    Header="{Resx ResxName=Client.Properties.Resources, Key=PricingEndDate}"
+                                                    CanUserSort="True" Width="Auto">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding InternalCustomerName}"
+                                                    Header="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}"
+                                                    CanUserSort="True" Width="Auto">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding DaysRemain}"
+                                                    Header="{Resx ResxName=Client.View.Console.MonitorCenter.ResMonitorCenter, Key=DaysRemain}"
+                                                    CanUserSort="True" Width="Auto">
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CommissionLineService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/CommissionLineService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/CommissionLineService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/CommissionLineService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DBEntity" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/CommissionLineService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/CommissionLineService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Utility.Misc" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/CommissionLineService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICommissionLineService_GetById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetById" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetAllCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCount" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetAllCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_FetchCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchCount" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_FetchCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCount" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRange" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_GetByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_FetchById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchById" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_FetchById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_FetchAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAll" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_FetchAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_FetchAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_FetchAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_FetchByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRange" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_FetchByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_FetchByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_FetchByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Query_InputMessage">
+    <wsdl:part name="parameters" element="tns:Query" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Query_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_QueryByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRange" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_QueryByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_QueryByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_QueryByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Select_InputMessage">
+    <wsdl:part name="parameters" element="tns:Select" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Select_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRange" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectByRangeWithMultiOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectByRangeWithMultiOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectByRangeWithMultiOrderLazyLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderLazyLoad" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectByRangeWithMultiOrderLazyLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderLazyLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Create_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q1:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_CreateNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNew" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_CreateNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_CreateNew_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q2:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_DeleteById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteById" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_DeleteById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_DeleteById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q3:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Delete_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q4:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Update_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q5:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_UpdateExisted_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExisted" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_UpdateExisted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_UpdateExisted_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q6:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Remove_InputMessage">
+    <wsdl:part name="parameters" element="tns:Remove" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Remove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_Remove_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q7:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_RemoveById_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveById" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_RemoveById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_RemoveById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q8:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectSum_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectSum" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectSum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectSum_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q9:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectById_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectById" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q10:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectWithMultiOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectWithMultiOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectWithMultiOrder_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q11:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectWithMultiOrderLazyLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderLazyLoad" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectWithMultiOrderLazyLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderLazyLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommissionLineService_SelectWithMultiOrderLazyLoad_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q12:ServerErr" />
+  </wsdl:message>
+  <wsdl:portType name="ICommissionLineService">
+    <wsdl:operation name="GetById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetById" message="tns:ICommissionLineService_GetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetByIdResponse" message="tns:ICommissionLineService_GetById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetAllCount" message="tns:ICommissionLineService_GetAllCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetAllCountResponse" message="tns:ICommissionLineService_GetAllCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/FetchCount" message="tns:ICommissionLineService_FetchCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/FetchCountResponse" message="tns:ICommissionLineService_FetchCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetCount" message="tns:ICommissionLineService_GetCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetCountResponse" message="tns:ICommissionLineService_GetCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetAll" message="tns:ICommissionLineService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetAllResponse" message="tns:ICommissionLineService_GetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetAllWithOrder" message="tns:ICommissionLineService_GetAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetAllWithOrderResponse" message="tns:ICommissionLineService_GetAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetByRange" message="tns:ICommissionLineService_GetByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetByRangeResponse" message="tns:ICommissionLineService_GetByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetByRangeWithOrder" message="tns:ICommissionLineService_GetByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/GetByRangeWithOrderResponse" message="tns:ICommissionLineService_GetByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/FetchById" message="tns:ICommissionLineService_FetchById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/FetchByIdResponse" message="tns:ICommissionLineService_FetchById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/FetchAll" message="tns:ICommissionLineService_FetchAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/FetchAllResponse" message="tns:ICommissionLineService_FetchAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/FetchAllWithOrder" message="tns:ICommissionLineService_FetchAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/FetchAllWithOrderResponse" message="tns:ICommissionLineService_FetchAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/FetchByRange" message="tns:ICommissionLineService_FetchByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/FetchByRangeResponse" message="tns:ICommissionLineService_FetchByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/FetchByRangeWithOrder" message="tns:ICommissionLineService_FetchByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/FetchByRangeWithOrderResponse" message="tns:ICommissionLineService_FetchByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/Query" message="tns:ICommissionLineService_Query_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/QueryResponse" message="tns:ICommissionLineService_Query_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/QueryByRange" message="tns:ICommissionLineService_QueryByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/QueryByRangeResponse" message="tns:ICommissionLineService_QueryByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/QueryByRangeWithOrder" message="tns:ICommissionLineService_QueryByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/QueryByRangeWithOrderResponse" message="tns:ICommissionLineService_QueryByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/Select" message="tns:ICommissionLineService_Select_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectResponse" message="tns:ICommissionLineService_Select_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectByRange" message="tns:ICommissionLineService_SelectByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectByRangeResponse" message="tns:ICommissionLineService_SelectByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectByRangeWithOrder" message="tns:ICommissionLineService_SelectByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectByRangeWithOrderResponse" message="tns:ICommissionLineService_SelectByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectByRangeWithMultiOrder" message="tns:ICommissionLineService_SelectByRangeWithMultiOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectByRangeWithMultiOrderResponse" message="tns:ICommissionLineService_SelectByRangeWithMultiOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrderLazyLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectByRangeWithMultiOrderLazyLoad" message="tns:ICommissionLineService_SelectByRangeWithMultiOrderLazyLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectByRangeWithMultiOrderLazyLoadResponse" message="tns:ICommissionLineService_SelectByRangeWithMultiOrderLazyLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/Create" message="tns:ICommissionLineService_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/CreateResponse" message="tns:ICommissionLineService_Create_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/CreateServerErrFault" name="ServerErrFault" message="tns:ICommissionLineService_Create_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/CreateNew" message="tns:ICommissionLineService_CreateNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/CreateNewResponse" message="tns:ICommissionLineService_CreateNew_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/CreateNewServerErrFault" name="ServerErrFault" message="tns:ICommissionLineService_CreateNew_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/DeleteById" message="tns:ICommissionLineService_DeleteById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/DeleteByIdResponse" message="tns:ICommissionLineService_DeleteById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/DeleteByIdServerErrFault" name="ServerErrFault" message="tns:ICommissionLineService_DeleteById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/Delete" message="tns:ICommissionLineService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/DeleteResponse" message="tns:ICommissionLineService_Delete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/DeleteServerErrFault" name="ServerErrFault" message="tns:ICommissionLineService_Delete_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/Update" message="tns:ICommissionLineService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/UpdateResponse" message="tns:ICommissionLineService_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/UpdateServerErrFault" name="ServerErrFault" message="tns:ICommissionLineService_Update_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/UpdateExisted" message="tns:ICommissionLineService_UpdateExisted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/UpdateExistedResponse" message="tns:ICommissionLineService_UpdateExisted_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/UpdateExistedServerErrFault" name="ServerErrFault" message="tns:ICommissionLineService_UpdateExisted_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/Remove" message="tns:ICommissionLineService_Remove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/RemoveResponse" message="tns:ICommissionLineService_Remove_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/RemoveServerErrFault" name="ServerErrFault" message="tns:ICommissionLineService_Remove_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/RemoveById" message="tns:ICommissionLineService_RemoveById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/RemoveByIdResponse" message="tns:ICommissionLineService_RemoveById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/RemoveByIdServerErrFault" name="ServerErrFault" message="tns:ICommissionLineService_RemoveById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectSum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectSum" message="tns:ICommissionLineService_SelectSum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectSumResponse" message="tns:ICommissionLineService_SelectSum_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectSumServerErrFault" name="ServerErrFault" message="tns:ICommissionLineService_SelectSum_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectById" message="tns:ICommissionLineService_SelectById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectByIdResponse" message="tns:ICommissionLineService_SelectById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectByIdServerErrFault" name="ServerErrFault" message="tns:ICommissionLineService_SelectById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectWithMultiOrder" message="tns:ICommissionLineService_SelectWithMultiOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectWithMultiOrderResponse" message="tns:ICommissionLineService_SelectWithMultiOrder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectWithMultiOrderServerErrFault" name="ServerErrFault" message="tns:ICommissionLineService_SelectWithMultiOrder_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrderLazyLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectWithMultiOrderLazyLoad" message="tns:ICommissionLineService_SelectWithMultiOrderLazyLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectWithMultiOrderLazyLoadResponse" message="tns:ICommissionLineService_SelectWithMultiOrderLazyLoad_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_CommissionLine/SelectWithMultiOrderLazyLoadServerErrFault" name="ServerErrFault" message="tns:ICommissionLineService_SelectWithMultiOrderLazyLoad_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICommissionLineService" type="tns:ICommissionLineService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/GetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/GetAllCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/FetchCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/GetCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/GetAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/GetByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/GetByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/FetchById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/FetchAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/FetchAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/FetchByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/FetchByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/Query" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/QueryByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/QueryByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/Select" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/SelectByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/SelectByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/SelectByRangeWithMultiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrderLazyLoad">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/SelectByRangeWithMultiOrderLazyLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/CreateNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/DeleteById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/UpdateExisted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/RemoveById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectSum">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/SelectSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/SelectById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/SelectWithMultiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrderLazyLoad">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_CommissionLine/SelectWithMultiOrderLazyLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommissionLineService">
+    <wsdl:port name="BasicHttpBinding_ICommissionLineService" binding="tns:BasicHttpBinding_ICommissionLineService">
+      <soap:address location="http://localhost:1558/SystemSetting/CommissionLineService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

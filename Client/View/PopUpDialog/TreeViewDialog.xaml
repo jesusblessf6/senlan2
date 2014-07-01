@@ -1,0 +1,35 @@
+﻿<Window x:Class="Client.View.PopUpDialog.TreeViewDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        ResxExtension.DefaultResxName="Client.View.PopUpDialog.ResPopDialog"
+        Language="{UICulture}"
+        Title="{Resx FinancialAccountList}" Height="380" Width="310" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox Header="{Resx FinancialAccountList}" Height="317" HorizontalAlignment="Left" Margin="16,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="260">
+            <Grid>
+                <TreeView HorizontalAlignment="Left" Margin="1,5,0,7" Name="tvFinancialAccount" Width="241" MinWidth="150" MinHeight="50" ItemsSource="{Binding}" 
+                          SelectedValuePath="Id" MouseDoubleClick="TreeViewMouseDoubleClick" Opacity="1" BorderBrush="White">
+                    <TreeView.ItemContainerStyle>
+                        <Style TargetType="{x:Type TreeViewItem}">
+                            <Setter Property="IsExpanded" Value="true" />
+                            <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                            <Setter Property="FontSize" Value="16" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TreeView.ItemContainerStyle>
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                            <TextBlock Text="{Binding Name}" />
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
+
+            </Grid>
+        </GroupBox>
+        
+    </Grid>
+</Window>

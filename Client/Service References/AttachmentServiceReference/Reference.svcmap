@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d14c514e-7b74-4450-b496-bbf0a8ce6815" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Attachments/AttachmentService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AttachmentService6.xsd" MetadataType="Schema" ID="dbdbd44c-1f0f-4b79-a49f-8fa1d8f27de3" SourceId="1" SourceUrl="http://localhost:1558/Attachments/AttachmentService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AttachmentService1.wsdl" MetadataType="Wsdl" ID="93b2d218-bac1-4d41-8797-ea657843287b" SourceId="1" SourceUrl="http://localhost:1558/Attachments/AttachmentService.svc?wsdl" />
+    <MetadataFile FileName="AttachmentService61.xsd" MetadataType="Schema" ID="788d045a-bcbd-49ac-9676-0866b2460a83" SourceId="1" SourceUrl="http://localhost:1558/Attachments/AttachmentService.svc?xsd=xsd3" />
+    <MetadataFile FileName="AttachmentService62.xsd" MetadataType="Schema" ID="874d2eb1-3007-4168-a758-99cf21fc9870" SourceId="1" SourceUrl="http://localhost:1558/Attachments/AttachmentService.svc?xsd=xsd5" />
+    <MetadataFile FileName="AttachmentService63.xsd" MetadataType="Schema" ID="f88a6aeb-dc80-4143-a012-6ed410f5e5ab" SourceId="1" SourceUrl="http://localhost:1558/Attachments/AttachmentService.svc?xsd=xsd4" />
+    <MetadataFile FileName="AttachmentService1.disco" MetadataType="Disco" ID="0f1f55fd-dd33-4fa8-a386-1d4d4e97fb7f" SourceId="1" SourceUrl="http://localhost:1558/Attachments/AttachmentService.svc?disco" />
+    <MetadataFile FileName="AttachmentService64.xsd" MetadataType="Schema" ID="7ce3e073-53c3-43dd-8376-f1163e2f1218" SourceId="1" SourceUrl="http://localhost:1558/Attachments/AttachmentService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AttachmentService65.xsd" MetadataType="Schema" ID="8c465272-445e-4489-8246-8d367a27954f" SourceId="1" SourceUrl="http://localhost:1558/Attachments/AttachmentService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

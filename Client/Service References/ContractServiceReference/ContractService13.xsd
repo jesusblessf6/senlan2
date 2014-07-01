@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DBEntity.EnableProperty" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DBEntity.EnableProperty" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1558/Physical/Contracts/ContractService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ContractEnableProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsBPEnable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRelTransactionDeleteBtnEnable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRelTransactionEditBtnEnable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRelTransactionNewBtnEnable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSignBPEnable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSignDateEnable" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="ContractEnableProperty" nillable="true" type="tns:ContractEnableProperty" />
+  <xs:complexType name="RelTransactionEnableProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsDateEnable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPriceEnable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRelBPEnable" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="RelTransactionEnableProperty" nillable="true" type="tns:RelTransactionEnableProperty" />
+</xs:schema>

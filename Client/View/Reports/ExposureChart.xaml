@@ -1,0 +1,80 @@
+﻿<baseClient:BasePage x:Class="Client.View.Reports.ExposureChart"
+               xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+               xmlns:zedgraph="clr-namespace:ZedGraph;assembly=ZedGraph"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               ResxExtension.DefaultResxName="Client.View.Reports.ResReport" 
+               Language="{UICulture}"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+               mc:Ignorable="d" Title="{Resx ExposureTrend}"
+               d:DesignHeight="707" d:DesignWidth="988">
+    <Page.Resources>
+
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="MinWidth" Value="100"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+    </Page.Resources>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="rootGrid">
+            <Label x:Name="lbTitle" Content="{Resx ExposureTrend}" HorizontalAlignment="Left" Margin="6,6,0,0" Height="32"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <wfi:WindowsFormsHost Margin="6,166,0,0" Width="816" HorizontalAlignment="Left" Height="280"
+                                  VerticalAlignment="Top">
+                <zedgraph:ZedGraphControl x:Name="zedGraphControlLine" />
+            </wfi:WindowsFormsHost>
+            <DataGrid CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="True" ItemsSource="{Binding}"
+                      Height="170" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" Margin="6,452,0,0" Name="dataGrid2"
+                      VerticalAlignment="Top" Width="816"></DataGrid>
+            <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Conditions}" Height="100" HorizontalAlignment="Left" Margin="6,40,0,0" Name="groupBox1"
+                      VerticalAlignment="Top" Width="816">
+                <Grid>
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left"
+                           Margin="1,10,0,0" Name="label2" VerticalAlignment="Top" />
+                    <ComboBox HorizontalAlignment="Left" Margin="107,12,0,0" Name="comboBox2" VerticalAlignment="Top"
+                              ItemsSource="{Binding CommodityList}" SelectedValuePath="Id" SelectedValue="{Binding CommodityID}"
+                              DisplayMemberPath="Name" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left"
+                           Margin="260,10,0,0" Name="label3" VerticalAlignment="Top" />
+                    <ComboBox HorizontalAlignment="Left" Margin="366,12,0,0" Name="comboBox3" VerticalAlignment="Top"
+                              ItemsSource="{Binding InternalCustomerList}" SelectedValuePath="Id" SelectedValue="{Binding InternalCustomerID2}"
+                              DisplayMemberPath="ShortName" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=StartDate}" Foreground="Crimson" Style="{StaticResource LabelStyle}"
+                           HorizontalAlignment="Left" Margin="1,42,0,0" Name="label4" VerticalAlignment="Top" />
+                    <DatePicker HorizontalAlignment="Left" Margin="107,44,0,0" Name="datePicker1"
+                                VerticalAlignment="Top" SelectedDate="{Binding StartDate}" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=EndDate}" Foreground="Crimson" Style="{StaticResource LabelStyle}"
+                           HorizontalAlignment="Left" Margin="260,42,0,0" Name="label5" VerticalAlignment="Top" />
+                    <DatePicker HorizontalAlignment="Left" Margin="366,44,0,0" Name="datePicker2"
+                                VerticalAlignment="Top" SelectedDate="{Binding EndDate}" />
+                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23" HorizontalAlignment="Left" Margin="625,44,0,0" Name="button2"
+                            VerticalAlignment="Top" Width="75" Click="Button2Click" />
+                    <Label Content="{Resx DomesticHedgeRatio}" Foreground="Crimson" Width="120" Height="28" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="499,10,0,0" Name="label1" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="625,12,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" Text="{Binding ProportionValue}" />
+                </Grid>
+            </GroupBox>
+            <Separator Height="17" Margin="6,146,132,0" Name="separator1" VerticalAlignment="Top" />
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

@@ -1,0 +1,117 @@
+﻿<baseClient:BasePage x:Class="Client.View.Physical.InventoryReport.InventoryReportHome"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               ResxExtension.DefaultResxName="Client.View.Physical.InventoryReport.ResInventoryReport" 
+               Language="{UICulture}"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" Title="{Resx InventoryReport}" d:DesignHeight="837"
+               d:DesignWidth="664" xmlns:Converters="clr-namespace:Client.Converters"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+               xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity">
+    <Page.Resources>
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="DataGrid" x:Key="DataGridStyle">
+            <Setter Property="Height" Value="210"></Setter>
+            <Setter Property="MinWidth" Value="446"></Setter>
+            <Setter Property="Width" Value="auto"></Setter>
+        </Style>
+        
+        <Converters:WarehouseInQtyConverter x:Key="WarehouseInQtyConverter" />
+        <Converters:DeliveryTypeConverter x:Key="DeliveryTypeConverter" />
+        <Converters:TDOnlyQtyConverter x:Key="TDOnlyQtyConverter" />
+
+        <RoutedCommand x:Key="ShowCirculDetail"></RoutedCommand>
+    </Page.Resources>
+
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource ShowCirculDetail}" CanExecute="ShowCirculDetailCanExecute" Executed="ShowCirculDetailExecute"></CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="rootGrid">
+
+            <Label Content="{Resx InventoryReport}" Name="lbTitle" FontWeight="Bold" FontSize="16" Height="32" HorizontalAlignment="Left"
+                   Margin="6,6,0,0" VerticalAlignment="Top" Width="auto" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Width="75" Height="28" HorizontalContentAlignment="Right"  Foreground="Crimson" HorizontalAlignment="Left" Margin="12,38,0,0" Name="label2" VerticalAlignment="Top" />
+            <ComboBox HorizontalAlignment="Left" Margin="93,40,0,0" Name="comboBox1" VerticalAlignment="Top"
+                      DisplayMemberPath="Name" ItemsSource="{Binding CommodityList}" SelectedValue="{Binding SelectedCommodityID}"
+                      SelectedValuePath="Id" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Style="{StaticResource LabelStyle}" Foreground="Crimson" HorizontalAlignment="Left" Margin="210,38,0,0" Name="label3" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="314,40,0,0" Name="comboBox2"
+                      VerticalAlignment="Top" Width="120" DisplayMemberPath="ShortName" ItemsSource="{Binding InternalCustomerList}"
+                      SelectedValue="{Binding SelectedCustomerID}" SelectedValuePath="Id" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23" HorizontalAlignment="Left" Margin="450,40,0,0" Name="button1"
+                    VerticalAlignment="Top" Width="60" Click="Button1Click" />
+            <Label Content="{Resx WarehouseInventory}" Height="28" HorizontalAlignment="Left" FontWeight="Black" Margin="52,69,0,0"
+                   Name="label4" VerticalAlignment="Top" />
+            <DataGrid x:Name="warehouseInventory" Margin="52,104,0,0" CanUserAddRows="False" IsReadOnly="True"
+                      AutoGenerateColumns="True" ItemsSource="{Binding}" HorizontalScrollBarVisibility="Auto" RowHeight="18"
+                      ColumnHeaderHeight="23" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource DataGridStyle}" ></DataGrid>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=DomesticBL}" Height="28" HorizontalAlignment="Left" FontWeight="Black" Margin="52,320,0,0"
+                   Name="label5" VerticalAlignment="Top" />
+            <DataGrid x:Name="internalTDList" Margin="52,354,0,0" AutoGenerateColumns="False" ItemsSource="{Binding}"  Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}"
+                      CanUserAddRows="False" IsReadOnly="true" HorizontalScrollBarVisibility="Auto" Height="210" RowHeight="18"
+                      ColumnHeaderHeight="23" VerticalAlignment="Top" HorizontalAlignment="Left" LoadingRow="DataGridAPARLoadingRow">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BLNo}" Binding="{Binding Delivery.DeliveryNo}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=IssuingDate}" Binding="{Binding Delivery.IssueDate, StringFormat='yyyy-MM-dd'}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Warehouse}" Binding="{Binding Delivery.Warehouse.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Binding="{Binding Delivery.Quota.Commodity.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Binding="{Binding Brand.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Quantity}" Binding="{Binding NetWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="实际数量" Binding="{Binding VerifiedWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Physical.InventoryReport.ResInventoryReport, Key=InQuantity}"
+                                        Binding="{Binding Id, Converter={StaticResource WarehouseInQtyConverter}, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuantityRemain}"
+                                        Binding="{Binding OnlyQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="剩余实际数量" Binding="{Binding OnlyVerfiedQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BLType}"
+                                        Binding="{Binding Delivery.DeliveryType, Converter={StaticResource DeliveryTypeConverter}}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=ForeignDelivery}" Height="28" HorizontalAlignment="Left" FontWeight="Black" Margin="52,570,0,0"
+                   Name="label6" VerticalAlignment="Top" />
+            <DataGrid x:Name="externalTDList" Margin="52,602,0,0" AutoGenerateColumns="False" ItemsSource="{Binding}" Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}"
+                      CanUserAddRows="False" IsReadOnly="true" HorizontalScrollBarVisibility="Auto" Height="210" RowHeight="18"
+                      ColumnHeaderHeight="23" VerticalAlignment="Top" HorizontalAlignment="Left" LoadingRow="externalTDList_LoadingRow">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BLNo}" Binding="{Binding Delivery.DeliveryNo}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Binding="{Binding Delivery.Quota.Commodity.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Binding="{Binding Brand.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=NetWeight}" Binding="{Binding NetWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=GrossWeight}" Binding="{Binding GrossWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Physical.InventoryReport.ResInventoryReport, Key=InQuantity}"
+                                        Binding="{Binding Id, Converter={StaticResource WarehouseInQtyConverter}, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="剩余净重"
+                                        Binding="{Binding OnlyQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="剩余毛重" Binding="{Binding OnlyGrossWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BLType}"
+                                        Binding="{Binding Delivery.DeliveryType, Converter={StaticResource DeliveryTypeConverter}}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="流转标识号">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="DBEntity:DeliveryLine">
+                                <TextBlock>
+                                    <Hyperlink Command="{StaticResource ShowCirculDetail}"
+                                               CommandParameter="{Binding Delivery.CirculNo}">
+                                        <Run Text="{Binding Delivery.CirculNo}"></Run>
+                                    </Hyperlink>
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

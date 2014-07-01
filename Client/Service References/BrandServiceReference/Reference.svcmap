@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0dc41360-9555-42e8-bb29-6c25395f2421" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/BrandService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BrandService.xsd" MetadataType="Schema" ID="37ab1e40-2f5d-491b-a0b4-470ac5dc9f61" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BrandService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BrandService1.xsd" MetadataType="Schema" ID="35230f08-53d0-45d9-b440-a5059dc577fd" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BrandService.svc?xsd=xsd5" />
+    <MetadataFile FileName="BrandService.wsdl" MetadataType="Wsdl" ID="649a2fcb-0187-4f50-a1fa-b2fbe0a786d3" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BrandService.svc?wsdl" />
+    <MetadataFile FileName="BrandService2.xsd" MetadataType="Schema" ID="6cb6c878-03d7-454a-8052-cbc971df386e" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BrandService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BrandService3.xsd" MetadataType="Schema" ID="d5d2a242-543a-4b2c-82ae-e7975d91e892" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BrandService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BrandService4.xsd" MetadataType="Schema" ID="e5c593dc-39ef-4ec4-b359-478e4010c45a" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BrandService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BrandService5.xsd" MetadataType="Schema" ID="7d46bade-4e59-45c4-98cc-d8ba4d700601" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BrandService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BrandService.disco" MetadataType="Disco" ID="03596933-96c7-4771-a737-8b3a023f1db8" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BrandService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

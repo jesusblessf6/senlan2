@@ -1,0 +1,189 @@
+﻿<baseClient:BasePage x:Class="Client.View.Physical.CommercialInvoices.FinalCommercialInvoice"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               ResxExtension.DefaultResxName="Client.View.Physical.CommercialInvoices.ResCommercialInvoice" Language="{UICulture}"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:local="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+               xmlns:my="clr-namespace:Utility.Controls;assembly=Utility" xmlns:Converters="clr-namespace:Client.Converters"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+               xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+               Title="{Resx ResxName=Client.Properties.Resources, Key=FinalInvoice}">
+    <Page.Resources>
+
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+        <Converters:InvoiceNetWeightConverter x:Key="InvoiceNetWeightConverter" />
+        <RoutedCommand x:Key="DeleteInvoice"></RoutedCommand>
+
+        <DataTemplate x:Key="InvoiceActions" DataType="DBEntity:CommercialInvoice">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btDeleteInvoice" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource DeleteInvoice}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <RoutedCommand x:Key="AttachmentDownLoad"></RoutedCommand>
+        <RoutedCommand x:Key="AttachmentDelete"></RoutedCommand>
+
+        <DataTemplate x:Key="AttachmentActions" DataType="DBEntity:Attachment">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btAttachmentDownLoad" Content="{Resx ResxName=Client.Properties.Resources, Key=Download}" Command="{StaticResource AttachmentDownLoad}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btAttachmentDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource AttachmentDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource DeleteInvoice}" CanExecute="InvoiceCanExecute"
+                        Executed="InvoiceExecuted"></CommandBinding>
+
+        <CommandBinding Command="{StaticResource AttachmentDownLoad}" CanExecute="AttachmentDownLoadCanExecute"
+                        Executed="AttachmentDownLoadExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource AttachmentDelete}" CanExecute="AttachmentDeleteCanExecute"
+                        Executed="AttachmentDeleteExecuted"></CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,0"
+                  HorizontalContentAlignment="Left">
+        <Grid x:Name="rootGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBox HorizontalAlignment="Left" Margin="122,40,0,0" Name="textBox1" VerticalAlignment="Top"
+                     Text="{Binding InvoiceNo}" />
+            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="518,40,0,0" Name="btnQuota"
+                    VerticalAlignment="Top" Width="25" Click="BtnQuotaClick" />
+            <DatePicker HorizontalAlignment="Left" Margin="122,72,0,0" Name="invoicedDate" VerticalAlignment="Top"
+                        SelectedDate="{Binding InvoicedDate}" />
+            <TextBox HorizontalAlignment="Left" Margin="122,104,0,7" Name="textBox4" Text="{Binding DeliveryTerm}" />
+            <ComboBox HorizontalAlignment="Left" Margin="394,104,0,7" Name="paymentMean" ItemsSource="{Binding PaymentMean}" DisplayMemberPath="Key" SelectedValuePath="Value"
+                      SelectedValue="{Binding SelectPaymentMeanId}" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="122,2,0,0" Name="button2"
+                    VerticalAlignment="Top" Width="45" Grid.Row="1" Click="Button2Click" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="122,34,0,0" Name="currencyTextBox2"
+             VerticalAlignment="Top" Width="120" Grid.Row="4" Text="{Binding Price}" />
+            <TextBox Grid.Row="6" Height="100" HorizontalAlignment="Left" Margin="122,2,0,0" Name="textBox9"
+                     VerticalAlignment="Top" Width="392" Text="{Binding Remark}" TextWrapping="Wrap" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Save}" Grid.Row="6" Height="25" HorizontalAlignment="Left" Margin="210,130,0,0"
+                    Name="button4" VerticalAlignment="Top" Width="60" Click="Button4Click" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Grid.Row="6" Height="25" HorizontalAlignment="Left" Margin="305,130,0,0"
+                    Name="button5" VerticalAlignment="Top" Width="60" Click="Button5Click" />
+
+
+            <Label Content="{Resx PurchaseCommercialInvoiceFinal}" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Name="lbTitle" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=CommInvoiceNo}" HorizontalAlignment="Left" Margin="6,38,0,0" Name="label1" VerticalAlignment="Top"/>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InvoiceDate}" HorizontalAlignment="Left" Margin="6,70,0,0" Name="label2" VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" HorizontalAlignment="Left" Margin="278,38,0,0" Name="label3" VerticalAlignment="Top"
+                   Foreground="Crimson" />
+            <TextBox HorizontalAlignment="Left" Margin="394,40,0,0" Name="textBox2" VerticalAlignment="Top"
+                     Text="{Binding QuotaNo}" IsEnabled="False" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Supplier}" HorizontalAlignment="Left" Margin="278,70,0,0" Name="lbSupplier" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="394,72,0,0" Name="textBox3" VerticalAlignment="Top"
+                     Text="{Binding SupplierName}" IsReadOnly="True" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=ShipTerm}" HorizontalAlignment="Left" Margin="6,102,0,0" Name="label5" VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PaymentMean}" HorizontalAlignment="Left" Margin="278,102,0,0" Name="label6" VerticalAlignment="Top" />
+
+            <DataGrid AutoGenerateColumns="False" Height="auto" HorizontalAlignment="Left" Margin="122,34,0,7"
+                      ItemsSource="{Binding}" Name="dataGrid1" VerticalAlignment="Top" Width="auto" CanUserAddRows="False" IsReadOnly="True"
+                      Grid.Row="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ProvisionalInvoiceNo}" Binding="{Binding InvoiceNo}" />
+                    <DataGridTextColumn Header="结算金额" Binding="{Binding Amount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=SettleCurrency}" Binding="{Binding Currency.Name}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=NetWeight}"
+                                        Binding="{Binding NetWeights, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=LCInterest}"
+                                        Binding="{Binding TotleInterest, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" CellTemplate="{StaticResource InvoiceActions}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=NetWeight}" Grid.Row="4" Height="28" HorizontalAlignment="Left" Margin="6,0,0,0" Name="label7"
+                   VerticalAlignment="Top" />
+            <TextBox Grid.Row="4" HorizontalAlignment="Left" Margin="122,2,0,0" Name="textBox5" VerticalAlignment="Top"
+                                          Text="{Binding NetWeights, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" IsEnabled="False" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=GrossWeight}" HorizontalAlignment="Left" Margin="278,0,0,0" Name="label8" VerticalAlignment="Top" Grid.Row="4" />
+            <TextBox HorizontalAlignment="Left" Margin="394,2,0,0" Name="textBox6" VerticalAlignment="Top" Grid.Row="4"
+             Text="{Binding GrossWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" IsEnabled="False"/>
+            <Label Content="{Resx AmountIncludingInterest}" Grid.Row="4" HorizontalAlignment="Left" Margin="278,96,0,0" Name="label9"
+                   VerticalAlignment="Top" />
+            <my:CurrencyTextBox Grid.Row="4" Height="23" HorizontalAlignment="Left" Margin="394,98,0,0"
+            Name="currencyTextBox1" VerticalAlignment="Top" Width="120" Text="{Binding Money}" IsReadOnly="True" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PricingCurrency}" HorizontalAlignment="Left" Margin="278,32,0,0" Name="label10" VerticalAlignment="Top" Grid.Row="4" />
+            <TextBox Margin="394,34,0,0" Name="textBox7" VerticalAlignment="Top" Grid.Row="4" Text="{Binding Currency}"
+                     IsReadOnly="True" HorizontalAlignment="Left" Width="120" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=LCInterest}" HorizontalAlignment="Left" Margin="6,96,0,0" Name="label11"
+                   VerticalAlignment="Top" Grid.Row="4" />
+            <TextBox HorizontalAlignment="Left" Margin="122,98,0,0" Name="textBox8" VerticalAlignment="Top" Grid.Row="4"
+                     Text="{Binding Interest, StringFormat={x:Static local:RoundRules.STR_AMOUNT}}" IsEnabled="False" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Price}" HorizontalAlignment="Left" Margin="6,32,0,0" Name="label12" VerticalAlignment="Top"
+                   Grid.Row="4" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Grid.Row="6" HorizontalAlignment="Left" Margin="6,0,0,0" Name="label13"
+                   VerticalAlignment="Top" />
+            <Label Content="{Binding LbName}" HorizontalAlignment="Left" Margin="278,128,0,0" Name="lbBalance" VerticalAlignment="Top" Grid.Row="4" />
+            <Label Content="{Binding LbName}" HorizontalAlignment="Left" Margin="278,192,0,0" Name="lbPriceingCurrencyBalance" VerticalAlignment="Top" Grid.Row="4" />
+
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="394,130,0,0" Name="currencyTextBox3"
+             Text="{Binding Balance, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" VerticalAlignment="Top" Width="120" Grid.Row="4" IsEnabled="False" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="394,194,0,7" Name="currencyTextBox5"
+             Text="{Binding PricingCurrencyBalance, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" VerticalAlignment="Top" Width="120" Grid.Row="4" IsEnabled="False" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=SettleCurrency}" Foreground="Crimson" HorizontalAlignment="Left" Margin="6,128,0,0" Name="label4"
+                   VerticalAlignment="Top" Grid.Row="4" />
+            <ComboBox DisplayMemberPath="Name" HorizontalAlignment="Left"
+                      ItemsSource="{Binding Currencies}" Margin="122,130,0,7" Name="comboBox1" SelectedValue="{Binding SelectCurrencyId}"
+                      SelectedValuePath="Id" Grid.Row="4" VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=ExchangeRate}" HorizontalAlignment="Left" Margin="6,64,0,0" Name="label14" VerticalAlignment="Top" Grid.Row="4" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="122,66,0,0"
+             Name="currencyTextBox4" Text="{Binding SettlementRate}" VerticalAlignment="Top" Width="120" Grid.Row="4" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=ProvisionalInvoice}" Grid.Row="1" HorizontalAlignment="Left" Margin="6,0,0,0" Name="label15"
+                   VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=BankAccount}" Grid.Row="4" HorizontalAlignment="Left" Margin="6,192,0,0"
+                   Name="lblBankAccount" VerticalAlignment="Top" Visibility="{Binding IsVisible}" />
+            <ComboBox Grid.Row="4" Height="23" HorizontalAlignment="Left" Margin="122,194,0,7" Name="cbBankAccount"
+                      VerticalAlignment="Top" Width="120" DisplayMemberPath="AccountCode" ItemsSource="{Binding BankAccountList}"
+                      SelectedValue="{Binding SelectedBankAccountID}" SelectedValuePath="Id" Visibility="{Binding IsVisible}" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="122,2,0,0" Name="button1" VerticalAlignment="Top" Width="45" Grid.Row="5" Click="AttachmentClick"/>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Attachment}" HorizontalAlignment="Left" Margin="6,0,0,0" VerticalAlignment="Top" Grid.Row="5" />
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Left" IsReadOnly="True" ItemsSource="{Binding}" Margin="122,34,0,7" Name="dataGridAttachment" Width="auto" Grid.Row="5" Height="auto" VerticalAlignment="Top">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="{Resx ResxName=Client.Properties.Resources, Key=AttachmentName}" />
+                    <DataGridTemplateColumn CanUserSort="False" CellTemplate="{StaticResource AttachmentActions}" Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <CheckBox Content="该批次已完成全部商业发票" Grid.Row="4" Height="16" HorizontalAlignment="Left" Margin="394,70,0,0" Name="checkBox1" VerticalAlignment="Top" IsChecked="{Binding IsCIFinished}" Visibility="{Binding IsFinishedVisible}"/>
+            <Label Content="二次结算币种" HorizontalAlignment="Left" Margin="6,160,0,0" Name="label16" VerticalAlignment="Top" Grid.Row="4" />
+            <ComboBox DisplayMemberPath="Name" HorizontalAlignment="Left" ItemsSource="{Binding Currencies}" Margin="122,162,0,0" Name="comboBox2" SelectedValue="{Binding ClearBalanceCurrencyId}" SelectedValuePath="Id" VerticalAlignment="Top" Grid.Row="4" />
+            <Label Content="二次结算汇率" HorizontalAlignment="Left" Margin="278,160,0,0" Name="label17" VerticalAlignment="Top" Grid.Row="4" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="394,162,0,0" Name="currencyTextBox6" Text="{Binding ClearBalanceRate}" VerticalAlignment="Top" Width="120" Grid.Row="4" />
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

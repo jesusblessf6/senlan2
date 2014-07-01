@@ -1,0 +1,379 @@
+﻿<baseClient:ObjectBasePage x:Class="Client.View.Futures.HedgeGroups.HedgeGroupDetail"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:c="clr-namespace:Client.Converters"
+      mc:Ignorable="d" 
+      ResxExtension.DefaultResxName="Client.View.Futures.HedgeGroups.ResHedgeGroup"
+      Language="{UICulture}"
+      d:DesignHeight="1700" d:DesignWidth="1134"
+	  Title="{Resx ResxName=Client.Properties.Resources, Key=HedgeGroup}" 
+      xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+      xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+                            xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                           xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity">
+    
+    <Page.Resources>
+
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="MinWidth" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="Label" x:Key="AverageLabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="MinWidth" Value="100"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <c:ContractTypeConverter x:Key="ctConverter"></c:ContractTypeConverter>
+        <c:PositionDirectionConverter x:Key="pdConverter"></c:PositionDirectionConverter>
+        <c:PositionTypeConverter x:Key="ptConverter"></c:PositionTypeConverter>
+        <c:AvailableHedgeLot2Color x:Key="AvailableHedgeLot2Color"></c:AvailableHedgeLot2Color>
+        <c:AvailableHedgeLot2Bool x:Key="AvailableHedgeLot2Bool"></c:AvailableHedgeLot2Bool>
+        <c:PositionOpenCloseConverter x:Key="OpenCloseConverter"></c:PositionOpenCloseConverter>
+        
+        <RoutedCommand x:Key="RemoveAddedQuota"></RoutedCommand>
+        <RoutedCommand x:Key="RemoveAddedLMEPosition"></RoutedCommand>
+        <RoutedCommand x:Key="RemoveAddedSHFEPosition"></RoutedCommand>
+        
+        <RoutedCommand x:Key="AddQuota"></RoutedCommand>
+        <RoutedCommand x:Key="AddLMEPosition"></RoutedCommand>
+        <RoutedCommand x:Key="AddSHFEPosition"></RoutedCommand>
+
+        <Style x:Key="CellStyleForQuota" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="{Binding AvailableQuantityForHedge, Converter={StaticResource AvailableHedgeLot2Color}}"></Setter>
+        </Style>
+
+        <Style x:Key="CellStyleForPosition" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="{Binding AvailableLotForHedge, Converter={StaticResource AvailableHedgeLot2Color}}"></Setter>
+        </Style>
+    </Page.Resources>
+    
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource RemoveAddedQuota}" CanExecute="RemoveAddedQuotaCanExecute" Executed="RemoveAddedQuotaExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource RemoveAddedLMEPosition}" CanExecute="RemoveAddedLMEPositionCanExecute" Executed="RemoveAddedLMEPositionExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource RemoveAddedSHFEPosition}" CanExecute="RemoveAddedSHFEPositionCanExecute" Executed="RemoveAddedSHFEPositionExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource AddQuota}" CanExecute="AddQuotaCanExecute" Executed="AddQuotaExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource AddLMEPosition}" CanExecute="AddLMEPositionCanExecute" Executed="AddLMEPositionExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource AddSHFEPosition}" CanExecute="AddSHFEPositionCanExecute" Executed="AddSHFEPositionExecuted"></CommandBinding>
+    </Page.CommandBindings>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=HedgeGroup}" Height="31" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbTitle" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.RowSpan="2" />
+            <Label Content="{Resx HedgeName}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="6,1,0,0" Name="label1" VerticalAlignment="Top" Foreground="Crimson" Grid.Row="2" />
+            <TextBox HorizontalAlignment="Left" Margin="122,2,0,0" Name="textBox1" VerticalAlignment="Top" Text="{Binding HedgeGroupName}" Grid.Row="2" />
+            <Label Content="{Resx HedgeDate}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="278,1,0,0" Name="label2" VerticalAlignment="Top" Grid.Row="2" />
+            <DatePicker HorizontalAlignment="Left" Margin="394,2,0,0" Name="datePicker1" VerticalAlignment="Top" SelectedDate="{Binding HedgeGroupDate}" Grid.Row="2" Grid.ColumnSpan="2"/>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=ExchangeRate}" Margin="278,32,0,0" Style="{StaticResource LabelStyle}" Name="label3" VerticalAlignment="Top" Foreground="Crimson" HorizontalAlignment="Left" Grid.Row="2" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="394,34,0,0" Name="currencyTextBox1" VerticalAlignment="Top" Width="120" ToolTip="{Resx USDVSCNY}" Text="{Binding Rate}" Grid.Row="2" Grid.ColumnSpan="2"/>
+            <Label Content="{Resx USDVSCNY}" Height="28" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="520,34,0,0" Name="label15" VerticalAlignment="Top" Grid.Row="2" Grid.ColumnSpan="2" />
+            <Separator Height="5" HorizontalAlignment="Stretch" Margin="6,63,6,0" Name="separator1" VerticalAlignment="Top" Width="Auto" Grid.ColumnSpan="2" Grid.Row="2" />
+            
+            <Grid Name="leftGrid" MinHeight="177" Height="Auto" HorizontalAlignment="Left" Margin="6,74,0,0" VerticalAlignment="Top" d:DesignHeight="300" Background="AliceBlue" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Content="{Resx QuotaDetail}" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label4" VerticalAlignment="Top" />
+                <DataGrid AutoGenerateColumns="False" IsReadOnly="True" Height="Auto" ItemsSource="{Binding AddedQuotas}" HorizontalAlignment="Left" Margin="26,5,6,6" Name="dataGrid1" VerticalAlignment="Top" Width="Auto" Grid.Row="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" Width="Auto" Binding="{Binding Quota.QuotaNo}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Type}" Width="Auto" Binding="{Binding Quota.Contract.ContractType, Converter={StaticResource ctConverter}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BP}" Width="Auto" Binding="{Binding Quota.Contract.BusinessPartner.ShortName}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Width="Auto" Binding="{Binding Quota.Commodity.Name}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Quantity}" Width="Auto" Binding="{Binding Quota.ActualQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PricedQty}" Width="Auto" Binding="{Binding Quota.PricedQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=AveragePrice}" Width="Auto" Binding="{Binding Quota.AveragePrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PricingCurrency}" Width="Auto" Binding="{Binding Quota.Currency.Name}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" Binding="{Binding Quota.Contract.Description}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="DBEntity:HedgeLineQuota">
+                                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Remove}" CommandParameter="{Binding QuotaId}" Command="{StaticResource RemoveAddedQuota}"></Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Label Content="{Resx ResxName=Client.Properties.Resources, Key=LMEPosition}" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label5" VerticalAlignment="Top" />
+                <DataGrid AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="3" Height="Auto" ItemsSource="{Binding AddedLMEPositions}" HorizontalAlignment="Left" Margin="26,5,6,6" Name="dataGrid2" VerticalAlignment="Top" Width="Auto" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=TradeDate}" Width="Auto" Binding="{Binding LMEPosition.TradeDate, StringFormat={}{0:yyyy-MM-dd}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PromptDate}" Width="Auto" Binding="{Binding LMEPosition.PromptDate, StringFormat={}{0:yyyy-MM-dd}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Width="Auto" Binding="{Binding LMEPosition.Commodity.Name}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Lot}" Width="Auto" Binding="{Binding AssignedLotAmount, StringFormat={x:Static enumEntity:RoundRules.STR_INTEGER}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Price}" Width="Auto" Binding="{Binding LMEPosition.AgentPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Direction}" Width="Auto" Binding="{Binding LMEPosition.TradeDirection, Converter={StaticResource pdConverter}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commission}" Width="Auto" Binding="{Binding AssignedCommission, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Broker}" Width="Auto" Binding="{Binding LMEPosition.Agent.ShortName}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="DBEntity:HedgeLineLMEPosition">
+                                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Remove}" CommandParameter="{Binding LMEPositionId}" Command="{StaticResource RemoveAddedLMEPosition}"></Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Label Content="{Resx ResxName=Client.Properties.Resources, Key=SHFEPosition}" Grid.Row="4" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label6" VerticalAlignment="Top" />
+                <DataGrid AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="5" Height="Auto" ItemsSource="{Binding AddedSHFEPositions}" HorizontalAlignment="Left" Margin="26,5,6,6" Name="dataGrid3" VerticalAlignment="Top" Width="Auto" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=SHFEContract}" Width="Auto" Binding="{Binding SHFEPosition.Alias}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=TradeDate}" Width="Auto" Binding="{Binding SHFEPosition.SHFECapitalDetail.TradeDate, StringFormat={}{0:yyyy-MM-dd}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PromptDate}" Width="Auto" Binding="{Binding SHFEPosition.PromptDate, StringFormat={}{0:yyyy-MM-dd}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Lot}" Width="Auto" Binding="{Binding AssignedLotAmount, StringFormat={x:Static enumEntity:RoundRules.STR_INTEGER}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Price}" Width="Auto" Binding="{Binding SHFEPosition.Price, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Direction}" Width="Auto" Binding="{Binding SHFEPosition.PositionDirection, Converter={StaticResource pdConverter}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=OpenClose}" Width="Auto" Binding="{Binding SHFEPosition.OpenClose, Converter={StaticResource OpenCloseConverter}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commission}" Width="Auto" Binding="{Binding AssignedCommission, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Broker}" Width="Auto" Binding="{Binding SHFEPosition.SHFECapitalDetail.BusinessPartner.ShortName}" CanUserSort="True"></DataGridTextColumn>
+                        <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="DBEntity:HedgeLineSHFEPosition">
+                                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Remove}" CommandParameter="{Binding SHFEPositionId}" Command="{StaticResource RemoveAddedSHFEPosition}"></Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Save}" Height="23" HorizontalAlignment="Left" Margin="150,19,0,0" Name="button4" VerticalAlignment="Top" Width="60" Click="Save" Grid.Row="6" />
+                <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Height="23" HorizontalAlignment="Left" Margin="245,20,0,0" Name="button5" VerticalAlignment="Top" Width="60" Click="Cancel" Grid.Row="6" />
+                <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PL}" Style="{StaticResource AverageLabelStyle}" HorizontalAlignment="Left" Margin="4,31,0,0" Name="label19" VerticalAlignment="Top" Foreground="Blue" />
+                <Label Content="{Binding QuotaFixedPLStr}" Height="28" HorizontalAlignment="Left" Margin="110,31,0,0" Name="label20" VerticalAlignment="Top" Foreground="Blue" />
+                <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PL}" Foreground="Blue" Style="{StaticResource AverageLabelStyle}" HorizontalAlignment="Left" Margin="5,31,0,0" Name="label25" VerticalAlignment="Top" Grid.Row="2" />
+                <Label Content="{Binding LMEPLStr}" Foreground="Blue" Height="28" HorizontalAlignment="Left" Margin="110,31,0,0" Name="label26" VerticalAlignment="Top" Grid.Row="2" />
+                <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PL}" Foreground="Blue" Style="{StaticResource AverageLabelStyle}" Margin="5,31,0,0" Name="label28" VerticalAlignment="Top" Grid.Row="4" HorizontalAlignment="Left"/>
+                <Label Content="{Binding SHFEPLStr}" Foreground="Blue" Height="28" HorizontalAlignment="Left" Margin="110,31,0,0" Name="label29" VerticalAlignment="Top" Grid.Row="4" />
+                <!--<Label Content="{Resx ResxName=Client.Properties.Resources, Key=AveragePrice}" Style="{StaticResource AverageLabelStyle}" HorizontalAlignment="Left" Margin="4,62,0,0" Name="label32" VerticalAlignment="Top" Foreground="Blue" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="110,68,0,0" Name="textBlock1" VerticalAlignment="Top" Width="302" >
+                    <Run Text="{Resx ResxName=Client.View.Futures.HedgeGroups.ResHedgeGroup, Key=BuyAvg}"></Run>
+                    <Run Text="{Binding QuotaBuyAvg, StringFormat=N2}"></Run>
+                    <Run Text="    "></Run>
+                    <Run Text="{Resx ResxName=Client.View.Futures.HedgeGroups.ResHedgeGroup, Key=SellAvg}"></Run>
+                    <Run Text="{Binding QuotaSellAvg, StringFormat=N2}"></Run>
+                </TextBlock>-->
+                <!--<Label Content="{Resx ResxName=Client.Properties.Resources, Key=AveragePrice}" Foreground="Blue" Style="{StaticResource AverageLabelStyle}" HorizontalAlignment="Left" Margin="4,62,0,0" Name="label33" Grid.Row="2" VerticalAlignment="Top" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="110,68,0,0" Name="textBlock2" VerticalAlignment="Top" Width="302" Grid.Row="2">
+                    <Run Text="{Resx ResxName=Client.View.Futures.HedgeGroups.ResHedgeGroup, Key=BuyAvg}" /> 
+                    <Run Text="{Binding LMEBuyAvg, StringFormat=N2}" /> 
+                    <Run Text="    " /> 
+                    <Run Text="{Resx ResxName=Client.View.Futures.HedgeGroups.ResHedgeGroup, Key=SellAvg}" /> 
+                    <Run Text="{Binding LMESellAvg, StringFormat=N2}" />
+                </TextBlock>-->
+                <!--<Label Content="{Resx ResxName=Client.Properties.Resources, Key=AveragePrice}" Foreground="Blue" Style="{StaticResource AverageLabelStyle}" HorizontalAlignment="Left" Margin="4,62,0,0" Name="label34" VerticalAlignment="Top" Grid.Row="4" />
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="110,68,0,0" Name="textBlock3" VerticalAlignment="Top" Width="302" Grid.Row="4">
+                    <Run Text="{Resx BuyOpen}" /> 
+                    <Run Text="{Binding SHFEBuyOpenAvg, StringFormat=N2}" /> 
+                    <Run Text="    " /> 
+                    <Run Text="{Resx SellClose}" /> 
+                    <Run Text="{Binding SHFESellCloseAvg, StringFormat=N2}" />
+                </TextBlock>
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="110,100,0,0" Name="textBlock4" VerticalAlignment="Top" Width="302" Grid.Row="4">
+                    <Run Text="{Resx SellOpen}" /> 
+                    <Run Text="{Binding SHFESellOpenAvg, StringFormat=N2}" /> 
+                    <Run Text="    " /> 
+                    <Run Text="{Resx BuyClose}" /> 
+                    <Run Text="{Binding SHFEBuyCloseAvg, StringFormat=N2}" />
+                </TextBlock>-->
+            </Grid>
+            
+            <Grid Name="rightGrid" MinHeight="0" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" MinWidth="469" Grid.Column="1" Background="Azure" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Expander Header="{Resx ResxName=Client.Properties.Resources, Key=SelectQuota}" Height="Auto" HorizontalAlignment="Left" Margin="6,6,0,0" Name="expander1" VerticalAlignment="Top" MinWidth="550" Width="Auto" Expanded="Expander1Expanded">
+                    <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="1" BorderThickness="2" BorderBrush="Silver">
+                        <Grid Height="Auto" MinWidth="550" Width="Auto">
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=BP}" Style="{StaticResource LabelStyle}" Margin="1,7,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                            <TextBox HorizontalAlignment="Left" Margin="117,9,0,0" Name="textBox2" VerticalAlignment="Top" IsReadOnly="True" 
+                                     Text="{Binding QuotaBPName}" />
+                            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="241,9,0,0" Name="button1" VerticalAlignment="Top" Width="25" Click="Button1Click" />
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="280,7,0,0" Name="label7" VerticalAlignment="Top" />
+                            <ComboBox HorizontalAlignment="Left" Margin="396,9,10,0" Name="comboBox1" VerticalAlignment="Top" 
+                                      ItemsSource="{Binding InternalCustomers}" SelectedValuePath="Id" DisplayMemberPath="ShortName" SelectedValue="{Binding QuotaInternalCustomerId}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=StartDate}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,39,0,0" Name="label8" VerticalAlignment="Top" />
+                            <DatePicker HorizontalAlignment="Left" Margin="117,41,0,0" Name="datePicker2" VerticalAlignment="Top" SelectedDate="{Binding QuotaStartDate}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=EndDate}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="280,39,0,0" Name="label9" VerticalAlignment="Top" />
+                            <DatePicker HorizontalAlignment="Left" Margin="396,41,0,0" Name="datePicker3" VerticalAlignment="Top"  
+                                        SelectedDate="{Binding QuotaEndDate}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,71,0,0" Name="label10" VerticalAlignment="Top" />
+                            <ComboBox HorizontalAlignment="Left" Margin="117,73,0,0" Name="comboBox2" VerticalAlignment="Top"  
+                                      ItemsSource="{Binding Commodities}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding QuotaCommodityId}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=UDF}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="280,71,0,0" Name="label35" VerticalAlignment="Top" />
+                            <ComboBox HorizontalAlignment="Left" Margin="396,73,0,0" Name="comboBox8" VerticalAlignment="Top"  
+                                      ItemsSource="{Binding UDFTypes}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding SelectedUDFTypeId}"/>
+                            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23" HorizontalAlignment="Left" Margin="241,108,0,0" Name="button2" VerticalAlignment="Top" Width="60" Click="Button2Click" />
+                            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Reset}" Height="23" HorizontalAlignment="Left" Margin="336,108,0,0" Name="button3" VerticalAlignment="Top" Width="60" Click="Button3Click" />
+                            <my:PagingControl HorizontalAlignment="Left" Margin="7,143,0,0" Name="pagingControl1" VerticalAlignment="Top" />
+                            <DataGrid AutoGenerateColumns="False" IsReadOnly="True" Height="Auto" ItemsSource="{Binding Quotas}" HorizontalAlignment="Left" Margin="7,180,6,6" Name="dataGrid4" VerticalAlignment="Top" Width="Auto" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" ElementStyle="{StaticResource CellStyleForQuota}" Width="Auto" Binding="{Binding QuotaNo}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Type}" ElementStyle="{StaticResource CellStyleForQuota}" Width="Auto" Binding="{Binding Contract.ContractType, Converter={StaticResource ctConverter}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BP}" ElementStyle="{StaticResource CellStyleForQuota}" Width="Auto" Binding="{Binding Contract.BusinessPartner.ShortName}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" ElementStyle="{StaticResource CellStyleForQuota}" Width="Auto" Binding="{Binding Commodity.Name}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Quantity}" ElementStyle="{StaticResource CellStyleForQuota}" Width="Auto" Binding="{Binding ActualQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PricedQty}" ElementStyle="{StaticResource CellStyleForQuota}" Width="Auto" Binding="{Binding PricedQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=AveragePrice}" ElementStyle="{StaticResource CellStyleForQuota}" Width="Auto" Binding="{Binding AveragePrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=UDF}" ElementStyle="{StaticResource CellStyleForQuota}" Width="Auto" Binding="{Binding Contract.ContractUDF.Name}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="DBEntity:Quota">
+                                                <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Select}" CommandParameter="{Binding Id}" Command="{StaticResource AddQuota}" IsEnabled="{Binding AvailableQuantityForHedge, Converter={StaticResource AvailableHedgeLot2Bool}}"></Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            
+                        </Grid>
+                    </Border>
+                </Expander>
+                <Expander Grid.Row="1" Header="{Resx SelectLMEPosition}" Height="Auto" HorizontalAlignment="Left" Margin="6,6,0,0" Name="expander2" VerticalAlignment="Top" MinWidth="550" Width="auto" Expanded="Expander2Expanded" >
+                    <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="1" BorderThickness="2" BorderBrush="Silver">
+                        <Grid Height="Auto" Width="Auto" MinWidth="550">
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Margin="1,7,0,0" Style="{StaticResource LabelStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                            <ComboBox HorizontalAlignment="Left" Margin="117,9,0,0" Name="comboBox3" VerticalAlignment="Top"  
+                                      ItemsSource="{Binding Commodities}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding LMEPositionCommodityId}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="280,7,0,0" Name="label17" VerticalAlignment="Top" />
+                            <ComboBox HorizontalAlignment="Left" Margin="396,9,0,0" Name="comboBox11" VerticalAlignment="Top"  
+                                      ItemsSource="{Binding InternalCustomers}" SelectedValuePath="Id" DisplayMemberPath="ShortName" SelectedValue="{Binding LMEPositionInternalCustomerId}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PromptStartDate}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,39,0,0" Name="label11" VerticalAlignment="Top" />
+                            <DatePicker HorizontalAlignment="Left" Margin="117,41,0,0" Name="datePicker4" VerticalAlignment="Top" SelectedDate="{Binding LMEPositionStartDate}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PromptEndDate}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="280,39,0,0" Name="label12" VerticalAlignment="Top" />
+                            <DatePicker HorizontalAlignment="Left" Margin="396,41,0,0" Name="datePicker5" VerticalAlignment="Top" SelectedDate="{Binding LMEPositionEndDate}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Direction}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,71,0,0" Name="label13" VerticalAlignment="Top" />
+                            <ComboBox HorizontalAlignment="Left" Margin="117,73,0,0" Name="comboBox4" VerticalAlignment="Top"  
+                                      ItemsSource="{Binding Directions}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding LMEPositionDirectionId}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Broker}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="280,71,0,0" Name="label14" VerticalAlignment="Top" />
+                            <ComboBox HorizontalAlignment="Left" Margin="396,73,0,0" Name="comboBox5" VerticalAlignment="Top"  
+                                      ItemsSource="{Binding Brokers}" SelectedValuePath="Id" DisplayMemberPath="ShortName" SelectedValue="{Binding LMEPositionBrokerId}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PositionType}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,103,0,0" Name="label16" VerticalAlignment="Top" />
+                            <ComboBox HorizontalAlignment="Left" Margin="117,105,0,0" Name="comboBox6" VerticalAlignment="Top"  
+                                      ItemsSource="{Binding PositionTypes}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding LMEPositionTypeId}"/>
+                            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23" HorizontalAlignment="Left" Margin="361,105,0,0" Name="button6" VerticalAlignment="Top" Width="60" Click="Button6Click" />
+                            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Reset}" Height="23" HorizontalAlignment="Left" Margin="456,105,0,0" Name="button7" VerticalAlignment="Top" Width="60" Click="Button7Click" />
+                            <my:PagingControl HorizontalAlignment="Left" Margin="7,143,0,0" Name="pagingControl2" VerticalAlignment="Top" />
+                            <DataGrid AutoGenerateColumns="False" IsReadOnly="True" Height="Auto" HorizontalAlignment="Left" ItemsSource="{Binding LMEPositions}" Margin="7,180,6,6" Name="dataGrid5" VerticalAlignment="Top" Width="Auto" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=TradeDate}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding TradeDate, StringFormat={}{0:yyyy-MM-dd}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PromptDate}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding PromptDate, StringFormat={}{0:yyyy-MM-dd}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding Commodity.Name}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Lot}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding LotAmount, StringFormat={x:Static enumEntity:RoundRules.STR_INTEGER}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Futures.HedgeGroups.ResHedgeGroup, Key=AvailableLot}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding AvailableLotForHedge, StringFormat={x:Static enumEntity:RoundRules.STR_INTEGER}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Price}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding AgentPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Direction}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding TradeDirection, Converter={StaticResource pdConverter}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PositionType}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding PositionType, Converter={StaticResource ptConverter}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commission}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding AgentCommission, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Broker}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding Agent.ShortName}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="DBEntity:LMEPosition">
+                                                <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Select}" CommandParameter="{Binding Id}" Command="{StaticResource AddLMEPosition}" IsEnabled="{Binding AvailableLotForHedge, Converter={StaticResource AvailableHedgeLot2Bool}}"></Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Border>
+                </Expander>
+                <Expander Grid.Row="2" Header="{Resx SelectSHFEPosition}" Height="Auto" HorizontalAlignment="Left" Margin="6,6,0,0" Name="expander3" VerticalAlignment="Top" MinWidth="550" Width="Auto" Expanded="Expander3Expanded">
+                    <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="1" BorderThickness="2" BorderBrush="Silver">
+                        <Grid MinWidth="550" Height="Auto" Width="Auto">
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Margin="1,7,0,0" Style="{StaticResource LabelStyle}" VerticalAlignment="Top" Name="label21" HorizontalAlignment="Left" />
+                            <ComboBox HorizontalAlignment="Left" Margin="117,9,0,0" Name="comboBox23" VerticalAlignment="Top" 
+                                      ItemsSource="{Binding Commodities}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding SHFEPositionCommodityId}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="280,7,0,0" Name="label27" VerticalAlignment="Top" />
+                            <ComboBox HorizontalAlignment="Left" Margin="396,9,0,0" Name="comboBox21" VerticalAlignment="Top" 
+                                      ItemsSource="{Binding InternalCustomers}" SelectedValuePath="Id" DisplayMemberPath="ShortName" SelectedValue="{Binding SHFEPositionInternalCustomerId}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=TradeStartDate}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,39,0,0" Name="label221" VerticalAlignment="Top" />
+                            <DatePicker HorizontalAlignment="Left" Margin="117,41,0,0" Name="datePicker24" VerticalAlignment="Top"
+                                        SelectedDate="{Binding SHFEPositionStartDate}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=TradeEndDate}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="280,39,0,0" Name="label22" VerticalAlignment="Top" />
+                            <DatePicker HorizontalAlignment="Left" Margin="396,41,0,0" Name="datePicker25" VerticalAlignment="Top" SelectedDate="{Binding SHFEPositionEndDate}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Direction}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,71,0,0" Name="label23" VerticalAlignment="Top" />
+                            <ComboBox HorizontalAlignment="Left" Margin="117,73,0,0" Name="comboBox24" VerticalAlignment="Top" 
+                                      ItemsSource="{Binding Directions}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding SHFEPositionDirectionId}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Broker}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="280,71,0,0" Name="label24" VerticalAlignment="Top" />
+                            <ComboBox HorizontalAlignment="Left" Margin="396,73,0,0" Name="comboBox25" VerticalAlignment="Top" 
+                                      ItemsSource="{Binding Brokers}" SelectedValuePath="Id" DisplayMemberPath="ShortName" SelectedValue="{Binding SHFEPositionBrokerId}"/>
+                            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PositionType}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,103,0,0" Name="label18" VerticalAlignment="Top" />
+                            <ComboBox HorizontalAlignment="Left" Margin="117,105,0,0" Name="comboBox7" VerticalAlignment="Top" 
+                                      ItemsSource="{Binding PositionTypes}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding SHFEPositionTypeId}"/>
+                            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23" HorizontalAlignment="Left" Margin="361,105,0,0" Name="button26" VerticalAlignment="Top" Width="60" Click="Button26Click" />
+                            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Reset}" Height="23" HorizontalAlignment="Left" Margin="456,105,0,0" Name="button27" VerticalAlignment="Top" Width="60" Click="Button27Click" />
+                            <my:PagingControl HorizontalAlignment="Left" Margin="7,143,0,0" Name="pagingControl22" VerticalAlignment="Top" />
+                            <DataGrid AutoGenerateColumns="False" IsReadOnly="True" Height="Auto" ItemsSource="{Binding SHFEPositions}" HorizontalAlignment="Left" Margin="7,180,6,6" Name="dataGrid25" VerticalAlignment="Top" Width="Auto" >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=SHFEContract}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding Alias}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=TradeDate}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding SHFECapitalDetail.TradeDate, StringFormat={}{0:yyyy-MM-dd}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PromptDate}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding PromptDate, StringFormat={}{0:yyyy-MM-dd}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Lot}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding LotQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_INTEGER}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Futures.HedgeGroups.ResHedgeGroup, Key=AvailableLot}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding AvailableLotForHedge, StringFormat={x:Static enumEntity:RoundRules.STR_INTEGER}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Price}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding Price, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Direction}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding PositionDirection, Converter={StaticResource pdConverter}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=OpenClose}" Width="Auto" Binding="{Binding OpenClose, Converter={StaticResource OpenCloseConverter}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PositionType}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding PositionType, Converter={StaticResource ptConverter}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commission}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding Commission, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Broker}" ElementStyle="{StaticResource CellStyleForPosition}" Width="Auto" Binding="{Binding SHFECapitalDetail.BusinessPartner.ShortName}" CanUserSort="True"></DataGridTextColumn>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="DBEntity:LMEPosition">
+                                                <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Select}" CommandParameter="{Binding Id}" Command="{StaticResource AddSHFEPosition}" IsEnabled="{Binding AvailableLotForHedge, Converter={StaticResource AvailableHedgeLot2Bool}}"></Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Border>
+                </Expander>
+            </Grid>
+            <Button Content="{Resx SettlementPL}" Height="23" HorizontalAlignment="Left" Margin="122,0,0,7" Name="button8" Width="75" Click="Button8Click" Grid.Row="1" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=TotalPL}" Height="28" HorizontalContentAlignment="Right" Width="60" HorizontalAlignment="Left" Margin="209,0,0,0" Name="label30" VerticalAlignment="Top" Foreground="Blue" Grid.Row="1" Grid.RowSpan="2" />
+            <Label Content="{Binding TotalPLStr}" Height="28" HorizontalAlignment="Left" Margin="271,0,0,0" Name="label31" VerticalAlignment="Top" Foreground="Blue" Grid.Row="1" Grid.RowSpan="2" />
+            <Label Content="保值类型" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="58,32,0,0" Name="label36" VerticalAlignment="Top" />
+            <ComboBox Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="122,34,0,0" Name="comboBox9" VerticalAlignment="Top" Width="120" ItemsSource="{Binding ArbitrageTypes}" SelectedValuePath="Id" DisplayMemberPath="Name" SelectedValue="{Binding SelectedArbitrageTypeId}"/>
+        </Grid>
+    </ScrollViewer>
+</baseClient:ObjectBasePage>

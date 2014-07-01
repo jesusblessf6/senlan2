@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BrandService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/BrandService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/BrandService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/BrandService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DBEntity" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/BrandService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/BrandService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Utility.Misc" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/BrandService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBrandService_GetById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetById" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetAllCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCount" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetAllCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_FetchCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchCount" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_FetchCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCount" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRange" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_FetchById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchById" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_FetchById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_FetchAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAll" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_FetchAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_FetchAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_FetchAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_FetchByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRange" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_FetchByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_FetchByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_FetchByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Query_InputMessage">
+    <wsdl:part name="parameters" element="tns:Query" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Query_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_QueryByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRange" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_QueryByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_QueryByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_QueryByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Select_InputMessage">
+    <wsdl:part name="parameters" element="tns:Select" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Select_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRange" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectByRangeWithMultiOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectByRangeWithMultiOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectByRangeWithMultiOrderLazyLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderLazyLoad" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectByRangeWithMultiOrderLazyLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderLazyLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Create_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q1:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_CreateNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNew" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_CreateNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_CreateNew_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q2:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_DeleteById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteById" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_DeleteById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_DeleteById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q3:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Delete_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q4:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Update_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q5:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_UpdateExisted_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExisted" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_UpdateExisted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_UpdateExisted_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q6:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Remove_InputMessage">
+    <wsdl:part name="parameters" element="tns:Remove" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Remove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_Remove_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q7:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_RemoveById_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveById" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_RemoveById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_RemoveById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q8:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectSum_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectSum" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectSum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectSum_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q9:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectById_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectById" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q10:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectWithMultiOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrder" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectWithMultiOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectWithMultiOrder_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q11:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectWithMultiOrderLazyLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderLazyLoad" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectWithMultiOrderLazyLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderLazyLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_SelectWithMultiOrderLazyLoad_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q12:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_AddNewBrand_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewBrand" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_AddNewBrand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_UpdateExistedBrand_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedBrand" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_UpdateExistedBrand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetBrandsWith_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBrandsWith" />
+  </wsdl:message>
+  <wsdl:message name="IBrandService_GetBrandsWith_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBrandsWithResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBrandService">
+    <wsdl:operation name="GetById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetById" message="tns:IBrandService_GetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetByIdResponse" message="tns:IBrandService_GetById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetAllCount" message="tns:IBrandService_GetAllCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetAllCountResponse" message="tns:IBrandService_GetAllCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/FetchCount" message="tns:IBrandService_FetchCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/FetchCountResponse" message="tns:IBrandService_FetchCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetCount" message="tns:IBrandService_GetCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetCountResponse" message="tns:IBrandService_GetCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetAll" message="tns:IBrandService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetAllResponse" message="tns:IBrandService_GetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetAllWithOrder" message="tns:IBrandService_GetAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetAllWithOrderResponse" message="tns:IBrandService_GetAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetByRange" message="tns:IBrandService_GetByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetByRangeResponse" message="tns:IBrandService_GetByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetByRangeWithOrder" message="tns:IBrandService_GetByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/GetByRangeWithOrderResponse" message="tns:IBrandService_GetByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/FetchById" message="tns:IBrandService_FetchById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/FetchByIdResponse" message="tns:IBrandService_FetchById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/FetchAll" message="tns:IBrandService_FetchAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/FetchAllResponse" message="tns:IBrandService_FetchAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/FetchAllWithOrder" message="tns:IBrandService_FetchAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/FetchAllWithOrderResponse" message="tns:IBrandService_FetchAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/FetchByRange" message="tns:IBrandService_FetchByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/FetchByRangeResponse" message="tns:IBrandService_FetchByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/FetchByRangeWithOrder" message="tns:IBrandService_FetchByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/FetchByRangeWithOrderResponse" message="tns:IBrandService_FetchByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/Query" message="tns:IBrandService_Query_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/QueryResponse" message="tns:IBrandService_Query_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/QueryByRange" message="tns:IBrandService_QueryByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/QueryByRangeResponse" message="tns:IBrandService_QueryByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/QueryByRangeWithOrder" message="tns:IBrandService_QueryByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/QueryByRangeWithOrderResponse" message="tns:IBrandService_QueryByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/Select" message="tns:IBrandService_Select_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectResponse" message="tns:IBrandService_Select_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectByRange" message="tns:IBrandService_SelectByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectByRangeResponse" message="tns:IBrandService_SelectByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectByRangeWithOrder" message="tns:IBrandService_SelectByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectByRangeWithOrderResponse" message="tns:IBrandService_SelectByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectByRangeWithMultiOrder" message="tns:IBrandService_SelectByRangeWithMultiOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectByRangeWithMultiOrderResponse" message="tns:IBrandService_SelectByRangeWithMultiOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrderLazyLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectByRangeWithMultiOrderLazyLoad" message="tns:IBrandService_SelectByRangeWithMultiOrderLazyLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectByRangeWithMultiOrderLazyLoadResponse" message="tns:IBrandService_SelectByRangeWithMultiOrderLazyLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/Create" message="tns:IBrandService_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/CreateResponse" message="tns:IBrandService_Create_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Brand/CreateServerErrFault" name="ServerErrFault" message="tns:IBrandService_Create_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/CreateNew" message="tns:IBrandService_CreateNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/CreateNewResponse" message="tns:IBrandService_CreateNew_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Brand/CreateNewServerErrFault" name="ServerErrFault" message="tns:IBrandService_CreateNew_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/DeleteById" message="tns:IBrandService_DeleteById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/DeleteByIdResponse" message="tns:IBrandService_DeleteById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Brand/DeleteByIdServerErrFault" name="ServerErrFault" message="tns:IBrandService_DeleteById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/Delete" message="tns:IBrandService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/DeleteResponse" message="tns:IBrandService_Delete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Brand/DeleteServerErrFault" name="ServerErrFault" message="tns:IBrandService_Delete_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/Update" message="tns:IBrandService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/UpdateResponse" message="tns:IBrandService_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Brand/UpdateServerErrFault" name="ServerErrFault" message="tns:IBrandService_Update_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/UpdateExisted" message="tns:IBrandService_UpdateExisted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/UpdateExistedResponse" message="tns:IBrandService_UpdateExisted_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Brand/UpdateExistedServerErrFault" name="ServerErrFault" message="tns:IBrandService_UpdateExisted_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/Remove" message="tns:IBrandService_Remove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/RemoveResponse" message="tns:IBrandService_Remove_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Brand/RemoveServerErrFault" name="ServerErrFault" message="tns:IBrandService_Remove_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/RemoveById" message="tns:IBrandService_RemoveById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/RemoveByIdResponse" message="tns:IBrandService_RemoveById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Brand/RemoveByIdServerErrFault" name="ServerErrFault" message="tns:IBrandService_RemoveById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectSum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectSum" message="tns:IBrandService_SelectSum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectSumResponse" message="tns:IBrandService_SelectSum_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectSumServerErrFault" name="ServerErrFault" message="tns:IBrandService_SelectSum_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectById" message="tns:IBrandService_SelectById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectByIdResponse" message="tns:IBrandService_SelectById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectByIdServerErrFault" name="ServerErrFault" message="tns:IBrandService_SelectById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectWithMultiOrder" message="tns:IBrandService_SelectWithMultiOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectWithMultiOrderResponse" message="tns:IBrandService_SelectWithMultiOrder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectWithMultiOrderServerErrFault" name="ServerErrFault" message="tns:IBrandService_SelectWithMultiOrder_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrderLazyLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectWithMultiOrderLazyLoad" message="tns:IBrandService_SelectWithMultiOrderLazyLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectWithMultiOrderLazyLoadResponse" message="tns:IBrandService_SelectWithMultiOrderLazyLoad_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Brand/SelectWithMultiOrderLazyLoadServerErrFault" name="ServerErrFault" message="tns:IBrandService_SelectWithMultiOrderLazyLoad_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBrand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBrandService/AddNewBrand" message="tns:IBrandService_AddNewBrand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBrandService/AddNewBrandResponse" message="tns:IBrandService_AddNewBrand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistedBrand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBrandService/UpdateExistedBrand" message="tns:IBrandService_UpdateExistedBrand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBrandService/UpdateExistedBrandResponse" message="tns:IBrandService_UpdateExistedBrand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBrandsWith">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBrandService/GetBrandsWith" message="tns:IBrandService_GetBrandsWith_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBrandService/GetBrandsWithResponse" message="tns:IBrandService_GetBrandsWith_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBrandService" type="tns:IBrandService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/GetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/GetAllCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/FetchCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/GetCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/GetAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/GetByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/GetByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/FetchById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/FetchAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/FetchAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/FetchByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/FetchByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/Query" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/QueryByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/QueryByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/Select" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/SelectByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/SelectByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/SelectByRangeWithMultiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrderLazyLoad">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/SelectByRangeWithMultiOrderLazyLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/CreateNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/DeleteById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/UpdateExisted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/RemoveById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectSum">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/SelectSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/SelectById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/SelectWithMultiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrderLazyLoad">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Brand/SelectWithMultiOrderLazyLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBrand">
+      <soap:operation soapAction="http://tempuri.org/IBrandService/AddNewBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistedBrand">
+      <soap:operation soapAction="http://tempuri.org/IBrandService/UpdateExistedBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBrandsWith">
+      <soap:operation soapAction="http://tempuri.org/IBrandService/GetBrandsWith" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BrandService">
+    <wsdl:port name="BasicHttpBinding_IBrandService" binding="tns:BasicHttpBinding_IBrandService">
+      <soap:address location="http://localhost:1558/SystemSetting/BrandService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

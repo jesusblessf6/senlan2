@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Services.Physical.Contracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Services.Physical.Contracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfRelQuota">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelQuota" nillable="true" type="tns:RelQuota" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelQuota" nillable="true" type="tns:ArrayOfRelQuota" />
+  <xs:complexType name="RelQuota">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusinessParnterId" type="xs:int" />
+      <xs:element minOccurs="0" name="BusinessParnterName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="QuotaStage" type="xs:int" />
+      <xs:element minOccurs="0" name="SignDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="VATInvoiceDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelQuota" nillable="true" type="tns:RelQuota" />
+</xs:schema>

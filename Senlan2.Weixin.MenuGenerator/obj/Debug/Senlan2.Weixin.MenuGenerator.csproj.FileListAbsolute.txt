@@ -1,0 +1,9 @@
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\Senlan2.Weixin.MenuGenerator\bin\Debug\Senlan2.Weixin.MenuGenerator.exe
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\Senlan2.Weixin.MenuGenerator\bin\Debug\Senlan2.Weixin.MenuGenerator.pdb
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\Senlan2.Weixin.MenuGenerator\bin\Debug\Senparc.Weixin.MP.dll
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\Senlan2.Weixin.MenuGenerator\bin\Debug\Senparc.Weixin.MP.xml
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\Senlan2.Weixin.MenuGenerator\obj\Debug\Senlan2.Weixin.MenuGenerator.Generator.resources
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\Senlan2.Weixin.MenuGenerator\obj\Debug\Senlan2.Weixin.MenuGenerator.csproj.GenerateResource.Cache
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\Senlan2.Weixin.MenuGenerator\obj\Debug\Senlan2.Weixin.MenuGenerator.exe
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\Senlan2.Weixin.MenuGenerator\obj\Debug\Senlan2.Weixin.MenuGenerator.pdb
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\Senlan2.Weixin.MenuGenerator\obj\Debug\Senlan2.Weixin.MenuGenerator.csprojResolveAssemblyReference.cache

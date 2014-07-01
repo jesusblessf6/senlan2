@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DeliveryLineService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DBEntity" />
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Utility.Misc" />
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDeliveryLineService_GetById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetById" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetAllCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCount" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetAllCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCount" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRange" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_GetByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_FetchById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchById" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_FetchById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_FetchAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAll" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_FetchAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_FetchAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_FetchAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_FetchByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRange" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_FetchByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_FetchByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_FetchByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Query_InputMessage">
+    <wsdl:part name="parameters" element="tns:Query" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Query_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_QueryWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_QueryWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_QueryByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRange" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_QueryByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_QueryByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_QueryByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Select_InputMessage">
+    <wsdl:part name="parameters" element="tns:Select" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Select_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_SelectWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_SelectWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_SelectByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRange" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_SelectByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_SelectByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_SelectByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Create_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q1:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_CreateNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNew" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_CreateNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_CreateNew_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q2:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_DeleteById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteById" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_DeleteById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_DeleteById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q3:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Delete_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q4:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_Update_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q5:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_UpdateExisted_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExisted" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_UpdateExisted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryLineService_UpdateExisted_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q6:ServerErr" />
+  </wsdl:message>
+  <wsdl:portType name="IDeliveryLineService">
+    <wsdl:operation name="GetById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetById" message="tns:IDeliveryLineService_GetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetByIdResponse" message="tns:IDeliveryLineService_GetById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetAllCount" message="tns:IDeliveryLineService_GetAllCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetAllCountResponse" message="tns:IDeliveryLineService_GetAllCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetCount" message="tns:IDeliveryLineService_GetCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetCountResponse" message="tns:IDeliveryLineService_GetCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetAll" message="tns:IDeliveryLineService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetAllResponse" message="tns:IDeliveryLineService_GetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetAllWithOrder" message="tns:IDeliveryLineService_GetAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetAllWithOrderResponse" message="tns:IDeliveryLineService_GetAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetByRange" message="tns:IDeliveryLineService_GetByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetByRangeResponse" message="tns:IDeliveryLineService_GetByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetByRangeWithOrder" message="tns:IDeliveryLineService_GetByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/GetByRangeWithOrderResponse" message="tns:IDeliveryLineService_GetByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/FetchById" message="tns:IDeliveryLineService_FetchById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/FetchByIdResponse" message="tns:IDeliveryLineService_FetchById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/FetchAll" message="tns:IDeliveryLineService_FetchAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/FetchAllResponse" message="tns:IDeliveryLineService_FetchAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/FetchAllWithOrder" message="tns:IDeliveryLineService_FetchAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/FetchAllWithOrderResponse" message="tns:IDeliveryLineService_FetchAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/FetchByRange" message="tns:IDeliveryLineService_FetchByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/FetchByRangeResponse" message="tns:IDeliveryLineService_FetchByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/FetchByRangeWithOrder" message="tns:IDeliveryLineService_FetchByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/FetchByRangeWithOrderResponse" message="tns:IDeliveryLineService_FetchByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/Query" message="tns:IDeliveryLineService_Query_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/QueryResponse" message="tns:IDeliveryLineService_Query_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/QueryWithOrder" message="tns:IDeliveryLineService_QueryWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/QueryWithOrderResponse" message="tns:IDeliveryLineService_QueryWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/QueryByRange" message="tns:IDeliveryLineService_QueryByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/QueryByRangeResponse" message="tns:IDeliveryLineService_QueryByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/QueryByRangeWithOrder" message="tns:IDeliveryLineService_QueryByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/QueryByRangeWithOrderResponse" message="tns:IDeliveryLineService_QueryByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/Select" message="tns:IDeliveryLineService_Select_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/SelectResponse" message="tns:IDeliveryLineService_Select_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/SelectWithOrder" message="tns:IDeliveryLineService_SelectWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/SelectWithOrderResponse" message="tns:IDeliveryLineService_SelectWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/SelectByRange" message="tns:IDeliveryLineService_SelectByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/SelectByRangeResponse" message="tns:IDeliveryLineService_SelectByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/SelectByRangeWithOrder" message="tns:IDeliveryLineService_SelectByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/SelectByRangeWithOrderResponse" message="tns:IDeliveryLineService_SelectByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/Create" message="tns:IDeliveryLineService_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/CreateResponse" message="tns:IDeliveryLineService_Create_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/CreateServerErrFault" name="ServerErrFault" message="tns:IDeliveryLineService_Create_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/CreateNew" message="tns:IDeliveryLineService_CreateNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/CreateNewResponse" message="tns:IDeliveryLineService_CreateNew_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/CreateNewServerErrFault" name="ServerErrFault" message="tns:IDeliveryLineService_CreateNew_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/DeleteById" message="tns:IDeliveryLineService_DeleteById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/DeleteByIdResponse" message="tns:IDeliveryLineService_DeleteById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/DeleteByIdServerErrFault" name="ServerErrFault" message="tns:IDeliveryLineService_DeleteById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/Delete" message="tns:IDeliveryLineService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/DeleteResponse" message="tns:IDeliveryLineService_Delete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/DeleteServerErrFault" name="ServerErrFault" message="tns:IDeliveryLineService_Delete_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/Update" message="tns:IDeliveryLineService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/UpdateResponse" message="tns:IDeliveryLineService_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/UpdateServerErrFault" name="ServerErrFault" message="tns:IDeliveryLineService_Update_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/UpdateExisted" message="tns:IDeliveryLineService_UpdateExisted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/UpdateExistedResponse" message="tns:IDeliveryLineService_UpdateExisted_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_DeliveryLine/UpdateExistedServerErrFault" name="ServerErrFault" message="tns:IDeliveryLineService_UpdateExisted_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDeliveryLineService" type="tns:IDeliveryLineService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/GetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/GetAllCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/GetCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/GetAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/GetByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/GetByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/FetchById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/FetchAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/FetchAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/FetchByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/FetchByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/Query" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/QueryWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/QueryByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/QueryByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/Select" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/SelectWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/SelectByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/SelectByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/CreateNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/DeleteById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_DeliveryLine/UpdateExisted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DeliveryLineService">
+    <wsdl:port name="BasicHttpBinding_IDeliveryLineService" binding="tns:BasicHttpBinding_IDeliveryLineService">
+      <soap:address location="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

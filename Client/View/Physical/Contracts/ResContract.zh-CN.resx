@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddQuota" xml:space="preserve">
+    <value>批次新增</value>
+  </data>
+  <data name="AttachmentList" xml:space="preserve">
+    <value>附件列表</value>
+  </data>
+  <data name="BPWithComa" xml:space="preserve">
+    <value>业务伙伴:</value>
+  </data>
+  <data name="BrandSpec" xml:space="preserve">
+    <value>品牌规格明细</value>
+  </data>
+  <data name="CNYNotFound" xml:space="preserve">
+    <value>没有找到人民币币种！</value>
+  </data>
+  <data name="ContractList" xml:space="preserve">
+    <value>合同列表</value>
+  </data>
+  <data name="ContractListOfLastMonth" xml:space="preserve">
+    <value>上月合同列表</value>
+  </data>
+  <data name="ContractListOfLastYear" xml:space="preserve">
+    <value>去年合同列表</value>
+  </data>
+  <data name="ContractListOfTheMonth" xml:space="preserve">
+    <value>本月合同列表</value>
+  </data>
+  <data name="ContractListOfTheYear" xml:space="preserve">
+    <value>本年合同列表</value>
+  </data>
+  <data name="ContractNoWithComa" xml:space="preserve">
+    <value>合同号:</value>
+  </data>
+  <data name="CopyToPurchase" xml:space="preserve">
+    <value>拷贝至采购</value>
+  </data>
+  <data name="CopyToSales" xml:space="preserve">
+    <value>拷贝至销售</value>
+  </data>
+  <data name="DashboardOfPurchase" xml:space="preserve">
+    <value>采购仪表盘</value>
+  </data>
+  <data name="DashboardOfSales" xml:space="preserve">
+    <value>销售仪表盘</value>
+  </data>
+  <data name="DeliveryDate" xml:space="preserve">
+    <value>交/提货日期</value>
+  </data>
+  <data name="DomesticLong" xml:space="preserve">
+    <value>内贸 - 长单</value>
+  </data>
+  <data name="DomesticPurchaseContractShort" xml:space="preserve">
+    <value>内贸采购合同-短单</value>
+  </data>
+  <data name="DomesticPurchaseQuota" xml:space="preserve">
+    <value>内贸采购批次</value>
+  </data>
+  <data name="DomesticSalesQuota" xml:space="preserve">
+    <value>内贸销售批次</value>
+  </data>
+  <data name="DomesticShort" xml:space="preserve">
+    <value>内贸 - 短单</value>
+  </data>
+  <data name="DomesticVATInvoice" xml:space="preserve">
+    <value>内贸收增票明细</value>
+  </data>
+  <data name="DuringApprovalError" xml:space="preserve">
+    <value>审批中/审批完成的批次无法编辑！</value>
+  </data>
+  <data name="DuringApprovalError2" xml:space="preserve">
+    <value>审批中/审批完成的批次无法作废！</value>
+  </data>
+  <data name="ForeignPurchaseQuota" xml:space="preserve">
+    <value>外贸采购批次</value>
+  </data>
+  <data name="ForeignSalesQuota" xml:space="preserve">
+    <value>外贸销售批次</value>
+  </data>
+  <data name="ImplementedDateNotNull" xml:space="preserve">
+    <value>履约日期不能为空！</value>
+  </data>
+  <data name="ImportLong" xml:space="preserve">
+    <value>进口/转口 - 长单</value>
+  </data>
+  <data name="ImportShort" xml:space="preserve">
+    <value>进口/转口 - 短单</value>
+  </data>
+  <data name="LongContract" xml:space="preserve">
+    <value>长单合同</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="MultiBrand" xml:space="preserve">
+    <value>多品牌</value>
+  </data>
+  <data name="MyDraft" xml:space="preserve">
+    <value>本人草稿</value>
+  </data>
+  <data name="NewDomesticLong" xml:space="preserve">
+    <value>新增内贸长单</value>
+  </data>
+  <data name="NewDomesticShort" xml:space="preserve">
+    <value>新增内贸短单</value>
+  </data>
+  <data name="NewImportLong" xml:space="preserve">
+    <value>新增进口/转口长单</value>
+  </data>
+  <data name="NewImportShort" xml:space="preserve">
+    <value>新增进口/转口短单</value>
+  </data>
+  <data name="OriginContractNo" xml:space="preserve">
+    <value>原始合同号</value>
+  </data>
+  <data name="PremiumError" xml:space="preserve">
+    <value>升贴水输入有误！</value>
+  </data>
+  <data name="PremiumNotNull" xml:space="preserve">
+    <value>升贴水不能为空！</value>
+  </data>
+  <data name="PriceError" xml:space="preserve">
+    <value>价格输入有误！</value>
+  </data>
+  <data name="PricingCurrencyNotNull" xml:space="preserve">
+    <value>价格币种不能为空！</value>
+  </data>
+  <data name="PricingEndDateNotNull" xml:space="preserve">
+    <value>点价截止日期不能为空</value>
+  </data>
+  <data name="PricingRefNotNull" xml:space="preserve">
+    <value>点价基准不能为空！</value>
+  </data>
+  <data name="PricingStartDateNotNull" xml:space="preserve">
+    <value>点价开始日期不能为空</value>
+  </data>
+  <data name="PricingTypeNotNull" xml:space="preserve">
+    <value>点价类型不能为空！</value>
+  </data>
+  <data name="PurchaseAmountOfLastMonth" xml:space="preserve">
+    <value>上月采购额</value>
+  </data>
+  <data name="PurchaseAmountOfLastYear" xml:space="preserve">
+    <value>去年采购额</value>
+  </data>
+  <data name="PurchaseAmountOfTheMonth" xml:space="preserve">
+    <value>本月采购额</value>
+  </data>
+  <data name="PurchaseAmountOfTheYear" xml:space="preserve">
+    <value>本年采购额</value>
+  </data>
+  <data name="PurchaseContractHome" xml:space="preserve">
+    <value>采购合同首页</value>
+  </data>
+  <data name="PurchaseContractQuota" xml:space="preserve">
+    <value>采购合同/批次</value>
+  </data>
+  <data name="QuantityNotNull" xml:space="preserve">
+    <value>数量不能为空！</value>
+  </data>
+  <data name="QuotaInfoRequired" xml:space="preserve">
+    <value>请添加批次信息！</value>
+  </data>
+  <data name="SalesAmountOfLastMonth" xml:space="preserve">
+    <value>上月销售额</value>
+  </data>
+  <data name="SalesAmountOfLastYear" xml:space="preserve">
+    <value>去年销售额</value>
+  </data>
+  <data name="SalesAmountOfTheMonth" xml:space="preserve">
+    <value>本月销售额</value>
+  </data>
+  <data name="SalesAmountOfTheYear" xml:space="preserve">
+    <value>本年销售额</value>
+  </data>
+  <data name="SalesContractHome" xml:space="preserve">
+    <value>销售合同首页</value>
+  </data>
+  <data name="SalesContractQuota" xml:space="preserve">
+    <value>销售合同/批次</value>
+  </data>
+  <data name="ShortContract" xml:space="preserve">
+    <value>短单合同</value>
+  </data>
+  <data name="SignDate" xml:space="preserve">
+    <value>签署日期</value>
+  </data>
+  <data name="SignDateRequired" xml:space="preserve">
+    <value>签署日期不能为空！</value>
+  </data>
+  <data name="SupplierRequired" xml:space="preserve">
+    <value>供应商不能为空！</value>
+  </data>
+</root>

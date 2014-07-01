@@ -1,0 +1,65 @@
+﻿<baseClient:BasePage x:Class="Client.View.Futures.LME.LMEPositionList"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               ResxExtension.DefaultResxName="Client.View.Futures.LME.ResLME"
+               Language="{UICulture}"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+               xmlns:Converters="clr-namespace:Client.Converters" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+               xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+               d:DesignHeight="508" d:DesignWidth="1200" Title="{Resx ResxName=Client.Properties.Resources, Key=LMEPosition}">
+
+    <Page.Resources>
+        <Converters:PositionDirectionConverter x:Key="PositionDirectionConverter" />
+        <Converters:PositionTypeConverter x:Key="PositionTypeConverter" />
+        <RoutedCommand x:Key="ListEdit"></RoutedCommand>
+        <RoutedCommand x:Key="ListDelete"></RoutedCommand>
+        <DataTemplate x:Key="ListActions" DataType="DBEntity:LMEPosition">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btListEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource ListEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btListDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource ListDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource ListEdit}" CanExecute="ListEditCanExecute" Executed="ListEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource ListDelete}" CanExecute="ListDeleteCanExecute"
+                        Executed="ListDeleteExecuted"></CommandBinding>
+    </Page.CommandBindings>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+        <Grid x:Name="rootGrid">
+            <Label Content="{Resx LMEPositionList}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            
+            <my:PagingControl x:Name="pagerList" Margin="6,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <DataGrid Margin="6,77,0,0" x:Name="listGrid" AutoGenerateColumns="False" CanUserAddRows="False"  Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}"
+                      IsReadOnly="true" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Binding="{Binding Commodity.Name}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=TradeDate}" Binding="{Binding TradeDate,StringFormat='yyyy-MM-dd'}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PromptDate}" Binding="{Binding PromptDate,StringFormat='yyyy-MM-dd'}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Lot}" Binding="{Binding LotAmount, StringFormat={x:Static enumEntity:RoundRules.STR_INTEGER}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Direction}"
+                                        Binding="{Binding TradeDirection, Converter={StaticResource PositionDirectionConverter}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PositionType}"
+                                        Binding="{Binding PositionType, Converter={StaticResource PositionTypeConverter}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=AgentCommission}" Binding="{Binding AgentCommission, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=CustomerCommission}" Binding="{Binding ClientCommission, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BP}" Binding="{Binding Client.ShortName}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Futures.LME.ResLME, Key=CustomerPrice}" Binding="{Binding ClientPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Broker}" Binding="{Binding Agent.ShortName}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Futures.LME.ResLME, Key=BrokerPrice}" Binding="{Binding AgentPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" Binding="{Binding Quota.QuotaNo}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Binding="{Binding InternalBP.ShortName}" />
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                            CellTemplate="{StaticResource ListActions}"></DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

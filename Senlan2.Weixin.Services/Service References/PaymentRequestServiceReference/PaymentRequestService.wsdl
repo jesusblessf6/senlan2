@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PaymentRequestService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DBEntity" />
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Utility.Misc" />
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" />
+      <xsd:import schemaLocation="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/DBEntity.EnableProperty" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPaymentRequestService_GetById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetById" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetAllCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCount" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetAllCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_FetchCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchCount" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_FetchCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCount" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRange" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_FetchById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchById" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_FetchById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_FetchAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAll" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_FetchAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_FetchAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_FetchAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_FetchByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRange" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_FetchByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_FetchByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_FetchByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Query_InputMessage">
+    <wsdl:part name="parameters" element="tns:Query" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Query_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_QueryByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRange" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_QueryByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_QueryByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_QueryByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Select_InputMessage">
+    <wsdl:part name="parameters" element="tns:Select" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Select_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRange" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectByRangeWithMultiOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrder" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectByRangeWithMultiOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectByRangeWithMultiOrderLazyLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderLazyLoad" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectByRangeWithMultiOrderLazyLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderLazyLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Create_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q1:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_CreateNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNew" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_CreateNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_CreateNew_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q2:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_DeleteById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteById" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_DeleteById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_DeleteById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q3:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Delete_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q4:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Update_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q5:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_UpdateExisted_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExisted" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_UpdateExisted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_UpdateExisted_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q6:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Remove_InputMessage">
+    <wsdl:part name="parameters" element="tns:Remove" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Remove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_Remove_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q7:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_RemoveById_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveById" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_RemoveById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_RemoveById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q8:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectSum_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectSum" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectSum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectSum_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q9:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectById_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectById" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q10:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectWithMultiOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrder" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectWithMultiOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectWithMultiOrder_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q11:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectWithMultiOrderLazyLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderLazyLoad" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectWithMultiOrderLazyLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderLazyLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SelectWithMultiOrderLazyLoad_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q12:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_UpdateExistedPaymentRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedPaymentRequest" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_UpdateExistedPaymentRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedPaymentRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_CreatePaymentRequestDeliveryLine_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePaymentRequestDeliveryLine" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_CreatePaymentRequestDeliveryLine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePaymentRequestDeliveryLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_UpdatePaymentRequestDeliveryLine_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentRequestDeliveryLine" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_UpdatePaymentRequestDeliveryLine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentRequestDeliveryLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_UpdatePaymentRequestIsPaid_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentRequestIsPaid" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_UpdatePaymentRequestIsPaid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentRequestIsPaidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetPaymentRequestAmountSumByQuota_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentRequestAmountSumByQuota" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetPaymentRequestAmountSumByQuota_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentRequestAmountSumByQuotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetPaymentRequestAmountSumByInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentRequestAmountSumByInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_GetPaymentRequestAmountSumByInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentRequestAmountSumByInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SetElementsEnableProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetElementsEnableProperty" />
+  </wsdl:message>
+  <wsdl:message name="IPaymentRequestService_SetElementsEnableProperty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetElementsEnablePropertyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPaymentRequestService">
+    <wsdl:operation name="GetById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetById" message="tns:IPaymentRequestService_GetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetByIdResponse" message="tns:IPaymentRequestService_GetById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetAllCount" message="tns:IPaymentRequestService_GetAllCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetAllCountResponse" message="tns:IPaymentRequestService_GetAllCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/FetchCount" message="tns:IPaymentRequestService_FetchCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/FetchCountResponse" message="tns:IPaymentRequestService_FetchCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetCount" message="tns:IPaymentRequestService_GetCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetCountResponse" message="tns:IPaymentRequestService_GetCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetAll" message="tns:IPaymentRequestService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetAllResponse" message="tns:IPaymentRequestService_GetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetAllWithOrder" message="tns:IPaymentRequestService_GetAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetAllWithOrderResponse" message="tns:IPaymentRequestService_GetAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetByRange" message="tns:IPaymentRequestService_GetByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetByRangeResponse" message="tns:IPaymentRequestService_GetByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetByRangeWithOrder" message="tns:IPaymentRequestService_GetByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/GetByRangeWithOrderResponse" message="tns:IPaymentRequestService_GetByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/FetchById" message="tns:IPaymentRequestService_FetchById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/FetchByIdResponse" message="tns:IPaymentRequestService_FetchById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/FetchAll" message="tns:IPaymentRequestService_FetchAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/FetchAllResponse" message="tns:IPaymentRequestService_FetchAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/FetchAllWithOrder" message="tns:IPaymentRequestService_FetchAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/FetchAllWithOrderResponse" message="tns:IPaymentRequestService_FetchAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/FetchByRange" message="tns:IPaymentRequestService_FetchByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/FetchByRangeResponse" message="tns:IPaymentRequestService_FetchByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/FetchByRangeWithOrder" message="tns:IPaymentRequestService_FetchByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/FetchByRangeWithOrderResponse" message="tns:IPaymentRequestService_FetchByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/Query" message="tns:IPaymentRequestService_Query_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/QueryResponse" message="tns:IPaymentRequestService_Query_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/QueryByRange" message="tns:IPaymentRequestService_QueryByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/QueryByRangeResponse" message="tns:IPaymentRequestService_QueryByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/QueryByRangeWithOrder" message="tns:IPaymentRequestService_QueryByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/QueryByRangeWithOrderResponse" message="tns:IPaymentRequestService_QueryByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/Select" message="tns:IPaymentRequestService_Select_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectResponse" message="tns:IPaymentRequestService_Select_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectByRange" message="tns:IPaymentRequestService_SelectByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectByRangeResponse" message="tns:IPaymentRequestService_SelectByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectByRangeWithOrder" message="tns:IPaymentRequestService_SelectByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectByRangeWithOrderResponse" message="tns:IPaymentRequestService_SelectByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectByRangeWithMultiOrder" message="tns:IPaymentRequestService_SelectByRangeWithMultiOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectByRangeWithMultiOrderResponse" message="tns:IPaymentRequestService_SelectByRangeWithMultiOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrderLazyLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectByRangeWithMultiOrderLazyLoad" message="tns:IPaymentRequestService_SelectByRangeWithMultiOrderLazyLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectByRangeWithMultiOrderLazyLoadResponse" message="tns:IPaymentRequestService_SelectByRangeWithMultiOrderLazyLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/Create" message="tns:IPaymentRequestService_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/CreateResponse" message="tns:IPaymentRequestService_Create_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/CreateServerErrFault" name="ServerErrFault" message="tns:IPaymentRequestService_Create_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/CreateNew" message="tns:IPaymentRequestService_CreateNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/CreateNewResponse" message="tns:IPaymentRequestService_CreateNew_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/CreateNewServerErrFault" name="ServerErrFault" message="tns:IPaymentRequestService_CreateNew_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/DeleteById" message="tns:IPaymentRequestService_DeleteById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/DeleteByIdResponse" message="tns:IPaymentRequestService_DeleteById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/DeleteByIdServerErrFault" name="ServerErrFault" message="tns:IPaymentRequestService_DeleteById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/Delete" message="tns:IPaymentRequestService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/DeleteResponse" message="tns:IPaymentRequestService_Delete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/DeleteServerErrFault" name="ServerErrFault" message="tns:IPaymentRequestService_Delete_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/Update" message="tns:IPaymentRequestService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/UpdateResponse" message="tns:IPaymentRequestService_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/UpdateServerErrFault" name="ServerErrFault" message="tns:IPaymentRequestService_Update_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/UpdateExisted" message="tns:IPaymentRequestService_UpdateExisted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/UpdateExistedResponse" message="tns:IPaymentRequestService_UpdateExisted_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/UpdateExistedServerErrFault" name="ServerErrFault" message="tns:IPaymentRequestService_UpdateExisted_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/Remove" message="tns:IPaymentRequestService_Remove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/RemoveResponse" message="tns:IPaymentRequestService_Remove_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/RemoveServerErrFault" name="ServerErrFault" message="tns:IPaymentRequestService_Remove_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/RemoveById" message="tns:IPaymentRequestService_RemoveById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/RemoveByIdResponse" message="tns:IPaymentRequestService_RemoveById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/RemoveByIdServerErrFault" name="ServerErrFault" message="tns:IPaymentRequestService_RemoveById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectSum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectSum" message="tns:IPaymentRequestService_SelectSum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectSumResponse" message="tns:IPaymentRequestService_SelectSum_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectSumServerErrFault" name="ServerErrFault" message="tns:IPaymentRequestService_SelectSum_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectById" message="tns:IPaymentRequestService_SelectById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectByIdResponse" message="tns:IPaymentRequestService_SelectById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectByIdServerErrFault" name="ServerErrFault" message="tns:IPaymentRequestService_SelectById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectWithMultiOrder" message="tns:IPaymentRequestService_SelectWithMultiOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectWithMultiOrderResponse" message="tns:IPaymentRequestService_SelectWithMultiOrder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectWithMultiOrderServerErrFault" name="ServerErrFault" message="tns:IPaymentRequestService_SelectWithMultiOrder_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrderLazyLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectWithMultiOrderLazyLoad" message="tns:IPaymentRequestService_SelectWithMultiOrderLazyLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectWithMultiOrderLazyLoadResponse" message="tns:IPaymentRequestService_SelectWithMultiOrderLazyLoad_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_PaymentRequest/SelectWithMultiOrderLazyLoadServerErrFault" name="ServerErrFault" message="tns:IPaymentRequestService_SelectWithMultiOrderLazyLoad_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistedPaymentRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentRequestService/UpdateExistedPaymentRequest" message="tns:IPaymentRequestService_UpdateExistedPaymentRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentRequestService/UpdateExistedPaymentRequestResponse" message="tns:IPaymentRequestService_UpdateExistedPaymentRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePaymentRequestDeliveryLine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentRequestService/CreatePaymentRequestDeliveryLine" message="tns:IPaymentRequestService_CreatePaymentRequestDeliveryLine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentRequestService/CreatePaymentRequestDeliveryLineResponse" message="tns:IPaymentRequestService_CreatePaymentRequestDeliveryLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentRequestDeliveryLine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentRequestService/UpdatePaymentRequestDeliveryLine" message="tns:IPaymentRequestService_UpdatePaymentRequestDeliveryLine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentRequestService/UpdatePaymentRequestDeliveryLineResponse" message="tns:IPaymentRequestService_UpdatePaymentRequestDeliveryLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentRequestIsPaid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentRequestService/UpdatePaymentRequestIsPaid" message="tns:IPaymentRequestService_UpdatePaymentRequestIsPaid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentRequestService/UpdatePaymentRequestIsPaidResponse" message="tns:IPaymentRequestService_UpdatePaymentRequestIsPaid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentRequestAmountSumByQuota">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentRequestService/GetPaymentRequestAmountSumByQuota" message="tns:IPaymentRequestService_GetPaymentRequestAmountSumByQuota_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentRequestService/GetPaymentRequestAmountSumByQuotaResponse" message="tns:IPaymentRequestService_GetPaymentRequestAmountSumByQuota_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentRequestAmountSumByInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentRequestService/GetPaymentRequestAmountSumByInvoice" message="tns:IPaymentRequestService_GetPaymentRequestAmountSumByInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentRequestService/GetPaymentRequestAmountSumByInvoiceResponse" message="tns:IPaymentRequestService_GetPaymentRequestAmountSumByInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetElementsEnableProperty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPaymentRequestService/SetElementsEnableProperty" message="tns:IPaymentRequestService_SetElementsEnableProperty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPaymentRequestService/SetElementsEnablePropertyResponse" message="tns:IPaymentRequestService_SetElementsEnableProperty_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPaymentRequestService" type="tns:IPaymentRequestService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/GetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/GetAllCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/FetchCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/GetCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/GetAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/GetByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/GetByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/FetchById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/FetchAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/FetchAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/FetchByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/FetchByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/Query" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/QueryByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/QueryByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/Select" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/SelectByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/SelectByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/SelectByRangeWithMultiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrderLazyLoad">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/SelectByRangeWithMultiOrderLazyLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/CreateNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/DeleteById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/UpdateExisted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/RemoveById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectSum">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/SelectSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/SelectById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/SelectWithMultiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrderLazyLoad">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_PaymentRequest/SelectWithMultiOrderLazyLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistedPaymentRequest">
+      <soap:operation soapAction="http://tempuri.org/IPaymentRequestService/UpdateExistedPaymentRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePaymentRequestDeliveryLine">
+      <soap:operation soapAction="http://tempuri.org/IPaymentRequestService/CreatePaymentRequestDeliveryLine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentRequestDeliveryLine">
+      <soap:operation soapAction="http://tempuri.org/IPaymentRequestService/UpdatePaymentRequestDeliveryLine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentRequestIsPaid">
+      <soap:operation soapAction="http://tempuri.org/IPaymentRequestService/UpdatePaymentRequestIsPaid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentRequestAmountSumByQuota">
+      <soap:operation soapAction="http://tempuri.org/IPaymentRequestService/GetPaymentRequestAmountSumByQuota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentRequestAmountSumByInvoice">
+      <soap:operation soapAction="http://tempuri.org/IPaymentRequestService/GetPaymentRequestAmountSumByInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetElementsEnableProperty">
+      <soap:operation soapAction="http://tempuri.org/IPaymentRequestService/SetElementsEnableProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentRequestService">
+    <wsdl:port name="BasicHttpBinding_IPaymentRequestService" binding="tns:BasicHttpBinding_IPaymentRequestService">
+      <soap:address location="http://localhost:1558/Physical/Payments/PaymentRequestService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

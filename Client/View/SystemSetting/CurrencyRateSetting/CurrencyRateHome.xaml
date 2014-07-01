@@ -1,0 +1,122 @@
+﻿<baseClient:BasePage x:Class="Client.View.SystemSetting.CurrencyRateSetting.CurrencyRateHome"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               ResxExtension.DefaultResxName="Client.View.SystemSetting.CurrencyRateSetting.ResCurrencyRateSetting" 
+               Language="{UICulture}"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:c="clr-namespace:Client.Converters" xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+               mc:Ignorable="d"
+               d:DesignHeight="362" d:DesignWidth="412" Title="{Resx CurrencyAndRate}">
+
+    <Page.Resources>
+
+        <c:BoolReverseConverter x:Key="BoolConverter"></c:BoolReverseConverter>
+
+        <RoutedCommand x:Key="CurrencyEdit"></RoutedCommand>
+        <RoutedCommand x:Key="CurrencyDelete"></RoutedCommand>
+        <RoutedCommand x:Key="CurrencyView"></RoutedCommand>
+
+        <RoutedCommand x:Key="RateEdit"></RoutedCommand>
+        <RoutedCommand x:Key="RateDelete"></RoutedCommand>
+        <RoutedCommand x:Key="RateView"></RoutedCommand>
+
+        <DataTemplate x:Key="CurrencyActions" DataType="DBEntity:Currency">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btCurrencyEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource CurrencyEdit}"
+                        CommandParameter="{Binding Id}" IsEnabled="{Binding IsSystem, Converter={StaticResource BoolConverter}}"></Button>
+                <Button Name="btCurrencyDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource CurrencyDelete}"
+                        CommandParameter="{Binding Id}" IsEnabled="{Binding IsSystem, Converter={StaticResource BoolConverter}}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="RateActions" DataType="DBEntity:Rate">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btRateEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource RateEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btRateDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource RateDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CurrencyLink" DataType="DBEntity:Currency">
+            <TextBlock>
+                <Hyperlink Command="{StaticResource CurrencyView}" CommandParameter="{Binding Id}">
+                    <Run Text="{Binding Name}"></Run>
+                </Hyperlink>
+            </TextBlock>
+        </DataTemplate>
+        <DataTemplate x:Key="RateLink" DataType="DBEntity:Rate">
+            <TextBlock>
+                <Hyperlink Command="{StaticResource RateView}" CommandParameter="{Binding Id}">
+                    <Run Text="{Binding RateValue, StringFormat=N}"></Run>
+                </Hyperlink>
+            </TextBlock>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource CurrencyEdit}" CanExecute="CurrencyEditCanExecute"
+                        Executed="CurrencyEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource CurrencyDelete}" CanExecute="CurrencyDeleteCanExecute"
+                        Executed="CurrencyDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource CurrencyView}" CanExecute="CurrencyViewCanExecute"
+                        Executed="CurrencyViewExecuted"></CommandBinding>
+
+        <CommandBinding Command="{StaticResource RateEdit}" CanExecute="RateEditCanExecute" Executed="RateEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource RateDelete}" CanExecute="RateDeleteCanExecute"
+                        Executed="RateDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource RateView}" CanExecute="RateViewCanExecute" Executed="RateViewExecuted"></CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx CurrencyAndRate}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <TabControl Margin="6,40,0,0" Name="tabControl1" MinHeight="300" Height="Auto" Width="394"
+                        HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TabItem Header="{Resx ResxName=Client.Properties.Resources, Key=Currency}" Name="tiCurrency">
+                    <Grid>
+                        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0" Name="button1"
+                                VerticalAlignment="Top" Width="45" Click="Button1Click" />
+                        <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left"
+                                  Margin="6,38,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding Currencies}"
+                                  IsReadOnly="True" LoadingRow="DataGrid1LoadingRow">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="{Resx ResxName=Client.View.SystemSetting.CurrencyRateSetting.ResCurrencyRateSetting, Key=CurrencyName}" Width="Auto" CanUserSort="True"
+                                                        SortMemberPath="Name" CellTemplate="{StaticResource CurrencyLink}"></DataGridTemplateColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.CurrencyRateSetting.ResCurrencyRateSetting, Key=CurrencyCode}" Width="Auto" CanUserSort="True"
+                                                    Binding="{Binding Code}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True"
+                                                    Binding="{Binding Description}"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                                        CellTemplate="{StaticResource CurrencyActions}"></DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{Resx ResxName=Client.Properties.Resources, Key=ExchangeRate}" Name="tiRate">
+                    <Grid>
+                        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0" Name="btRate"
+                                VerticalAlignment="Top" Width="45" Click="BtRateClick" />
+                        <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left"
+                                  Margin="6,38,0,0" Name="ratedataGrid" VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding Rates}"
+                                  IsReadOnly="True" LoadingRow="RatedataGridLoadingRow">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.CurrencyRateSetting.ResCurrencyRateSetting, Key=CurrencyName}" Width="Auto" CanUserSort="True"
+                                                    Binding="{Binding Currency.Name}"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ExchangeRate}" Width="Auto" CanUserSort="True"
+                                                        SortMemberPath="RateValue" CellTemplate="{StaticResource RateLink}"></DataGridTemplateColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True"
+                                                    Binding="{Binding Description}"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                                        CellTemplate="{StaticResource  RateActions}"></DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

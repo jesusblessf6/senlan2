@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FundFlowService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DBEntity" />
+      <xsd:import schemaLocation="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Utility.Misc" />
+      <xsd:import schemaLocation="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" />
+      <xsd:import schemaLocation="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/DBEntity.EnableProperty" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFundFlowService_GetById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetById" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetAllCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCount" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetAllCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_FetchCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchCount" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_FetchCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCount" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRange" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_FetchById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchById" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_FetchById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_FetchAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAll" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_FetchAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_FetchAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_FetchAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_FetchByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRange" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_FetchByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_FetchByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_FetchByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Query_InputMessage">
+    <wsdl:part name="parameters" element="tns:Query" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Query_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_QueryByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRange" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_QueryByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_QueryByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_QueryByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Select_InputMessage">
+    <wsdl:part name="parameters" element="tns:Select" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Select_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRange" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectByRangeWithMultiOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrder" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectByRangeWithMultiOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectByRangeWithMultiOrderLazyLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderLazyLoad" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectByRangeWithMultiOrderLazyLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderLazyLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Create_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q1:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_CreateNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNew" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_CreateNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_CreateNew_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q2:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_DeleteById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteById" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_DeleteById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_DeleteById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q3:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Delete_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q4:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Update_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q5:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_UpdateExisted_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExisted" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_UpdateExisted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_UpdateExisted_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q6:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Remove_InputMessage">
+    <wsdl:part name="parameters" element="tns:Remove" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Remove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_Remove_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q7:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_RemoveById_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveById" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_RemoveById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_RemoveById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q8:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectSum_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectSum" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectSum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectSum_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q9:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectById_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectById" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q10:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectWithMultiOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrder" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectWithMultiOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectWithMultiOrder_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q11:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectWithMultiOrderLazyLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderLazyLoad" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectWithMultiOrderLazyLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderLazyLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SelectWithMultiOrderLazyLoad_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q12:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_UpdateFundFlow_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFundFlow" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_UpdateFundFlow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFundFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_AddNewFundFlow_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewFundFlow" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_AddNewFundFlow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewFundFlowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetListByParameter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListByParameter" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_GetListByParameter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListByParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SetElementsEnableProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetElementsEnableProperty" />
+  </wsdl:message>
+  <wsdl:message name="IFundFlowService_SetElementsEnableProperty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetElementsEnablePropertyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFundFlowService">
+    <wsdl:operation name="GetById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetById" message="tns:IFundFlowService_GetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetByIdResponse" message="tns:IFundFlowService_GetById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetAllCount" message="tns:IFundFlowService_GetAllCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetAllCountResponse" message="tns:IFundFlowService_GetAllCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/FetchCount" message="tns:IFundFlowService_FetchCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/FetchCountResponse" message="tns:IFundFlowService_FetchCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetCount" message="tns:IFundFlowService_GetCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetCountResponse" message="tns:IFundFlowService_GetCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetAll" message="tns:IFundFlowService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetAllResponse" message="tns:IFundFlowService_GetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetAllWithOrder" message="tns:IFundFlowService_GetAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetAllWithOrderResponse" message="tns:IFundFlowService_GetAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetByRange" message="tns:IFundFlowService_GetByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetByRangeResponse" message="tns:IFundFlowService_GetByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetByRangeWithOrder" message="tns:IFundFlowService_GetByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/GetByRangeWithOrderResponse" message="tns:IFundFlowService_GetByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/FetchById" message="tns:IFundFlowService_FetchById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/FetchByIdResponse" message="tns:IFundFlowService_FetchById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/FetchAll" message="tns:IFundFlowService_FetchAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/FetchAllResponse" message="tns:IFundFlowService_FetchAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/FetchAllWithOrder" message="tns:IFundFlowService_FetchAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/FetchAllWithOrderResponse" message="tns:IFundFlowService_FetchAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/FetchByRange" message="tns:IFundFlowService_FetchByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/FetchByRangeResponse" message="tns:IFundFlowService_FetchByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/FetchByRangeWithOrder" message="tns:IFundFlowService_FetchByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/FetchByRangeWithOrderResponse" message="tns:IFundFlowService_FetchByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/Query" message="tns:IFundFlowService_Query_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/QueryResponse" message="tns:IFundFlowService_Query_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/QueryByRange" message="tns:IFundFlowService_QueryByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/QueryByRangeResponse" message="tns:IFundFlowService_QueryByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/QueryByRangeWithOrder" message="tns:IFundFlowService_QueryByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/QueryByRangeWithOrderResponse" message="tns:IFundFlowService_QueryByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/Select" message="tns:IFundFlowService_Select_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectResponse" message="tns:IFundFlowService_Select_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectByRange" message="tns:IFundFlowService_SelectByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectByRangeResponse" message="tns:IFundFlowService_SelectByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectByRangeWithOrder" message="tns:IFundFlowService_SelectByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectByRangeWithOrderResponse" message="tns:IFundFlowService_SelectByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectByRangeWithMultiOrder" message="tns:IFundFlowService_SelectByRangeWithMultiOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectByRangeWithMultiOrderResponse" message="tns:IFundFlowService_SelectByRangeWithMultiOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrderLazyLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectByRangeWithMultiOrderLazyLoad" message="tns:IFundFlowService_SelectByRangeWithMultiOrderLazyLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectByRangeWithMultiOrderLazyLoadResponse" message="tns:IFundFlowService_SelectByRangeWithMultiOrderLazyLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/Create" message="tns:IFundFlowService_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/CreateResponse" message="tns:IFundFlowService_Create_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/CreateServerErrFault" name="ServerErrFault" message="tns:IFundFlowService_Create_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/CreateNew" message="tns:IFundFlowService_CreateNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/CreateNewResponse" message="tns:IFundFlowService_CreateNew_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/CreateNewServerErrFault" name="ServerErrFault" message="tns:IFundFlowService_CreateNew_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/DeleteById" message="tns:IFundFlowService_DeleteById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/DeleteByIdResponse" message="tns:IFundFlowService_DeleteById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/DeleteByIdServerErrFault" name="ServerErrFault" message="tns:IFundFlowService_DeleteById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/Delete" message="tns:IFundFlowService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/DeleteResponse" message="tns:IFundFlowService_Delete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/DeleteServerErrFault" name="ServerErrFault" message="tns:IFundFlowService_Delete_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/Update" message="tns:IFundFlowService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/UpdateResponse" message="tns:IFundFlowService_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/UpdateServerErrFault" name="ServerErrFault" message="tns:IFundFlowService_Update_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/UpdateExisted" message="tns:IFundFlowService_UpdateExisted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/UpdateExistedResponse" message="tns:IFundFlowService_UpdateExisted_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/UpdateExistedServerErrFault" name="ServerErrFault" message="tns:IFundFlowService_UpdateExisted_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/Remove" message="tns:IFundFlowService_Remove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/RemoveResponse" message="tns:IFundFlowService_Remove_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/RemoveServerErrFault" name="ServerErrFault" message="tns:IFundFlowService_Remove_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/RemoveById" message="tns:IFundFlowService_RemoveById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/RemoveByIdResponse" message="tns:IFundFlowService_RemoveById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/RemoveByIdServerErrFault" name="ServerErrFault" message="tns:IFundFlowService_RemoveById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectSum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectSum" message="tns:IFundFlowService_SelectSum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectSumResponse" message="tns:IFundFlowService_SelectSum_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectSumServerErrFault" name="ServerErrFault" message="tns:IFundFlowService_SelectSum_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectById" message="tns:IFundFlowService_SelectById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectByIdResponse" message="tns:IFundFlowService_SelectById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectByIdServerErrFault" name="ServerErrFault" message="tns:IFundFlowService_SelectById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectWithMultiOrder" message="tns:IFundFlowService_SelectWithMultiOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectWithMultiOrderResponse" message="tns:IFundFlowService_SelectWithMultiOrder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectWithMultiOrderServerErrFault" name="ServerErrFault" message="tns:IFundFlowService_SelectWithMultiOrder_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrderLazyLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectWithMultiOrderLazyLoad" message="tns:IFundFlowService_SelectWithMultiOrderLazyLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectWithMultiOrderLazyLoadResponse" message="tns:IFundFlowService_SelectWithMultiOrderLazyLoad_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_FundFlow/SelectWithMultiOrderLazyLoadServerErrFault" name="ServerErrFault" message="tns:IFundFlowService_SelectWithMultiOrderLazyLoad_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFundFlow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFundFlowService/UpdateFundFlow" message="tns:IFundFlowService_UpdateFundFlow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFundFlowService/UpdateFundFlowResponse" message="tns:IFundFlowService_UpdateFundFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewFundFlow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFundFlowService/AddNewFundFlow" message="tns:IFundFlowService_AddNewFundFlow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFundFlowService/AddNewFundFlowResponse" message="tns:IFundFlowService_AddNewFundFlow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListByParameter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFundFlowService/GetListByParameter" message="tns:IFundFlowService_GetListByParameter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFundFlowService/GetListByParameterResponse" message="tns:IFundFlowService_GetListByParameter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetElementsEnableProperty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFundFlowService/SetElementsEnableProperty" message="tns:IFundFlowService_SetElementsEnableProperty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFundFlowService/SetElementsEnablePropertyResponse" message="tns:IFundFlowService_SetElementsEnableProperty_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFundFlowService" type="tns:IFundFlowService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/GetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/GetAllCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/FetchCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/GetCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/GetAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/GetByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/GetByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/FetchById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/FetchAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/FetchAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/FetchByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/FetchByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/Query" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/QueryByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/QueryByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/Select" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/SelectByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/SelectByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/SelectByRangeWithMultiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrderLazyLoad">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/SelectByRangeWithMultiOrderLazyLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/CreateNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/DeleteById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/UpdateExisted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/RemoveById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectSum">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/SelectSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/SelectById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/SelectWithMultiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrderLazyLoad">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_FundFlow/SelectWithMultiOrderLazyLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFundFlow">
+      <soap:operation soapAction="http://tempuri.org/IFundFlowService/UpdateFundFlow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewFundFlow">
+      <soap:operation soapAction="http://tempuri.org/IFundFlowService/AddNewFundFlow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListByParameter">
+      <soap:operation soapAction="http://tempuri.org/IFundFlowService/GetListByParameter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetElementsEnableProperty">
+      <soap:operation soapAction="http://tempuri.org/IFundFlowService/SetElementsEnableProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FundFlowService">
+    <wsdl:port name="BasicHttpBinding_IFundFlowService" binding="tns:BasicHttpBinding_IFundFlowService">
+      <soap:address location="http://localhost:1558/Finance/FundFlows/FundFlowService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

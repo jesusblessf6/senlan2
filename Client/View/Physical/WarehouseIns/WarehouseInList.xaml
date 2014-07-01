@@ -1,0 +1,102 @@
+﻿<baseClient:BasePage x:Class="Client.View.Physical.WarehouseIns.WarehouseInList"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="600"
+               ResxExtension.DefaultResxName="Client.View.Physical.WarehouseIns.ResWarehouseIn" 
+               Language="{UICulture}"
+               Title="{Resx WarehouseInList}" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+               xmlns:Converters="clr-namespace:Client.Converters"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+               xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient">
+    
+    <Page.Resources>
+        <Converters:IsVerifiedConverter x:Key="IsVerifiedConverter" />
+
+        <RoutedCommand x:Key="WarehouseInEdit"></RoutedCommand>
+        <RoutedCommand x:Key="WarehouseInDelete"></RoutedCommand>
+        <RoutedCommand x:Key="WarehouseInPrint"></RoutedCommand>
+
+        <DataTemplate x:Key="WarehouseInActions" DataType="DBEntity:WarehouseIn">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btWarehouseInEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource WarehouseInEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btWarehouseInDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource WarehouseInDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="WarehouseInAction" DataType="DBEntity:WarehouseIn">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btPrint" Content="{Resx ResxName=Client.Properties.Resources, Key=Print}" Command="{StaticResource WarehouseInPrint}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource WarehouseInEdit}" CanExecute="WarehouseInEditCanExecute"
+                        Executed="WarehouseInEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource WarehouseInDelete}" CanExecute="WarehouseInDeleteCanExecute"
+                        Executed="WarehouseInDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource WarehouseInPrint}" CanExecute="WarehouseInPrintCanExecute"
+                        Executed="WarehouseInPrintExecuted"></CommandBinding>
+    </Page.CommandBindings>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx WarehouseInList}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <StackPanel Orientation="Horizontal" Margin="6,40,0,0" HorizontalAlignment="Left" Width="Auto" Height="Auto" VerticalAlignment="Top">
+                <my:PagingControl x:Name="pagerContract" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Button Margin="10,0,0,0" Content="打印入库单" Click="ButtonClick" Height="23" Visibility="Collapsed"></Button>
+            </StackPanel>
+            
+            <DataGrid Margin="6,77,0,0" x:Name="warehouseInGrid" AutoGenerateColumns="False" CanUserAddRows="False" Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}"
+                      IsReadOnly="true" HorizontalAlignment="Left" VerticalAlignment="Top" RowDetailsVisibilityMode="Visible">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="Auto" IsReadOnly="True">
+                        <DataGridTemplateColumn.Header>
+                            <CheckBox IsChecked="{Binding IsSelectAll}" Name="cbSelectAll" Content="全选" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"></CheckBox>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="DBEntity:WarehouseIn">
+                                <CheckBox IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding Printable}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"></CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Physical.WarehouseIns.ResWarehouseIn, Key=WarehouseInDate}" Binding="{Binding WarehouseInDate,StringFormat='yyyy/MM/dd'}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Warehouse}" Binding="{Binding Warehouse.Name}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuantityConfirm}" Binding="{Binding IsVerified, Converter={StaticResource IsVerifiedConverter}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Binding="{Binding Comment}" />
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                                        CellTemplate="{StaticResource WarehouseInAction}" Visibility="Collapsed"></DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate DataType="DBEntity:WarehouseIn">
+                        <DataGrid Name="dataGridDetail" ItemsSource="{Binding WarehouseInLines}"
+                                  AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="true" Margin="6,2,0,15">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Supplier}"
+                                                    Binding="{Binding DeliveryLine.Delivery.Quota.Contract.BusinessPartner.ShortName}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}"
+                                                    Binding="{Binding DeliveryLine.Delivery.Quota.Contract.InternalCustomer.ShortName}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="卡号" Binding="{Binding PBNo}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}"
+                                                    Binding="{Binding DeliveryLine.Delivery.Quota.Commodity.Name}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Binding="{Binding Brand.Name}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Quantity}" Binding="{Binding Quantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ActualQuantity}" Binding="{Binding VerifiedQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuantityConfirm}"
+                                                    Binding="{Binding IsVerified, Converter={StaticResource IsVerifiedConverter}}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Binding="{Binding Comment}"></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                                        CellTemplate="{StaticResource WarehouseInActions}"></DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

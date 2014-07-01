@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1558/SystemSetting/ContractUDFService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DBEntity" />
+  <xs:import schemaLocation="http://localhost:1558/SystemSetting/ContractUDFService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:1558/SystemSetting/ContractUDFService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Utility.Misc" />
+  <xs:element name="GetById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="GetByIdResult" nillable="true" type="q1:ContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCount">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAllCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q2:ArrayOfanyType" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="includes" nillable="true" type="q3:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FetchCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q4:ArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="GetAllResult" nillable="true" type="q5:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllWithOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Utility.Misc" minOccurs="0" name="sortCol" nillable="true" type="q6:SortCol" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllWithOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="GetAllWithOrderResult" nillable="true" type="q7:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="from" type="xs:int" />
+        <xs:element minOccurs="0" name="to" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="GetByRangeResult" nillable="true" type="q8:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByRangeWithOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Utility.Misc" minOccurs="0" name="sortCol" nillable="true" type="q9:SortCol" />
+        <xs:element minOccurs="0" name="from" type="xs:int" />
+        <xs:element minOccurs="0" name="to" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByRangeWithOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="GetByRangeWithOrderResult" nillable="true" type="q10:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerLoadProperties" nillable="true" type="q11:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="FetchByIdResult" nillable="true" type="q12:ContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerLoadProperties" nillable="true" type="q13:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="FetchAllResult" nillable="true" type="q14:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchAllWithOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Utility.Misc" minOccurs="0" name="sortCol" nillable="true" type="q15:SortCol" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerLoadProperties" nillable="true" type="q16:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchAllWithOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="FetchAllWithOrderResult" nillable="true" type="q17:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchByRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="from" type="xs:int" />
+        <xs:element minOccurs="0" name="to" type="xs:int" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerLoadProperties" nillable="true" type="q18:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchByRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="FetchByRangeResult" nillable="true" type="q19:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchByRangeWithOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Utility.Misc" minOccurs="0" name="sortCol" nillable="true" type="q20:SortCol" />
+        <xs:element minOccurs="0" name="from" type="xs:int" />
+        <xs:element minOccurs="0" name="to" type="xs:int" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerLoadProperties" nillable="true" type="q21:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FetchByRangeWithOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="FetchByRangeWithOrderResult" nillable="true" type="q22:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Query">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q23:ArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="QueryResult" nillable="true" type="q24:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryByRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q25:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="from" type="xs:int" />
+        <xs:element minOccurs="0" name="to" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryByRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="QueryByRangeResult" nillable="true" type="q26:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryByRangeWithOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q27:ArrayOfanyType" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Utility.Misc" minOccurs="0" name="sortCol" nillable="true" type="q28:SortCol" />
+        <xs:element minOccurs="0" name="from" type="xs:int" />
+        <xs:element minOccurs="0" name="to" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryByRangeWithOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="QueryByRangeWithOrderResult" nillable="true" type="q29:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Select">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q30:ArrayOfanyType" />
+        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerLoadProperties" nillable="true" type="q31:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="SelectResult" nillable="true" type="q32:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectByRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q33:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="from" type="xs:int" />
+        <xs:element minOccurs="0" name="to" type="xs:int" />
+        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerLoadProperties" nillable="true" type="q34:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectByRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="SelectByRangeResult" nillable="true" type="q35:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectByRangeWithOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q36:ArrayOfanyType" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Utility.Misc" minOccurs="0" name="sortCol" nillable="true" type="q37:SortCol" />
+        <xs:element minOccurs="0" name="from" type="xs:int" />
+        <xs:element minOccurs="0" name="to" type="xs:int" />
+        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerLoadProperties" nillable="true" type="q38:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectByRangeWithOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="SelectByRangeWithOrderResult" nillable="true" type="q39:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectByRangeWithMultiOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q40:ArrayOfanyType" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Utility.Misc" minOccurs="0" name="sortCols" nillable="true" type="q41:ArrayOfSortCol" />
+        <xs:element minOccurs="0" name="from" type="xs:int" />
+        <xs:element minOccurs="0" name="to" type="xs:int" />
+        <xs:element xmlns:q42="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerLoadProperties" nillable="true" type="q42:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectByRangeWithMultiOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="SelectByRangeWithMultiOrderResult" nillable="true" type="q43:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectByRangeWithMultiOrderLazyLoad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q44:ArrayOfanyType" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Utility.Misc" minOccurs="0" name="sortCols" nillable="true" type="q45:ArrayOfSortCol" />
+        <xs:element minOccurs="0" name="from" type="xs:int" />
+        <xs:element minOccurs="0" name="to" type="xs:int" />
+        <xs:element xmlns:q46="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="propertiesForFilter" nillable="true" type="q46:ArrayOfstring" />
+        <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="extraProperties" nillable="true" type="q47:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectByRangeWithMultiOrderLazyLoadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="SelectByRangeWithMultiOrderLazyLoadResult" nillable="true" type="q48:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Create">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="obj" nillable="true" type="q49:ContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="CreateResult" nillable="true" type="q50:ContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="obj" nillable="true" type="q51:ContractUDF" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="CreateNewResult" nillable="true" type="q52:ContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteByIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="obj" nillable="true" type="q53:ContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Update">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="obj" nillable="true" type="q54:ContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExisted">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="obj" nillable="true" type="q55:ContractUDF" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExistedResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Remove">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="obj" nillable="true" type="q56:ContractUDF" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveByIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectSum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q57="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q57:ArrayOfanyType" />
+        <xs:element xmlns:q58="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerProperties" nillable="true" type="q58:ArrayOfstring" />
+        <xs:element minOccurs="0" name="projection" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectSumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SelectSumResult" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerProperties" nillable="true" type="q59:ArrayOfstring" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="SelectByIdResult" nillable="true" type="q60:ContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectWithMultiOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q61="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q61:ArrayOfanyType" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Utility.Misc" minOccurs="0" name="sortCols" nillable="true" type="q62:ArrayOfSortCol" />
+        <xs:element xmlns:q63="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerLoadProperties" nillable="true" type="q63:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectWithMultiOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="SelectWithMultiOrderResult" nillable="true" type="q64:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectWithMultiOrderLazyLoad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q65="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="parameters" nillable="true" type="q65:ArrayOfanyType" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Utility.Misc" minOccurs="0" name="sortCols" nillable="true" type="q66:ArrayOfSortCol" />
+        <xs:element xmlns:q67="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="eagerLoadProperties" nillable="true" type="q67:ArrayOfstring" />
+        <xs:element xmlns:q68="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="extraProperties" nillable="true" type="q68:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectWithMultiOrderLazyLoadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="SelectWithMultiOrderLazyLoadResult" nillable="true" type="q69:ArrayOfContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewContractUDF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="udf" nillable="true" type="q70:ContractUDF" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewContractUDFResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="AddNewContractUDFResult" nillable="true" type="q71:ContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateContractUDF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="udf" nillable="true" type="q72:ContractUDF" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateContractUDFResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/DBEntity" minOccurs="0" name="UpdateContractUDFResult" nillable="true" type="q73:ContractUDF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

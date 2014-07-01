@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fad5f47d-ff30-4340-acf3-047dc5cc8906" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Physical/Pricings/UnpricingService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UnpricingService.xsd" MetadataType="Schema" ID="b803a702-a1e8-496d-baf4-368ffb23a9c3" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/UnpricingService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UnpricingService1.xsd" MetadataType="Schema" ID="88d0ee03-8f43-4afc-a01a-de0009c163ea" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/UnpricingService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UnpricingService.disco" MetadataType="Disco" ID="8bf33e73-8fb9-4515-a52f-78d0b9cc41d4" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/UnpricingService.svc?disco" />
+    <MetadataFile FileName="UnpricingService.wsdl" MetadataType="Wsdl" ID="8a6931e1-822d-43d5-b1ec-33563391379a" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/UnpricingService.svc?wsdl" />
+    <MetadataFile FileName="UnpricingService2.xsd" MetadataType="Schema" ID="8d6122ad-c6ef-42ab-b0b1-b2fa81026cd9" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/UnpricingService.svc?xsd=xsd4" />
+    <MetadataFile FileName="UnpricingService3.xsd" MetadataType="Schema" ID="56b7f47b-3a07-4ff4-ba11-9b76bf807583" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/UnpricingService.svc?xsd=xsd5" />
+    <MetadataFile FileName="UnpricingService4.xsd" MetadataType="Schema" ID="604f9015-7d3b-4add-a933-d5241de707b5" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/UnpricingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UnpricingService5.xsd" MetadataType="Schema" ID="57f65e60-5195-43bc-bf9f-1858662fa1b3" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/UnpricingService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

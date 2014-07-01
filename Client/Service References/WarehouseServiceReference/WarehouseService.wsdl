@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WarehouseService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/WarehouseService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/WarehouseService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/WarehouseService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DBEntity" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/WarehouseService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/WarehouseService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Utility.Misc" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/WarehouseService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWarehouseService_GetById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetById" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetAllCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCount" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetAllCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_FetchCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchCount" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_FetchCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCount" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRange" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_GetByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_FetchById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchById" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_FetchById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_FetchAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAll" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_FetchAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_FetchAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_FetchAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_FetchByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRange" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_FetchByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_FetchByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_FetchByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Query_InputMessage">
+    <wsdl:part name="parameters" element="tns:Query" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Query_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_QueryByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRange" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_QueryByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_QueryByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_QueryByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Select_InputMessage">
+    <wsdl:part name="parameters" element="tns:Select" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Select_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRange" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectByRangeWithMultiOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrder" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectByRangeWithMultiOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectByRangeWithMultiOrderLazyLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderLazyLoad" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectByRangeWithMultiOrderLazyLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderLazyLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Create_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q1:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_CreateNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNew" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_CreateNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_CreateNew_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q2:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_DeleteById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteById" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_DeleteById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_DeleteById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q3:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Delete_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q4:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Update_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q5:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_UpdateExisted_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExisted" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_UpdateExisted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_UpdateExisted_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q6:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Remove_InputMessage">
+    <wsdl:part name="parameters" element="tns:Remove" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Remove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_Remove_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q7:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_RemoveById_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveById" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_RemoveById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_RemoveById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q8:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectSum_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectSum" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectSum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectSum_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q9:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectById_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectById" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q10:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectWithMultiOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrder" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectWithMultiOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectWithMultiOrder_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q11:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectWithMultiOrderLazyLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderLazyLoad" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectWithMultiOrderLazyLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderLazyLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_SelectWithMultiOrderLazyLoad_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q12:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_AddNewWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_AddNewWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_UpdateExistedWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseService_UpdateExistedWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWarehouseService">
+    <wsdl:operation name="GetById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetById" message="tns:IWarehouseService_GetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetByIdResponse" message="tns:IWarehouseService_GetById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetAllCount" message="tns:IWarehouseService_GetAllCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetAllCountResponse" message="tns:IWarehouseService_GetAllCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/FetchCount" message="tns:IWarehouseService_FetchCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/FetchCountResponse" message="tns:IWarehouseService_FetchCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetCount" message="tns:IWarehouseService_GetCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetCountResponse" message="tns:IWarehouseService_GetCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetAll" message="tns:IWarehouseService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetAllResponse" message="tns:IWarehouseService_GetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetAllWithOrder" message="tns:IWarehouseService_GetAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetAllWithOrderResponse" message="tns:IWarehouseService_GetAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetByRange" message="tns:IWarehouseService_GetByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetByRangeResponse" message="tns:IWarehouseService_GetByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetByRangeWithOrder" message="tns:IWarehouseService_GetByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/GetByRangeWithOrderResponse" message="tns:IWarehouseService_GetByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/FetchById" message="tns:IWarehouseService_FetchById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/FetchByIdResponse" message="tns:IWarehouseService_FetchById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/FetchAll" message="tns:IWarehouseService_FetchAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/FetchAllResponse" message="tns:IWarehouseService_FetchAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/FetchAllWithOrder" message="tns:IWarehouseService_FetchAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/FetchAllWithOrderResponse" message="tns:IWarehouseService_FetchAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/FetchByRange" message="tns:IWarehouseService_FetchByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/FetchByRangeResponse" message="tns:IWarehouseService_FetchByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/FetchByRangeWithOrder" message="tns:IWarehouseService_FetchByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/FetchByRangeWithOrderResponse" message="tns:IWarehouseService_FetchByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/Query" message="tns:IWarehouseService_Query_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/QueryResponse" message="tns:IWarehouseService_Query_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/QueryByRange" message="tns:IWarehouseService_QueryByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/QueryByRangeResponse" message="tns:IWarehouseService_QueryByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/QueryByRangeWithOrder" message="tns:IWarehouseService_QueryByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/QueryByRangeWithOrderResponse" message="tns:IWarehouseService_QueryByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/Select" message="tns:IWarehouseService_Select_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectResponse" message="tns:IWarehouseService_Select_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectByRange" message="tns:IWarehouseService_SelectByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectByRangeResponse" message="tns:IWarehouseService_SelectByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectByRangeWithOrder" message="tns:IWarehouseService_SelectByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectByRangeWithOrderResponse" message="tns:IWarehouseService_SelectByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectByRangeWithMultiOrder" message="tns:IWarehouseService_SelectByRangeWithMultiOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectByRangeWithMultiOrderResponse" message="tns:IWarehouseService_SelectByRangeWithMultiOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrderLazyLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectByRangeWithMultiOrderLazyLoad" message="tns:IWarehouseService_SelectByRangeWithMultiOrderLazyLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectByRangeWithMultiOrderLazyLoadResponse" message="tns:IWarehouseService_SelectByRangeWithMultiOrderLazyLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/Create" message="tns:IWarehouseService_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/CreateResponse" message="tns:IWarehouseService_Create_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/CreateServerErrFault" name="ServerErrFault" message="tns:IWarehouseService_Create_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/CreateNew" message="tns:IWarehouseService_CreateNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/CreateNewResponse" message="tns:IWarehouseService_CreateNew_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/CreateNewServerErrFault" name="ServerErrFault" message="tns:IWarehouseService_CreateNew_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/DeleteById" message="tns:IWarehouseService_DeleteById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/DeleteByIdResponse" message="tns:IWarehouseService_DeleteById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/DeleteByIdServerErrFault" name="ServerErrFault" message="tns:IWarehouseService_DeleteById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/Delete" message="tns:IWarehouseService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/DeleteResponse" message="tns:IWarehouseService_Delete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/DeleteServerErrFault" name="ServerErrFault" message="tns:IWarehouseService_Delete_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/Update" message="tns:IWarehouseService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/UpdateResponse" message="tns:IWarehouseService_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/UpdateServerErrFault" name="ServerErrFault" message="tns:IWarehouseService_Update_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/UpdateExisted" message="tns:IWarehouseService_UpdateExisted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/UpdateExistedResponse" message="tns:IWarehouseService_UpdateExisted_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/UpdateExistedServerErrFault" name="ServerErrFault" message="tns:IWarehouseService_UpdateExisted_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/Remove" message="tns:IWarehouseService_Remove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/RemoveResponse" message="tns:IWarehouseService_Remove_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/RemoveServerErrFault" name="ServerErrFault" message="tns:IWarehouseService_Remove_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/RemoveById" message="tns:IWarehouseService_RemoveById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/RemoveByIdResponse" message="tns:IWarehouseService_RemoveById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/RemoveByIdServerErrFault" name="ServerErrFault" message="tns:IWarehouseService_RemoveById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectSum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectSum" message="tns:IWarehouseService_SelectSum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectSumResponse" message="tns:IWarehouseService_SelectSum_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectSumServerErrFault" name="ServerErrFault" message="tns:IWarehouseService_SelectSum_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectById" message="tns:IWarehouseService_SelectById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectByIdResponse" message="tns:IWarehouseService_SelectById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectByIdServerErrFault" name="ServerErrFault" message="tns:IWarehouseService_SelectById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectWithMultiOrder" message="tns:IWarehouseService_SelectWithMultiOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectWithMultiOrderResponse" message="tns:IWarehouseService_SelectWithMultiOrder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectWithMultiOrderServerErrFault" name="ServerErrFault" message="tns:IWarehouseService_SelectWithMultiOrder_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrderLazyLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectWithMultiOrderLazyLoad" message="tns:IWarehouseService_SelectWithMultiOrderLazyLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectWithMultiOrderLazyLoadResponse" message="tns:IWarehouseService_SelectWithMultiOrderLazyLoad_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Warehouse/SelectWithMultiOrderLazyLoadServerErrFault" name="ServerErrFault" message="tns:IWarehouseService_SelectWithMultiOrderLazyLoad_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewWarehouse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarehouseService/AddNewWarehouse" message="tns:IWarehouseService_AddNewWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarehouseService/AddNewWarehouseResponse" message="tns:IWarehouseService_AddNewWarehouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistedWarehouse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarehouseService/UpdateExistedWarehouse" message="tns:IWarehouseService_UpdateExistedWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarehouseService/UpdateExistedWarehouseResponse" message="tns:IWarehouseService_UpdateExistedWarehouse_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWarehouseService" type="tns:IWarehouseService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/GetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/GetAllCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/FetchCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/GetCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/GetAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/GetByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/GetByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/FetchById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/FetchAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/FetchAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/FetchByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/FetchByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/Query" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/QueryByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/QueryByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/Select" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/SelectByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/SelectByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/SelectByRangeWithMultiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrderLazyLoad">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/SelectByRangeWithMultiOrderLazyLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/CreateNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/DeleteById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/UpdateExisted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/RemoveById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectSum">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/SelectSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/SelectById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/SelectWithMultiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrderLazyLoad">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Warehouse/SelectWithMultiOrderLazyLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewWarehouse">
+      <soap:operation soapAction="http://tempuri.org/IWarehouseService/AddNewWarehouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistedWarehouse">
+      <soap:operation soapAction="http://tempuri.org/IWarehouseService/UpdateExistedWarehouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WarehouseService">
+    <wsdl:port name="BasicHttpBinding_IWarehouseService" binding="tns:BasicHttpBinding_IWarehouseService">
+      <soap:address location="http://localhost:1558/SystemSetting/WarehouseService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

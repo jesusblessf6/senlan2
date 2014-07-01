@@ -1,0 +1,62 @@
+﻿<baseClient:ObjectBaseWindow x:Class="Client.View.SystemSetting.CommoditySetting.BrandDetail"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       ResxExtension.DefaultResxName="Client.View.SystemSetting.CommoditySetting.ResCommoditySetting" 
+                       Language="{UICulture}"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                       Title="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Height="322"
+                       Width="600" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+    </Window.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Margin="6,38,0,0" Name="label5" Foreground="Crimson" HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="122,40,0,0" Name="textBox4" VerticalAlignment="Top"
+                     Text="{Binding Name}" MaxLength="255" />
+
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=OriginCountry}" Margin="278,38,0,0" Name="label9" VerticalAlignment="Top" HorizontalAlignment="Left" />
+
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Height="28" HorizontalAlignment="Left" Margin="6,70,0,0" Name="label1"
+                   VerticalAlignment="Top" Foreground="Crimson" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=CommodityType}" Margin="278,70,0,0" Name="label2" Foreground="Crimson" HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <ComboBox DisplayMemberPath="Name" Height="23" HorizontalAlignment="Left"
+                      ItemsSource="{Binding Commodities}" Margin="122,72,0,0" Name="comboBox2" SelectedValue="{Binding CommodityId}"
+                      SelectedValuePath="Id" VerticalAlignment="Top" Width="120" />
+            <ComboBox DisplayMemberPath="Name" HorizontalAlignment="Left" ItemsSource="{Binding CommodityTypes}"
+                      Margin="394,72,0,0" Name="comboBox3" SelectedValue="{Binding CommodityTypeId}" SelectedValuePath="Id"
+                      VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Margin="6,102,0,0" Name="label7" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <ComboBox HorizontalAlignment="Left" Margin="394,40,0,0" Name="comboBox1" VerticalAlignment="Top"
+                      ItemsSource="{Binding Countries}" SelectedValuePath="Id" DisplayMemberPath="ChineseName"
+                      SelectedValue="{Binding CountryId}" />
+            <TextBox Height="100" HorizontalAlignment="Left" Margin="122,104,0,0" Name="textBox6"
+                     VerticalAlignment="Top" Width="392" AcceptsTab="False" AcceptsReturn="True" TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto" Text="{Binding Description}" MaxLength="250" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Confirm}" Height="25" HorizontalAlignment="Left" Margin="210,229,0,0" Name="btOK"
+                    VerticalAlignment="Top" Width="60" Click="Save" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Height="25" HorizontalAlignment="Left" Margin="305,229,0,0" Name="btCancel"
+                    VerticalAlignment="Top" Width="60" Click="Cancel" />
+        </Grid>
+    </ScrollViewer>
+</baseClient:ObjectBaseWindow>

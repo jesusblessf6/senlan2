@@ -1,0 +1,283 @@
+﻿<baseClient:BasePage x:Class="Client.View.Reports.PhysicalAndFuturesReport"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     ResxExtension.DefaultResxName="Client.View.Reports.ResReport"
+                     Language="{UICulture}"
+                     xmlns:c="clr-namespace:Client.Converters" xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                     xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+                     mc:Ignorable="d"
+                     d:DesignHeight="490" d:DesignWidth="849"
+                     Title="{Resx PhysicalFuturesPnL}">
+    <Page.Resources>
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="MinWidth" Value="100"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <c:LineType2ColorConverter x:Key="LineTypeConverter"></c:LineType2ColorConverter>
+
+        <Style x:Key="LineStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="{Binding LineType, Converter={StaticResource LineTypeConverter}}"></Setter>
+        </Style>
+    </Page.Resources>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="68*" />
+            </Grid.RowDefinitions>
+            <Label Content="{Resx PhysicalFuturesPnL}" Name="lbTitle" HorizontalAlignment="Left" Margin="6,6,0,0"
+                   Height="32" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Conditions}" Height="100"
+                      HorizontalAlignment="Left" Margin="6,40,0,0" Name="groupBox1" VerticalAlignment="Top" Width="620">
+                <Grid>
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Commodity}"
+                           Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="260,10,0,0"
+                           Name="label1" VerticalAlignment="Top" />
+                    <ComboBox HorizontalAlignment="Left" Margin="366,12,0,0" Name="comboBox1" VerticalAlignment="Top"
+                              ItemsSource="{Binding Commodities}" DisplayMemberPath="Name" SelectedValuePath="Id"
+                              SelectedValue="{Binding SelectedCommodityId}" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=StartDate}"
+                           Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,42,0,0"
+                           Name="label3" VerticalAlignment="Top" />
+                    <DatePicker HorizontalAlignment="Left" Margin="107,44,0,0" Name="datePicker1"
+                                VerticalAlignment="Top" SelectedDate="{Binding StartDate}" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=EndDate}"
+                           Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="260,42,0,0"
+                           Name="label4" VerticalAlignment="Top" Foreground="Crimson" />
+                    <DatePicker HorizontalAlignment="Left" Margin="366,44,0,0" Name="datePicker2"
+                                VerticalAlignment="Top" SelectedDate="{Binding EndDate}" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}"
+                           Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,10,0,0"
+                           Name="label5" VerticalAlignment="Top" Foreground="Crimson" />
+                    <ComboBox HorizontalAlignment="Left" Margin="107,12,0,0" Name="comboBox3" VerticalAlignment="Top"
+                              ItemsSource="{Binding InternalCustomers}" DisplayMemberPath="ShortName"
+                              SelectedValuePath="Id" SelectedValue="{Binding SelectedInternalCustomerId}" />
+                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23"
+                            HorizontalAlignment="Left" Margin="505,44,0,0" Name="button1" VerticalAlignment="Top"
+                            Width="75" Click="Button1Click" />
+                </Grid>
+            </GroupBox>
+            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="12,40,0,0"
+                      Name="dataGridSHFE" VerticalAlignment="Top" Width="Auto" Grid.Row="3" ItemsSource="{Binding}"
+                      IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Broker}" Width="Auto"
+                                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}"
+                                        Width="Auto" CanUserSort="False" Binding="{Binding CommodityName}"
+                                        ElementStyle="{StaticResource LineStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ClosePL}" Width="Auto"
+                                        CanUserSort="False"
+                                        Binding="{Binding ClosePNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                                        ElementStyle="{StaticResource LineStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=FloatPnL}"
+                                        Width="Auto" CanUserSort="False"
+                                        Binding="{Binding FloatPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                                        ElementStyle="{StaticResource LineStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commission}"
+                                        Width="Auto" CanUserSort="False"
+                                        Binding="{Binding Commission, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                                        ElementStyle="{StaticResource LineStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=TotalPL}" Width="Auto"
+                                        CanUserSort="False"
+                                        Binding="{Binding PNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                                        ElementStyle="{StaticResource LineStyle}">
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+                <DataGrid.GroupStyle>
+                    <GroupStyle ContainerStyle="{StaticResource GroupHerderStyle}">
+                        <GroupStyle.Panel>
+                            <ItemsPanelTemplate>
+                                <DataGridRowsPresenter />
+                            </ItemsPanelTemplate>
+                        </GroupStyle.Panel>
+                    </GroupStyle>
+                </DataGrid.GroupStyle>
+            </DataGrid>
+            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" IsReadOnly="True"
+                      ItemsSource="{Binding Summaries}" Margin="12,40,0,0" Name="dataGridLME" VerticalAlignment="Top"
+                      Width="Auto" Grid.Row="4">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=BrokerName}"
+                                        CanUserSort="True" Width="Auto" Binding="{Binding BrokerName}"
+                                        ElementStyle="{StaticResource LineStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=DuedLockedPnL}"
+                                        CanUserSort="True" Width="Auto"
+                                        Binding="{Binding DuedLockedPL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                                        ElementStyle="{StaticResource LineStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=UnduedLockedPnL}"
+                                        CanUserSort="True" Width="Auto"
+                                        Binding="{Binding UnduedLockedPL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                                        ElementStyle="{StaticResource LineStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=UnduedFloatPnL}"
+                                        CanUserSort="True" Width="Auto"
+                                        Binding="{Binding UnduedFloatPL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                                        ElementStyle="{StaticResource LineStyle}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Summary}"
+                                        CanUserSort="True" Width="Auto"
+                                        Binding="{Binding SumPL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                                        ElementStyle="{StaticResource LineStyle}">
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+                <DataGrid.GroupStyle>
+                    <GroupStyle ContainerStyle="{StaticResource GroupHerderStyle}">
+                        <GroupStyle.Panel>
+                            <ItemsPanelTemplate>
+                                <DataGridRowsPresenter />
+                            </ItemsPanelTemplate>
+                        </GroupStyle.Panel>
+                    </GroupStyle>
+                </DataGrid.GroupStyle>
+            </DataGrid>
+            <Label Content="{Resx SHFEPnL}" Grid.Row="3" Height="28" HorizontalAlignment="Left" Margin="6,15,0,0"
+                   Name="label2" VerticalAlignment="Top" />
+            <Label Content="{Resx LMEPositionPL}" Grid.Row="4" Height="28" HorizontalAlignment="Left" Margin="6,15,0,0"
+                   Name="label6" VerticalAlignment="Top" />
+            <Label Content="{Resx PhysicalForeignTradePnL}" Height="28" HorizontalAlignment="Left" Margin="6,15,0,0"
+                   Name="label7" VerticalAlignment="Top" Grid.Row="2" />
+            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" IsReadOnly="True"
+                      ItemsSource="{Binding}" Margin="12,40,0,0" Name="dataGridPhysicalExternal"
+                      VerticalAlignment="Top" Width="Auto" Grid.Row="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding CommodityName}" CanUserSort="False"
+                                        ElementStyle="{StaticResource LineStyle}"
+                                        Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}"
+                                        Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding BuySumQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.Properties.Resources, Key=PurchaseQty}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding BuyAvgPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.View.Reports.ResReport, Key=PruchaseAveragePrice}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding SellSumQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.Properties.Resources, Key=SalesQty}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding SellAvgPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.View.Reports.ResReport, Key=SalesAveragePrice}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding SellPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.View.Reports.ResReport, Key=SalesPnL}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding InventorySumQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.View.Reports.ResReport, Key=Inventory}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding LatestPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.View.Reports.ResReport, Key=LatestPrice}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding FloatPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.View.Reports.ResReport, Key=FloatPnL}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding TotalPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.Properties.Resources, Key=TotalPL}" Width="Auto" />
+                </DataGrid.Columns>
+                <DataGrid.GroupStyle>
+                    <GroupStyle ContainerStyle="{StaticResource GroupHerderStyle}">
+                        <GroupStyle.Panel>
+                            <ItemsPanelTemplate>
+                                <DataGridRowsPresenter />
+                            </ItemsPanelTemplate>
+                        </GroupStyle.Panel>
+                    </GroupStyle>
+                </DataGrid.GroupStyle>
+            </DataGrid>
+            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" IsReadOnly="True"
+                      ItemsSource="{Binding}" Margin="12,40,0,0" Name="dataGridPhysicalDomestic"
+                      VerticalAlignment="Top" Width="Auto" Grid.Row="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding CommodityName}" CanUserSort="False"
+                                        ElementStyle="{StaticResource LineStyle}"
+                                        Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}"
+                                        Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding BuySumQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.Properties.Resources, Key=PurchaseQty}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding BuyAvgPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.View.Reports.ResReport, Key=PruchaseAveragePrice}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding SellSumQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.Properties.Resources, Key=SalesQty}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding SellAvgPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.View.Reports.ResReport, Key=SalesAveragePrice}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding SellPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.View.Reports.ResReport, Key=SalesPnL}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding InventorySumQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.View.Reports.ResReport, Key=Inventory}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding LatestPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.View.Reports.ResReport, Key=LatestPrice}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding FloatPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.View.Reports.ResReport, Key=FloatPnL}" Width="Auto" />
+                    <DataGridTextColumn
+                        Binding="{Binding TotalPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                        CanUserSort="False" ElementStyle="{StaticResource LineStyle}"
+                        Header="{Resx ResxName=Client.Properties.Resources, Key=TotalPL}" Width="Auto" />
+                </DataGrid.Columns>
+                <DataGrid.GroupStyle>
+                    <GroupStyle ContainerStyle="{StaticResource GroupHerderStyle}">
+                        <GroupStyle.Panel>
+                            <ItemsPanelTemplate>
+                                <DataGridRowsPresenter />
+                            </ItemsPanelTemplate>
+                        </GroupStyle.Panel>
+                    </GroupStyle>
+                </DataGrid.GroupStyle>
+            </DataGrid>
+            <Label Content="{Resx PhysicalDomesticTradePnL}" Height="28" HorizontalAlignment="Left" Margin="6,15,0,22"
+                   Name="label8" VerticalAlignment="top" Grid.Row="1" />
+            <Separator Height="17" Margin="6,0,6,0" Name="separator1" VerticalAlignment="Top" Grid.Row="1" />
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

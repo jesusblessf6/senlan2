@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2270a128-b2a0-4cd7-b724-2fb8d29a1095" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/SpecificationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SpecificationService.xsd" MetadataType="Schema" ID="4d7341a3-75f4-4a3e-8b2a-8514a946ae95" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SpecificationService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SpecificationService1.xsd" MetadataType="Schema" ID="ebb035c7-f316-4936-b330-669d29c03f76" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SpecificationService.svc?xsd=xsd5" />
+    <MetadataFile FileName="SpecificationService2.xsd" MetadataType="Schema" ID="9551eb09-f01c-477a-9ab9-b821e852cac0" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SpecificationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SpecificationService3.xsd" MetadataType="Schema" ID="f3646f73-0c15-4c14-827d-0de639f35d80" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SpecificationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SpecificationService4.xsd" MetadataType="Schema" ID="ac30f5cd-815f-4e2f-9ad6-2c96fb7c7b77" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SpecificationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SpecificationService5.xsd" MetadataType="Schema" ID="2f12b396-bf77-412c-bf0e-7c5cec639c75" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SpecificationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SpecificationService.wsdl" MetadataType="Wsdl" ID="4e6adb29-8017-4bf1-8062-6638b1697dae" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SpecificationService.svc?wsdl" />
+    <MetadataFile FileName="SpecificationService.disco" MetadataType="Disco" ID="efec70fa-484b-494d-96cc-65c1a90e30a5" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SpecificationService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

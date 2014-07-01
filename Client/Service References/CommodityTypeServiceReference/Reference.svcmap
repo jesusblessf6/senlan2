@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8555bd4b-536d-44ef-961d-9c8108ea8bfc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/CommodityTypeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CommodityTypeService.xsd" MetadataType="Schema" ID="77c7d847-6387-4612-bf8c-8ad51a40f464" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommodityTypeService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CommodityTypeService1.xsd" MetadataType="Schema" ID="b72c6e28-ed6d-4694-a3ee-7692c35367fa" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommodityTypeService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CommodityTypeService2.xsd" MetadataType="Schema" ID="4bf83e0d-b1c6-4b09-a777-1aa662493160" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommodityTypeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CommodityTypeService.disco" MetadataType="Disco" ID="3f83a89c-805d-4850-87df-58d7d9a96754" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommodityTypeService.svc?disco" />
+    <MetadataFile FileName="CommodityTypeService3.xsd" MetadataType="Schema" ID="0754f400-ea0b-4c80-955e-0940fe96af8b" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommodityTypeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CommodityTypeService.wsdl" MetadataType="Wsdl" ID="12f21c5d-1a14-4d4e-a72b-528cfbdbc0df" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommodityTypeService.svc?wsdl" />
+    <MetadataFile FileName="CommodityTypeService4.xsd" MetadataType="Schema" ID="001f59e6-f484-48b1-826d-c01cccaf6a11" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommodityTypeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CommodityTypeService5.xsd" MetadataType="Schema" ID="4fa99df3-e201-4032-adb3-9d111606c3ec" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommodityTypeService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

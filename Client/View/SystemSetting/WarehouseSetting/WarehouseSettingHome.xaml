@@ -1,0 +1,77 @@
+﻿<baseClient:BasePage x:Class="Client.View.SystemSetting.WarehouseSetting.WarehouseSettingHome"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               ResxExtension.DefaultResxName="Client.View.SystemSetting.WarehouseSetting.ResWarehouseSetting" 
+               Language="{UICulture}"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" d:DesignHeight="372" d:DesignWidth="608"
+               Title="{Resx WarehouseSettingHome}" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+                     xmlns:baseClient="clr-namespace:Client.Base.BaseClient">
+
+    <Page.Resources>
+
+        <RoutedCommand x:Key="WarehouseEdit"></RoutedCommand>
+        <RoutedCommand x:Key="WarehouseDelete"></RoutedCommand>
+        <RoutedCommand x:Key="WarehouseView"></RoutedCommand>
+
+        <DataTemplate x:Key="WarehouseActions" DataType="DBEntity:Warehouse">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btWarehouseEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource WarehouseEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btWarehouseDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource WarehouseDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="WarehouseNameLink" DataType="DBEntity:Warehouse">
+            <TextBlock>
+                <Hyperlink Command="{StaticResource WarehouseView}" CommandParameter="{Binding Id}">
+                    <Run Text="{Binding Name}"></Run>
+                </Hyperlink>
+            </TextBlock>
+        </DataTemplate>
+
+    </Page.Resources>
+
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource WarehouseEdit}" CanExecute="WarehouseEditCanExecute"
+                        Executed="WarehouseEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource WarehouseDelete}" CanExecute="WarehouseDeleteCanExecute"
+                        Executed="WarehouseDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource WarehouseView}" CanExecute="WarehouseViewCanExecute"
+                        Executed="WarehouseViewExecuted"></CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="rootGrid">
+            <Label Content="{Resx WarehouseSettingHome}" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Name="label1" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,40,0,0" Name="button1"
+                    VerticalAlignment="Top" Width="60" Click="Button1Click" />
+
+            <my:PagingControl HorizontalAlignment="Left" Margin="6,100,0,0" Name="pagingControl1"
+                              VerticalAlignment="Top" />
+            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="6,137,0,0"
+                      Name="dataGrid1" VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding}" IsReadOnly="True"
+                      LoadingRow="DataGrid1LoadingRow">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.View.SystemSetting.WarehouseSetting.ResWarehouseSetting, Key=ShortName}" Width="Auto" CanUserSort="True" SortMemberPath="Name"
+                                            CellTemplate="{StaticResource WarehouseNameLink}"></DataGridTemplateColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.WarehouseSetting.ResWarehouseSetting, Key=FullName}" Width="Auto" CanUserSort="True" Binding="{Binding FullName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.WarehouseSetting.ResWarehouseSetting, Key=Address}" Width="Auto" CanUserSort="True" Binding="{Binding Address}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ContactPerson}" Width="Auto" CanUserSort="True" Binding="{Binding ContactPerson}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Tel}" Width="Auto" CanUserSort="True" Binding="{Binding Phone}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Fax}" Width="Auto" CanUserSort="True" Binding="{Binding Fax}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PostCode}" Width="Auto" CanUserSort="True" Binding="{Binding PostCode}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True" Binding="{Binding Description}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                            CellTemplate="{StaticResource WarehouseActions}"></DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="仓库简称" Height="28" HorizontalAlignment="Left" Margin="10,70,0,0" Name="label2" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="80,72,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" Text="{Binding ShortName}"/>
+            <Button Content="查询" Height="23" HorizontalAlignment="Left" Margin="210,72,0,0" Name="button2" VerticalAlignment="Top" Width="65" Click="button2_Click"/>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

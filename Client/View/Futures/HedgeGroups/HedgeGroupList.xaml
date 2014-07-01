@@ -1,0 +1,68 @@
+﻿<baseClient:BasePage x:Class="Client.View.Futures.HedgeGroups.HedgeGroupList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:c="clr-namespace:Client.Converters"
+      ResxExtension.DefaultResxName="Client.View.Futures.HedgeGroups.ResHedgeGroup"
+      Language="{UICulture}"
+      mc:Ignorable="d" 
+      d:DesignHeight="384" d:DesignWidth="711"
+	  Title="{Resx ResxName=Client.Properties.Resources, Key=HedgeGroup}" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+      xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity" xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+      xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity">
+    
+    <Page.Resources>
+        <RoutedCommand x:Key="HedgeGroupLink"></RoutedCommand>
+        <RoutedCommand x:Key="HedgeGroupEdit"></RoutedCommand>
+        <RoutedCommand x:Key="HedgeGroupDelete"></RoutedCommand>
+        
+        <c:HedgeGroupStatusConverter x:Key="hgsConverter"></c:HedgeGroupStatusConverter>
+        <c:ArbitrageTypeConverter x:Key="ArbitrageTypeConverter"></c:ArbitrageTypeConverter>
+    </Page.Resources>
+    
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource HedgeGroupLink}" CanExecute="HedgeGroupLinkCanExecute" Executed="HedgeGroupLinkExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource HedgeGroupEdit}" CanExecute="HedgeGroupEditCanExecute" Executed="HedgeGroupEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource HedgeGroupDelete}" CanExecute="HedgeGroupDeleteCanExecute" Executed="HedgeGroupDeleteExecuted"></CommandBinding>
+    </Page.CommandBindings>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=HedgeGroup}" Name="lbTitle"  Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+            <my:PagingControl HorizontalAlignment="Left" Margin="6,40,0,0" Name="pagingControl1" VerticalAlignment="Top" />
+            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="6,77,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="Auto" LoadingRow="DataGrid1LoadingRow" ItemsSource="{Binding HedgeGroups}" IsReadOnly="True"  Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Name}" CanUserSort="True" SortMemberPath="Name" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="DBEntity:HedgeGroup">
+                                <TextBlock>
+                                    <Hyperlink Command="{StaticResource HedgeGroupLink}" CommandParameter="{Binding Id}">
+                                        <Run Text="{Binding Name}"></Run>
+                                    </Hyperlink>
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                  <DataGridTextColumn Header="{Resx ResxName=Client.View.Futures.HedgeGroups.ResHedgeGroup, Key=HedgeDate}" CanUserSort="True" Width="Auto" Binding="{Binding HedgeDate, StringFormat={}{0:yyyy-MM-dd}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="保值类型" CanUserSort="True" Width="Auto" Binding="{Binding ArbitrageType, Converter={StaticResource ArbitrageTypeConverter}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ExchangeRate}" CanUserSort="True" Width="Auto" Binding="{Binding Rate, StringFormat={x:Static enumEntity:RoundRules.STR_RATE}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Futures.HedgeGroups.ResHedgeGroup, Key=SettlementStatus}" CanUserSort="True" Width="Auto" Binding="{Binding Status, Converter={StaticResource hgsConverter}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PL}" CanUserSort="True" Width="Auto" Binding="{Binding PLAmount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Futures.HedgeGroups.ResHedgeGroup, Key=PLCurrency}" CanUserSort="True" Width="Auto" Binding="{Binding PLCurrency.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="保本基差" Width="Auto" CanUserSort="True" Binding="{Binding StopLossSpread, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" CanUserSort="False" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="DBEntity:HedgeGroup">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource HedgeGroupEdit}" CommandParameter="{Binding Id}"></Button>
+                                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource HedgeGroupDelete}" CommandParameter="{Binding Id}"></Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

@@ -1,0 +1,389 @@
+﻿<baseClient:BasePage x:Class="Client.View.SystemSetting.DataDictSetting.DataDictHome"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               ResxExtension.DefaultResxName="Client.View.SystemSetting.DataDictSetting.ResDataDictSetting" 
+               Language="{UICulture}"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" d:DesignHeight="489" d:DesignWidth="583"
+               xmlns:Converters="clr-namespace:Client.Converters" Title="{Resx DataDict}"
+               xmlns:my="clr-namespace:Utility.Controls;assembly=Utility" xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient">
+
+    <Page.Resources>
+        <Converters:VATTypeConverter x:Key="ConvertType" />
+        <Converters:IsSystemTypeConverter x:Key="IsSystemType" />
+        <Converters:BoolReverseConverter x:Key="BoolConverter" />
+
+        <RoutedCommand x:Key="CountryEdit"></RoutedCommand>
+        <RoutedCommand x:Key="CountryDelete"></RoutedCommand>
+        <RoutedCommand x:Key="CountryView"></RoutedCommand>
+
+        <RoutedCommand x:Key="PortEdit"></RoutedCommand>
+        <RoutedCommand x:Key="PortDelete"></RoutedCommand>
+        <RoutedCommand x:Key="PortView"></RoutedCommand>
+
+        <RoutedCommand x:Key="PaymentMeanEdit"></RoutedCommand>
+        <RoutedCommand x:Key="PaymentMeanDelete"></RoutedCommand>
+        <RoutedCommand x:Key="PaymentMeanView"></RoutedCommand>
+
+        <RoutedCommand x:Key="VATRateEdit"></RoutedCommand>
+        <RoutedCommand x:Key="VATRateDelete"></RoutedCommand>
+        <RoutedCommand x:Key="VATRateView"></RoutedCommand>
+
+        <RoutedCommand x:Key="PaymentUsageEdit"></RoutedCommand>
+        <RoutedCommand x:Key="PaymentUsageDelete"></RoutedCommand>
+        <RoutedCommand x:Key="PaymentUsageView"></RoutedCommand>
+        
+        <RoutedCommand x:Key="UdfEdit"></RoutedCommand>
+        <RoutedCommand x:Key="UdfDelete"></RoutedCommand>
+        <RoutedCommand x:Key="UdfView"></RoutedCommand>
+        
+        <RoutedCommand x:Key="DPEdit"></RoutedCommand>
+        <RoutedCommand x:Key="DPDelete"></RoutedCommand>
+        <RoutedCommand x:Key="DPView"></RoutedCommand>
+
+        <DataTemplate x:Key="CountryActions" DataType="DBEntity:Country">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btCountryEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource CountryEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btCountryDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource CountryDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PortActions" DataType="DBEntity:Port">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btPortEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource PortEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btPortDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource PortDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PaymentMeanActions" DataType="DBEntity:PaymentMean">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btPaymentMeanEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource PaymentMeanEdit}"
+                        CommandParameter="{Binding Id}" IsEnabled="{Binding IsSystem, Converter={StaticResource BoolConverter}}"></Button>
+                <Button Name="btPaymentMeanDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource PaymentMeanDelete}"
+                        CommandParameter="{Binding Id}" IsEnabled="{Binding IsSystem, Converter={StaticResource BoolConverter}}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VATRateActions" DataType="DBEntity:VATRate">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btVATRateEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource VATRateEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btVATRateDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource VATRateDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PaymentUsageActions" DataType="DBEntity:PaymentUsage">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btPaymentUsageEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource PaymentUsageEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btPaymentUsageDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource PaymentUsageDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="UdfActions" DataType="DBEntity:ContractUDF">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btUdfEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource UdfEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btUdfDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource UdfDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CountryLink" DataType="DBEntity:Country">
+            <TextBlock>
+                <Hyperlink Command="{StaticResource CountryView}" CommandParameter="{Binding Id}">
+                    <Run Text="{Binding ChineseName}"></Run>
+                </Hyperlink>
+            </TextBlock>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PortLink" DataType="DBEntity:Port">
+            <TextBlock>
+                <Hyperlink Command="{StaticResource PortView}" CommandParameter="{Binding Id}">
+                    <Run Text="{Binding Name}"></Run>
+                </Hyperlink>
+            </TextBlock>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PaymentMeanLink" DataType="DBEntity:PaymentMean">
+            <TextBlock>
+                <Hyperlink Command="{StaticResource PaymentMeanView}" CommandParameter="{Binding Id}">
+                    <Run Text="{Binding Name}"></Run>
+                </Hyperlink>
+            </TextBlock>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VATRateLink" DataType="DBEntity:VATRate">
+            <TextBlock>
+                <Hyperlink Command="{StaticResource VATRateView}" CommandParameter="{Binding Id}">
+                    <Run Text="{Binding Code}"></Run>
+                </Hyperlink>
+            </TextBlock>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PaymentUsageLink" DataType="DBEntity:PaymentUsage">
+            <TextBlock>
+                <Hyperlink Command="{StaticResource PaymentUsageView}" CommandParameter="{Binding Id}">
+                    <Run Text="{Binding Name}"></Run>
+                </Hyperlink>
+            </TextBlock>
+        </DataTemplate>
+
+    </Page.Resources>
+
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource CountryEdit}" CanExecute="CountryEditCanExecute"
+                        Executed="CountryEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource CountryDelete}" CanExecute="CountryDeleteCanExecute"
+                        Executed="CountryDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource CountryView}" CanExecute="CountryViewCanExecute"
+                        Executed="CountryViewExecuted"></CommandBinding>
+
+        <CommandBinding Command="{StaticResource PortEdit}" CanExecute="PortEditCanExecute" Executed="PortEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource PortDelete}" CanExecute="PortDeleteCanExecute"
+                        Executed="PortDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource PortView}" CanExecute="PortViewCanExecute" Executed="PortViewExecuted"></CommandBinding>
+
+        <CommandBinding Command="{StaticResource PaymentMeanEdit}" CanExecute="PaymentMeanEditCanExecute"
+                        Executed="PaymentMeanEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource PaymentMeanDelete}" CanExecute="PaymentMeanDeleteCanExecute"
+                        Executed="PaymentMeanDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource PaymentMeanView}" CanExecute="PaymentMeanViewCanExecute"
+                        Executed="PaymentMeanViewExecuted"></CommandBinding>
+
+        <CommandBinding Command="{StaticResource VATRateEdit}" CanExecute="VATRateEditCanExecute"
+                        Executed="VATRateEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource VATRateDelete}" CanExecute="VATRateDeleteCanExecute"
+                        Executed="VATRateDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource VATRateView}" CanExecute="VATRateViewCanExecute"
+                        Executed="VATRateViewExecuted"></CommandBinding>
+
+        <CommandBinding Command="{StaticResource PaymentUsageEdit}" CanExecute="PaymentUsageEditCanExecute"
+                        Executed="PaymentUsageEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource PaymentUsageDelete}" CanExecute="PaymentUsageDeleteCanExecute"
+                        Executed="PaymentUsageDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource PaymentUsageView}" CanExecute="PaymentUsageViewCanExecute"
+                        Executed="PaymentUsageViewExecuted"></CommandBinding>
+
+        <CommandBinding Command="{StaticResource UdfEdit}" CanExecute="UdfEditCanExecute"
+                        Executed="UdfEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource UdfDelete}" CanExecute="UdfDeleteCanExecute"
+                        Executed="UdfDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource UdfView}" CanExecute="UdfViewCanExecute"
+                        Executed="UdfViewExecuted"></CommandBinding>
+
+        <CommandBinding Command="{StaticResource DPEdit}" CanExecute="DPEditCanExecute"
+                        Executed="DPEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource DPDelete}" CanExecute="DPDeleteCanExecute"
+                        Executed="DPDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource DPView}" CanExecute="DPViewCanExecute"
+                        Executed="DPViewExecuted"></CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+
+        <Grid Name="rootGrid">
+            <Label Content="{Resx DataDict}" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbTitle"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <TabControl Height="420" HorizontalAlignment="Left" Margin="6,40,0,0" Name="tabControl1"
+                        VerticalAlignment="Top" Width="550" SelectionChanged="TabControl1SelectionChanged">
+                <TabItem Header="{Resx ResxName=Client.Properties.Resources, Key=OriginCountry}" Name="tabItem1">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0"
+                                    Name="button1" VerticalAlignment="Top" Width="45" Click="BtCountryClick" />
+                            <my:PagingControl HorizontalAlignment="Left" Margin="6,35,0,0" Name="pagingControl1"
+                                              VerticalAlignment="Top" />
+                            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left"
+                                      Margin="6,72,0,0" Name="dataGrid1" IsReadOnly="True" VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding}"
+                                      LoadingRow="DataGrid1LoadingRow" Grid.ColumnSpan="2">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=OriginCountry}" Width="Auto" CanUserSort="True"
+                                                            SortMemberPath="ChineseName" CellTemplate="{StaticResource CountryLink}"></DataGridTemplateColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=EnglishName}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding Name}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding Description}"></DataGridTextColumn>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                                            CellTemplate="{StaticResource CountryActions}"></DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+
+                <TabItem Header="{Resx Port}" Name="tabItem2">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0"
+                                    Name="button2" VerticalAlignment="Top" Width="45" Click="BtPortClick" />
+                            <my:PagingControl HorizontalAlignment="Left" Margin="6,35,0,0" Height="31"
+                                              Name="portpagingControl" VerticalAlignment="Top" />
+                            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left"
+                                      Margin="6,72,0,0" Name="portDataGrid" IsReadOnly="True" VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding}"
+                                      LoadingRow="DataGridPortLoadingRow" Grid.ColumnSpan="2">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.View.SystemSetting.DataDictSetting.ResDataDictSetting, Key=Port}" Width="Auto" CanUserSort="True"
+                                                            SortMemberPath="Name" CellTemplate="{StaticResource PortLink}"></DataGridTemplateColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=OriginCountry}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding Country.ChineseName}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding Description}"></DataGridTextColumn>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                                            CellTemplate="{StaticResource PortActions}"></DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+
+                <TabItem Header="{Resx ResxName=Client.Properties.Resources, Key=PaymentMean}" Name="tabItem3">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0"
+                                    Name="btPaymentMean" VerticalAlignment="Top" Width="45" Click="BtPaymentMeanClick" />
+                            <my:PagingControl HorizontalAlignment="Left" Margin="6,35,0,0" Height="31"
+                                              Name="paymentmeanpagingControl" VerticalAlignment="Top" />
+                            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left"
+                                      Margin="6,72,0,0" Name="paymentMeanDataGrid" IsReadOnly="True" VerticalAlignment="Top" Width="Auto"
+                                      ItemsSource="{Binding}" LoadingRow="DataGridPaymentMeanLoadingRow" Grid.ColumnSpan="2">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PaymentMean}" Width="Auto" CanUserSort="True"
+                                                            SortMemberPath="Name" CellTemplate="{StaticResource PaymentMeanLink}"></DataGridTemplateColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding Description}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=SystemValue}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding IsSystem, Converter={StaticResource IsSystemType}}"></DataGridTextColumn>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                                            CellTemplate="{StaticResource PaymentMeanActions}"></DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+
+                <TabItem Header="{Resx VAT}" Name="tabItem4">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0"
+                                    Name="btVATRate" VerticalAlignment="Top" Width="45" Click="BtVATRateClick" />
+                            <my:PagingControl HorizontalAlignment="Left" Margin="6,35,0,0" Name="vatratepagingControl"
+                                              VerticalAlignment="Top" />
+                            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left"
+                                      Margin="6,72,0,0" Name="vatRateDataGrid" IsReadOnly="True" VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding}"
+                                      LoadingRow="DataGridVATRateLoadingRow" Grid.ColumnSpan="2">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.View.SystemSetting.DataDictSetting.ResDataDictSetting, Key=TaxCode}" Width="Auto" CanUserSort="True"
+                                                            CellTemplate="{StaticResource VATRateLink}"></DataGridTemplateColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Type}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding Type, Converter={StaticResource ConvertType}}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.DataDictSetting.ResDataDictSetting, Key=Rate}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding RateValue}" SortMemberPath="Code">
+                                    </DataGridTextColumn>
+
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding Description}"></DataGridTextColumn>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                                            CellTemplate="{StaticResource VATRateActions}"></DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+
+                <TabItem Header="{Resx ResxName=Client.Properties.Resources, Key=PaymentUsage}" Name="tabItem5">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0"
+                                    Name="btPaymentUsage" VerticalAlignment="Top" Width="45" Click="BtPaymentUsageClick" />
+                            <my:PagingControl HorizontalAlignment="Left" Margin="6,35,0,0" Height="31"
+                                              Name="paymentusagepagingControl" VerticalAlignment="Top" />
+                            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left"
+                                      Margin="6,72,0,0" Name="paymentUsageDataGrid" IsReadOnly="True" VerticalAlignment="Top" Width="Auto"
+                                      ItemsSource="{Binding}" LoadingRow="DataGridPaymentUsageLoadingRow" Grid.ColumnSpan="2">
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Name}" Width="Auto" CanUserSort="True"
+                                                            SortMemberPath="Name" CellTemplate="{StaticResource PaymentUsageLink}"></DataGridTemplateColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.DataDictSetting.ResDataDictSetting, Key=DefaultPaymentMean}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding PaymentMean.Name}">
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.DataDictSetting.ResDataDictSetting, Key=DefaultFinancialAccount}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding FinancialAccount.Name}">
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding Description}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="默认" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding IsDefault, Converter={StaticResource IsSystemType}}"></DataGridTextColumn>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                                            CellTemplate="{StaticResource PaymentUsageActions}"></DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="提货人" Name="tabItem7">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Button Content="+新增" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0" Name="btAddDP" VerticalAlignment="Top" Width="45" Click="Button3Click" />
+                            <my:PagingControl HorizontalAlignment="Left" Margin="6,35,0,0" Name="dpListPager" VerticalAlignment="Top" />
+                            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="6,72,0,0" 
+                                      Name="dgDPList" VerticalAlignment="Top" Width="Auto" IsReadOnly="True" ItemsSource="{Binding}"
+                                      LoadingRow="DeliveryPersonLoadingRow">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="姓名" Width="Auto" CanUserSort="True" Binding="{Binding Name}"/>
+                                    <DataGridTextColumn Header="车号" Width="Auto" CanUserSort="True" Binding="{Binding VehicleNo}"/>
+                                    <DataGridTextColumn Header="电话" Width="Auto" CanUserSort="True" Binding="{Binding Tel}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="身份证号" Width="Auto" CanUserSort="True" Binding="{Binding IdNo}"/>
+                                    <DataGridTextColumn Header="备注" Width="Auto" CanUserSort="True" Binding="{Binding Comments}"/>
+                                    <DataGridTemplateColumn Header="操作" Width="Auto" CanUserSort="True">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="DBEntity:DeliveryPerson">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Button Content="查看" Command="{StaticResource DPView}" CommandParameter="{Binding Id}"></Button>
+                                                    <Button Content="编辑" Command="{StaticResource DPEdit}" CommandParameter="{Binding Id}"></Button>
+                                                    <Button Content="删除" Command="{StaticResource DPDelete}" CommandParameter="{Binding Id}"></Button>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+
+                <TabItem Header="{Resx ResxName=Client.Properties.Resources, Key=UDF}" Name="tabItem6">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0"
+                                    Name="btUDF" VerticalAlignment="Top" Width="45" Click="BtUDFClick" />
+                            <my:PagingControl HorizontalAlignment="Left" Margin="6,35,0,0" Height="31"
+                                              Name="udfPagingControl" VerticalAlignment="Top" />
+                            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left"
+                                      Margin="6,72,0,0" Name="udfDataGrid" IsReadOnly="True" VerticalAlignment="Top" Width="Auto"
+                                      ItemsSource="{Binding}" LoadingRow="DataGridUdfLoadingRow" Grid.ColumnSpan="2">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Name}" Width="Auto" CanUserSort="True"
+                                                           Binding="{Binding Name}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding Comment}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="默认" Width="Auto" CanUserSort="True"
+                                                        Binding="{Binding IsDefault, Converter={StaticResource IsSystemType}}"></DataGridTextColumn>
+                                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                                            CellTemplate="{StaticResource UdfActions}"></DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

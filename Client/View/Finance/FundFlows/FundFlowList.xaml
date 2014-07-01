@@ -1,0 +1,79 @@
+﻿<baseClient:ListBasePage x:Class="Client.View.Finance.FundFlows.FundFlowList"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         mc:Ignorable="d" ResxExtension.DefaultResxName="Client.View.Finance.FundFlows.ResFundFlow"
+                         Language="{UICulture}"
+                         xmlns:Converters="clr-namespace:Client.Converters"
+                         xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+                         xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+                         xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                         xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+                         d:DesignHeight="500" d:DesignWidth="700"
+                         Title="{Resx FundFlowList}">
+
+    <Page.Resources>
+        <Converters:FundFlowTypeConverter x:Key="FundFlowTypeConverter" />
+        <Converters:CreatedByConverter x:Key="CreatedByConverter" />
+        <RoutedCommand x:Key="ListEdit"></RoutedCommand>
+        <RoutedCommand x:Key="ListDelete"></RoutedCommand>
+        <DataTemplate x:Key="ListActions" DataType="DBEntity:FundFlow">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btListEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}"
+                        Command="{StaticResource ListEdit}" CommandParameter="{Binding Id}" IsEnabled="{Binding AutoGenGeneratedCanOperation}">
+                </Button>
+                <Button Name="btListDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}"
+                        Command="{StaticResource ListDelete}" CommandParameter="{Binding Id}" IsEnabled="{Binding AutoGenGeneratedCanOperation}">
+                </Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource ListEdit}" CanExecute="ListEditCanExecute" Executed="ListEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource ListDelete}" CanExecute="ListDeleteCanExecute"
+                        Executed="ListDeleteExecuted">
+        </CommandBinding>
+    </Page.CommandBindings>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="rootGrid">
+            <Label Content="{Resx FundFlowList}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0"
+                   Width="auto" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <my:PagingControl x:Name="pager" Margin="6,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <DataGrid Margin="6,77,0,0" ItemsSource="{Binding FundFlows}" x:Name="entityList" AutoGenerateColumns="False"
+                      CanUserAddRows="False" IsReadOnly="true"
+                      LoadingRow="OnLoadRowIndex" VerticalAlignment="Top" HorizontalAlignment="Left"
+                      Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BP}"
+                                        Binding="{Binding BusinessPartner.ShortName}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}"
+                                        Binding="{Binding InternalCustomer.ShortName}" />
+                    <DataGridTextColumn Header="经办人"
+                                        Binding="{Binding CreatedBy, Converter={StaticResource CreatedByConverter}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Quota}"
+                                        Binding="{Binding Quota.QuotaNo}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Amount}"
+                                        Binding="{Binding Amount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Currency}"
+                                        Binding="{Binding Currency.Name}" />
+                    <DataGridTextColumn
+                        Header="{Resx ResxName=Client.View.Finance.FundFlows.ResFundFlow, Key=FundFlowType}"
+                        Binding="{Binding RorP, Converter={StaticResource FundFlowTypeConverter}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Date}"
+                                        Binding="{Binding TradeDate,StringFormat='yyyy-MM-dd'}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=FinancialAccount}"
+                                        Binding="{Binding FinancialAccount.Name}" />
+                    <DataGridTextColumn Header="付款方式"
+                                        Binding="{Binding PaymentMean.Name}" />
+                    <DataGridTextColumn Header="备注"
+                                        Binding="{Binding Description}" />
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}"
+                                            Width="Auto" CanUserSort="False"
+                                            CellTemplate="{StaticResource ListActions}">
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:ListBasePage>

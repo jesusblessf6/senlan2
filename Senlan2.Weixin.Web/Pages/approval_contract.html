@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../Script/jquery-1.8.1.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Script/common.js"></script>
+    <style>
+        body {
+            background-color: #ede8e8;
+        }
+
+        .container {
+            margin: 5px 5px 0;
+            height: 300px;
+            border: 0;
+            /*background-color: #e5e2e2;*/
+            border-radius: 5px;
+        }
+
+        .center {
+            width: 100%;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        textarea {
+            resize: none;
+            width: 100%;
+            height: 100px;
+        }
+
+        .li {
+            border-bottom: 1px solid #d8d0d0;
+            height: 100px;
+        }
+    </style>
+    <script>
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            WeixinJSBridge.call('hideOptionMenu');
+        });
+        //var openId = "o9nEBj0S0zENtwMWavyT1SjjHMg0";
+        var openId;
+        var currentQuotaId;
+        $(function () {
+            openId = getQueryStringByName("openid");
+            if (openId) {
+
+                $("#btnSubmit").click(function () {
+                    //提交拒绝理由
+                    if (currentQuotaId) {
+                        var reason = $.trim($("#reason").val());
+                        if (reason) {
+                            $("#btnSubmit").button('loading');
+                            $.post("../Handler/ContractApprovalHandler.ashx", { method: "DisAgree", quotaId: currentQuotaId, reason: reason, openId: openId }, function (msg) {
+                                if (msg == "1") {
+                                    $("#panel-" + currentQuotaId).remove();
+                                    $("#rejuetReason").modal('hide');
+                                } else {
+                                    $("#error").text("审批拒绝失败");
+                                }
+                            }).complete(function () {
+                                $("#btnSubmit").button('reset');
+                            });
+                        } else {
+                            return;
+                        }
+                    }
+                });
+
+
+
+                $.getJSON("../Handler/ContractApprovalHandler.ashx", { openId: openId, method: 'GetApprovalList' }, function (list) {
+                    $(".container").empty();
+                    //var list = $.parseJSON(data);
+                    for (var i = 0; i < list.length; i++) {
+                        var quota = list[i];
+                        var id = quota.id;
+                        var com = quota.com || '-';
+                        var brand = quota.brand || '-';
+                        var quantity = (quota.quantity || '0') + " " + quota.unit;
+                        var price = (quota.price || '0') + " " + quota.currency + "/" + quota.unit;
+                        var date = quota.date || '-';
+                        var user = quota.user || '-';
+                        var contractType = quota.contractType;
+                        var salesman = quota.salesman || '-';
+                        var part1 = quota.part1;
+                        var part2 = quota.part2;
+                        addList(contractType, id, com, brand, quantity, price, date, user, salesman, part1, part2);
+                    }
+                });
+
+            }
+            else {
+                showDialog("请通过微信查看");
+            }
+        });
+        function showDialog(msg) {
+            $("#msgInfo").text(msg);
+            $('#msgDialog').modal('show');
+        }
+        function showReason() {
+            $("#error").text("");
+            $("#reason").val("");
+            $("#reason").focus();
+            $("#rejuetReason").modal({ backdrop: false });
+            $("#rejuetReason").modal('show');
+        }
+        function addList(contractType, id, com, brand, quantity, price, date, user, salesman, part1, part2) {
+            var panel = $("<div>");
+            panel.addClass("panel panel-info");
+            panel.attr("id", "panel-" + id);
+          panel.css("marginBottom", "5px");
+
+            var panelHead = $("<div>");
+            panelHead.addClass("panel-heading");
+            panelHead.css("paddingTop", "5px");
+            panelHead.css("paddingBottom", "5px");
+
+            var dateSpan = $("<p>");
+            dateSpan.addClass("panel-title");
+            dateSpan.text(date + " " + user);
+            dateSpan.appendTo(panelHead);
+
+            panelHead.appendTo(panel);
+
+            var panelBody = $("<div>");
+            panelBody.addClass("panel-body");
+            panelBody.css("paddingTop", "5px");
+            panelBody.css("paddingBottom", "5px");
+            panelBody.css("paddingLeft", "5px");
+            //add media
+            var media = $("<div>");
+            media.addClass("media");
+ 
+
+            //media head
+            var mediaHead = $("<a>");
+            mediaHead.addClass("pull-left");
+            mediaHead.attr("href", "#");
+            mediaHead.css("marginRight", "0px");
+
+            //media head pic
+            var mediaPic = $("<img>");
+            if (contractType == 1) {
+                mediaPic.attr("src", "../Images/in.png");
+            } else {
+                mediaPic.attr("src", "../Images/out.png");
+            }
+            mediaPic.appendTo(mediaHead);
+            mediaHead.appendTo(media);
+
+            //media body
+            var mediaBody = $('<div>');
+            mediaBody.addClass("media-body");
+            mediaBody.css("overflow", "auto");
+
+            //media body heading
+            var mediaHeading = $("<h4>");
+            mediaHeading.addClass("media-heading");
+            mediaHeading.css("paddingBottom", "5px");
+
+            var comspan = $("<span>");
+            comspan.addClass("label label-default");
+            comspan.css("margin-right", "3px");
+            comspan.text(com);
+            comspan.appendTo(mediaHeading);
+
+            var brandspan = $("<span>");
+            brandspan.addClass("label label-default");
+            brandspan.css("marginRight", "3px");
+            brandspan.text(brand);
+            brandspan.appendTo(mediaHeading);
+
+            var quantityspan = $("<span>");
+            quantityspan.addClass("label label-default");
+            quantityspan.css("marginRight", "3px");
+            quantityspan.text(quantity);
+            quantityspan.appendTo(mediaHeading);
+
+            var pricespan = $("<span>");
+            pricespan.addClass("label label-default");
+            pricespan.css("marginRight", "3px");
+            pricespan.text(price);
+            pricespan.appendTo(mediaHeading);
+
+            var salesmanspan = $("<span>");
+            salesmanspan.addClass("label label-default");
+            salesmanspan.css("marginRight", "3px");
+            salesmanspan.text(salesman);
+            salesmanspan.appendTo(mediaHeading);
+
+            //mediaHeading.text(com + " " + brand + " " + quantity + " " + price);
+
+            mediaHeading.appendTo(mediaBody);
+
+            //var salesmanp= $("<p>");
+            //salesmanp.text(salesman);
+
+            //salesmanp.appendTo(mediaBody);
+
+            var process = $("<div>");
+
+            process.addClass("label label-info");
+            process.css("marginTop", "5px");
+            process.css("marginBottom", "10px");
+            process.css("fontSize", "13px");
+
+            var pp1 = $("<span>");
+            pp1.addClass("text-success");
+            pp1.text(part1);
+            pp1.appendTo(process);
+
+            var pp2 = $("<span>");
+            pp2.addClass("text-danger");
+            pp2.text(part2);
+            pp2.appendTo(process);
+
+            process.appendTo(mediaBody);
+
+
+            //panel foot
+            var panelFoot = $("<div>");
+            panelFoot.css("marginTop", "5px");
+            var btn1 = $("<button>");
+            btn1.addClass("btn btn-success");
+            btn1.attr("id", "btnAgree" + id);
+            btn1.attr("data-id", id);
+            btn1.attr("data-loading-text", "正在提交...");
+            btn1.text("同意");
+            btn1.css("marginRight", "5px");
+            btn1.css("width", "82px");
+            btn1.appendTo(panelFoot);
+            btn1.click(function () {
+                var btn = this;
+                var no = $(this).attr("data-id");
+                $(btn).button('loading');
+                $.post("../Handler/ContractApprovalHandler.ashx", { method: "Agree", quotaId: no, openId: openId }, function (msg) {
+                    if (msg == "1") {
+                        $("#panel-" + no).remove();
+                    }
+                    else {
+                        showDialog("审批同意失败");
+                    }
+                }).complete(function () {
+                    $(btn).button('reset');
+                });
+            });
+
+
+            var btn2 = $("<button>");
+            btn2.addClass("btn btn-warning");
+            btn2.text("驳回");
+            btn2.attr("id", "btnDisAgree" + id);
+            btn2.attr("data-id", id);
+            btn2.css("width", "82px");
+            btn2.appendTo(panelFoot);
+            btn2.click(function () {
+                var no = $(this).attr("data-id");
+                currentQuotaId = no;
+                showReason();
+            });
+
+
+            panelFoot.appendTo(mediaBody);
+            mediaBody.appendTo(media);
+            media.appendTo(panelBody);
+            panelBody.appendTo(panel);
+            $(".container").append(panel);
+
+        }
+    </script>
+</head>
+<body>
+    <div class="container center" style="padding-top: 10px; padding-left: 5px; padding-right: 5px;">
+        <!-- <div class="page-header">待审批列表</div>-->
+        <!--        <div style="border-bottom: 1px solid #d8d0d0; height: 100px;">
+                  <div>
+                    <div class="row">
+                      <div class="col-xs-2">
+                        <img src="../Images/in.png" />
+                      </div>
+                      <div class="col-xs-10">金属 品牌  数量 价格 日期 用户</div>
+
+                    </div>
+
+                  </div>
+                  <div class="row" style="margin-top: 10px;">
+                    <div class="col-xs-offset-1 col-xs-5">
+                      <button id="btnAgree" data-loading-text="正在提交..." class="btn btn-primary btn-block">同意</button>
+                    </div>
+                    <div class="col-xs-5">
+                      <button id="btnDisAgree" class="btn btn-primary btn-block">拒绝</button>
+                    </div>
+                  </div>
+                </div>-->
+    </div>
+    <div class="modal fade" id="msgDialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="msgInfo"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="rejuetReason">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header" style="padding-top: 10px; padding-bottom: 5px">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">请输入拒绝理由</h4>
+                </div>
+                <div class="modal-body" style="padding: 10px;">
+                    <textarea id="reason"></textarea>
+                    <span id="error" style="color: red;"></span>
+                </div>
+                <div class="modal-footer" style="margin-top:0; padding-top:5px; padding-bottom: 5px">
+                    <button type="button" class="btn btn-warning" data-loading-text="正在提交..." id="btnSubmit">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

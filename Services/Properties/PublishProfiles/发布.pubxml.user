@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\wing\Desktop\fuwu</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Attachments/AttachmentService.svc">
+      <publishTime>12/05/2013 14:18:15</publishTime>
+    </File>
+    <File Include="Attachments/UploadService.svc">
+      <publishTime>12/05/2013 14:18:15</publishTime>
+    </File>
+    <File Include="bin/DBEntity.dll">
+      <publishTime>05/26/2014 14:40:37</publishTime>
+    </File>
+    <File Include="bin/ICSharpCode.SharpZipLib.dll">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="bin/NPOI.dll">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="bin/NPOI.OOXML.dll">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="bin/NPOI.OpenXml4Net.dll">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="bin/NPOI.OpenXmlFormats.dll">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="bin/PriceDBEntity.dll">
+      <publishTime>05/26/2014 14:40:33</publishTime>
+    </File>
+    <File Include="bin/Services.dll">
+      <publishTime>05/26/2014 14:40:45</publishTime>
+    </File>
+    <File Include="bin/Utility.dll">
+      <publishTime>05/26/2014 14:40:40</publishTime>
+    </File>
+    <File Include="bin/zh-CN/DBEntity.resources.dll">
+      <publishTime>05/26/2014 14:40:37</publishTime>
+    </File>
+    <File Include="bin/zh-CN/Utility.resources.dll">
+      <publishTime>05/26/2014 14:40:40</publishTime>
+    </File>
+    <File Include="Finance/FundFlows/FundFlowService.svc">
+      <publishTime>12/05/2013 14:18:15</publishTime>
+    </File>
+    <File Include="Finance/LetterOfCredits/LCAllocationService.svc">
+      <publishTime>12/05/2013 14:18:15</publishTime>
+    </File>
+    <File Include="Finance/LetterOfCredits/LetterOfCreditService.svc">
+      <publishTime>12/05/2013 14:18:15</publishTime>
+    </File>
+    <File Include="Futures/Hedge/HedgeGroupService.svc">
+      <publishTime>12/05/2013 14:18:16</publishTime>
+    </File>
+    <File Include="Futures/LME/LMEPositionService.svc">
+      <publishTime>12/05/2013 14:18:16</publishTime>
+    </File>
+    <File Include="Futures/SHFE/SHFEFundFlowService.svc">
+      <publishTime>12/05/2013 14:18:17</publishTime>
+    </File>
+    <File Include="Futures/SHFE/SHFEPositionService.svc">
+      <publishTime>12/05/2013 14:18:17</publishTime>
+    </File>
+    <File Include="Futures/SHFE/SHFEService.svc">
+      <publishTime>12/05/2013 14:18:17</publishTime>
+    </File>
+    <File Include="MarketPrice/MarketPriceService.svc">
+      <publishTime>12/05/2013 14:18:20</publishTime>
+    </File>
+    <File Include="Physical/CommercialInvoices/CommercialInvoiceService.svc">
+      <publishTime>12/05/2013 14:18:20</publishTime>
+    </File>
+    <File Include="Physical/Contracts/ContractService.svc">
+      <publishTime>12/05/2013 14:18:20</publishTime>
+    </File>
+    <File Include="Physical/Contracts/QuotaService.svc">
+      <publishTime>12/05/2013 14:18:20</publishTime>
+    </File>
+    <File Include="Physical/Deliveries/DeliveryLineService.svc">
+      <publishTime>12/05/2013 14:18:20</publishTime>
+    </File>
+    <File Include="Physical/Deliveries/DeliveryService.svc">
+      <publishTime>12/05/2013 14:18:20</publishTime>
+    </File>
+    <File Include="Physical/Deliveries/ForeignDeliveryPoolLineService.svc">
+      <publishTime>12/05/2013 14:18:20</publishTime>
+    </File>
+    <File Include="Physical/Deliveries/ForeignDeliveryPoolService.svc">
+      <publishTime>12/05/2013 14:18:20</publishTime>
+    </File>
+    <File Include="Physical/Inventories/InventoryService.svc">
+      <publishTime>12/05/2013 14:18:20</publishTime>
+    </File>
+    <File Include="Physical/Payments/PaymentRequestService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="Physical/Pricings/PricingService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="Physical/Pricings/UnpricingService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="Physical/VATInvoices/VATInvoicedRequestLineService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="Physical/VATInvoices/VATInvoiceLineService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="Physical/VATInvoices/VATInvoiceRequestService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="Physical/VATInvoices/VATInvoiceService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="Physical/WarehouseIns/WarehouseInLineService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="Physical/WarehouseIns/WarehouseInService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="Physical/WarehouseOuts/PSQuotaRelService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="Physical/WarehouseOuts/WarehouseOutLineService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="Physical/WarehouseOuts/WarehouseOutService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/ApprovalService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/BankAccountService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/BankService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/BrandService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/BusinessPartnerService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/CategoryService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/CommissionLineService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/CommissionService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/CommodityService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/CommodityTypeService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/ContractUDFService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/CountryService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/CurrencyService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/DeliveryPersonService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/DocumentService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/FinancialAccountService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/FunctionService.svc">
+      <publishTime>12/05/2013 14:18:21</publishTime>
+    </File>
+    <File Include="SystemSetting/LogMessageService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="SystemSetting/LogRegistrationService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="SystemSetting/ModuleService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="SystemSetting/PaymentMeanService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="SystemSetting/PaymentUsageService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="SystemSetting/PortService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="SystemSetting/RateService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="SystemSetting/RoleService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="SystemSetting/SpecificationService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="SystemSetting/SystemParameterService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="SystemSetting/UserService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="SystemSetting/VATRateService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="SystemSetting/WarehouseService.svc">
+      <publishTime>12/05/2013 14:18:22</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/26/2014 14:40:45</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

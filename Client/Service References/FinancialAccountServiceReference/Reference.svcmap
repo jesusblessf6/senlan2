@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2bb04ecd-6a09-433a-8138-ab7f9dd37037" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/FinancialAccountService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FinancialAccountService.xsd" MetadataType="Schema" ID="3da12c28-f8bc-46e8-8214-3bdcee7cd79d" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/FinancialAccountService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FinancialAccountService4.xsd" MetadataType="Schema" ID="6e8d4637-dc13-4613-9948-1e2aea436cbc" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/FinancialAccountService.svc?xsd=xsd4" />
+    <MetadataFile FileName="FinancialAccountService.disco" MetadataType="Disco" ID="e033d518-3429-441e-9ef2-1464e0d6e361" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/FinancialAccountService.svc?disco" />
+    <MetadataFile FileName="FinancialAccountService1.xsd" MetadataType="Schema" ID="dbd7ee91-2d17-4a77-b31c-723886c32620" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/FinancialAccountService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FinancialAccountService2.xsd" MetadataType="Schema" ID="b0ad6f72-1412-412f-9355-6032a9c77306" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/FinancialAccountService.svc?xsd=xsd3" />
+    <MetadataFile FileName="FinancialAccountService3.xsd" MetadataType="Schema" ID="21c1a78c-dae0-46ab-9072-a5fdf6f45422" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/FinancialAccountService.svc?xsd=xsd5" />
+    <MetadataFile FileName="FinancialAccountService.wsdl" MetadataType="Wsdl" ID="80f40978-afe7-4838-9292-d98cd0882aef" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/FinancialAccountService.svc?wsdl" />
+    <MetadataFile FileName="FinancialAccountService5.xsd" MetadataType="Schema" ID="a598af1a-56b9-449f-a2b6-f8eccf83efc2" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/FinancialAccountService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

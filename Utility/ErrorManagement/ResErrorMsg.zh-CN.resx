@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApprovalConditionCollapsed" xml:space="preserve">
+    <value>审批流程条件有重叠！</value>
+  </data>
+  <data name="ApprovalNameExisted" xml:space="preserve">
+    <value>审批流程名称重复！</value>
+  </data>
+  <data name="ApprovalStageNotFound" xml:space="preserve">
+    <value>找不到审批步骤！</value>
+  </data>
+  <data name="BankAccountExisted" xml:space="preserve">
+    <value>银行账户已存在！</value>
+  </data>
+  <data name="BankAccountUsed" xml:space="preserve">
+    <value>该银行账号已经被使用，不能更改！</value>
+  </data>
+  <data name="BankNameExisted" xml:space="preserve">
+    <value>银行名称已存在！</value>
+  </data>
+  <data name="BrandExisted" xml:space="preserve">
+    <value>金属品牌已存在！</value>
+  </data>
+  <data name="CommodityTypeExisted" xml:space="preserve">
+    <value>金属类型已存在！</value>
+  </data>
+  <data name="CountryExisted" xml:space="preserve">
+    <value>原产地已存在！</value>
+  </data>
+  <data name="CurrencyExisted" xml:space="preserve">
+    <value>币种名称或币种代码已存在！</value>
+  </data>
+  <data name="CurrencyNotFound" xml:space="preserve">
+    <value>找不到币种！</value>
+  </data>
+  <data name="DeleteErr" xml:space="preserve">
+    <value>删除失败！</value>
+  </data>
+  <data name="DeleteFKErr" xml:space="preserve">
+    <value>删除失败，请检查关联对象！</value>
+  </data>
+  <data name="DeliveryCommercialInvoiceConnected" xml:space="preserve">
+    <value>该提单和商业发票关联，无法删除！</value>
+  </data>
+  <data name="DeliveryDeliveryConnected" xml:space="preserve">
+    <value>该提单和发货单关联，无法删除！</value>
+  </data>
+  <data name="DeliveryLCConnected" xml:space="preserve">
+    <value>该提单和信用证关联，无法删除！</value>
+  </data>
+  <data name="DeliveryPaymentRequestConnected" xml:space="preserve">
+    <value>该提单和付款申请关联，无法删除！</value>
+  </data>
+  <data name="DeliveryWarehouseInConnected" xml:space="preserve">
+    <value>该提单和入库关联，无法删除！</value>
+  </data>
+  <data name="DocumentNotFound" xml:space="preserve">
+    <value>找不到相应的单据！</value>
+  </data>
+  <data name="EndpointNotFound" xml:space="preserve">
+    <value>无法连接服务！</value>
+  </data>
+  <data name="ExceedPricingDateRange" xml:space="preserve">
+    <value>点价日期超出批次点价日期范围！</value>
+  </data>
+  <data name="FetchUnreadTransErr" xml:space="preserve">
+    <value>获取未读的交易数量失败！</value>
+  </data>
+  <data name="FinalInvoiceIdExisted" xml:space="preserve">
+    <value>已关联最终发票，无法删除！</value>
+  </data>
+  <data name="FinancialAccountAddFKErr" xml:space="preserve">
+    <value>新增失败，上级科目已与付款用途关联！</value>
+  </data>
+  <data name="FinancialAccountExisted" xml:space="preserve">
+    <value>会计科目名称已存在！</value>
+  </data>
+  <data name="FinancialAccountUpdate2FKErr" xml:space="preserve">
+    <value>更新失败，只有底层科目才能更改上级科目！</value>
+  </data>
+  <data name="FinancialAccountUpdateFKErr" xml:space="preserve">
+    <value>更新失败，上级科目已与付款用途关联！</value>
+  </data>
+  <data name="HedgeGroupLineLMEPositionNotFound" xml:space="preserve">
+    <value>找不到分组保值中的该LME头寸行！</value>
+  </data>
+  <data name="HedgeGroupLineQuotaNotFound" xml:space="preserve">
+    <value>找不到分组保值中的该批次行！</value>
+  </data>
+  <data name="HedgeGroupLineSHFEPositionNotFound" xml:space="preserve">
+    <value>找不到分组保值中的该SHFE头寸行！</value>
+  </data>
+  <data name="HedgeGroupNotFound" xml:space="preserve">
+    <value>找不到分组保值！</value>
+  </data>
+  <data name="HedgeGroupSettledNotForModify" xml:space="preserve">
+    <value>已结算保值分组不能修改！</value>
+  </data>
+  <data name="LMEPositionHedged" xml:space="preserve">
+    <value>已参与保值LME头寸不能修改或删除！</value>
+  </data>
+  <data name="LMEPositionNotFound" xml:space="preserve">
+    <value>找不到LME头寸！</value>
+  </data>
+  <data name="LogActionNotFound" xml:space="preserve">
+    <value>找不到相应的日志事件！</value>
+  </data>
+  <data name="LoginFailErr" xml:space="preserve">
+    <value>用户名或密码错误!</value>
+  </data>
+  <data name="LoginNameExisted" xml:space="preserve">
+    <value>登录名已存在！</value>
+  </data>
+  <data name="NotInApproval" xml:space="preserve">
+    <value>找不到审批流程或当前步骤已通过！</value>
+  </data>
+  <data name="ObjectNotFound" xml:space="preserve">
+    <value>找不到该对象！</value>
+  </data>
+  <data name="OldPasswordErr" xml:space="preserve">
+    <value>旧密码不正确！</value>
+  </data>
+  <data name="OptimisticConcurrencyErr" xml:space="preserve">
+    <value>数据已经被修改，请刷新后重试！</value>
+  </data>
+  <data name="PaymentMeanExisted" xml:space="preserve">
+    <value>付款方式已经存在！</value>
+  </data>
+  <data name="PaymentRequestFundFlowConnected" xml:space="preserve">
+    <value>该付款申请和现金收付关联，无法删除！</value>
+  </data>
+  <data name="PaymentRequestLCConnected" xml:space="preserve">
+    <value>该付款申请和信用证关联，无法删除！</value>
+  </data>
+  <data name="PaymentRequestNotFound" xml:space="preserve">
+    <value>找不到相应的付款申请！</value>
+  </data>
+  <data name="PaymentUsageExisted" xml:space="preserve">
+    <value>付款用途已经存在！</value>
+  </data>
+  <data name="PaymentUsagePAExisted" xml:space="preserve">
+    <value>保存失败，默认会计科目下不能有子级科目！</value>
+  </data>
+  <data name="PortExisted" xml:space="preserve">
+    <value>港口名称已存在！</value>
+  </data>
+  <data name="PricingCurrencyNotMatch" xml:space="preserve">
+    <value>点价币种与批次不一致！</value>
+  </data>
+  <data name="PricingUnpricingConnected" xml:space="preserve">
+    <value>已经被点价，无法删除或编辑！</value>
+  </data>
+  <data name="PricingVATInvoiceConnected" xml:space="preserve">
+    <value>该批次已经点价完成并开具增值税发票，无法删除！</value>
+  </data>
+  <data name="QuotaCommercialInvoiceConnected" xml:space="preserve">
+    <value>该批次和商业发票关联，无法删除！</value>
+  </data>
+  <data name="QuotaDeliveryConnected" xml:space="preserve">
+    <value>该批次和提单或发货单关联，无法删除！</value>
+  </data>
+  <data name="QuotaFundFlowConnected" xml:space="preserve">
+    <value>该批次和现金收付关联，无法删除！</value>
+  </data>
+  <data name="QuotaHedgedNotAbleToDeleteModify" xml:space="preserve">
+    <value>已加入保值分组的批次不能删除或修改！</value>
+  </data>
+  <data name="QuotaLetterOfCreditConnected" xml:space="preserve">
+    <value>该批次和信用证关联，无法删除！</value>
+  </data>
+  <data name="QuotaNotExisted" xml:space="preserve">
+    <value>批次不存在！</value>
+  </data>
+  <data name="QuotaPaymentRequestConnected" xml:space="preserve">
+    <value>该批次和付款申请关联，无法删除！</value>
+  </data>
+  <data name="QuotaPricingConnected" xml:space="preserve">
+    <value>该批次和点价关联，无法删除！</value>
+  </data>
+  <data name="QuotaVATInvoiceConnected" xml:space="preserve">
+    <value>该批次和增值税发票关联，无法删除！</value>
+  </data>
+  <data name="QuotaVATInvoiceRequestConnected" xml:space="preserve">
+    <value>该批次和增值税开票申请关联，无法删除！</value>
+  </data>
+  <data name="QuotaWarehouseOutConnected" xml:space="preserve">
+    <value>该批次和出库关联，无法删除！</value>
+  </data>
+  <data name="RateExisted" xml:space="preserve">
+    <value>币种汇率已存在！</value>
+  </data>
+  <data name="RoleNameExisted" xml:space="preserve">
+    <value>角色名已存在！</value>
+  </data>
+  <data name="SaleDeliveryConnected" xml:space="preserve">
+    <value>该单据与发货单关联，无法删除！</value>
+  </data>
+  <data name="SHFEPositionNotFound" xml:space="preserve">
+    <value>找不到SHFE头寸！</value>
+  </data>
+  <data name="SpecificationExisted" xml:space="preserve">
+    <value>金属规格已存在！</value>
+  </data>
+  <data name="StringOverflow" xml:space="preserve">
+    <value>文本长度超出限定值！</value>
+  </data>
+  <data name="TimeoutErr" xml:space="preserve">
+    <value>连接服务超时，请稍后重试！</value>
+  </data>
+  <data name="UdfExisted" xml:space="preserve">
+    <value>自定义类型已存在！</value>
+  </data>
+  <data name="UnkownErr" xml:space="preserve">
+    <value>未知错误！</value>
+  </data>
+  <data name="UnpricingNotFound" xml:space="preserve">
+    <value>找不到相应的未点批次！</value>
+  </data>
+  <data name="UnpricingQuantityNotEnough" xml:space="preserve">
+    <value>点价数量超过未点价数量！</value>
+  </data>
+  <data name="UnpricingUnpricingConnected" xml:space="preserve">
+    <value>被再次延期，无法删除或编辑！</value>
+  </data>
+  <data name="VATInvoiceRequestLineConnected" xml:space="preserve">
+    <value>该增值税发票申请和增值税发票关联，无法删除！</value>
+  </data>
+  <data name="VATRateExisted" xml:space="preserve">
+    <value>税率代码已经存在！</value>
+  </data>
+  <data name="WarehouseInWarehouseOutConnected" xml:space="preserve">
+    <value>该入库已经和出库关联，无法删除！</value>
+  </data>
+  <data name="WarehouseExisted" xml:space="preserve">
+    <value>库存简称不能重名！</value>
+  </data>
+  <data name="FinancialAccountFundFlowConnected" xml:space="preserve">
+    <value>会计科目和现金收付关联，不能删除！</value>
+  </data>
+  <data name="FinancialAccountPaymentUsageConnected" xml:space="preserve">
+    <value>会计科目和付款用途关联，不能删除！</value>
+  </data>
+  <data name="LCCommercialInvoiceConnected" xml:space="preserve">
+    <value>该信用证和商业发票关联，无法删除！</value>
+  </data>
+  <data name="DeliveryLineNotHasTempUnitPrice" xml:space="preserve">
+    <value>有提单行没有暂定价！</value>
+  </data>
+  <data name="DeleteRelQuotaConnected" xml:space="preserve">
+    <value>是自动生成的单据，不能删除！</value>
+  </data>
+  <data name="EditRelQuotaConnected" xml:space="preserve">
+    <value>是自动生成的单据，不能编辑！</value>
+  </data>
+  <data name="DuplicatedDeliveryPersonInfo" xml:space="preserve">
+    <value>身份证号已存在！</value>
+  </data>
+  <data name="NotDuringApproval" xml:space="preserve">
+    <value>不在审批流程中！</value>
+  </data>
+  <data name="ForeignDeliveryPoolNotFound" xml:space="preserve">
+    <value>找不到外贸提单！</value>
+  </data>
+  <data name="DuplicatedDeliveryNo" xml:space="preserve">
+    <value>提单/仓单号已存在！</value>
+  </data>
+  <data name="InvoiceHasPayMentRequest" xml:space="preserve">
+    <value>发票与付款申请关联，不能删除！</value>
+  </data>
+</root>

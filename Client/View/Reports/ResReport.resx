@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AmountRemain" xml:space="preserve">
+    <value>Amount Remain</value>
+  </data>
+  <data name="BrokerName" xml:space="preserve">
+    <value>Broker Name</value>
+  </data>
+  <data name="Calculation1" xml:space="preserve">
+    <value>1. Domestic Receivable/Payable = Ʃ(Priced Price × Priced Qty)；Foreign Receivable/Payable = ƩFinal Invoice Amount + ƩProvisional Invoice Amount(Not Adjusted Invoice)；Convert according to the settlement currency.</value>
+  </data>
+  <data name="Calculation2" xml:space="preserve">
+    <value>2. Physical Gross Profit = Sales Receivable - Ʃ(Corresponding Purchase Payable)；Convert according to the settlement currency.</value>
+  </data>
+  <data name="ClosingPnLOfSettleDate" xml:space="preserve">
+    <value>Closing PnL of Settle Date</value>
+  </data>
+  <data name="CustomerName" xml:space="preserve">
+    <value>Customer Name</value>
+  </data>
+  <data name="DateRangeLimit" xml:space="preserve">
+    <value>Date Range should not be more than 3 months!</value>
+  </data>
+  <data name="DocumentNo" xml:space="preserve">
+    <value>Document No.</value>
+  </data>
+  <data name="DomesticHedgeRatio" xml:space="preserve">
+    <value>Domestic Hedge Ratio</value>
+  </data>
+  <data name="DomesticHedgeRatioRequired" xml:space="preserve">
+    <value>Domestic Hedge Ratio is Required!</value>
+  </data>
+  <data name="DuedLockedPnL" xml:space="preserve">
+    <value>Squared Fixed PnL</value>
+  </data>
+  <data name="Exposure" xml:space="preserve">
+    <value>Exposure</value>
+  </data>
+  <data name="ExposureTrend" xml:space="preserve">
+    <value>Exposure Trend</value>
+  </data>
+  <data name="FloatPnL" xml:space="preserve">
+    <value>Float PnL</value>
+  </data>
+  <data name="ForeignBLWRFlowReport" xml:space="preserve">
+    <value>Foreign BL/WR Flow Report</value>
+  </data>
+  <data name="InformBank" xml:space="preserve">
+    <value>Inform Bank: </value>
+  </data>
+  <data name="InitPricingMargin" xml:space="preserve">
+    <value>Initial Pricing Margin</value>
+  </data>
+  <data name="Inventory" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="InvoicedQty" xml:space="preserve">
+    <value>Invoiced Qty</value>
+  </data>
+  <data name="LatestPrice" xml:space="preserve">
+    <value>Latest Price</value>
+  </data>
+  <data name="Ledger" xml:space="preserve">
+    <value>Ledger</value>
+  </data>
+  <data name="LMELatestPrice" xml:space="preserve">
+    <value>LME Latest Price</value>
+  </data>
+  <data name="LatestPriceWithPremium" xml:space="preserve">
+    <value>Latest Price (incl. Premium)</value>
+  </data>
+  <data name="LMELong" xml:space="preserve">
+    <value>LME Long</value>
+  </data>
+  <data name="LMEPositionPL" xml:space="preserve">
+    <value>LME Position PnL Report</value>
+  </data>
+  <data name="LMEShort" xml:space="preserve">
+    <value>LME Short</value>
+  </data>
+  <data name="LoCInfo" xml:space="preserve">
+    <value>LoC Info</value>
+  </data>
+  <data name="MarginRatio" xml:space="preserve">
+    <value>Margin Ratio</value>
+  </data>
+  <data name="MarginRatioRequired" xml:space="preserve">
+    <value>Margin Ratio is Required!</value>
+  </data>
+  <data name="NotPriced" xml:space="preserve">
+    <value>Not Priced</value>
+  </data>
+  <data name="OpenCollect" xml:space="preserve">
+    <value>Open/Collect</value>
+  </data>
+  <data name="OpenCollectRequired" xml:space="preserve">
+    <value>Please select invoice type, Open or Collect!</value>
+  </data>
+  <data name="OppoCalledMargin" xml:space="preserve">
+    <value>Opposite Added Margin</value>
+  </data>
+  <data name="OppoMarginToAdd" xml:space="preserve">
+    <value>Opposite Additional Margin to Call</value>
+  </data>
+  <data name="OppositeMarginToReturn" xml:space="preserve">
+    <value>Opposite Margin to Return</value>
+  </data>
+  <data name="OppositeReturnedMargin" xml:space="preserve">
+    <value>Opposite Returned Margin</value>
+  </data>
+  <data name="OurAdditionalMargin" xml:space="preserve">
+    <value>Our Added Margin</value>
+  </data>
+  <data name="OurMarginToAdd" xml:space="preserve">
+    <value>Our Additional Margin to Call</value>
+  </data>
+  <data name="OurMarginToReturn" xml:space="preserve">
+    <value>Our Margin to Return</value>
+  </data>
+  <data name="OurReturnedMargin" xml:space="preserve">
+    <value>Our Returned Margin</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="PartialPriced" xml:space="preserve">
+    <value>Partially Priced</value>
+  </data>
+  <data name="PhysicalDomesticTradePnL" xml:space="preserve">
+    <value>Physical Domestic Trade PnL</value>
+  </data>
+  <data name="PhysicalForeignTradePnL" xml:space="preserve">
+    <value>Physical Foreign Trade PnL</value>
+  </data>
+  <data name="PhysicalFuturesPnL" xml:space="preserve">
+    <value>Physical/Futures PnL Report</value>
+  </data>
+  <data name="PhysicalGrossProfit" xml:space="preserve">
+    <value>Physical Gross Profit</value>
+  </data>
+  <data name="PhysicalPurchase" xml:space="preserve">
+    <value>Physical Purchase</value>
+  </data>
+  <data name="PhysicalSales" xml:space="preserve">
+    <value>Physical Sales</value>
+  </data>
+  <data name="PositionNotEven" xml:space="preserve">
+    <value>Position Not Even!</value>
+  </data>
+  <data name="PricingMarginRisk" xml:space="preserve">
+    <value>Risk of Pricing Margin</value>
+  </data>
+  <data name="PruchaseAveragePrice" xml:space="preserve">
+    <value>Average Purchase Price</value>
+  </data>
+  <data name="PurchaseDate" xml:space="preserve">
+    <value>Purchase Date</value>
+  </data>
+  <data name="PurchaseOppoPricing" xml:space="preserve">
+    <value>Purchase - Priced by Opposite</value>
+  </data>
+  <data name="PurchaseOurSidePricing" xml:space="preserve">
+    <value>Purchase - Priced by Us</value>
+  </data>
+  <data name="PurchaseQuotaNo" xml:space="preserve">
+    <value>Purchase Quota No.</value>
+  </data>
+  <data name="QuotaStatusChange" xml:space="preserve">
+    <value>Quota Status Modification</value>
+  </data>
+  <data name="ReceivableAndPayable" xml:space="preserve">
+    <value>Receivable And Payable</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>Received</value>
+  </data>
+  <data name="SalesAveragePrice" xml:space="preserve">
+    <value>Average Sales Price</value>
+  </data>
+  <data name="SalesDate" xml:space="preserve">
+    <value>Sales Date</value>
+  </data>
+  <data name="SalesOppoPricing" xml:space="preserve">
+    <value>Sales - Priced by Opposite</value>
+  </data>
+  <data name="SalesOurPricing" xml:space="preserve">
+    <value>Sales - Priced by Us</value>
+  </data>
+  <data name="SalesPnL" xml:space="preserve">
+    <value>Sales PnL</value>
+  </data>
+  <data name="SalesQuotaNo" xml:space="preserve">
+    <value>Sales Quota No.</value>
+  </data>
+  <data name="SettleDateLimit" xml:space="preserve">
+    <value>Settlement Date should not be later than today!</value>
+  </data>
+  <data name="SettleDateRequired" xml:space="preserve">
+    <value>Settlement Date is Required!</value>
+  </data>
+  <data name="SettlementDate" xml:space="preserve">
+    <value>Settlement Date</value>
+  </data>
+  <data name="SHFELong" xml:space="preserve">
+    <value>SHFE Long</value>
+  </data>
+  <data name="SHFEPnL" xml:space="preserve">
+    <value>SHFE Position PnL</value>
+  </data>
+  <data name="SHFEShort" xml:space="preserve">
+    <value>SHFE Short</value>
+  </data>
+  <data name="StopLossPrice" xml:space="preserve">
+    <value>Stop-Loss Price</value>
+  </data>
+  <data name="SumByBroker" xml:space="preserve">
+    <value>Summary By Broker</value>
+  </data>
+  <data name="UnduedFloatPnL" xml:space="preserve">
+    <value>Unsquared Float PnL</value>
+  </data>
+  <data name="UnduedLockedPnL" xml:space="preserve">
+    <value>Unsquared Fixed PnL</value>
+  </data>
+  <data name="VATInvoiceDetail" xml:space="preserve">
+    <value>VAT Invoice Detail</value>
+  </data>
+  <data name="AveragePullPrice" xml:space="preserve">
+    <value>Average Pull Price</value>
+  </data>
+  <data name="AveragePushPrice" xml:space="preserve">
+    <value>Average Push Price</value>
+  </data>
+  <data name="ChangeStatus" xml:space="preserve">
+    <value>Change Status</value>
+  </data>
+  <data name="LatestSettlementPrice" xml:space="preserve">
+    <value>Latest Settlement Price</value>
+  </data>
+  <data name="PositionDetail" xml:space="preserve">
+    <value>Position Detail</value>
+  </data>
+  <data name="PositionPL" xml:space="preserve">
+    <value>Position PnL</value>
+  </data>
+  <data name="PullPosition" xml:space="preserve">
+    <value>Pull Position</value>
+  </data>
+  <data name="PushPosition" xml:space="preserve">
+    <value>Push Position</value>
+  </data>
+  <data name="QuotaStatus" xml:space="preserve">
+    <value>Quota Status</value>
+  </data>
+  <data name="TradeTypeRequired" xml:space="preserve">
+    <value>Trade Type is Required!</value>
+  </data>
+  <data name="VATInvoicedQty" xml:space="preserve">
+    <value>VAT Invoiced Qty</value>
+  </data>
+</root>

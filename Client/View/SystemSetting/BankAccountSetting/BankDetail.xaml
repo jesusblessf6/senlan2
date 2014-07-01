@@ -1,0 +1,48 @@
+﻿<baseClient2:ObjectBaseWindow x:Class="Client.View.SystemSetting.BankAccountSetting.BankDetail"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       ResxExtension.DefaultResxName="Client.View.SystemSetting.BankAccountSetting.ResBankAccountSetting" 
+                       Language="{UICulture}"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:baseClient2="clr-namespace:Client.Base.BaseClient"
+                       Title="{Resx ResxName=Client.Properties.Resources, Key=Bank}" Height="303"
+                       Width="600" WindowStartupLocation="CenterScreen">
+
+    <baseClient2:ObjectBaseWindow.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+    </baseClient2:ObjectBaseWindow.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Bank}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Name}" Margin="6,38,0,0" Name="label1" Foreground="Crimson" HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Margin="122,40,0,0" Name="textBox1" Text="{Binding Name}" MaxLength="255" HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+            <Label Content="SWIFT" Margin="278,38,0,0" Name="label2" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox Margin="394,40,0,0" Name="textBox2" Text="{Binding Code}" MaxLength="50"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Address}" Margin="6,70,0,0" Name="label3" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,72,0,0" Name="textBox3" VerticalAlignment="Top"
+                     Width="392" Text="{Binding Address}" MaxLength="255" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Margin="6,102,0,0" Name="label4" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Height="100" HorizontalAlignment="Left" Margin="122,104,0,0" Name="textBox4"
+                     VerticalAlignment="Top" Width="392" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                     Text="{Binding Description}" MaxLength="255" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Confirm}" Height="25" HorizontalAlignment="Left" Margin="210,229,0,0" Name="button1"
+                    VerticalAlignment="Top" Width="60" Click="Save" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Height="25" HorizontalAlignment="Left" Margin="305,229,0,0" Name="button2"
+                    VerticalAlignment="Top" Width="60" Click="Cancel" />
+        </Grid>
+    </ScrollViewer>
+</baseClient2:ObjectBaseWindow>

@@ -1,0 +1,85 @@
+﻿<baseClient:BasePage x:Class="Client.View.SystemSetting.FinancialAccountSetting.FinancialAccountHome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      ResxExtension.DefaultResxName="Client.View.SystemSetting.FinancialAccountSetting.ResFinancialAccountSetting" 
+      Language="{UICulture}"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="600"
+	Title="{Resx FinancialAccountList}" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+                     xmlns:baseClient="clr-namespace:Client.Base.BaseClient">
+
+    <Page.Resources>
+        <RoutedCommand x:Key="EditFinancialAccountCommand"></RoutedCommand>
+        <RoutedCommand x:Key="DeleteFinancialAccountCommand"></RoutedCommand>
+    </Page.Resources>
+
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource EditFinancialAccountCommand}" CanExecute="EditFinancialAccountCommandCanExecute" Executed="EditFinancialAccountCommandExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource DeleteFinancialAccountCommand}" CanExecute="DeleteFinancialAccountCommandCanExecute" Executed="DeleteFinancialAccountCommandExecuted"></CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="{Resx FinancialAccountList}" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label1" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,12,0,0" Name="button1" VerticalAlignment="Top" Width="60" Click="Button1Click" Grid.Column="1" />
+            <TreeView HorizontalAlignment="Left" Margin="20,40,0,50" Name="tvFinancialAccount" Width="Auto" MinWidth="150" MinHeight="50" Grid.Column="0" 
+                      ItemsSource="{Binding}" SelectedValuePath="Id" SelectedItemChanged="TvFinancialAccountSelectedItemChanged">
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="true" />
+                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                        <Setter Property="FontSize" Value="14" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="FontWeight" Value="Bold" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Children}" DataType="DBEntity:FinancialAccount">
+                        <TextBlock Text="{Binding Name}" />
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+            <Grid Margin="6,40,20,50" Name="grid1" Grid.Column="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="300" />
+                </Grid.ColumnDefinitions>
+                <Rectangle Name="rectangle1" Stroke="Black" Grid.ColumnSpan="2" />
+                <StackPanel Margin="6,6,0,0" Orientation="Horizontal" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Width="Auto">
+                    <Label Content="{Binding SelectedFinancialAccountName}" Height="28" HorizontalAlignment="Left" Margin="10,6,0,0" Name="lbSelectedFinancialAccountName" VerticalAlignment="Top" Grid.Column="0" />
+                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Height="23" HorizontalAlignment="Left" Margin="10,6,0,0" Name="button2" VerticalAlignment="Top" Width="45" Click="Button2Click" />
+                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Height="23" HorizontalAlignment="Left" Margin="10,6,0,0" Name="button3" VerticalAlignment="Top" Width="45"  Click="BtDeteleClick"/>
+                </StackPanel>
+                <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="16,77,0,0" Name="dgFinancialAccountDetails" 
+                          VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding}" IsReadOnly="True" SelectionUnit="Cell" 
+                          SelectionMode="Extended" LoadingRow="DgFinancialAccountDetailsLoadingRow">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.FinancialAccountSetting.ResFinancialAccountSetting, Key=SubAccount}" Width="Auto" CanUserSort="True" Binding="{Binding Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True" Binding="{Binding Description}"></DataGridTextColumn>
+                        <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="DBEntity:FinancialAccount">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Height="20" FontSize="11" Width="30" Command="{StaticResource EditFinancialAccountCommand}" CommandParameter="{Binding Id}"></Button>
+                                        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Height="20" FontSize="11" Width="30" Command="{StaticResource DeleteFinancialAccountCommand}" CommandParameter="{Binding Id}" ></Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <my:PagingControl HorizontalAlignment="Left" Margin="16,40,0,0" Name="pagingControl1" VerticalAlignment="Top" />
+            </Grid>
+            
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

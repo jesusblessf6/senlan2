@@ -1,0 +1,122 @@
+﻿<baseClient:BasePage x:Class="Client.View.Physical.VATInvoices.VATInvoiceRequestDetail"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               ResxExtension.DefaultResxName="Client.View.Physical.VATInvoices.ResVATInvoice" 
+               Language="{UICulture}"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:my="clr-namespace:Utility.Controls;assembly=Utility" xmlns:Converters="clr-namespace:Client.Converters"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+               xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+               mc:Ignorable="d" d:DesignHeight="380" d:DesignWidth="810"
+               Title="{Resx VATInvoiceRequest}">
+
+    <Page.Resources>
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="MinWidth" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <RoutedCommand x:Key="Delete"></RoutedCommand>
+        <RoutedCommand x:Key="Edit"></RoutedCommand>
+        <DataTemplate x:Key="Actions" DataType="DBEntity:VATInvoiceRequestLine">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource Edit}" CommandParameter="{Binding Id}"></Button>
+                <Button Name="btnDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource Delete}" CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+        <Converters:ApproveStatusConverter x:Key="asConverter"></Converters:ApproveStatusConverter>
+    </Page.Resources>
+    
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource Delete}" CanExecute="DeleteCanExecute" Executed="DeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource Edit}" CanExecute="EditCanExecute" Executed="EditExecuted"></CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="rootGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Label Content="{Resx VATInvoiceRequest}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Buyer}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="6,38,0,0"
+                   Name="label7" VerticalAlignment="Top" Foreground="Crimson" />
+            <TextBox HorizontalAlignment="Left" Margin="122,40,0,0" Name="textBox5" VerticalAlignment="Top"
+                     Text="{Binding BPName}" IsEnabled="False" />
+            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="246,40,0,0" Name="button2"
+                    VerticalAlignment="Top" Width="25" Click="BtnBusinessPartnerClick" />
+            <Label Content="{Resx InvoiceBP}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="278,38,0,0"
+                   Name="label13" VerticalAlignment="Top" Foreground="Crimson" />
+            <ComboBox HorizontalAlignment="Left" Margin="394,40,0,0" Name="comboBox5" VerticalAlignment="Top"
+                      ItemsSource="{Binding InternalBPs}" SelectedValuePath="Id" DisplayMemberPath="ShortName"
+                      SelectedValue="{Binding InternalBPId}" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=ApplyDate}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="6,70,0,0"
+                   Name="label9" VerticalAlignment="Top" />
+            <DatePicker HorizontalAlignment="Left" Margin="122,72,0,7" Name="datePicker1" VerticalAlignment="Top"
+                        SelectedDate="{Binding RequestDate}" />
+            <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="122,2,0,7" Name="vatdataGrid"
+                      VerticalAlignment="Top" IsReadOnly="True" Grid.Row="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding Quota.QuotaNo}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Quantity}" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding UnOpenedQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=AppliedAmount}" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding RequestAmount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Physical.VATInvoices.ResVATInvoice, Key=InvoicePrice}" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding RequestPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ApplyQuantity}" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding RequestQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="申请已开数量" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding VATInvoicedQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ApprovalStatus}" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding ApproveStatus, Converter={StaticResource asConverter}}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                            CellTemplate="{StaticResource Actions}"></DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <my:PagingControl HorizontalAlignment="Left" Margin="122,0,0,0" Name="pagerList" VerticalAlignment="Top"
+                              Grid.Row="2" Visibility="Collapsed"/>
+
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="6,0,0,0"
+                   Name="label15" VerticalAlignment="Top" Grid.Row="3" />
+            <TextBox Height="100" HorizontalAlignment="Left" Margin="122,2,0,0" Name="textBox7" VerticalAlignment="Top"
+                     Width="392" Text="{Binding Comment}" Grid.Row="3" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Save}" Height="23" HorizontalAlignment="Left" Margin="210,130,0,0" Name="button3"
+                    VerticalAlignment="Top" Width="60" Click="Save" Grid.Row="3" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Height="23" HorizontalAlignment="Left" Margin="305,130,0,0" Name="button4"
+                    VerticalAlignment="Top" Width="60" Click="Cancel" Grid.Row="3" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=SaveAsDraft}" Height="23" Visibility="Hidden" HorizontalAlignment="Left" Margin="378,134,0,0"
+                    Name="button5" VerticalAlignment="Top" Width="60" Grid.Row="3" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="122,2,0,7" Name="button6"
+                    VerticalAlignment="Top" Width="45" Click="CreateQuota" Grid.Row="1" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Detail}" Style="{StaticResource LabelStyle}" Grid.Row="1" HorizontalAlignment="Left"
+                   Margin="6,0,0,0" Name="label2" VerticalAlignment="Top" />
+            <Button Content="+批量新增" Height="23" HorizontalAlignment="Left" Margin="173,2,0,7" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" Grid.Row="1" />
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

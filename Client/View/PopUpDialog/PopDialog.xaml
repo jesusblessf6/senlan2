@@ -1,0 +1,31 @@
+﻿<Window x:Class="Client.View.PopUpDialog.PopDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        MinHeight="480" Height="Auto" MinWidth="560" Width="Auto" WindowStartupLocation="CenterScreen" 
+        xmlns:my="clr-namespace:Utility.Controls;assembly=Utility" KeyDown="WindowKeyDown" WindowStyle="ToolWindow" 
+        mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="482" d:DesignWidth="460" SizeToContent="WidthAndHeight">
+    <Grid x:Name="rootGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="364*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Label" Margin="12,6,0,0" Name="label1" Width="Auto" Height="28" HorizontalContentAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBox Grid.Column="1" Margin="9,8,0,0" VerticalAlignment="Top" Name="textBox1" HorizontalAlignment="Left" Width="120" Height="23" />
+        <Label Content="Label" Margin="6,6,6,6" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Grid.Column="2" Height="28" VerticalAlignment="Center" Name="label2" />
+        <TextBox Grid.Column="3" Margin="0,8" VerticalAlignment="Center" Name="textBox2" Width="120" Height="23"/>
+        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Grid.Column="4" Margin="7,8,0,9" HorizontalAlignment="Left" Width="60" Height="23" VerticalAlignment="Center" Name="btnSearch" Click="SearchButtonClick" Visibility="Visible" IsDefault="True"/>
+        <Button Content="确定" Grid.Column="4" Margin="77,8,0,9" HorizontalAlignment="Left" Width="60" Height="23" VerticalAlignment="Center" Name="btnOK" Click="OkButtonClick"/>
+        <my:PagingControl Grid.ColumnSpan="5" Grid.Row="1" HorizontalAlignment="Left" Margin="12,10,0,0" Name="pagingControl" VerticalAlignment="Top" />
+        <DataGrid Grid.Row="2" x:Name="popDataGrid" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" 
+                  MouseDoubleClick="DataGridMouseDoubleClick" SelectionMode="Single" LoadingRow="OnLoadingRow" Height="Auto" Width="Auto" Margin="12,6,12,0" VerticalAlignment="Top" Grid.ColumnSpan="5" />
+    </Grid>
+</Window>

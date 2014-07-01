@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5972373c-0e5e-4147-82e7-4f46da3478be" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Futures/Hedge/HedgeGroupService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HedgeGroupService.disco" MetadataType="Disco" ID="6d6765c6-694e-440f-8b29-e942899f52c5" SourceId="1" SourceUrl="http://localhost:1558/Futures/Hedge/HedgeGroupService.svc?disco" />
+    <MetadataFile FileName="HedgeGroupService.xsd" MetadataType="Schema" ID="21c6a8db-74d4-4ada-80fe-043720fcf265" SourceId="1" SourceUrl="http://localhost:1558/Futures/Hedge/HedgeGroupService.svc?xsd=xsd4" />
+    <MetadataFile FileName="HedgeGroupService1.xsd" MetadataType="Schema" ID="503295fc-24e5-46d9-933f-b12e93359b25" SourceId="1" SourceUrl="http://localhost:1558/Futures/Hedge/HedgeGroupService.svc?xsd=xsd5" />
+    <MetadataFile FileName="HedgeGroupService.wsdl" MetadataType="Wsdl" ID="2ac3db40-6c73-439f-aa93-96275136709f" SourceId="1" SourceUrl="http://localhost:1558/Futures/Hedge/HedgeGroupService.svc?wsdl" />
+    <MetadataFile FileName="HedgeGroupService2.xsd" MetadataType="Schema" ID="a998049a-0e45-4cd1-991c-cba73078c4c1" SourceId="1" SourceUrl="http://localhost:1558/Futures/Hedge/HedgeGroupService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HedgeGroupService3.xsd" MetadataType="Schema" ID="d30267f9-2876-420a-97ce-fafcc80d6548" SourceId="1" SourceUrl="http://localhost:1558/Futures/Hedge/HedgeGroupService.svc?xsd=xsd3" />
+    <MetadataFile FileName="HedgeGroupService4.xsd" MetadataType="Schema" ID="889c4a54-867e-4708-8827-7dd5575aa8d3" SourceId="1" SourceUrl="http://localhost:1558/Futures/Hedge/HedgeGroupService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HedgeGroupService5.xsd" MetadataType="Schema" ID="b5b87ddc-8366-4b64-aece-44579d898a56" SourceId="1" SourceUrl="http://localhost:1558/Futures/Hedge/HedgeGroupService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

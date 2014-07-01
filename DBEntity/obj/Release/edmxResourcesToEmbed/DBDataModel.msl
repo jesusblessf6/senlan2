@@ -1,0 +1,1856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SenLan2ModelStoreContainer" CdmEntityContainer="SenLan2Entities">
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="SenLan2Model.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="SenLan2Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="WeixinOpenId" ColumnName="WeixinOpenId" />
+          <ScalarProperty Name="IsSales" ColumnName="IsSales" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="SenLan2Model.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="ControlName" ColumnName="ControlName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="SenLan2Model.Module">
+        <MappingFragment StoreEntitySet="Module">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Visible" ColumnName="Visible" />
+          <ScalarProperty Name="ControlName" ColumnName="ControlName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BusinessPartners">
+      <EntityTypeMapping TypeName="SenLan2Model.BusinessPartner">
+        <MappingFragment StoreEntitySet="BusinessPartner">
+          <ScalarProperty Name="RejectReason" ColumnName="RejectReason" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="ApprovalStageIndex" ColumnName="ApprovalStageIndex" />
+          <ScalarProperty Name="ApprovalId" ColumnName="ApprovalId" />
+          <ScalarProperty Name="ApproveStatus" ColumnName="ApproveStatus" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="TaxNo" ColumnName="TaxNo" />
+          <ScalarProperty Name="EnglishAddress" ColumnName="EnglishAddress" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Functions">
+      <EntityTypeMapping TypeName="SenLan2Model.Function">
+        <MappingFragment StoreEntitySet="Function">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="PageMode" ColumnName="PageMode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleFunctionLinks">
+      <EntityTypeMapping TypeName="SenLan2Model.RoleFunctionLink">
+        <MappingFragment StoreEntitySet="RoleFunctionLink">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="FunctionId" ColumnName="FunctionId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banks">
+      <EntityTypeMapping TypeName="SenLan2Model.Bank">
+        <MappingFragment StoreEntitySet="Bank">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankAccounts">
+      <EntityTypeMapping TypeName="SenLan2Model.BankAccount">
+        <MappingFragment StoreEntitySet="BankAccount">
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="BusinessPartnerId" ColumnName="BusinessPartnerId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Usage" ColumnName="Usage" />
+          <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="SenLan2Model.Currency">
+        <MappingFragment StoreEntitySet="Currency">
+          <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rates">
+      <EntityTypeMapping TypeName="SenLan2Model.Rate">
+        <MappingFragment StoreEntitySet="Rate">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="RateValue" ColumnName="RateValue" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ForeignCurrencyId" ColumnName="ForeignCurrencyId" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouses">
+      <EntityTypeMapping TypeName="SenLan2Model.Warehouse">
+        <MappingFragment StoreEntitySet="Warehouse">
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commodities">
+      <EntityTypeMapping TypeName="SenLan2Model.Commodity">
+        <MappingFragment StoreEntitySet="Commodity">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LMEQtyForDel" ColumnName="LMEQtyForDel" />
+          <ScalarProperty Name="SGEQtyForDel" ColumnName="SGEQtyForDel" />
+          <ScalarProperty Name="SHFEQtyForDel" ColumnName="SHFEQtyForDel" />
+          <ScalarProperty Name="LMEQtyPerHand" ColumnName="LMEQtyPerHand" />
+          <ScalarProperty Name="SGEQtyPerHand" ColumnName="SGEQtyPerHand" />
+          <ScalarProperty Name="SHFEQtyPerHand" ColumnName="SHFEQtyPerHand" />
+          <ScalarProperty Name="LMEUnit" ColumnName="LMEUnit" />
+          <ScalarProperty Name="SGEUnit" ColumnName="SGEUnit" />
+          <ScalarProperty Name="SHFEUnit" ColumnName="SHFEUnit" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommodityTypes">
+      <EntityTypeMapping TypeName="SenLan2Model.CommodityType">
+        <MappingFragment StoreEntitySet="CommodityType">
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="SenLan2Model.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ChineseName" ColumnName="ChineseName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="SenLan2Model.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CommodityTypeId" ColumnName="CommodityTypeId" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specifications">
+      <EntityTypeMapping TypeName="SenLan2Model.Specification">
+        <MappingFragment StoreEntitySet="Specification">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CommodityTypeId" ColumnName="CommodityTypeId" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ports">
+      <EntityTypeMapping TypeName="SenLan2Model.Port">
+        <MappingFragment StoreEntitySet="Port">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMeans">
+      <EntityTypeMapping TypeName="SenLan2Model.PaymentMean">
+        <MappingFragment StoreEntitySet="PaymentMean">
+          <ScalarProperty Name="IsForFundFlow" ColumnName="IsForFundFlow" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VATRates">
+      <EntityTypeMapping TypeName="SenLan2Model.VATRate">
+        <MappingFragment StoreEntitySet="VATRate">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RateValue" ColumnName="RateValue" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserICLinks">
+      <EntityTypeMapping TypeName="SenLan2Model.UserICLink">
+        <MappingFragment StoreEntitySet="UserICLink">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="BusinessPartnerId" ColumnName="BusinessPartnerId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCommodityLinks">
+      <EntityTypeMapping TypeName="SenLan2Model.UserCommodityLink">
+        <MappingFragment StoreEntitySet="UserCommodityLink">
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quotas">
+      <EntityTypeMapping TypeName="SenLan2Model.Quota">
+        <MappingFragment StoreEntitySet="Quota">
+          <ScalarProperty Name="TempPrice" ColumnName="TempPrice" />
+          <ScalarProperty Name="IsCIFinished" ColumnName="IsCIFinished" />
+          <ScalarProperty Name="IsFundflowFinished" ColumnName="IsFundflowFinished" />
+          <ScalarProperty Name="PaymentMeanId" ColumnName="PaymentMeanId" />
+          <ScalarProperty Name="VATInvoiceDate" ColumnName="VATInvoiceDate" />
+          <ScalarProperty Name="IsVatRequestFinished" ColumnName="IsVatRequestFinished" />
+          <ScalarProperty Name="VatInvoicedAmount" ColumnName="VatInvoicedAmount" />
+          <ScalarProperty Name="QuotaGroupId" ColumnName="QuotaGroupId" />
+          <ScalarProperty Name="IsPaymentRequestFinished" ColumnName="IsPaymentRequestFinished" />
+          <ScalarProperty Name="IsAutoGenerated" ColumnName="IsAutoGenerated" />
+          <ScalarProperty Name="RelQuotaStr" ColumnName="RelQuotaStr" />
+          <ScalarProperty Name="RelQuotaStage" ColumnName="RelQuotaStage" />
+          <ScalarProperty Name="RelPrice" ColumnName="RelPrice" />
+          <ScalarProperty Name="RelQuotaId" ColumnName="RelQuotaId" />
+          <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
+          <ScalarProperty Name="VATInvoicedQuantity" ColumnName="VATInvoicedQuantity" />
+          <ScalarProperty Name="Equality" ColumnName="Equality" />
+          <ScalarProperty Name="ReceivedAmount" ColumnName="ReceivedAmount" />
+          <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+          <ScalarProperty Name="VerifiedQuantity" ColumnName="VerifiedQuantity" />
+          <ScalarProperty Name="ExQuotaNo" ColumnName="ExQuotaNo" />
+          <ScalarProperty Name="ShipTerm" ColumnName="ShipTerm" />
+          <ScalarProperty Name="IsHedged" ColumnName="IsHedged" />
+          <ScalarProperty Name="PricingCurrencyId" ColumnName="PricingCurrencyId" />
+          <ScalarProperty Name="RejectReason" ColumnName="RejectReason" />
+          <ScalarProperty Name="VATStatus" ColumnName="VATStatus" />
+          <ScalarProperty Name="PricingStatus" ColumnName="PricingStatus" />
+          <ScalarProperty Name="ApprovalStageIndex" ColumnName="ApprovalStageIndex" />
+          <ScalarProperty Name="ApprovalId" ColumnName="ApprovalId" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="ContractId" ColumnName="ContractId" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="Premium" ColumnName="Premium" />
+          <ScalarProperty Name="PricingSide" ColumnName="PricingSide" />
+          <ScalarProperty Name="PricingEndDate" ColumnName="PricingEndDate" />
+          <ScalarProperty Name="PricingStartDate" ColumnName="PricingStartDate" />
+          <ScalarProperty Name="PricingBasis" ColumnName="PricingBasis" />
+          <ScalarProperty Name="PricingType" ColumnName="PricingType" />
+          <ScalarProperty Name="SpecificationId" ColumnName="SpecificationId" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="CommodityTypeId" ColumnName="CommodityTypeId" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="DeliveryStatus" ColumnName="DeliveryStatus" />
+          <ScalarProperty Name="FinanceStatus" ColumnName="FinanceStatus" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="ApproveStatus" ColumnName="ApproveStatus" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ImplementedDate" ColumnName="ImplementedDate" />
+          <ScalarProperty Name="QuotaNo" ColumnName="QuotaNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHFEs">
+      <EntityTypeMapping TypeName="SenLan2Model.SHFE">
+        <MappingFragment StoreEntitySet="SHFE">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemParameters">
+      <EntityTypeMapping TypeName="SenLan2Model.SystemParameter">
+        <MappingFragment StoreEntitySet="SystemParameters">
+          <ScalarProperty Name="BPApprove" ColumnName="BPApprove" />
+          <ScalarProperty Name="UploadDirectory" ColumnName="UploadDirectory" />
+          <ScalarProperty Name="IsUseMultipleBrands" ColumnName="IsUseMultipleBrands" />
+          <ScalarProperty Name="DeliveryNoFormula" ColumnName="DeliveryNoFormula" />
+          <ScalarProperty Name="LCFinanceStatusParameter" ColumnName="LCFinanceStatusParameter" />
+          <ScalarProperty Name="PricingConfirmationTemplatePath" ColumnName="PricingConfirmationTemplatePath" />
+          <ScalarProperty Name="WarehouseOutNo" ColumnName="WarehouseOutNo" />
+          <ScalarProperty Name="FinalInvoiceTemplatePath" ColumnName="FinalInvoiceTemplatePath" />
+          <ScalarProperty Name="ProvisionalInvoiceTemplatePath" ColumnName="ProvisionalInvoiceTemplatePath" />
+          <ScalarProperty Name="PaymentRequestTemplatePath" ColumnName="PaymentRequestTemplatePath" />
+          <ScalarProperty Name="DomesticWarehouseOutTemplatePath" ColumnName="DomesticWarehouseOutTemplatePath" />
+          <ScalarProperty Name="InternationalContractTemplatePath" ColumnName="InternationalContractTemplatePath" />
+          <ScalarProperty Name="DomesticContractTemplatePath" ColumnName="DomesticContractTemplatePath" />
+          <ScalarProperty Name="PricingAlert" ColumnName="PricingAlert" />
+          <ScalarProperty Name="IsLMEAgent" ColumnName="IsLMEAgent" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="PaymentRequestApprove" ColumnName="PaymentRequestApprove" />
+          <ScalarProperty Name="VATInvoiceApprove" ColumnName="VATInvoiceApprove" />
+          <ScalarProperty Name="QuotaApprove" ColumnName="QuotaApprove" />
+          <ScalarProperty Name="Inventory2Delivery" ColumnName="Inventory2Delivery" />
+          <ScalarProperty Name="Delivery2Quota" ColumnName="Delivery2Quota" />
+          <ScalarProperty Name="Pricing2Quota" ColumnName="Pricing2Quota" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Approvals">
+      <EntityTypeMapping TypeName="SenLan2Model.Approval">
+        <MappingFragment StoreEntitySet="Approval">
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApprovalConditions">
+      <EntityTypeMapping TypeName="SenLan2Model.ApprovalCondition">
+        <MappingFragment StoreEntitySet="ApprovalCondition">
+          <ScalarProperty Name="LowerLimit" ColumnName="LowerLimit" />
+          <ScalarProperty Name="ApprovalId" ColumnName="ApprovalId" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="UpperLimit" ColumnName="UpperLimit" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApprovalStages">
+      <EntityTypeMapping TypeName="SenLan2Model.ApprovalStage">
+        <MappingFragment StoreEntitySet="ApprovalStage">
+          <ScalarProperty Name="OriginStageId" ColumnName="OriginStageId" />
+          <ScalarProperty Name="ApprovalUserId" ColumnName="ApprovalUserId" />
+          <ScalarProperty Name="StageIndex" ColumnName="StageIndex" />
+          <ScalarProperty Name="ApprovalId" ColumnName="ApprovalId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deliveries">
+      <EntityTypeMapping TypeName="SenLan2Model.Delivery">
+        <MappingFragment StoreEntitySet="Delivery">
+          <ScalarProperty Name="WarrantId" ColumnName="WarrantId" />
+          <ScalarProperty Name="DeliveryStatus" ColumnName="DeliveryStatus" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="FDPId" ColumnName="FDPId" />
+          <ScalarProperty Name="RelDeliveryId" ColumnName="RelDeliveryId" />
+          <ScalarProperty Name="ActualDeliveryBPId" ColumnName="ActualDeliveryBPId" />
+          <ScalarProperty Name="PaymentRequestId" ColumnName="PaymentRequestId" />
+          <ScalarProperty Name="LCId" ColumnName="LCId" />
+          <ScalarProperty Name="CommercialInvoiceId" ColumnName="CommercialInvoiceId" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="CirculNo" ColumnName="CirculNo" />
+          <ScalarProperty Name="RejectReason" ColumnName="RejectReason" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="ApprovalStageIndex" ColumnName="ApprovalStageIndex" />
+          <ScalarProperty Name="ApprovalId" ColumnName="ApprovalId" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="PackingStandard" ColumnName="PackingStandard" />
+          <ScalarProperty Name="DischargePlaceId" ColumnName="DischargePlaceId" />
+          <ScalarProperty Name="DischargePortId" ColumnName="DischargePortId" />
+          <ScalarProperty Name="LoadingPlaceId" ColumnName="LoadingPlaceId" />
+          <ScalarProperty Name="LoadingPortId" ColumnName="LoadingPortId" />
+          <ScalarProperty Name="VesselNo" ColumnName="VesselNo" />
+          <ScalarProperty Name="IsCustomed" ColumnName="IsCustomed" />
+          <ScalarProperty Name="ArrivedDate" ColumnName="ArrivedDate" />
+          <ScalarProperty Name="OnBoardDate" ColumnName="OnBoardDate" />
+          <ScalarProperty Name="ShippingPartyId" ColumnName="ShippingPartyId" />
+          <ScalarProperty Name="NotifyPartyId" ColumnName="NotifyPartyId" />
+          <ScalarProperty Name="ShipperId" ColumnName="ShipperId" />
+          <ScalarProperty Name="IsCopy" ColumnName="IsCopy" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="WarehouseProviderId" ColumnName="WarehouseProviderId" />
+          <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+          <ScalarProperty Name="ApproveStatus" ColumnName="ApproveStatus" />
+          <ScalarProperty Name="FinanceStatus" ColumnName="FinanceStatus" />
+          <ScalarProperty Name="DeliveryType" ColumnName="DeliveryType" />
+          <ScalarProperty Name="DeliveryNo" ColumnName="DeliveryNo" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryLines">
+      <EntityTypeMapping TypeName="SenLan2Model.DeliveryLine">
+        <MappingFragment StoreEntitySet="DeliveryLine">
+          <ScalarProperty Name="FDPLineId" ColumnName="FDPLineId" />
+          <ScalarProperty Name="BaseDeliveryLineId" ColumnName="BaseDeliveryLineId" />
+          <ScalarProperty Name="TDeliveryLineId" ColumnName="TDeliveryLineId" />
+          <ScalarProperty Name="TempUnitPrice" ColumnName="TempUnitPrice" />
+          <ScalarProperty Name="DeliveryStatus" ColumnName="DeliveryStatus" />
+          <ScalarProperty Name="PBNo" ColumnName="PBNo" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="PackingQuantity" ColumnName="PackingQuantity" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="VerifiedWeight" ColumnName="VerifiedWeight" />
+          <ScalarProperty Name="GrossWeight" ColumnName="GrossWeight" />
+          <ScalarProperty Name="NetWeight" ColumnName="NetWeight" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="SpecificationId" ColumnName="SpecificationId" />
+          <ScalarProperty Name="CommodityTypeId" ColumnName="CommodityTypeId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="DeliveryId" ColumnName="DeliveryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="SenLan2Model.Document">
+        <MappingFragment StoreEntitySet="Document">
+          <ScalarProperty Name="IsApprovable" ColumnName="IsApprovable" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TableCode" ColumnName="TableCode" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventories">
+      <EntityTypeMapping TypeName="SenLan2Model.Inventory">
+        <MappingFragment StoreEntitySet="Inventory">
+          <ScalarProperty Name="IsWarehouseWarranty" ColumnName="IsWarehouseWarranty" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="PBNo" ColumnName="PBNo" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="OwnerPartyId" ColumnName="OwnerPartyId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="SpecificationId" ColumnName="SpecificationId" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="CommodityTypeId" ColumnName="CommodityTypeId" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="SenLan2Model.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="ApprovalStageId" ColumnName="ApprovalStageId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="LogUserId" ColumnName="LogUserId" />
+          <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+          <ScalarProperty Name="LogActionId" ColumnName="LogActionId" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogActions">
+      <EntityTypeMapping TypeName="SenLan2Model.LogAction">
+        <MappingFragment StoreEntitySet="LogAction">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinancialAccounts">
+      <EntityTypeMapping TypeName="SenLan2Model.FinancialAccount">
+        <MappingFragment StoreEntitySet="FinancialAccount">
+          <ScalarProperty Name="IsIncludedInAPAR" ColumnName="IsIncludedInAPAR" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AccountLevel" ColumnName="AccountLevel" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentUsages">
+      <EntityTypeMapping TypeName="SenLan2Model.PaymentUsage">
+        <MappingFragment StoreEntitySet="PaymentUsage">
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="FinancialAccountId" ColumnName="FinancialAccountId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DefaultPaymentMeanId" ColumnName="DefaultPaymentMeanId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WarehouseInLines">
+      <EntityTypeMapping TypeName="SenLan2Model.WarehouseInLine">
+        <MappingFragment StoreEntitySet="WarehouseInLine">
+          <ScalarProperty Name="IsPBCleared" ColumnName="IsPBCleared" />
+          <ScalarProperty Name="DeliveryLineId" ColumnName="DeliveryLineId" />
+          <ScalarProperty Name="WarehouseInId" ColumnName="WarehouseInId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="PackingQuantity" ColumnName="PackingQuantity" />
+          <ScalarProperty Name="SpecificationId" ColumnName="SpecificationId" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="CommodityTypeId" ColumnName="CommodityTypeId" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="VerifiedQuantity" ColumnName="VerifiedQuantity" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="PBNo" ColumnName="PBNo" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WarehouseOuts">
+      <EntityTypeMapping TypeName="SenLan2Model.WarehouseOut">
+        <MappingFragment StoreEntitySet="WarehouseOut">
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="ActualDeliveryBPId" ColumnName="ActualDeliveryBPId" />
+          <ScalarProperty Name="WarehouseOutNo" ColumnName="WarehouseOutNo" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="WarehouseOutDate" ColumnName="WarehouseOutDate" />
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WarehouseOutLines">
+      <EntityTypeMapping TypeName="SenLan2Model.WarehouseOutLine">
+        <MappingFragment StoreEntitySet="WarehouseOutLine">
+          <ScalarProperty Name="SpecificationId" ColumnName="SpecificationId" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="CommodityTypeId" ColumnName="CommodityTypeId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="PackingQuantity" ColumnName="PackingQuantity" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="VerifiedQuantity" ColumnName="VerifiedQuantity" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="WarehouseInLineId" ColumnName="WarehouseInLineId" />
+          <ScalarProperty Name="WarehouseOutId" ColumnName="WarehouseOutId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WarehouseTransfers">
+      <EntityTypeMapping TypeName="SenLan2Model.WarehouseTransfer">
+        <MappingFragment StoreEntitySet="WarehouseTransfer">
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WarehouseTransferLines">
+      <EntityTypeMapping TypeName="SenLan2Model.WarehouseTransferLine">
+        <MappingFragment StoreEntitySet="WarehouseTransferLine">
+          <ScalarProperty Name="WarehouseTransferId" ColumnName="WarehouseTransferId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FundFlows">
+      <EntityTypeMapping TypeName="SenLan2Model.FundFlow">
+        <MappingFragment StoreEntitySet="FundFlow">
+          <ScalarProperty Name="IsAutoGenerated" ColumnName="IsAutoGenerated" />
+          <ScalarProperty Name="FundFlowId" ColumnName="FundFlowId" />
+          <ScalarProperty Name="PaymentMeanId" ColumnName="PaymentMeanId" />
+          <ScalarProperty Name="PaymentRequestId" ColumnName="PaymentRequestId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RorP" ColumnName="RorP" />
+          <ScalarProperty Name="BankAccountId" ColumnName="BankAccountId" />
+          <ScalarProperty Name="FinancialAccountId" ColumnName="FinancialAccountId" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="InternalBPId" ColumnName="InternalBPId" />
+          <ScalarProperty Name="BPId" ColumnName="BPId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WarehouseIns">
+      <EntityTypeMapping TypeName="SenLan2Model.WarehouseIn">
+        <MappingFragment StoreEntitySet="WarehouseIn">
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="WarehouseInDate" ColumnName="WarehouseInDate" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attachments">
+      <EntityTypeMapping TypeName="SenLan2Model.Attachment">
+        <MappingFragment StoreEntitySet="Attachment">
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommercialInvoices">
+      <EntityTypeMapping TypeName="SenLan2Model.CommercialInvoice">
+        <MappingFragment StoreEntitySet="CommercialInvoice">
+          <ScalarProperty Name="ClearBalanceCurrencyId" ColumnName="ClearBalanceCurrencyId" />
+          <ScalarProperty Name="ClearBalanceRate" ColumnName="ClearBalanceRate" />
+          <ScalarProperty Name="BaseCommercialInvoiceId" ColumnName="BaseCommercialInvoiceId" />
+          <ScalarProperty Name="Ratio" ColumnName="Ratio" />
+          <ScalarProperty Name="IsIncludeLCInterest" ColumnName="IsIncludeLCInterest" />
+          <ScalarProperty Name="BankAccountId" ColumnName="BankAccountId" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+          <ScalarProperty Name="FinalInvoiceId" ColumnName="FinalInvoiceId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PaymentMeanId" ColumnName="PaymentMeanId" />
+          <ScalarProperty Name="DeliveryTerm" ColumnName="DeliveryTerm" />
+          <ScalarProperty Name="InvoicedDate" ColumnName="InvoicedDate" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VATInvoices">
+      <EntityTypeMapping TypeName="SenLan2Model.VATInvoice">
+        <MappingFragment StoreEntitySet="VATInvoice">
+          <ScalarProperty Name="VATInvoiceRequestId" ColumnName="VATInvoiceRequestId" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="InvoicedDate" ColumnName="InvoicedDate" />
+          <ScalarProperty Name="InternalBPId" ColumnName="InternalBPId" />
+          <ScalarProperty Name="BPId" ColumnName="BPId" />
+          <ScalarProperty Name="VATInvoiceType" ColumnName="VATInvoiceType" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VATInvoiceLines">
+      <EntityTypeMapping TypeName="SenLan2Model.VATInvoiceLine">
+        <MappingFragment StoreEntitySet="VATInvoiceLine">
+          <ScalarProperty Name="VATPrice" ColumnName="VATPrice" />
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="VATAmount" ColumnName="VATAmount" />
+          <ScalarProperty Name="VATInvoiceRequestLineId" ColumnName="VATInvoiceRequestLineId" />
+          <ScalarProperty Name="VATRateId" ColumnName="VATRateId" />
+          <ScalarProperty Name="VATInvoiceQuantity" ColumnName="VATInvoiceQuantity" />
+          <ScalarProperty Name="VATInvoiceId" ColumnName="VATInvoiceId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VATInvoiceRequests">
+      <EntityTypeMapping TypeName="SenLan2Model.VATInvoiceRequest">
+        <MappingFragment StoreEntitySet="VATInvoiceRequest">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="InternalBPId" ColumnName="InternalBPId" />
+          <ScalarProperty Name="BPId" ColumnName="BPId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentRequests">
+      <EntityTypeMapping TypeName="SenLan2Model.PaymentRequest">
+        <MappingFragment StoreEntitySet="PaymentRequest">
+          <ScalarProperty Name="PaymentRequestNo" ColumnName="PaymentRequestNo" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="IntermediaryBankId" ColumnName="IntermediaryBankId" />
+          <ScalarProperty Name="RejectReason" ColumnName="RejectReason" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="ApprovalStageIndex" ColumnName="ApprovalStageIndex" />
+          <ScalarProperty Name="ApprovalId" ColumnName="ApprovalId" />
+          <ScalarProperty Name="ApproveStatus" ColumnName="ApproveStatus" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="PaymentUsageId" ColumnName="PaymentUsageId" />
+          <ScalarProperty Name="PaymentMeanId" ColumnName="PaymentMeanId" />
+          <ScalarProperty Name="ReceiveBankAccountId" ColumnName="ReceiveBankAccountId" />
+          <ScalarProperty Name="PayBankAccountId" ColumnName="PayBankAccountId" />
+          <ScalarProperty Name="ReceiveBPId" ColumnName="ReceiveBPId" />
+          <ScalarProperty Name="PayBPId" ColumnName="PayBPId" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="RequestAmount" ColumnName="RequestAmount" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pricings">
+      <EntityTypeMapping TypeName="SenLan2Model.Pricing">
+        <MappingFragment StoreEntitySet="Pricing">
+          <ScalarProperty Name="IsAutoGenerated" ColumnName="IsAutoGenerated" />
+          <ScalarProperty Name="RelPricingId" ColumnName="RelPricingId" />
+          <ScalarProperty Name="PriceDate" ColumnName="PriceDate" />
+          <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+          <ScalarProperty Name="Premium" ColumnName="Premium" />
+          <ScalarProperty Name="UnpricingId" ColumnName="UnpricingId" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="PricingBasis" ColumnName="PricingBasis" />
+          <ScalarProperty Name="FinalPrice" ColumnName="FinalPrice" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BasicPrice" ColumnName="BasicPrice" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="AdjustQPFee" ColumnName="AdjustQPFee" />
+          <ScalarProperty Name="DeferFee" ColumnName="DeferFee" />
+          <ScalarProperty Name="EndPricingDate" ColumnName="EndPricingDate" />
+          <ScalarProperty Name="StartPricingDate" ColumnName="StartPricingDate" />
+          <ScalarProperty Name="PricingDate" ColumnName="PricingDate" />
+          <ScalarProperty Name="PricingQuantity" ColumnName="PricingQuantity" />
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unpricings">
+      <EntityTypeMapping TypeName="SenLan2Model.Unpricing">
+        <MappingFragment StoreEntitySet="Unpricing">
+          <ScalarProperty Name="IsAutoGenerated" ColumnName="IsAutoGenerated" />
+          <ScalarProperty Name="RelUnpricingId" ColumnName="RelUnpricingId" />
+          <ScalarProperty Name="UnpricingId" ColumnName="UnpricingId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DeferDate" ColumnName="DeferDate" />
+          <ScalarProperty Name="DeferFee" ColumnName="DeferFee" />
+          <ScalarProperty Name="EndPricingDate" ColumnName="EndPricingDate" />
+          <ScalarProperty Name="StartPricingDate" ColumnName="StartPricingDate" />
+          <ScalarProperty Name="UnpricingQuantity" ColumnName="UnpricingQuantity" />
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VATInvoiceRequestLines">
+      <EntityTypeMapping TypeName="SenLan2Model.VATInvoiceRequestLine">
+        <MappingFragment StoreEntitySet="VATInvoiceRequestLine">
+          <ScalarProperty Name="VATInvoicedQuantity" ColumnName="VATInvoicedQuantity" />
+          <ScalarProperty Name="VATStatus" ColumnName="VATStatus" />
+          <ScalarProperty Name="RequestPrice" ColumnName="RequestPrice" />
+          <ScalarProperty Name="RejectReason" ColumnName="RejectReason" />
+          <ScalarProperty Name="ApproveStatus" ColumnName="ApproveStatus" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="ApprovalStageIndex" ColumnName="ApprovalStageIndex" />
+          <ScalarProperty Name="ApprovalId" ColumnName="ApprovalId" />
+          <ScalarProperty Name="RequestAmount" ColumnName="RequestAmount" />
+          <ScalarProperty Name="VATInvoiceRequestId" ColumnName="VATInvoiceRequestId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="RequestQuantity" ColumnName="RequestQuantity" />
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commissions">
+      <EntityTypeMapping TypeName="SenLan2Model.Commission">
+        <MappingFragment StoreEntitySet="Commission">
+          <ScalarProperty Name="BPId" ColumnName="BPId" />
+          <ScalarProperty Name="IsDefaultRule" ColumnName="IsDefaultRule" />
+          <ScalarProperty Name="CommissionType" ColumnName="CommissionType" />
+          <ScalarProperty Name="InternalBPId" ColumnName="InternalBPId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommissionLines">
+      <EntityTypeMapping TypeName="SenLan2Model.CommissionLine">
+        <MappingFragment StoreEntitySet="CommissionLine">
+          <ScalarProperty Name="OutLimitRuleValue2" ColumnName="OutLimitRuleValue2" />
+          <ScalarProperty Name="OutLimitRuleType2" ColumnName="OutLimitRuleType2" />
+          <ScalarProperty Name="OutLimitRuleValue1" ColumnName="OutLimitRuleValue1" />
+          <ScalarProperty Name="OutLimitRuleType1" ColumnName="OutLimitRuleType1" />
+          <ScalarProperty Name="InLimitRuleValue2" ColumnName="InLimitRuleValue2" />
+          <ScalarProperty Name="InLimitRuleType2" ColumnName="InLimitRuleType2" />
+          <ScalarProperty Name="InLimitRuleValue1" ColumnName="InLimitRuleValue1" />
+          <ScalarProperty Name="InLimitRuleType1" ColumnName="InLimitRuleType1" />
+          <ScalarProperty Name="OutLimieIsOneLeg" ColumnName="OutLimieIsOneLeg" />
+          <ScalarProperty Name="InLimitIsOneLeg" ColumnName="InLimitIsOneLeg" />
+          <ScalarProperty Name="CarryDaysLimit" ColumnName="CarryDaysLimit" />
+          <ScalarProperty Name="RuleValue2" ColumnName="RuleValue2" />
+          <ScalarProperty Name="RuleType2" ColumnName="RuleType2" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="RuleValue" ColumnName="RuleValue" />
+          <ScalarProperty Name="RuleType" ColumnName="RuleType" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="CommissionId" ColumnName="CommissionId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHFECapitalDetails">
+      <EntityTypeMapping TypeName="SenLan2Model.SHFECapitalDetail">
+        <MappingFragment StoreEntitySet="SHFECapitalDetails">
+          <ScalarProperty Name="FloatPNL" ColumnName="FloatPNL" />
+          <ScalarProperty Name="CapitalAccount" ColumnName="CapitalAccount" />
+          <ScalarProperty Name="SupplementaryMargin" ColumnName="SupplementaryMargin" />
+          <ScalarProperty Name="Risk" ColumnName="Risk" />
+          <ScalarProperty Name="AvailableCapital" ColumnName="AvailableCapital" />
+          <ScalarProperty Name="Margin" ColumnName="Margin" />
+          <ScalarProperty Name="Pledge" ColumnName="Pledge" />
+          <ScalarProperty Name="Equity" ColumnName="Equity" />
+          <ScalarProperty Name="TodayBalance" ColumnName="TodayBalance" />
+          <ScalarProperty Name="TodayCommission" ColumnName="TodayCommission" />
+          <ScalarProperty Name="TodayPNL" ColumnName="TodayPNL" />
+          <ScalarProperty Name="TodayWDSum" ColumnName="TodayWDSum" />
+          <ScalarProperty Name="YesterdayBalance" ColumnName="YesterdayBalance" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="InternalBPId" ColumnName="InternalBPId" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHFEHoldingPositions">
+      <EntityTypeMapping TypeName="SenLan2Model.SHFEHoldingPosition">
+        <MappingFragment StoreEntitySet="SHFEHoldingPosition">
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="SHFEId" ColumnName="SHFEId" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="Margin" ColumnName="Margin" />
+          <ScalarProperty Name="PNL" ColumnName="PNL" />
+          <ScalarProperty Name="PositionType" ColumnName="PositionType" />
+          <ScalarProperty Name="TodaySettlementPrice" ColumnName="TodaySettlementPrice" />
+          <ScalarProperty Name="YesterdaySettlementPrice" ColumnName="YesterdaySettlementPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PositionDirection" ColumnName="PositionDirection" />
+          <ScalarProperty Name="LotQuantity" ColumnName="LotQuantity" />
+          <ScalarProperty Name="SHFECapitalDetailsId" ColumnName="SHFECapitalDetailsId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHFEPositions">
+      <EntityTypeMapping TypeName="SenLan2Model.SHFEPosition">
+        <MappingFragment StoreEntitySet="SHFEPosition">
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="PNL" ColumnName="PNL" />
+          <ScalarProperty Name="HedgedLotQuantity" ColumnName="HedgedLotQuantity" />
+          <ScalarProperty Name="PromptDate" ColumnName="PromptDate" />
+          <ScalarProperty Name="SHFECapitalDetailsId" ColumnName="SHFECapitalDetailsId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Commission" ColumnName="Commission" />
+          <ScalarProperty Name="PositionType" ColumnName="PositionType" />
+          <ScalarProperty Name="PositionDirection" ColumnName="PositionDirection" />
+          <ScalarProperty Name="OpenClose" ColumnName="OpenClose" />
+          <ScalarProperty Name="SHFEId" ColumnName="SHFEId" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="LotQuantity" ColumnName="LotQuantity" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogMessages">
+      <EntityTypeMapping TypeName="SenLan2Model.LogMessage">
+        <MappingFragment StoreEntitySet="LogMessage">
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="LogRegistrationId" ColumnName="LogRegistrationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogRegistrations">
+      <EntityTypeMapping TypeName="SenLan2Model.LogRegistration">
+        <MappingFragment StoreEntitySet="LogRegistration">
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="LogActionId" ColumnName="LogActionId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LMEPositions">
+      <EntityTypeMapping TypeName="SenLan2Model.LMEPosition">
+        <MappingFragment StoreEntitySet="LMEPosition">
+          <ScalarProperty Name="HedgedLotQuantity" ColumnName="HedgedLotQuantity" />
+          <ScalarProperty Name="AgentCommission" ColumnName="AgentCommission" />
+          <ScalarProperty Name="ClientCommission" ColumnName="ClientCommission" />
+          <ScalarProperty Name="CarryPositionId" ColumnName="CarryPositionId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ClientPrice" ColumnName="ClientPrice" />
+          <ScalarProperty Name="AgentPrice" ColumnName="AgentPrice" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="InternalBPId" ColumnName="InternalBPId" />
+          <ScalarProperty Name="PositionType" ColumnName="PositionType" />
+          <ScalarProperty Name="TradeDirection" ColumnName="TradeDirection" />
+          <ScalarProperty Name="PromptDate" ColumnName="PromptDate" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="LotAmount" ColumnName="LotAmount" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HedgeGroups">
+      <EntityTypeMapping TypeName="SenLan2Model.HedgeGroup">
+        <MappingFragment StoreEntitySet="HedgeGroup">
+          <ScalarProperty Name="StopLossSpread" ColumnName="StopLossSpread" />
+          <ScalarProperty Name="LMEFloatPL" ColumnName="LMEFloatPL" />
+          <ScalarProperty Name="LMEFixedPL" ColumnName="LMEFixedPL" />
+          <ScalarProperty Name="SHFEFloatPL" ColumnName="SHFEFloatPL" />
+          <ScalarProperty Name="SHFEFixedPL" ColumnName="SHFEFixedPL" />
+          <ScalarProperty Name="PhyFloatPL" ColumnName="PhyFloatPL" />
+          <ScalarProperty Name="PhyFixedPL" ColumnName="PhyFixedPL" />
+          <ScalarProperty Name="ArbitrageType" ColumnName="ArbitrageType" />
+          <ScalarProperty Name="PLCurrencyId" ColumnName="PLCurrencyId" />
+          <ScalarProperty Name="PLAmount" ColumnName="PLAmount" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="HedgeDate" ColumnName="HedgeDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HedgeLineLMEPositions">
+      <EntityTypeMapping TypeName="SenLan2Model.HedgeLineLMEPosition">
+        <MappingFragment StoreEntitySet="HedgeLineLMEPosition">
+          <ScalarProperty Name="AssignedCommission" ColumnName="AssignedCommission" />
+          <ScalarProperty Name="AssignedLotAmount" ColumnName="AssignedLotAmount" />
+          <ScalarProperty Name="HedgeGroupId" ColumnName="HedgeGroupId" />
+          <ScalarProperty Name="LMEPositionId" ColumnName="LMEPositionId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HedgeLineQuotas">
+      <EntityTypeMapping TypeName="SenLan2Model.HedgeLineQuota">
+        <MappingFragment StoreEntitySet="HedgeLineQuota">
+          <ScalarProperty Name="AssignedQuantity" ColumnName="AssignedQuantity" />
+          <ScalarProperty Name="HedgeGroupId" ColumnName="HedgeGroupId" />
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HedgeLineSHFEPositions">
+      <EntityTypeMapping TypeName="SenLan2Model.HedgeLineSHFEPosition">
+        <MappingFragment StoreEntitySet="HedgeLineSHFEPosition">
+          <ScalarProperty Name="AssignedCommission" ColumnName="AssignedCommission" />
+          <ScalarProperty Name="AssignedLotAmount" ColumnName="AssignedLotAmount" />
+          <ScalarProperty Name="SHFEPositionId" ColumnName="SHFEPositionId" />
+          <ScalarProperty Name="HedgeGroupId" ColumnName="HedgeGroupId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WarehouseOutDeliveryPersons">
+      <EntityTypeMapping TypeName="SenLan2Model.WarehouseOutDeliveryPerson">
+        <MappingFragment StoreEntitySet="WarehouseOutDeliveryPerson">
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="DeliveryLineId" ColumnName="DeliveryLineId" />
+          <ScalarProperty Name="DeliveryQuantity" ColumnName="DeliveryQuantity" />
+          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+          <ScalarProperty Name="IdentityCard" ColumnName="IdentityCard" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="WarehouseOutLineId" ColumnName="WarehouseOutLineId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TDCapitalDetails">
+      <EntityTypeMapping TypeName="SenLan2Model.TDCapitalDetail">
+        <MappingFragment StoreEntitySet="TDCapitalDetails">
+          <ScalarProperty Name="DelayFee" ColumnName="DelayFee" />
+          <ScalarProperty Name="TradeFee" ColumnName="TradeFee" />
+          <ScalarProperty Name="SumFee" ColumnName="SumFee" />
+          <ScalarProperty Name="TodayPNL" ColumnName="TodayPNL" />
+          <ScalarProperty Name="ElseMoney" ColumnName="ElseMoney" />
+          <ScalarProperty Name="MoneyFrozen" ColumnName="MoneyFrozen" />
+          <ScalarProperty Name="PtFrozen" ColumnName="PtFrozen" />
+          <ScalarProperty Name="BPInterest" ColumnName="BPInterest" />
+          <ScalarProperty Name="CompleteMargin" ColumnName="CompleteMargin" />
+          <ScalarProperty Name="SupplementaryMoney" ColumnName="SupplementaryMoney" />
+          <ScalarProperty Name="AvailableCapital" ColumnName="AvailableCapital" />
+          <ScalarProperty Name="Margin" ColumnName="Margin" />
+          <ScalarProperty Name="BasicMargin" ColumnName="BasicMargin" />
+          <ScalarProperty Name="CompleteMoney" ColumnName="CompleteMoney" />
+          <ScalarProperty Name="MoneyOut" ColumnName="MoneyOut" />
+          <ScalarProperty Name="MoneyIn" ColumnName="MoneyIn" />
+          <ScalarProperty Name="Equity" ColumnName="Equity" />
+          <ScalarProperty Name="TodayBalance" ColumnName="TodayBalance" />
+          <ScalarProperty Name="YesterdayBalance" ColumnName="YesterdayBalance" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="InternalBPId" ColumnName="InternalBPId" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TDHoldingPositions">
+      <EntityTypeMapping TypeName="SenLan2Model.TDHoldingPosition">
+        <MappingFragment StoreEntitySet="TDHoldingPosition">
+          <ScalarProperty Name="SettlementPrice" ColumnName="SettlementPrice" />
+          <ScalarProperty Name="Margin" ColumnName="Margin" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PositionDirection" ColumnName="PositionDirection" />
+          <ScalarProperty Name="LotQuantity" ColumnName="LotQuantity" />
+          <ScalarProperty Name="PromptDate" ColumnName="PromptDate" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="SHFEId" ColumnName="SHFEId" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="TDCapitalDetailsId" ColumnName="TDCapitalDetailsId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TDPositions">
+      <EntityTypeMapping TypeName="SenLan2Model.TDPosition">
+        <MappingFragment StoreEntitySet="TDPosition">
+          <ScalarProperty Name="HedgedLotQuantity" ColumnName="HedgedLotQuantity" />
+          <ScalarProperty Name="TDCapitalDetailsId" ColumnName="TDCapitalDetailsId" />
+          <ScalarProperty Name="PNL" ColumnName="PNL" />
+          <ScalarProperty Name="LotWeight" ColumnName="LotWeight" />
+          <ScalarProperty Name="Commission" ColumnName="Commission" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="LotQuantity" ColumnName="LotQuantity" />
+          <ScalarProperty Name="OpenClose" ColumnName="OpenClose" />
+          <ScalarProperty Name="PositionDirection" ColumnName="PositionDirection" />
+          <ScalarProperty Name="SHFEId" ColumnName="SHFEId" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="TradeIndex" ColumnName="TradeIndex" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContractUDFs">
+      <EntityTypeMapping TypeName="SenLan2Model.ContractUDF">
+        <MappingFragment StoreEntitySet="ContractUDF">
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contracts">
+      <EntityTypeMapping TypeName="SenLan2Model.Contract">
+        <MappingFragment StoreEntitySet="Contract">
+          <ScalarProperty Name="Sales" ColumnName="Sales" />
+          <ScalarProperty Name="BankAccountId" ColumnName="BankAccountId" />
+          <ScalarProperty Name="IsNeedAutoGenerated" ColumnName="IsNeedAutoGenerated" />
+          <ScalarProperty Name="QtyLimit" ColumnName="QtyLimit" />
+          <ScalarProperty Name="ExContractNo" ColumnName="ExContractNo" />
+          <ScalarProperty Name="UDFId" ColumnName="UDFId" />
+          <ScalarProperty Name="ContractType" ColumnName="ContractType" />
+          <ScalarProperty Name="TradeType" ColumnName="TradeType" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="InternalCustomerId" ColumnName="InternalCustomerId" />
+          <ScalarProperty Name="BPId" ColumnName="BPId" />
+          <ScalarProperty Name="SignDate" ColumnName="SignDate" />
+          <ScalarProperty Name="ContractNo" ColumnName="ContractNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HedgeLineTDPositions">
+      <EntityTypeMapping TypeName="SenLan2Model.HedgeLineTDPosition">
+        <MappingFragment StoreEntitySet="HedgeLineTDPosition">
+          <ScalarProperty Name="AssignedCommission" ColumnName="AssignedCommission" />
+          <ScalarProperty Name="AssignedLotAmount" ColumnName="AssignedLotAmount" />
+          <ScalarProperty Name="TDPositionId" ColumnName="TDPositionId" />
+          <ScalarProperty Name="HedgeGroupId" ColumnName="HedgeGroupId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LetterOfCredits">
+      <EntityTypeMapping TypeName="SenLan2Model.LetterOfCredit">
+        <MappingFragment StoreEntitySet="LetterOfCredit">
+          <ScalarProperty Name="IsAutoGenerated" ColumnName="IsAutoGenerated" />
+          <ScalarProperty Name="RelLCId" ColumnName="RelLCId" />
+          <ScalarProperty Name="FinancialStatus" ColumnName="FinancialStatus" />
+          <ScalarProperty Name="DiscountInterest" ColumnName="DiscountInterest" />
+          <ScalarProperty Name="DiscountRate" ColumnName="DiscountRate" />
+          <ScalarProperty Name="PaymentRequestId" ColumnName="PaymentRequestId" />
+          <ScalarProperty Name="Interest" ColumnName="Interest" />
+          <ScalarProperty Name="Float" ColumnName="Float" />
+          <ScalarProperty Name="IBORValue" ColumnName="IBORValue" />
+          <ScalarProperty Name="IBORType" ColumnName="IBORType" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ActualAcceptanceDate" ColumnName="ActualAcceptanceDate" />
+          <ScalarProperty Name="LatestShippmentDate" ColumnName="LatestShippmentDate" />
+          <ScalarProperty Name="PresentDate" ColumnName="PresentDate" />
+          <ScalarProperty Name="PresentAmount" ColumnName="PresentAmount" />
+          <ScalarProperty Name="LCExpiryDate" ColumnName="LCExpiryDate" />
+          <ScalarProperty Name="AcceptanceExpiryDate" ColumnName="AcceptanceExpiryDate" />
+          <ScalarProperty Name="IssueQuantity" ColumnName="IssueQuantity" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="IssueAmount" ColumnName="IssueAmount" />
+          <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+          <ScalarProperty Name="BeneficiaryId" ColumnName="BeneficiaryId" />
+          <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+          <ScalarProperty Name="IssueBankId" ColumnName="IssueBankId" />
+          <ScalarProperty Name="AdvisingBankId" ColumnName="AdvisingBankId" />
+          <ScalarProperty Name="LCStatus" ColumnName="LCStatus" />
+          <ScalarProperty Name="PromptBasis" ColumnName="PromptBasis" />
+          <ScalarProperty Name="LCDays" ColumnName="LCDays" />
+          <ScalarProperty Name="LCType" ColumnName="LCType" />
+          <ScalarProperty Name="LCNo" ColumnName="LCNo" />
+          <ScalarProperty Name="PorS" ColumnName="PorS" />
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuotaBrandRels">
+      <EntityTypeMapping TypeName="SenLan2Model.QuotaBrandRel">
+        <MappingFragment StoreEntitySet="QuotaBrandRel">
+          <ScalarProperty Name="QuotaId" ColumnName="QuotaId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="SpecificationId" ColumnName="SpecificationId" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHFEFundFlows">
+      <EntityTypeMapping TypeName="SenLan2Model.SHFEFundFlow">
+        <MappingFragment StoreEntitySet="SHFEFundFlow">
+          <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="AmountOut" ColumnName="AmountOut" />
+          <ScalarProperty Name="AmountIn" ColumnName="AmountIn" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="SHFECapitalDetailsId" ColumnName="SHFECapitalDetailsId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PSQuotaRels">
+      <EntityTypeMapping TypeName="SenLan2Model.PSQuotaRel">
+        <MappingFragment StoreEntitySet="PSQuotaRel">
+          <ScalarProperty Name="P2SVerQuantity" ColumnName="P2SVerQuantity" />
+          <ScalarProperty Name="P2SQuantity" ColumnName="P2SQuantity" />
+          <ScalarProperty Name="SQuotaId" ColumnName="SQuotaId" />
+          <ScalarProperty Name="PQuotaId" ColumnName="PQuotaId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCCIRels">
+      <EntityTypeMapping TypeName="SenLan2Model.LCCIRel">
+        <MappingFragment StoreEntitySet="LCCIRel">
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="AllocationAmount" ColumnName="AllocationAmount" />
+          <ScalarProperty Name="CIId" ColumnName="CIId" />
+          <ScalarProperty Name="LCId" ColumnName="LCId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryPersons">
+      <EntityTypeMapping TypeName="SenLan2Model.DeliveryPerson">
+        <MappingFragment StoreEntitySet="DeliveryPerson">
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="IdNo" ColumnName="IdNo" />
+          <ScalarProperty Name="VehicleNo" ColumnName="VehicleNo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StorageFeeRules">
+      <EntityTypeMapping TypeName="SenLan2Model.StorageFeeRule">
+        <MappingFragment StoreEntitySet="StorageFeeRules">
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="WarrantFee" ColumnName="WarrantFee" />
+          <ScalarProperty Name="TransferFee" ColumnName="TransferFee" />
+          <ScalarProperty Name="PricePerUnit" ColumnName="PricePerUnit" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForeignDeliveryPools">
+      <EntityTypeMapping TypeName="SenLan2Model.ForeignDeliveryPool">
+        <MappingFragment StoreEntitySet="ForeignDeliveryPool">
+          <ScalarProperty Name="MarkNo" ColumnName="MarkNo" />
+          <ScalarProperty Name="TotalPackingQuantity" ColumnName="TotalPackingQuantity" />
+          <ScalarProperty Name="TotalGrossWeight" ColumnName="TotalGrossWeight" />
+          <ScalarProperty Name="TotalNetWeight" ColumnName="TotalNetWeight" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="DeliveryType" ColumnName="DeliveryType" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="PackingStandard" ColumnName="PackingStandard" />
+          <ScalarProperty Name="DischargePlaceId" ColumnName="DischargePlaceId" />
+          <ScalarProperty Name="DischargePortId" ColumnName="DischargePortId" />
+          <ScalarProperty Name="LoadingPlaceId" ColumnName="LoadingPlaceId" />
+          <ScalarProperty Name="LoadingPortId" ColumnName="LoadingPortId" />
+          <ScalarProperty Name="VesselNo" ColumnName="VesselNo" />
+          <ScalarProperty Name="OnBoardDate" ColumnName="OnBoardDate" />
+          <ScalarProperty Name="ShippingPartyId" ColumnName="ShippingPartyId" />
+          <ScalarProperty Name="NotifyPartyId" ColumnName="NotifyPartyId" />
+          <ScalarProperty Name="ShipperId" ColumnName="ShipperId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="WarehouseProviderId" ColumnName="WarehouseProviderId" />
+          <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+          <ScalarProperty Name="DeliveryNo" ColumnName="DeliveryNo" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForeignDeliveryPoolLines">
+      <EntityTypeMapping TypeName="SenLan2Model.ForeignDeliveryPoolLine">
+        <MappingFragment StoreEntitySet="ForeignDeliveryPoolLine">
+          <ScalarProperty Name="PBNo" ColumnName="PBNo" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="PackingQuantity" ColumnName="PackingQuantity" />
+          <ScalarProperty Name="ForeignDeliveryPoolId" ColumnName="ForeignDeliveryPoolId" />
+          <ScalarProperty Name="GrossWeight" ColumnName="GrossWeight" />
+          <ScalarProperty Name="NetWeight" ColumnName="NetWeight" />
+          <ScalarProperty Name="OriginCountryId" ColumnName="OriginCountryId" />
+          <ScalarProperty Name="SpecificationId" ColumnName="SpecificationId" />
+          <ScalarProperty Name="CommodityTypeId" ColumnName="CommodityTypeId" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FDPStorageFeeSEDates">
+      <EntityTypeMapping TypeName="SenLan2Model.FDPStorageFeeSEDate">
+        <MappingFragment StoreEntitySet="FDPStorageFeeSEDate">
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="WarrantFee" ColumnName="WarrantFee" />
+          <ScalarProperty Name="TransferFee" ColumnName="TransferFee" />
+          <ScalarProperty Name="StorageFee" ColumnName="StorageFee" />
+          <ScalarProperty Name="DeliveryPoolId" ColumnName="DeliveryPoolId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCAllocations">
+      <EntityTypeMapping TypeName="SenLan2Model.LCAllocation">
+        <MappingFragment StoreEntitySet="LCAllocation">
+          <ScalarProperty Name="IsCanceled" ColumnName="IsCanceled" />
+          <ScalarProperty Name="AcceptingBankName" ColumnName="AcceptingBankName" />
+          <ScalarProperty Name="IssueBankName" ColumnName="IssueBankName" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="ResponsorId" ColumnName="ResponsorId" />
+          <ScalarProperty Name="ActualDiscounting" ColumnName="ActualDiscounting" />
+          <ScalarProperty Name="DiscountDate" ColumnName="DiscountDate" />
+          <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+          <ScalarProperty Name="Quotation" ColumnName="Quotation" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="EnquireDate" ColumnName="EnquireDate" />
+          <ScalarProperty Name="InternalCustomerId" ColumnName="InternalCustomerId" />
+          <ScalarProperty Name="BusinessPartnerId" ColumnName="BusinessPartnerId" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeixinAlerts">
+      <EntityTypeMapping TypeName="SenLan2Model.WeixinAlert">
+        <MappingFragment StoreEntitySet="WeixinAlert">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Ver" ColumnName="Ver" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

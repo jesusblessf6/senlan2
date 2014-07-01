@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0d60225d-f33b-4f63-872f-315d3735814b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/LogMessageService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LogMessageService.xsd" MetadataType="Schema" ID="f693cb60-391e-4890-a061-511dad83db45" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogMessageService.svc?xsd=xsd4" />
+    <MetadataFile FileName="LogMessageService1.xsd" MetadataType="Schema" ID="7f6c8792-9827-4d3e-bfe4-7d80d686c018" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogMessageService.svc?xsd=xsd5" />
+    <MetadataFile FileName="LogMessageService2.xsd" MetadataType="Schema" ID="16da77f1-8931-4862-814f-efb18fb257e1" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogMessageService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LogMessageService3.xsd" MetadataType="Schema" ID="3af6144e-2d38-4d14-87eb-f52e885999d7" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogMessageService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LogMessageService4.xsd" MetadataType="Schema" ID="e30a50c9-40ea-4059-b70f-cfe2f0736be8" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogMessageService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LogMessageService5.xsd" MetadataType="Schema" ID="2f4c2da5-8a77-4ff3-a87e-09bd274c104e" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogMessageService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LogMessageService.disco" MetadataType="Disco" ID="d4a78a37-c5a9-4f40-9d55-c533f7e9aa08" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogMessageService.svc?disco" />
+    <MetadataFile FileName="LogMessageService.wsdl" MetadataType="Wsdl" ID="00640ae5-ac46-4860-a439-c03626edc4f5" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogMessageService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

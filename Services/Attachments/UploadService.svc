@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Services.Attachments.UploadService" CodeBehind="UploadService.svc.cs" %>

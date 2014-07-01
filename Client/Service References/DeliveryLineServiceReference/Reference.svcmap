@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5c7efce5-4f09-4b11-94b5-a3251393c34f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DeliveryLineService6.xsd" MetadataType="Schema" ID="a0305532-3571-47ec-a118-05034aaab7d7" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd4" />
+    <MetadataFile FileName="DeliveryLineService12.xsd" MetadataType="Schema" ID="b9f5e242-bab3-490b-bcc1-3846062f0cf8" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd6" />
+    <MetadataFile FileName="DeliveryLineService2.disco" MetadataType="Disco" ID="344735c3-8b5f-4b23-9b66-da26b362a142" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?disco" />
+    <MetadataFile FileName="DeliveryLineService7.xsd" MetadataType="Schema" ID="9f16f69e-8a39-4fe9-aafa-4ed48c75aa4f" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DeliveryLineService8.xsd" MetadataType="Schema" ID="92456ceb-0b31-431e-a66c-39990e69fddc" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd3" />
+    <MetadataFile FileName="DeliveryLineService9.xsd" MetadataType="Schema" ID="f13b7a56-1217-4600-8e49-55b9c4917a47" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DeliveryLineService1.wsdl" MetadataType="Wsdl" ID="2b66f7b5-436e-44cb-b2be-4cc36714d72f" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?wsdl" />
+    <MetadataFile FileName="DeliveryLineService10.xsd" MetadataType="Schema" ID="3188bb07-196d-40ea-8fbc-2f0b4ff791d2" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DeliveryLineService11.xsd" MetadataType="Schema" ID="d9cc7fe3-5d78-43bf-8319-9069eb19899d" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

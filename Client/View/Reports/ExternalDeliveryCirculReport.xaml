@@ -1,0 +1,135 @@
+﻿<baseClient:BasePage x:Class="Client.View.Reports.ExternalDeliveryCirculReport" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               ResxExtension.DefaultResxName="Client.View.Reports.ResReport" 
+               Language="{UICulture}"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:c="clr-namespace:Client.Converters" xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+               xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+               mc:Ignorable="d" d:DesignHeight="490" d:DesignWidth="893" Title="{Resx ForeignBLWRFlowReport}">
+    <Page.Resources>
+
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="MinWidth" Value="100"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <c:LineType2ColorConverter x:Key="LineTypeConverter"></c:LineType2ColorConverter>
+
+        <Style x:Key="LineStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="{Binding LineType, Converter={StaticResource LineTypeConverter}}"></Setter>
+        </Style>
+    </Page.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx ForeignBLWRFlowReport}" Name="lbTitle" HorizontalAlignment="Left" Margin="6,6,0,0" Height="32"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <Separator Height="17" Margin="6,146,6,0" Name="separator1" VerticalAlignment="Top" />
+            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="6,166,0,0"
+                      Name="dataGrid1" VerticalAlignment="Top" Width="Auto" IsReadOnly="True" ItemsSource="{Binding Summaries}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=FlowId}" CanUserSort="True" Width="Auto"
+                                        ElementStyle="{StaticResource LineStyle}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=DocumentNo}" CanUserSort="True" Width="Auto"
+                                        Binding="{Binding DeliveryNo}" ElementStyle="{StaticResource LineStyle}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=DocumentType}" CanUserSort="True" Width="Auto"
+                                        Binding="{Binding DeliveryType}" ElementStyle="{StaticResource LineStyle}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=PurchaseDate}" CanUserSort="True" Width="Auto"
+                                        Binding="{Binding BuyDate,StringFormat='yyyy-MM-dd'}" ElementStyle="{StaticResource LineStyle}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Buyer}" CanUserSort="True" Width="Auto"
+                                        Binding="{Binding BuyBPName}" ElementStyle="{StaticResource LineStyle}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=SalesDate}" CanUserSort="True" Width="Auto"
+                                        Binding="{Binding SellDate,StringFormat='yyyy-MM-dd'}" ElementStyle="{StaticResource LineStyle}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Supplier}" CanUserSort="True" Width="Auto"
+                                        Binding="{Binding SellBPName}" ElementStyle="{StaticResource LineStyle}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" CanUserSort="True" Width="Auto" Binding="{Binding CommodityName}"
+                                        ElementStyle="{StaticResource LineStyle}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}" CanUserSort="True" Width="Auto"
+                                        Binding="{Binding BrandName}" ElementStyle="{StaticResource LineStyle}"></DataGridTextColumn>
+                    
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=NetWeight}" CanUserSort="True" Width="Auto"
+                                        Binding="{Binding NetWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" ElementStyle="{StaticResource LineStyle}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=GrossWeight}" CanUserSort="True" Width="Auto"
+                                        Binding="{Binding GrossWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" ElementStyle="{StaticResource LineStyle}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=LoCInfo}" CanUserSort="True" Width="Auto"
+                                        Binding="{Binding LCMsg}" ElementStyle="{StaticResource LineStyle}"></DataGridTextColumn>
+                </DataGrid.Columns>
+                <DataGrid.GroupStyle>
+                    <GroupStyle ContainerStyle="{StaticResource GroupHerderStyle}">
+                        <GroupStyle.Panel>
+                            <ItemsPanelTemplate>
+                                <DataGridRowsPresenter />
+                            </ItemsPanelTemplate>
+                        </GroupStyle.Panel>
+                    </GroupStyle>
+                </DataGrid.GroupStyle>
+                <DataGrid.RowStyle >
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="dodgerblue"/>
+                                <Setter Property="Foreground" Value="dodgerblue"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.CellStyle >
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers >
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="dodgerblue"/>
+                                <Setter Property="Foreground" Value="dodgerblue"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
+            </DataGrid>
+            <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Conditions}" Height="100" HorizontalAlignment="Left" Margin="6,40,0,0" Name="groupBox1"
+                      VerticalAlignment="Top" Width="800">
+                <Grid>
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=FlowId}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" 
+                           Margin="1,10,0,0" Name="label1" VerticalAlignment="Top" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=StartDate}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left"
+                           Margin="260,10,0,0" Name="label3" VerticalAlignment="Top" />
+                    <DatePicker HorizontalAlignment="Left" Margin="366,12,0,0" Name="datePicker1"
+                                VerticalAlignment="Top" SelectedDate="{Binding StartDate}" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=EndDate}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="260,42,0,0" Name="label4" VerticalAlignment="Top" />
+                    <DatePicker HorizontalAlignment="Left" Margin="366,44,0,0" Name="datePicker2"
+                                VerticalAlignment="Top" SelectedDate="{Binding EndDate}" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left"
+                           Margin="519,10,0,0" Name="label5" VerticalAlignment="Top"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="625,12,0,0" Name="comboBox3" VerticalAlignment="Top"
+                              ItemsSource="{Binding InternalCustomers}" DisplayMemberPath="ShortName" SelectedValuePath="Id"
+                              SelectedValue="{Binding SelectedInternalCustomerId}" />
+                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23" HorizontalAlignment="Left" Margin="625,44,0,0" Name="button1"
+                            VerticalAlignment="Top" Width="75" Click="Button1Click" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Buyer}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left"
+                           Margin="1,42,0,0" Name="label2" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" IsEnabled="False" Margin="107,44,0,0" Name="textBox2" Text="{Binding BPName}" VerticalAlignment="Top" Width="120" />
+                    <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="231,44,0,0" Name="button2" VerticalAlignment="Top" Width="25" Click="BtnCustomerClick" />
+                    <TextBox HorizontalAlignment="Left" Margin="107,12,0,0" Name="textBox3" Text="{Binding CirculNo}" VerticalAlignment="Top" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

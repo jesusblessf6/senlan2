@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AmountRemain" xml:space="preserve">
+    <value>余额</value>
+  </data>
+  <data name="BrokerName" xml:space="preserve">
+    <value>经纪行名称</value>
+  </data>
+  <data name="Calculation1" xml:space="preserve">
+    <value>1. 内贸应收应付 = Ʃ(点价价格 × 点价数量)；外贸应收应付 = Ʃ最终发票金额 + Ʃ临时发票金额(非调整发票)；并按结算币种换算</value>
+  </data>
+  <data name="Calculation2" xml:space="preserve">
+    <value>2. 现货毛利 = 销售应收金额 - Ʃ(相应的采购应付金额)；并按销售的结算币种换算</value>
+  </data>
+  <data name="ClosingPnLOfSettleDate" xml:space="preserve">
+    <value>结算日平仓盈亏</value>
+  </data>
+  <data name="CustomerName" xml:space="preserve">
+    <value>销售客户</value>
+  </data>
+  <data name="DateRangeLimit" xml:space="preserve">
+    <value>查询间隔不能超过3个月！</value>
+  </data>
+  <data name="DocumentNo" xml:space="preserve">
+    <value>单据号</value>
+  </data>
+  <data name="DomesticHedgeRatio" xml:space="preserve">
+    <value>内盘头寸保值比例</value>
+  </data>
+  <data name="DomesticHedgeRatioRequired" xml:space="preserve">
+    <value>请填写内盘头寸比例！</value>
+  </data>
+  <data name="DuedLockedPnL" xml:space="preserve">
+    <value>到期锁定盈亏</value>
+  </data>
+  <data name="Exposure" xml:space="preserve">
+    <value>敞口</value>
+  </data>
+  <data name="ExposureTrend" xml:space="preserve">
+    <value>期现货敞口走势图</value>
+  </data>
+  <data name="FloatPnL" xml:space="preserve">
+    <value>浮动盈亏</value>
+  </data>
+  <data name="ForeignBLWRFlowReport" xml:space="preserve">
+    <value>外贸提/仓单流转表</value>
+  </data>
+  <data name="InformBank" xml:space="preserve">
+    <value>通知行:</value>
+  </data>
+  <data name="Ledger" xml:space="preserve">
+    <value>贸易台账</value>
+  </data>
+  <data name="LMELatestPrice" xml:space="preserve">
+    <value>LME最新价</value>
+  </data>
+  <data name="LMELong" xml:space="preserve">
+    <value>LME多头</value>
+  </data>
+  <data name="LMEPositionPL" xml:space="preserve">
+    <value>LME头寸盈亏</value>
+  </data>
+  <data name="LMEShort" xml:space="preserve">
+    <value>LME空头</value>
+  </data>
+  <data name="LoCInfo" xml:space="preserve">
+    <value>信用证信息</value>
+  </data>
+  <data name="NotPriced" xml:space="preserve">
+    <value>未点价</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>已付</value>
+  </data>
+  <data name="PartialPriced" xml:space="preserve">
+    <value>部分点价</value>
+  </data>
+  <data name="PhysicalFuturesPnL" xml:space="preserve">
+    <value>期现货盈亏统计</value>
+  </data>
+  <data name="PhysicalGrossProfit" xml:space="preserve">
+    <value>现货毛利</value>
+  </data>
+  <data name="PhysicalPurchase" xml:space="preserve">
+    <value>现货采购</value>
+  </data>
+  <data name="PhysicalSales" xml:space="preserve">
+    <value>现货销售</value>
+  </data>
+  <data name="PositionNotEven" xml:space="preserve">
+    <value>头寸不平！</value>
+  </data>
+  <data name="PurchaseDate" xml:space="preserve">
+    <value>采购日期</value>
+  </data>
+  <data name="PurchaseQuotaNo" xml:space="preserve">
+    <value>采购批次号</value>
+  </data>
+  <data name="ReceivableAndPayable" xml:space="preserve">
+    <value>应收应付账款</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>已收</value>
+  </data>
+  <data name="SalesDate" xml:space="preserve">
+    <value>销售日期</value>
+  </data>
+  <data name="SalesQuotaNo" xml:space="preserve">
+    <value>销售批次号</value>
+  </data>
+  <data name="SettleDateLimit" xml:space="preserve">
+    <value>结算日不能晚于今天！</value>
+  </data>
+  <data name="SettleDateRequired" xml:space="preserve">
+    <value>请选择结算日期！</value>
+  </data>
+  <data name="SettlementDate" xml:space="preserve">
+    <value>结算日</value>
+  </data>
+  <data name="SHFELong" xml:space="preserve">
+    <value>SHFE多头</value>
+  </data>
+  <data name="SHFEPnL" xml:space="preserve">
+    <value>SHFE头寸盈亏</value>
+  </data>
+  <data name="SHFEShort" xml:space="preserve">
+    <value>SHFE空头</value>
+  </data>
+  <data name="SumByBroker" xml:space="preserve">
+    <value>经纪行汇总</value>
+  </data>
+  <data name="UnduedFloatPnL" xml:space="preserve">
+    <value>未到期浮动盈亏</value>
+  </data>
+  <data name="UnduedLockedPnL" xml:space="preserve">
+    <value>未到期锁定盈亏</value>
+  </data>
+  <data name="InitPricingMargin" xml:space="preserve">
+    <value>初始点价保证金</value>
+  </data>
+  <data name="Inventory" xml:space="preserve">
+    <value>库存</value>
+  </data>
+  <data name="InvoicedQty" xml:space="preserve">
+    <value>已开/收票数量</value>
+  </data>
+  <data name="LatestPrice" xml:space="preserve">
+    <value>最新价</value>
+  </data>
+  <data name="LatestPriceWithPremium" xml:space="preserve">
+    <value>最新价（含升贴水）</value>
+  </data>
+  <data name="MarginRatio" xml:space="preserve">
+    <value>保证金比例</value>
+  </data>
+  <data name="MarginRatioRequired" xml:space="preserve">
+    <value>请输入保证金比例！</value>
+  </data>
+  <data name="OpenCollect" xml:space="preserve">
+    <value>开/收票</value>
+  </data>
+  <data name="OpenCollectRequired" xml:space="preserve">
+    <value>请选择开/收发票类型！</value>
+  </data>
+  <data name="OppoCalledMargin" xml:space="preserve">
+    <value>对方已追加保证金</value>
+  </data>
+  <data name="OppoMarginToAdd" xml:space="preserve">
+    <value>对方需追加保证金</value>
+  </data>
+  <data name="OppositeMarginToReturn" xml:space="preserve">
+    <value>对方需退还保证金</value>
+  </data>
+  <data name="OppositeReturnedMargin" xml:space="preserve">
+    <value>对方已退还保证金</value>
+  </data>
+  <data name="OurAdditionalMargin" xml:space="preserve">
+    <value>我方已追加保证金</value>
+  </data>
+  <data name="OurMarginToAdd" xml:space="preserve">
+    <value>我方需追加保证金</value>
+  </data>
+  <data name="OurMarginToReturn" xml:space="preserve">
+    <value>我方需退还保证金</value>
+  </data>
+  <data name="OurReturnedMargin" xml:space="preserve">
+    <value>我方已退还保证金</value>
+  </data>
+  <data name="PhysicalDomesticTradePnL" xml:space="preserve">
+    <value>现货内贸盈亏</value>
+  </data>
+  <data name="PhysicalForeignTradePnL" xml:space="preserve">
+    <value>现货外贸盈亏</value>
+  </data>
+  <data name="PricingMarginRisk" xml:space="preserve">
+    <value>点价保证金风险</value>
+  </data>
+  <data name="PruchaseAveragePrice" xml:space="preserve">
+    <value>采购均价</value>
+  </data>
+  <data name="PurchaseOppoPricing" xml:space="preserve">
+    <value>采购-对方点价</value>
+  </data>
+  <data name="PurchaseOurSidePricing" xml:space="preserve">
+    <value>采购-我方点价</value>
+  </data>
+  <data name="QuotaStatusChange" xml:space="preserve">
+    <value>现货财务货运状态变更</value>
+  </data>
+  <data name="SalesAveragePrice" xml:space="preserve">
+    <value>销售均价</value>
+  </data>
+  <data name="SalesOppoPricing" xml:space="preserve">
+    <value>销售-对方点价</value>
+  </data>
+  <data name="SalesOurPricing" xml:space="preserve">
+    <value>销售-我方点价</value>
+  </data>
+  <data name="SalesPnL" xml:space="preserve">
+    <value>销售盈亏</value>
+  </data>
+  <data name="StopLossPrice" xml:space="preserve">
+    <value>止损价</value>
+  </data>
+  <data name="VATInvoiceDetail" xml:space="preserve">
+    <value>增值税发票开/收票明细</value>
+  </data>
+  <data name="AveragePullPrice" xml:space="preserve">
+    <value>买均价</value>
+  </data>
+  <data name="AveragePushPrice" xml:space="preserve">
+    <value>卖均价</value>
+  </data>
+  <data name="ChangeStatus" xml:space="preserve">
+    <value>更改状态</value>
+  </data>
+  <data name="LatestSettlementPrice" xml:space="preserve">
+    <value>最新结算价</value>
+  </data>
+  <data name="PositionDetail" xml:space="preserve">
+    <value>持仓明细</value>
+  </data>
+  <data name="PositionPL" xml:space="preserve">
+    <value>头寸盈亏</value>
+  </data>
+  <data name="PullPosition" xml:space="preserve">
+    <value>买持仓</value>
+  </data>
+  <data name="PushPosition" xml:space="preserve">
+    <value>卖持仓</value>
+  </data>
+  <data name="QuotaStatus" xml:space="preserve">
+    <value>批次状态</value>
+  </data>
+  <data name="TradeTypeRequired" xml:space="preserve">
+    <value>请选择业务类型！</value>
+  </data>
+  <data name="VATInvoicedQty" xml:space="preserve">
+    <value>已开增票数量</value>
+  </data>
+</root>

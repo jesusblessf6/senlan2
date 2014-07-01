@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d471a9fd-9a80-4349-8cee-f3e451cf6a63" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Finance/LetterOfCredits/LCAllocationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LCAllocationService5.xsd" MetadataType="Schema" ID="f8e834f6-96c6-4458-bab9-f08ee53dc630" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LCAllocationService.svc?xsd=xsd5" />
+    <MetadataFile FileName="LCAllocationService.wsdl" MetadataType="Wsdl" ID="0b3f8487-157b-4d93-87c6-0f05cbefe9bb" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LCAllocationService.svc?wsdl" />
+    <MetadataFile FileName="LCAllocationService.xsd" MetadataType="Schema" ID="94882f66-f8e1-42bf-b289-11ba6297c5fa" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LCAllocationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LCAllocationService1.xsd" MetadataType="Schema" ID="b23c7a11-14f4-4a1b-b95f-beb757389ae8" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LCAllocationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LCAllocationService2.xsd" MetadataType="Schema" ID="b6af1773-73ec-4ca5-98d4-58bb9d8ad0f0" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LCAllocationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LCAllocationService3.xsd" MetadataType="Schema" ID="7960342b-3cfa-4a0f-a759-a17a3bb811ad" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LCAllocationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LCAllocationService.disco" MetadataType="Disco" ID="f67cb1f1-1f50-49a0-b277-cfbeca0f8bed" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LCAllocationService.svc?disco" />
+    <MetadataFile FileName="LCAllocationService4.xsd" MetadataType="Schema" ID="1d6cf9e9-2652-4cf5-829f-46e009ea1373" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LCAllocationService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

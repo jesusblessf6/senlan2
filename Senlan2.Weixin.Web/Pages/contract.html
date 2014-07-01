@@ -1,0 +1,494 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>新增合同</title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../bootstrap/css/bootstrap-switch.min.css" rel="stylesheet" />
+    <link href="../bootstrap/css/bootstrap-select.min.css" rel="stylesheet" />
+    <script src="../Script/jquery-1.8.1.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../bootstrap/js/bootstrap-switch.min.js"></script>
+    <script src="../bootstrap/js/bootstrap-select.min.js"></script>
+    <script src="../bootstrap/js/jquery.finger.min.js"></script>
+    <script src="../Script/common.js"></script>
+    <style>
+        body {
+            background-color: #ede8e8;
+        }
+
+        .container {
+            margin: 20px 10px 0;
+            min-height: 405px;
+            border: 1px solid #d8d0d0;
+            background-color: #e5e2e2;
+            border-radius: 5px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .center {
+            width: 90%;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        textarea {
+            resize: none;
+            width: 100%;
+            height: 50px;
+        }
+
+        .li {
+            border-bottom: 1px solid #d8d0d0;
+            height: 100px;
+        }
+
+        .myBtn {
+            cursor: pointer;
+        }
+
+        .myUl {
+            list-style-type: none;
+            padding: 0px;
+        }
+
+            .myUl li {
+                border-bottom: 1px solid #d8d0d0;
+                line-height: 40px;
+                cursor: pointer;
+            }
+
+        .selSpan {
+            background-color: #d56a6a;
+            padding: 2px 5px;
+            border: 1px solid green;
+            border-radius: 3px;
+            display: none;
+            color: white;
+        }
+
+        .bootstrap-select:not([class*="span"]):not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+            width: 100px;
+        }
+
+        .loading {
+            position:absolute;
+            left:50%;
+            top:50%;
+            margin-top:-23px;
+            margin-left:-23px;
+            z-index:9999;
+            display:none;
+        }
+    </style>
+    <script>
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            WeixinJSBridge.call('hideOptionMenu');
+        });
+        //var openId = "o9nEBjyYWSmLo_ogrPOU0MyrGSP4";
+        var openId;
+        var ulBP;
+        var ulIC;
+        var selICId;
+        var selICName;
+        var selBPId;
+        var selBPName;
+        var contractType = 1;
+        var selectCom;
+        var selectComType;
+        var selectBrand;
+        //var cl;
+
+        function showDialog(msg) {
+            $("#msgInfo").html(msg);
+            $('#msgDialog').modal('show');
+        }
+
+        function changeCom() {
+            selectCom = $('#selectCom').selectpicker('val');
+            $.getJSON("../Handler/ContractHandler.ashx", { method: 'GetComType', comId: selectCom, openId: openId }, function (comTypeList) {
+                var selComType = $("#selectComType");
+                selComType.empty();
+                for (var i = 0; i < comTypeList.length; i++) {
+                    var ct = $("<option>");
+                    ct.text(comTypeList[i].name);
+                    ct.attr("value", comTypeList[i].id);
+                    selComType.append(ct);
+                }
+                $('#selectComType').selectpicker("refresh");
+                changeComtype();
+            });
+        }
+
+        function changeComtype() {
+            selectComType = $('#selectComType').selectpicker('val');
+            $.getJSON("../Handler/ContractHandler.ashx", { method: 'GetBrand', comId: selectCom, comTypeId: selectComType, openId: openId }, function (brandList) {
+                var selBrandType = $("#selectBrand");
+                selBrandType.empty();
+                for (var i = 0; i < brandList.length; i++) {
+                    var ct = $("<option>");
+                    ct.text(brandList[i].name);
+                    ct.attr("value", brandList[i].id);
+                    selBrandType.append(ct);
+                }
+                $('#selectBrand').selectpicker("refresh");
+            });
+            $(".loading").hide();
+        }
+
+        $(function () {
+            $('.selectpicker').selectpicker();
+            openId = getQueryStringByName("openid");
+            $("#contractType").bootstrapSwitch();
+            ulBP = $("#ulBP");
+            ulIC = $("#ulIC");
+            if (openId) {
+                $(".loading").show();
+                //$('#contractType').bootstrapSwitch('state', false);
+                $('#contractType').on('switchChange.bootstrapSwitch', function (event, state) {
+                    //state==true采购 false销售
+                    if (state)
+                        contractType = 1;//采购
+                    else
+                        contractType = 2;//销售
+                });
+
+                $.getJSON("../Handler/ContractHandler.ashx", { method: 'GetCom', openId: openId }, function (comList) {
+                    var selCom = $("#selectCom");
+                    selCom.empty();
+                    for (var i = 0; i < comList.length; i++) {
+                        var com = $("<option>");
+                        com.text(comList[i].name);
+                        com.attr("value", comList[i].id);
+                        selCom.append(com);
+                    }
+                    $('#selectCom').selectpicker("refresh");
+                    changeCom();
+                    $(".loading").hide();
+                });
+
+                $("#selectCom").change(function () {
+                    $(".loading").show();
+                    changeCom();
+                });
+
+                $("#selectComType").change(function () {
+                    $(".loading").show();
+                    changeComtype();
+                });
+
+                $("#btnRemoveBP").click(function () {
+                    selBPId = null;
+                    selBPName = null;
+                    $("#curBP").hide();
+                    $("#curBP").text("");
+                    $("#btnAddBP").show();
+                    $("#btnRemoveBP").hide();
+                });
+
+                $("#btnAddBP").click(function () {
+                    ulBP.empty();
+                    $("#inputBP").val("");
+                    $("#bpDialog").modal({ backdrop: false });
+                    $("#bpDialog").modal('show');
+                });
+
+                $("#btnRemoveIC").click(function () {
+                    selICId = null;
+                    selICName = null;
+                    $("#curIC").hide();
+                    $("#curIC").text("");
+                    $("#btnAddIC").show();
+                    $("#btnRemoveIC").hide();
+                });
+
+                $("#btnAddIC").click(function () {
+                    ulIC.empty();
+                    $("#icDialog").modal({ backdrop: false });
+                    $("#icDialog").modal('show');
+                    $(".loading").show();
+                    $.getJSON("../Handler/InterCustomerHandler.ashx", { method: 'GetIC', openId: openId }, function (InternalCustomers) {
+                        for (var i = 0; i < InternalCustomers.length; i++) {
+                            var ic = $("<li>");
+                            ic.text(InternalCustomers[i].name);
+                            ic.attr("data-id", InternalCustomers[i].id);
+
+                            ic.on("tap", function () {
+                                selICId = $(this).attr("data-id");
+                                selICName = $(this).text();
+                                $("#curIC").text(selICName);
+                                $("#curIC").show();
+                                $("#btnAddIC").hide();
+                                //$("#btnRemoveIC").show();
+                                $("#btnRemoveIC").css("display", "inline-block");
+                                $("#icDialog").modal('hide');
+                            })
+
+                            ulIC.append(ic);
+                        }
+                        $(".loading").hide();
+                    });
+                });
+
+                $("#btnCancle").click(function () {
+                    WeixinJSBridge.call('closeWindow');
+                });
+
+                $("#btnOK").click(function () {
+                    //确定
+                    var msg = "";
+                    var inputPrice = $.trim($("#inputPrice").val());
+                    var inputQuan = $.trim($("#inputQuan").val());
+                    var inputRemark = $.trim($("#inputRemark").val());
+                    selectBrand = $('#selectBrand').selectpicker('val');
+                    if (!selBPId) {
+                        msg += "请选择一个业务伙伴<br />";
+                    }
+                    if (!selICId) {
+                        msg += "请选择一个内部客户<br />";
+                   }
+                    if (!selectCom) {
+                        msg += "请选择一个金属<br />";
+                    }
+                    if (!selectComType) {
+                        msg += "请选择一个金属类型<br />";
+                    }
+                    if (!inputPrice) {
+                        msg += "请输入价格<br />";
+                    }
+                    else {
+                        if (!isNumber(inputPrice)) {
+                            msg += "请输入正确的价格<br />";
+                        }
+                    }
+                    if (!inputQuan) {
+                        msg += "请输入数量<br />";
+                    }
+                    else {
+                        if (!isNumber(inputQuan)) {
+                            msg += "请输入正确的数量<br />";
+                        }
+                    }
+
+                    if (msg)
+                    {
+                        showDialog(msg);
+                        return false;
+                    }
+
+                    $("#btnOK").button('loading');
+                    $.post("../Handler/ContractHandler.ashx", {
+                        method: 'save', BPId: selBPId, ICId: selICId, contractType: contractType,
+                        com: selectCom, comType: selectComType, brand: selectBrand, price: inputPrice,
+                        quantity: inputQuan, remark: inputRemark, openId: openId
+                    }, function (msg) {
+                        if (msg == "ok") {
+                            showDialog("保存成功");
+                            setTimeout(function () {
+                                WeixinJSBridge.call('closeWindow');
+                            }, 2000);
+                        }
+                        else if (msg == "error") {
+                            showDialog("保存失败");
+                        }
+                        else if (msg == "-1") {
+                            showDialog("微信登陆出错");
+                        }
+                    }).complete(function () {
+                        $("#btnOK").button('reset');
+                    });
+
+                });
+
+                $("#btnSearchBp").click(function () {
+                    var key = $.trim($("#inputBP").val());
+                    if (key) {
+                        ulBP.empty();
+                        $(".loading").show();
+                        $.getJSON("../Handler/BPHandler.ashx", { method: 'GetBP', key: key }, function (BusinessPartners) {
+                            for (var i = 0; i < BusinessPartners.length; i++) {
+                                var bp = $("<li>");
+                                bp.text(BusinessPartners[i].name);
+                                bp.attr("data-id", BusinessPartners[i].id);
+
+                                bp.on("tap", function () {
+                                    selBPId = $(this).attr("data-id");
+                                    selBPName = $(this).text();
+
+                                    $("#curBP").text(selBPName);
+                                    $("#curBP").show();
+                                    $("#btnAddBP").hide();
+
+                                    //$("#btnRemoveBP").show();
+                                    $("#btnRemoveBP").css("display", "inline-block");
+                                    $("#bpDialog").modal('hide');
+                                })
+
+                                ulBP.append(bp);
+                            }
+                            $(".loading").hide();
+                        });
+                    }
+                });
+            }
+            else {
+                showDialog("请通过微信查看");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container center" style="margin-top:5px;">
+        <h3 style="border-bottom: 1px solid #d8d0d0; padding-bottom: 5px; margin-bottom: 10px;margin-top:10px;" class="text-center">新增合同</h3>
+
+        <div class="row">
+            <div class="col-xs-4 text-right"><span>业务伙伴</span></div>
+            <span id="curBP" class="selSpan"></span>
+            <span class="glyphicon glyphicon-remove myBtn" id="btnRemoveBP" style="display: none;width:35px;height:25px;"></span>
+            <span class="glyphicon glyphicon-plus myBtn" id="btnAddBP" style="display:inline-block;width:35px;height:25px;"></span>
+        </div>
+
+        <div class="row" style="margin-top: 5px;">
+            <div class="col-xs-4 text-right"><span>内部客户</span></div>
+            <span id="curIC" class="selSpan"></span>
+            <span class="glyphicon glyphicon-remove myBtn" id="btnRemoveIC" style="display: none;width:55px;height:25px;"></span>
+            <span class="glyphicon glyphicon-plus myBtn" id="btnAddIC" style="display:inline-block;width:55px;height:25px;"></span>
+        </div>
+
+        <div class="row" style="margin-top: 0px;">
+            <div class="col-xs-4 text-right">
+                <span style="line-height: 30px;">合同类型</span>
+            </div>
+
+            <input id="contractType" type="checkbox" checked="checked" data-on-text="采购" data-off-text="销售" data-on-color="success" data-off-color="danger" />
+        </div>
+
+        <div class="row" style="margin-top: 10px;height:35px;">
+            <div class="col-xs-4 text-right">
+                <span style="line-height: 30px;">金属</span>
+            </div>
+
+            <select class="selectpicker" data-style="btn-primary" id="selectCom">
+
+            </select>
+        </div>
+
+        <div class="row" style="margin-top: 10px;height:35px;">
+            <div class="col-xs-4 text-right">
+                <span style="line-height: 30px;">金属类型</span>
+            </div>
+
+            <select class="selectpicker" data-style="btn-primary" id="selectComType">
+            </select>
+        </div>
+
+        <div class="row" style="margin-top: 10px;height:35px;">
+            <div class="col-xs-4 text-right">
+                <span style="line-height: 30px;">品牌</span>
+            </div>
+
+            <select class="selectpicker" data-style="btn-primary" id="selectBrand">
+            </select>
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-xs-12">
+                <div class="input-group">
+                    <!--<span class="input-group-addon">价格</span>-->
+                    <input type="text" class="form-control" placeholder="价格" id="inputPrice" />
+                    <span class="input-group-addon">元/吨</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-xs-12">
+                <div class="input-group">
+                    <!--<span class="input-group-addon">数量</span>-->
+                    <input type="text" class="form-control" placeholder="数量" id="inputQuan" />
+                    <span class="input-group-addon">吨</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-xs-12">
+                <textarea placeholder="备注" id="inputRemark"></textarea>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 5px;">
+            <div class="col-xs-6">
+                <button class="btn-block btn btn-primary" id="btnOK" data-loading-text="正在提交...">确定</button>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn-block btn btn-danger" id="btnCancle">取消</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="bpDialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header" style="padding-top: 10px; padding-bottom: 5px">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="width:30px;height:30px;">&times;</button>
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="业务伙伴" id="inputBP" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-warning" type="button" id="btnSearchBp">查询</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body" style="padding: 10px; min-height: 300px;">
+
+                    <ul id="ulBP" class="myUl">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="icDialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header" style="padding-top: 10px; padding-bottom: 5px">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="width:30px;height:30px;">&times;</button>
+                    <h4 class="modal-title">请选择一个内部客户</h4>
+                </div>
+                <div class="modal-body" style="padding: 10px; min-height: 300px;">
+                    <ul id="ulIC" class="myUl">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="modal fade" id="msgDialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="msgInfo"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loading">
+        <img src="../Images/ajax-loader.gif" />
+    </div>
+</body>
+</html>

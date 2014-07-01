@@ -1,0 +1,96 @@
+﻿<baseClient:BasePage x:Class="Client.View.Physical.Deliveries.NewImportDeliveryDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               ResxExtension.DefaultResxName="Client.View.Physical.Deliveries.ResDelivery" 
+               Language="{UICulture}"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+               xmlns:Converters="clr-namespace:Client.Converters"
+               xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+               mc:Ignorable="d"
+               d:DesignHeight="600" d:DesignWidth="854" Title="{Resx ImportDelivery}">
+
+    <Page.Resources>
+        <Converters:DeliveryTypeConverter x:Key="DeliveryTypeConverter" />
+
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <RoutedCommand x:Key="DeliveryDelete"></RoutedCommand>
+        <RoutedCommand x:Key="DeliveryEdit"></RoutedCommand>
+
+        <DataTemplate x:Key="DeliveryActions" DataType="DBEntity:Delivery">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btDeliveryDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource DeliveryDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btDeliveryEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource DeliveryEdit}" IsEnabled="{Binding CanEditEnable}"
+                        CommandParameter="{Binding ProvisionalID}"></Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource DeliveryDelete}" CanExecute="DeliveryCanDeleteExecute"
+                        Executed="DeliveryDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource DeliveryEdit}" CanExecute="DeliveryCanEditExecute"
+                        Executed="DeliveryEditExecuted"></CommandBinding>
+    </Page.CommandBindings>
+    <Grid x:Name="rootGrid">
+        <Label x:Name="lbTitle" HorizontalAlignment="Left" Margin="6,6,0,0" FontSize="16"
+                   Width="auto" FontWeight="Bold" Height="32" VerticalAlignment="Top" Content="{Binding Title}" />
+        <Label Name="label1" HorizontalAlignment="Left" Margin="6,70,0,0" VerticalAlignment="Top"
+                   Foreground="Crimson" Content="{Resx ResxName=Client.Properties.Resources, Key=Quota}"></Label>
+        <TextBox x:Name="tbCustomer" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding QuotaNo}"
+                     IsEnabled="False" Margin="122,72,0,0" />
+        <Button Content="..." Height="23" Width="25" Name="btnOrderLine" Click="BtnOrderLineClick"
+                    HorizontalAlignment="Left" Margin="246,72,0,0" VerticalAlignment="Top" IsEnabled="{Binding IsQuotaEnable}" ToolTip="{Binding ContractInfo}"/>
+        <Label HorizontalAlignment="Left" Margin="278,70,0,0" VerticalAlignment="Top" Foreground="Crimson" Content="{Binding lbContent}"></Label>
+        <TextBox Name="tbDeliveryNo" HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Margin="394,72,0,0" IsEnabled="False" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" IsEnabled="{Binding IsPoolNoBtnEnale}" Margin="518,71,0,0" Name="button2" VerticalAlignment="Top" Width="25" Click="Button2Click" />
+
+        <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Detail}" HorizontalAlignment="Left" Margin="6,104,0,0" Name="label8"
+                   VerticalAlignment="Top" Grid.Row="4" />
+        <DataGrid CanUserSortColumns="False" Margin="122,106,0,0" Name="dataGridDeliveryLines"
+                      CanUserAddRows="False" ItemsSource="{Binding}" IsReadOnly="true" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="410"
+                      Width="auto" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="单据号" Binding="{Binding DeliveryNo}" />
+                <DataGridTextColumn Header="开具日期" Binding="{Binding IssueDate, StringFormat='yyyy-MM-dd'}" />
+                <DataGridTextColumn Header="仓库" Binding="{Binding WarehouseName}" />
+                <DataGridTextColumn Header="类型" Binding="{Binding DeliveryType, Converter={StaticResource DeliveryTypeConverter}}" />
+                <DataGridTextColumn Header="金属类型" Binding="{Binding CommodityTypeName}" />
+                <DataGridTextColumn Header="品牌" Binding="{Binding BrandName}" />
+                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=NetWeight}" Binding="{Binding TotalNetWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=GrossWeight}" Binding="{Binding TotalGrossWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Bundle}" Binding="{Binding TotalPackingQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Binding="{Binding Comment}" />
+                <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" CanUserSort="False"
+                                            CellTemplate="{StaticResource DeliveryActions}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Save}" Margin="246,540,0,0" d:LayoutOverrides="Height"
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Click="Save" Height="25" />
+        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Margin="341,540,0,0" d:LayoutOverrides="Height" Width="60"
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Click="Cancel" Height="25" />
+    </Grid>
+</baseClient:BasePage>

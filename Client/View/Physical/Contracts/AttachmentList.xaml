@@ -1,0 +1,32 @@
+﻿<Window x:Class="Client.View.Physical.Contracts.AttachmentList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        ResxExtension.DefaultResxName="Client.View.Physical.Contracts.ResContract"
+        Language="{UICulture}"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+        Title="{Resx AttachmentList}" Height="300" Width="350" WindowStartupLocation="CenterScreen" KeyDown="WindowKeyDown">
+    <Window.Resources>
+        <RoutedCommand x:Key="AttachmentDownLoad"></RoutedCommand>
+        <DataTemplate x:Key="AttachmentActions" DataType="DBEntity:Attachment">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btAttachmentDownLoad" Content="{Resx ResxName=Client.Properties.Resources, Key=Download}" Command="{StaticResource AttachmentDownLoad}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource AttachmentDownLoad}" CanExecute="AttachmentDownLoadCanExecute"
+                        Executed="AttachmentDownLoadExecuted"></CommandBinding>
+    </Window.CommandBindings>
+    <Grid x:Name="rootGrid">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Attachments}" Name="dataGridAttachment"
+                      HorizontalAlignment="Left" IsReadOnly="True" CanUserAddRows="False" Margin="0,0,0,0" Grid.Row="5" Width="325">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=AttachmentName}" Binding="{Binding Name}" />
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" CellTemplate="{StaticResource AttachmentActions}"
+                                            CanUserSort="False" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</Window>

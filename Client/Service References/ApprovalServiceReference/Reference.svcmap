@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0b7246f0-fd50-42e3-8505-baeff0eaac75" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/ApprovalService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ApprovalService.wsdl" MetadataType="Wsdl" ID="1413e992-6922-42e3-99fb-5df400844b3a" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ApprovalService.svc?wsdl" />
+    <MetadataFile FileName="ApprovalService.disco" MetadataType="Disco" ID="e2dba6a3-0f01-4513-b113-dd049113bd6f" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ApprovalService.svc?disco" />
+    <MetadataFile FileName="ApprovalService4.xsd" MetadataType="Schema" ID="b3ab3824-8d16-412c-8963-1c44e4a87c6e" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ApprovalService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ApprovalService.xsd" MetadataType="Schema" ID="1a5c206d-6539-4146-b0f1-8b96c0c5ea74" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ApprovalService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ApprovalService1.xsd" MetadataType="Schema" ID="544f3882-e32b-489b-9df8-b01f11bc3dcf" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ApprovalService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ApprovalService3.xsd" MetadataType="Schema" ID="aa1c11b3-f1a9-45a9-995c-959c3f28f73c" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ApprovalService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ApprovalService2.xsd" MetadataType="Schema" ID="67e23bbe-37aa-40ed-ba17-e898ace36806" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ApprovalService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ApprovalService5.xsd" MetadataType="Schema" ID="8a8b5c5e-ba87-4081-9195-e7e6bebb295f" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/ApprovalService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

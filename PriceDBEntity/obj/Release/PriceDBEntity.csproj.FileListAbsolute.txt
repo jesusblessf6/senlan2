@@ -1,0 +1,5 @@
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\PriceDBEntity\bin\Release\PriceDBEntity.dll.config
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\PriceDBEntity\bin\Release\PriceDBEntity.dll
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\PriceDBEntity\bin\Release\PriceDBEntity.pdb
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\PriceDBEntity\obj\Release\PriceDBEntity.dll
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\PriceDBEntity\obj\Release\PriceDBEntity.pdb

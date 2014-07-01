@@ -1,0 +1,44 @@
+﻿<base:ObjectBaseWindow x:Class="Client.View.Physical.ForeignDeliveryPools.ForeignDeliveryPoolLineDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:base="clr-namespace:Client.Base.BaseClient"
+        Title="ForeignDeliveryPoolLineDetail" Height="396" Width="582" 
+        xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+        xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="PlaceHolder" Height="32" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbTitle" VerticalAlignment="Top" />
+            <Label Content="金属类型" Height="28" HorizontalAlignment="Left" Margin="55,38,0,0" Name="label1" VerticalAlignment="Top" Foreground="Crimson" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="122,40,0,0" Name="comboBox1" VerticalAlignment="Top" Width="120" 
+                      ItemsSource="{Binding CommodityTypes}" DisplayMemberPath="Name" SelectedValuePath="Id" 
+                      SelectedValue="{Binding SelectedCommodityTypeId}"/>
+            <Label Content="金属品牌" Height="28" HorizontalAlignment="Left" Margin="331,38,0,0" Name="label2" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="395,40,0,0" Name="comboBox2" VerticalAlignment="Top" Width="120" 
+                      ItemsSource="{Binding Brands}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding SelectedBrandId}"/>
+            <Label Content="规格" Height="28" HorizontalAlignment="Left" Margin="79,70,0,0" Name="label3" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="122,72,0,0" Name="comboBox3" VerticalAlignment="Top" Width="120" 
+                      ItemsSource="{Binding Specifications}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding SelectedSpecificationId}"/>
+            <Label Content="卡号" Height="28" HorizontalAlignment="Left" Margin="355,70,0,0" Name="label4" VerticalAlignment="Top" 
+                   Visibility="{Binding VisibilityForWR, Mode=OneWay}"/>
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="395,72,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" 
+                     Text="{Binding PBNo}" Visibility="{Binding VisibilityForWR, Mode=OneWay}"/>
+            <Label Content="净重" Height="28" HorizontalAlignment="Left" Margin="79,102,0,0" Name="label5" VerticalAlignment="Top" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="122,104,0,0" Name="currencyTextBox1" VerticalAlignment="Top" Width="120" 
+                                     Text="{Binding NetWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"/>
+            <Label Content="毛重" Height="28" HorizontalAlignment="Left" Margin="355,102,0,0" Name="label6" VerticalAlignment="Top" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="395,104,0,0" Name="currencyTextBox2" VerticalAlignment="Top" Width="120" 
+                                Text="{Binding GrossWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"/>
+            <Label Content="原产地" Height="28" HorizontalAlignment="Left" Margin="67,134,0,0" Name="label7" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="122,136,0,0" Name="comboBox4" VerticalAlignment="Top" Width="120" 
+                      ItemsSource="{Binding Countries}" DisplayMemberPath="ChineseName" SelectedValuePath="Id" SelectedValue="{Binding SelectedCountryId}"/>
+            <Label Content="捆数" Height="28" HorizontalAlignment="Left" Margin="355,134,0,0" Name="label8" VerticalAlignment="Top" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="395,136,0,0" Name="currencyTextBox3" VerticalAlignment="Top" Width="120" 
+                                Text="{Binding PackingQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"/>
+            <Label Content="备注" Height="28" HorizontalAlignment="Left" Margin="79,166,0,0" Name="label9" VerticalAlignment="Top" />
+            <TextBox Height="99" HorizontalAlignment="Left" Margin="122,168,0,0" Name="textBox2" VerticalAlignment="Top" Width="393" IsReadOnly="False" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" 
+                     Text="{Binding Comments}"/>
+            <Button Content="保存" Height="23" HorizontalAlignment="Left" Margin="210,300,0,0" Name="button1" VerticalAlignment="Top" Width="60" Click="Save"/>
+            <Button Content="取消" Height="23" HorizontalAlignment="Left" Margin="305,300,0,0" Name="button2" VerticalAlignment="Top" Width="60" Click="Cancel"/>
+        </Grid>
+    </ScrollViewer>
+</base:ObjectBaseWindow>

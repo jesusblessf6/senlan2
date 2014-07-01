@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApprovalConditionCollapsed" xml:space="preserve">
+    <value>Approval coditions collapsed!</value>
+  </data>
+  <data name="ApprovalNameExisted" xml:space="preserve">
+    <value>Approval name has already existed!</value>
+  </data>
+  <data name="ApprovalStageNotFound" xml:space="preserve">
+    <value>Could not find the approval stage!</value>
+  </data>
+  <data name="BankAccountExisted" xml:space="preserve">
+    <value>The bank account has already existed!</value>
+  </data>
+  <data name="BankAccountUsed" xml:space="preserve">
+    <value>Used bank account could be modified!</value>
+  </data>
+  <data name="BankNameExisted" xml:space="preserve">
+    <value>The bank name has already existed!</value>
+  </data>
+  <data name="BrandExisted" xml:space="preserve">
+    <value>The brand has already existed!</value>
+  </data>
+  <data name="CommodityTypeExisted" xml:space="preserve">
+    <value>The commodity type has already existed!</value>
+  </data>
+  <data name="CountryExisted" xml:space="preserve">
+    <value>Origin has existed!</value>
+  </data>
+  <data name="CurrencyExisted" xml:space="preserve">
+    <value>Currency name or code has existed!</value>
+  </data>
+  <data name="CurrencyNotFound" xml:space="preserve">
+    <value>The currency could not be found!</value>
+  </data>
+  <data name="DeleteErr" xml:space="preserve">
+    <value>Fail to delete!</value>
+  </data>
+  <data name="DeleteFKErr" xml:space="preserve">
+    <value>Fail to delete due to the foreign key limitation!</value>
+  </data>
+  <data name="DeliveryCommercialInvoiceConnected" xml:space="preserve">
+    <value>The BL has connected with commercial invoice, so could not be delete!</value>
+  </data>
+  <data name="DeliveryDeliveryConnected" xml:space="preserve">
+    <value>The BL has connected with delivery, so could not be deleted!</value>
+  </data>
+  <data name="DeliveryLCConnected" xml:space="preserve">
+    <value>The BL has connected with letter of credit, so could not be delete!</value>
+  </data>
+  <data name="DeliveryPaymentRequestConnected" xml:space="preserve">
+    <value>The BL has connected with payment request, so could not be deleted!</value>
+  </data>
+  <data name="DeliveryWarehouseInConnected" xml:space="preserve">
+    <value>The BL has connected with warehouse-in, so could not be deleted!</value>
+  </data>
+  <data name="DocumentNotFound" xml:space="preserve">
+    <value>The document could not be found!</value>
+  </data>
+  <data name="EndpointNotFound" xml:space="preserve">
+    <value>Can't connect service!</value>
+  </data>
+  <data name="ExceedPricingDateRange" xml:space="preserve">
+    <value>The pricing date is beyond the pricing date range in the quota!</value>
+  </data>
+  <data name="FetchUnreadTransErr" xml:space="preserve">
+    <value>Fail to fetch unread transactions!</value>
+  </data>
+  <data name="FinalInvoiceIdExisted" xml:space="preserve">
+    <value>It has been connected with final invoice so could not be deleted!</value>
+  </data>
+  <data name="FinancialAccountAddFKErr" xml:space="preserve">
+    <value>Fail to create new account because the superior account has already attached to payment usage!</value>
+  </data>
+  <data name="FinancialAccountExisted" xml:space="preserve">
+    <value>Account name has already existed!</value>
+  </data>
+  <data name="FinancialAccountUpdate2FKErr" xml:space="preserve">
+    <value>Fail to update account! It is not allowed to change the superior account for non-end account!</value>
+  </data>
+  <data name="FinancialAccountUpdateFKErr" xml:space="preserve">
+    <value>Fail to update account because the superior account has already attached to payment usage!</value>
+  </data>
+  <data name="HedgeGroupLineLMEPositionNotFound" xml:space="preserve">
+    <value>The LME position in the hedge group could not be found!</value>
+  </data>
+  <data name="HedgeGroupLineQuotaNotFound" xml:space="preserve">
+    <value>The quota in the hedge group could not be found!</value>
+  </data>
+  <data name="HedgeGroupLineSHFEPositionNotFound" xml:space="preserve">
+    <value>The SHFE position in the hedge group could not be found!</value>
+  </data>
+  <data name="HedgeGroupNotFound" xml:space="preserve">
+    <value>The hedge group could not be found!</value>
+  </data>
+  <data name="HedgeGroupSettledNotForModify" xml:space="preserve">
+    <value>Settled hedge group could not be edited!</value>
+  </data>
+  <data name="LMEPositionHedged" xml:space="preserve">
+    <value>The LME position attached to some hedge group could not be edited or deleted!</value>
+  </data>
+  <data name="LMEPositionNotFound" xml:space="preserve">
+    <value>The LME position could not be found!</value>
+  </data>
+  <data name="LogActionNotFound" xml:space="preserve">
+    <value>The log action could not be found!</value>
+  </data>
+  <data name="LoginFailErr" xml:space="preserve">
+    <value>Login failed! Incorrect login name or password!</value>
+  </data>
+  <data name="LoginNameExisted" xml:space="preserve">
+    <value>Login name has existed! </value>
+  </data>
+  <data name="NotInApproval" xml:space="preserve">
+    <value>Could not find the approval or current stage has passed!</value>
+  </data>
+  <data name="ObjectNotFound" xml:space="preserve">
+    <value>Object not found!</value>
+  </data>
+  <data name="OldPasswordErr" xml:space="preserve">
+    <value>Old password input incorrectly!</value>
+  </data>
+  <data name="OptimisticConcurrencyErr" xml:space="preserve">
+    <value>Database changed. Please retry after refresh database!</value>
+  </data>
+  <data name="PaymentMeanExisted" xml:space="preserve">
+    <value>Payment means has already existed!</value>
+  </data>
+  <data name="PaymentRequestFundFlowConnected" xml:space="preserve">
+    <value>The payment request has connected with fund flow, so could not be deleted!</value>
+  </data>
+  <data name="PaymentRequestLCConnected" xml:space="preserve">
+    <value>The payment request has connected with letter of credit, so could not be deleted!</value>
+  </data>
+  <data name="PaymentRequestNotFound" xml:space="preserve">
+    <value>The payment request could not be found!</value>
+  </data>
+  <data name="PaymentUsageExisted" xml:space="preserve">
+    <value>Payment usage has already existed!</value>
+  </data>
+  <data name="PaymentUsagePAExisted" xml:space="preserve">
+    <value>Fail to save! Default account should be end account! </value>
+  </data>
+  <data name="PortExisted" xml:space="preserve">
+    <value>Port has existed!</value>
+  </data>
+  <data name="PricingCurrencyNotMatch" xml:space="preserve">
+    <value>Pricing currency is not consistent with the one in quota!</value>
+  </data>
+  <data name="PricingUnpricingConnected" xml:space="preserve">
+    <value>There is pricing basing on it so it could not be edited or deleted!</value>
+  </data>
+  <data name="PricingVATInvoiceConnected" xml:space="preserve">
+    <value>The quota has been fully priced and opened the VAT invoice, so could not be deleted!</value>
+  </data>
+  <data name="QuotaCommercialInvoiceConnected" xml:space="preserve">
+    <value>The quota connected to commercial invoice could not be deleted!</value>
+  </data>
+  <data name="QuotaDeliveryConnected" xml:space="preserve">
+    <value>The quota has connected with BL/WR, so could not be deleted!</value>
+  </data>
+  <data name="QuotaFundFlowConnected" xml:space="preserve">
+    <value>The quota has connected with fund flow, so could not be deleted!</value>
+  </data>
+  <data name="QuotaHedgedNotAbleToDeleteModify" xml:space="preserve">
+    <value>The quota attached to some hedge group could not be edited or deleted!</value>
+  </data>
+  <data name="QuotaLetterOfCreditConnected" xml:space="preserve">
+    <value>The quota has connected with letter of credit, so could not be deleted!</value>
+  </data>
+  <data name="QuotaNotExisted" xml:space="preserve">
+    <value>The quota doesn't exist!</value>
+  </data>
+  <data name="QuotaPaymentRequestConnected" xml:space="preserve">
+    <value>The quota has connected with payment request, so could not be deleted!</value>
+  </data>
+  <data name="QuotaPricingConnected" xml:space="preserve">
+    <value>The quota has connected with pricing, so could not be deleted!</value>
+  </data>
+  <data name="QuotaVATInvoiceConnected" xml:space="preserve">
+    <value>The quota has connected with VAT invoice, so could not be deleted!</value>
+  </data>
+  <data name="QuotaVATInvoiceRequestConnected" xml:space="preserve">
+    <value>The quota has connected with VAT invoice request, so could not be deleted!</value>
+  </data>
+  <data name="QuotaWarehouseOutConnected" xml:space="preserve">
+    <value>The quota has connected with warehouse-out, so could not be deleted!</value>
+  </data>
+  <data name="RateExisted" xml:space="preserve">
+    <value>Exchange rate of the currency has existed!</value>
+  </data>
+  <data name="RoleNameExisted" xml:space="preserve">
+    <value>The role name has already existed!</value>
+  </data>
+  <data name="SaleDeliveryConnected" xml:space="preserve">
+    <value>The document has been connected with delivery so could not be deleted!</value>
+  </data>
+  <data name="SHFEPositionNotFound" xml:space="preserve">
+    <value>The SHFE position could not be found!</value>
+  </data>
+  <data name="SpecificationExisted" xml:space="preserve">
+    <value>The specification has already existed!</value>
+  </data>
+  <data name="StringOverflow" xml:space="preserve">
+    <value>String length is beyond the limitation!</value>
+  </data>
+  <data name="TimeoutErr" xml:space="preserve">
+    <value>Time Out!</value>
+  </data>
+  <data name="UdfExisted" xml:space="preserve">
+    <value>User define type has existed!</value>
+  </data>
+  <data name="UnkownErr" xml:space="preserve">
+    <value>Unknown Error!</value>
+  </data>
+  <data name="UnpricingNotFound" xml:space="preserve">
+    <value>The pricing could not be found!</value>
+  </data>
+  <data name="UnpricingQuantityNotEnough" xml:space="preserve">
+    <value>The pricing quantity exceed the unpriced quantity!</value>
+  </data>
+  <data name="UnpricingUnpricingConnected" xml:space="preserve">
+    <value>It has been deferred so could not be edited or deleted!</value>
+  </data>
+  <data name="VATInvoiceRequestLineConnected" xml:space="preserve">
+    <value>The VAT invoice request has been connected with VAT invoice, so could not be deleted!</value>
+  </data>
+  <data name="VATRateExisted" xml:space="preserve">
+    <value>VAT rate has already existed!</value>
+  </data>
+  <data name="WarehouseInWarehouseOutConnected" xml:space="preserve">
+    <value>The warehouse-in has connected with warehouse-out, so could not be delete!</value>
+  </data>
+  <data name="WarehouseExisted" xml:space="preserve">
+    <value>Warehouse name is already existed!</value>
+  </data>
+  <data name="FinancialAccountFundFlowConnected" xml:space="preserve">
+    <value>Financial account connected with fund flow, cannot be deleted!</value>
+  </data>
+  <data name="FinancialAccountPaymentUsageConnected" xml:space="preserve">
+    <value>Financial account connected with payment usage, cannot be deleted!</value>
+  </data>
+  <data name="LCCommercialInvoiceConnected" xml:space="preserve">
+    <value>The LC has connected with commercial invoice, so could not be delete!</value>
+  </data>
+  <data name="DeliveryLineNotHasTempUnitPrice" xml:space="preserve">
+    <value>Some DeliveryLine doesn't has TempUnitPrice!</value>
+  </data>
+  <data name="DeleteRelQuotaConnected" xml:space="preserve">
+    <value>是自动生成的单据，不能删除!</value>
+  </data>
+  <data name="EditRelQuotaConnected" xml:space="preserve">
+    <value>是自动生成的单据，不能编辑!</value>
+  </data>
+  <data name="DuplicatedDeliveryPersonInfo" xml:space="preserve">
+    <value>The ID No. is duplicated!</value>
+  </data>
+  <data name="NotDuringApproval" xml:space="preserve">
+    <value>Not during an approval procedure! </value>
+  </data>
+  <data name="ForeignDeliveryPoolNotFound" xml:space="preserve">
+    <value>Could not find Foreign Delivery!</value>
+  </data>
+  <data name="DuplicatedDeliveryNo" xml:space="preserve">
+    <value>The delivery No. has already existed!</value>
+  </data>
+  <data name="InvoiceHasPayMentRequest" xml:space="preserve">
+    <value>发票与付款申请关联，不能删除！</value>
+  </data>
+</root>

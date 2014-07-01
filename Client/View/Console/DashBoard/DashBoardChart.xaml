@@ -1,0 +1,68 @@
+﻿<baseClient:BasePage x:Class="Client.View.Console.DashBoard.DashBoardChart"
+               xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+               xmlns:zedgraph="clr-namespace:ZedGraph;assembly=ZedGraph"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               ResxExtension.DefaultResxName="Client.View.Console.DashBoard.ResDashBoard"
+               Language="{UICulture}"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+               mc:Ignorable="d" Title="{Resx DashBoard}" d:DesignHeight="500"
+               d:DesignWidth="800">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="rootGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto">
+                    
+                </ColumnDefinition>
+                <ColumnDefinition Width="Auto">
+
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="{Resx PhysicalInventory}" FontWeight="Bold" FontSize="15" Margin="0,6,0,0" Height="36"
+               Name="label2" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomerShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Height="28" Width="60" HorizontalContentAlignment="Right" HorizontalAlignment="Left"
+               Margin="15,70,0,0" Name="label1" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="82,72,0,0" Name="comboBox1" VerticalAlignment="Top"
+                  Width="120" ItemsSource="{Binding InternalCustomerList}" SelectedValuePath="Id"
+                  SelectedValue="{Binding InternalCustomerID}" DisplayMemberPath="ShortName" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23" HorizontalAlignment="Left" Margin="226,72,0,0" Name="button1"
+                VerticalAlignment="Top" Width="75" Click="Button1Click" />
+            <wfi:WindowsFormsHost Margin="15,104,0,0" Width="370" HorizontalAlignment="Left" Height="258" VerticalAlignment="Top">
+                <zedgraph:ZedGraphControl x:Name="zedGraphControl" />
+            </wfi:WindowsFormsHost>
+            <DataGrid CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="True" ItemsSource="{Binding}"
+                  Height="Auto" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" Margin="15,10,0,0" Name="dataGrid1"
+                  VerticalAlignment="Top" Width="Auto" Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}" Grid.Row="1" Visibility="Hidden"></DataGrid>
+
+            <Label Content="{Resx PhysicalAmount}" FontWeight="Bold" FontSize="15" Height="36" HorizontalAlignment="Center"
+               Margin="0,6,0,0" Name="label3" VerticalAlignment="Top" Grid.Column="1"/>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=StartDate}" Foreground="Crimson" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="20,38,0,0"
+               Name="label6" VerticalAlignment="Top" Width="63" Grid.Column="1"/>
+            <DatePicker Height="23" HorizontalAlignment="Left" Margin="100,40,0,0" Name="datePicker3"
+                    VerticalAlignment="Top" Width="100" SelectedDate="{Binding StartDate}" Grid.Column="1"/>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=EndDate}" HorizontalContentAlignment="Right" Foreground="Crimson" Height="28" HorizontalAlignment="Left" Margin="200,38,0,0"
+               Name="label7" VerticalAlignment="Top" Width="62" Grid.Column="1"/>
+            <DatePicker Height="23" HorizontalAlignment="left" Margin="270,40,27,0" Name="datePicker4"
+                    VerticalAlignment="Top" Width="100" SelectedDate="{Binding EndDate}" Grid.Column="1"/>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomerShort}" ToolTip="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Height="28" HorizontalAlignment="Left" Margin="20,70,0,0" Name="label8"
+               VerticalAlignment="Top" Width="63" HorizontalContentAlignment="Right" Grid.Column="1"/>
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="100,72,0,0" Name="comboBox4" VerticalAlignment="Top"
+                  Width="100" ItemsSource="{Binding InternalCustomerList}" SelectedValuePath="Id"
+                  SelectedValue="{Binding InternalCustomerID3}" DisplayMemberPath="ShortName" Grid.Column="1"/>
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23" HorizontalAlignment="Left" Margin="270,72,0,0" Name="button3"
+                VerticalAlignment="Top" Width="75" Click="Button3Click" Grid.Column="1"/>
+            <wfi:WindowsFormsHost Margin="20,104,0,0" Width="370" HorizontalAlignment="Left" Height="258" VerticalAlignment="Top" Grid.Column="1">
+                <zedgraph:ZedGraphControl x:Name="zedGraphControlBar"/>
+            </wfi:WindowsFormsHost>
+            <DataGrid CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="True" ItemsSource="{Binding}"
+                  Height="Auto" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Left" Margin="20,10,0,0" Name="dataGrid3" Visibility="Hidden"
+                  VerticalAlignment="Top" Width="Auto" Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}" Grid.Row="1" Grid.Column="1"></DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

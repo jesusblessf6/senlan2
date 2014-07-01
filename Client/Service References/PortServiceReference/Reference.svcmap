@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="52657edb-e95e-45aa-b133-2962cd9b775a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/PortService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PortService5.xsd" MetadataType="Schema" ID="58368f34-e4e9-48de-bab1-8ad059e09246" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PortService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PortService.xsd" MetadataType="Schema" ID="2233ca91-3c59-4f53-b4bb-ca27edacba83" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PortService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PortService1.xsd" MetadataType="Schema" ID="75866fc3-7e72-4f10-a4ec-40fe353a2646" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PortService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PortService3.xsd" MetadataType="Schema" ID="bffbff81-ad7c-4fb2-9a46-c77fa029e24a" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PortService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PortService.disco" MetadataType="Disco" ID="5a3cfbc1-4eb4-4e9e-8327-594b14e84cfa" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PortService.svc?disco" />
+    <MetadataFile FileName="PortService4.xsd" MetadataType="Schema" ID="95235ac9-5e63-4286-a025-357cb4e09ad2" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PortService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PortService.wsdl" MetadataType="Wsdl" ID="38f39dc3-1d77-441a-82dd-0c3beae0df86" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PortService.svc?wsdl" />
+    <MetadataFile FileName="PortService2.xsd" MetadataType="Schema" ID="7c5f992e-ba80-4584-bc6e-4fa401c031ea" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PortService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

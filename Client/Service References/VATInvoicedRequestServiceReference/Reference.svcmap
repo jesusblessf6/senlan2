@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7fe1cf05-06c8-48b4-a20f-4263c943bd58" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Physical/VATInvoices/VATInvoiceRequestService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VATInvoiceRequestService6.xsd" MetadataType="Schema" ID="40de03a3-cca8-4d1f-90f5-20ac2ce8733c" SourceId="1" SourceUrl="http://localhost:1558/Physical/VATInvoices/VATInvoiceRequestService.svc?xsd=xsd3" />
+    <MetadataFile FileName="VATInvoiceRequestService61.xsd" MetadataType="Schema" ID="10cb9d06-6a77-42f0-926d-480ea07ac941" SourceId="1" SourceUrl="http://localhost:1558/Physical/VATInvoices/VATInvoiceRequestService.svc?xsd=xsd4" />
+    <MetadataFile FileName="VATInvoiceRequestService62.xsd" MetadataType="Schema" ID="23447116-0b34-4000-b8b3-d0ed706da6c6" SourceId="1" SourceUrl="http://localhost:1558/Physical/VATInvoices/VATInvoiceRequestService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VATInvoice1.wsdl" MetadataType="Wsdl" ID="3a543c6b-fc9d-4b18-8bc1-b11761f1f29d" SourceId="1" SourceUrl="http://localhost:1558/Physical/VATInvoices/VATInvoiceRequestService.svc?wsdl" />
+    <MetadataFile FileName="VATInvoiceRequestService63.xsd" MetadataType="Schema" ID="cc51ac29-b14e-41b2-8167-ff6278a370ac" SourceId="1" SourceUrl="http://localhost:1558/Physical/VATInvoices/VATInvoiceRequestService.svc?xsd=xsd5" />
+    <MetadataFile FileName="VATInvoiceRequestService64.xsd" MetadataType="Schema" ID="a708cad2-e9b1-44ee-a814-d39fd8604289" SourceId="1" SourceUrl="http://localhost:1558/Physical/VATInvoices/VATInvoiceRequestService.svc?xsd=xsd2" />
+    <MetadataFile FileName="VATInvoiceRequestService65.xsd" MetadataType="Schema" ID="fbe65558-1ab7-4d6f-b50a-dcaafbdaa3c0" SourceId="1" SourceUrl="http://localhost:1558/Physical/VATInvoices/VATInvoiceRequestService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VATInvoiceRequestService1.disco" MetadataType="Disco" ID="400dc967-03f3-4851-8002-7f34fa666968" SourceId="1" SourceUrl="http://localhost:1558/Physical/VATInvoices/VATInvoiceRequestService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

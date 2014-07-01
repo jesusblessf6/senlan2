@@ -1,0 +1,55 @@
+﻿<baseClient:ObjectBaseWindow x:Class="Client.View.SystemSetting.DataDictSetting.PaymentUsageDetail"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       ResxExtension.DefaultResxName="Client.View.SystemSetting.DataDictSetting.ResDataDictSetting" 
+                       Language="{UICulture}"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                             Title="{Resx ResxName=Client.Properties.Resources, Key=PaymentUsage}" Height="322"
+                       Width="600" WindowStartupLocation="CenterScreen">
+    <baseClient:ObjectBaseWindow.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+    </baseClient:ObjectBaseWindow.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PaymentUsage}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0"
+                   Width="auto" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PaymentUsage}" Margin="6,38,0,0" Name="label1" Foreground="Crimson" HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.View.SystemSetting.DataDictSetting.ResDataDictSetting, Key=DefaultPaymentMean}" Margin="6,70,0,0" Name="label2" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Margin="6,102,0,0" Name="label4" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Height="100" HorizontalAlignment="Left" Margin="122,104,0,0" Name="textBox3"
+                     VerticalAlignment="Top" Width="392" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                     Text="{Binding Description}" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Confirm}" Height="25" HorizontalAlignment="Left" Margin="210,229,0,0" Name="btOK"
+                    VerticalAlignment="Top" Width="60" Click="btOK_Click" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Height="25" HorizontalAlignment="Left" Margin="305,229,0,0" Name="btCancel"
+                    VerticalAlignment="Top" Width="60" Click="Cancel" />
+            <ComboBox Margin="122,72,0,0" Name="comboBox1" ItemsSource="{Binding PaymentMeans}" SelectedValuePath="Id"
+                      DisplayMemberPath="Name" SelectedValue="{Binding DefaultPaymentMeanId}" HorizontalAlignment="Left"
+                      VerticalAlignment="Top" />
+            <TextBox Margin="122,40,0,0" Name="textBox1" Text="{Binding Name}" MaxLength="50" HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+            <TextBox Margin="394,40,0,0" Name="textBox2" Text="{Binding FinancialAccountName}" IsReadOnly="True"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label Content="{Resx DefaultFinancialAccount}" HorizontalAlignment="Left" Margin="278,38,0,0" Name="label3" VerticalAlignment="Top" />
+            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="518,40,0,0" Name="button1"
+                    VerticalAlignment="Top" Width="25" Click="BtnFinancialAccountClick" />
+            <CheckBox Content="默认付款用途" Height="16" HorizontalAlignment="Left" Margin="394,76,0,0" Name="checkBox1" VerticalAlignment="Top" IsChecked="{Binding IsDefault}"/>
+        </Grid>
+    </ScrollViewer>
+</baseClient:ObjectBaseWindow>

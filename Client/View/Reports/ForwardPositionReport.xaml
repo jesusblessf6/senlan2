@@ -1,0 +1,114 @@
+﻿<baseClient:BasePage x:Class="Client.View.Reports.ForwardPositionReport"
+        xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+        xmlns:zedgraph="clr-namespace:ZedGraph;assembly=ZedGraph"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        ResxExtension.DefaultResxName="Client.View.Reports.ResReport" 
+        Language="{UICulture}"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+        mc:Ignorable="d" Title="{Resx ExposureTrend}"
+        xmlns:Converters="clr-namespace:Client.Converters"
+        xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+        d:DesignHeight="707" d:DesignWidth="988">
+    <Page.Resources>
+        
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="MinWidth" Value="100"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Converters:PositionDirectionConverter x:Key="PositionDirectionConverter" />
+    </Page.Resources>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="rootGrid">
+            <Label Content="远期头寸分布" HorizontalAlignment="Left" Margin="6,6,0,0" Height="32" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Name="lbTitle" />
+            <TabControl Height="667" HorizontalAlignment="Left" Margin="6,40,0,0" Name="tabControl1" VerticalAlignment="Top" Width="764">
+                <TabItem Header="LME头寸" Name="tabItem1">
+                    <Grid>
+
+                        <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Conditions}" Height="100" HorizontalAlignment="Left" Margin="6,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="700">
+                            <Grid>
+                                <Label Content="内部客户" Name="lbl1" HorizontalAlignment="Left" Margin="1,10,0,0" VerticalAlignment="Top" Style="{StaticResource LabelStyle}"></Label>
+                                <ComboBox HorizontalAlignment="Left" Margin="107,12,0,0" Name="comboBox1" VerticalAlignment="Top" ItemsSource="{Binding InternalCustomerList}" SelectedValuePath="Id" SelectedValue="{Binding SelectedInternalID}" DisplayMemberPath="ShortName" />
+                                <Label Content="经纪行" Name="lbl2" HorizontalAlignment="Left" Margin="260,10,0,0" VerticalAlignment="Top" Style="{StaticResource LabelStyle}"></Label>
+                                <ComboBox HorizontalAlignment="Left" Margin="366,12,0,0" Name="comboBox2" VerticalAlignment="Top" ItemsSource="{Binding BrokerList}" SelectedValuePath="Id" SelectedValue="{Binding SelectedBrokerID}" DisplayMemberPath="ShortName" />
+                                <Button Content="查询" Height="23" HorizontalAlignment="Left" Margin="366,44,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="Button1Click" />
+                                <Label Content="金属" Foreground="Crimson" Height="28" HorizontalAlignment="Left" Margin="1,42,0,0" Name="label2" VerticalAlignment="Top" Style="{StaticResource LabelStyle}"/>
+                                <ComboBox HorizontalAlignment="Left" Margin="107,44,0,0" Name="comboBox3" VerticalAlignment="Top" ItemsSource="{Binding CommodityList}" SelectedValuePath="Id" SelectedValue="{Binding SelectedCommodityID}" DisplayMemberPath="Name" />
+                            </Grid>
+                        </GroupBox>
+
+                        <Separator Height="17" Margin="6,115,6,0" Name="separator1" VerticalAlignment="Top" />
+
+                        <wfi:WindowsFormsHost Margin="6,135,0,0" Width="742" HorizontalAlignment="Left" Height="280"
+                                  VerticalAlignment="Top">
+                            <zedgraph:ZedGraphControl x:Name="zedGraphControlLine" />
+                        </wfi:WindowsFormsHost>
+
+                        <Separator Height="17" Margin="6,418,6,0" Name="separator2" VerticalAlignment="Top"></Separator>
+
+                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}" Height="auto" HorizontalAlignment="Left" Margin="6,438,0,0" Name="dataGrid1" LoadingRow="DataGrid1LoadingRow" VerticalAlignment="Top" Width="auto" Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="到期日" Binding="{Binding PromptDate, StringFormat= 'yyyy/MM/dd'}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="交易日" Binding="{Binding TradeDate, StringFormat= 'yyyy/MM/dd'}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="手数" Binding="{Binding LotNumber, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="价格" Binding="{Binding Price, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="交易方向" Binding="{Binding Direction, Converter={StaticResource PositionDirectionConverter}}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="经纪行" Binding="{Binding BrokerName}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="内部客户" Binding="{Binding InternalCustomerName}"></DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+                <TabItem  Header="SHFE头寸" Name="tabItem2">
+                    <Grid>
+
+                        <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Conditions}" Height="100" HorizontalAlignment="Left" Margin="6,12,0,0" Name="groupBox2" VerticalAlignment="Top" Width="700">
+                            <Grid>
+                                <Label Content="内部客户" Name="lbl3" HorizontalAlignment="Left" Margin="1,10,0,0" VerticalAlignment="Top" Style="{StaticResource LabelStyle}"></Label>
+                                <ComboBox HorizontalAlignment="Left" Margin="107,12,0,0" Name="comboBox4" VerticalAlignment="Top" ItemsSource="{Binding InternalCustomerList}" SelectedValuePath="Id" SelectedValue="{Binding SelectedInternalID1}" DisplayMemberPath="ShortName" />
+                                <Label Content="经纪行" Name="lbl4" HorizontalAlignment="Left" Margin="260,10,0,0" VerticalAlignment="Top" Style="{StaticResource LabelStyle}"></Label>
+                                <ComboBox HorizontalAlignment="Left" Margin="366,12,0,0" Name="comboBox5" VerticalAlignment="Top" ItemsSource="{Binding BrokerList}" SelectedValuePath="Id" SelectedValue="{Binding SelectedBrokerID1}" DisplayMemberPath="ShortName" />
+                                <Button Content="查询" Height="23" HorizontalAlignment="Left" Margin="366,44,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="Button2Click" />
+                                <Label Content="金属" Foreground="Crimson" Height="28" HorizontalAlignment="Left" Margin="1,42,0,0" Name="label3" VerticalAlignment="Top" Style="{StaticResource LabelStyle}"/>
+                                <ComboBox HorizontalAlignment="Left" Margin="107,44,0,0" Name="comboBox6" VerticalAlignment="Top" ItemsSource="{Binding CommodityList}" SelectedValuePath="Id" SelectedValue="{Binding SelectedCommodityID1}" DisplayMemberPath="Name" />
+                            </Grid>
+                        </GroupBox>
+
+                        <Separator Height="17" Margin="6,115,6,0" Name="separator3" VerticalAlignment="Top"></Separator>
+
+                        <wfi:WindowsFormsHost Margin="6,135,0,0" Width="742" HorizontalAlignment="Left" Height="280"
+                                  VerticalAlignment="Top">
+                            <zedgraph:ZedGraphControl x:Name="zedGraphControlLine1" />
+                        </wfi:WindowsFormsHost>
+
+                        <Separator Height="17" Margin="6,418,6,0" Name="separator4" VerticalAlignment="Top"></Separator>
+
+                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding}" Height="auto" HorizontalAlignment="Left" Margin="6,438,0,0" Name="dataGrid2" VerticalAlignment="Top" Width="auto" Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="合约" Binding="{Binding Alias}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="交易日" Binding="{Binding TradeDate,StringFormat='yyyy/MM/dd'}" Visibility="Hidden"></DataGridTextColumn>
+                                <DataGridTextColumn Header="手数" Binding="{Binding Qty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="价格" Binding="{Binding Price, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="交易方向" Binding="{Binding PositionDerection, Converter={StaticResource PositionDirectionConverter}}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="经纪行" Binding="{Binding BrokerName}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="内部客户" Binding="{Binding InternalName}"></DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

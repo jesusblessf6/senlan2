@@ -1,0 +1,63 @@
+﻿<baseClient:ObjectBaseWindow x:Class="Client.View.Physical.Pricings.AveragePricingLine"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       ResxExtension.DefaultResxName="Client.View.Physical.Pricings.ResPricing" 
+                       Language="{UICulture}"
+                       xmlns:Converters="clr-namespace:Client.Converters" Title="{Resx AveragePricingDetail}" Height="500" Width="600"
+                       WindowStartupLocation="CenterScreen" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+                       xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                       xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity">
+    
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="MinWidth" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+        <Converters:PricingBasisConverter x:Key="PricingBasisConverter" />
+    </Window.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx AveragePricingDetail}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0"
+                   Width="auto" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=ExchangeRate}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="6,70,0,0"
+                   Name="labRateName" VerticalAlignment="Top" Foreground="Crimson" />
+            <my:CurrencyTextBox Name="txtRate" Height="23" HorizontalAlignment="Left" Margin="122,72,0,0"
+                                VerticalAlignment="Top" Width="120" Text="{Binding ERate}" />
+            <DatePicker HorizontalAlignment="Left" Margin="394,72,0,0" Name="datePicker1" VerticalAlignment="Top"
+                        SelectedDate="{Binding PricingDate}" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="394,40,0,0" Name="currencyTextBox2"
+                                VerticalAlignment="Top" Width="120" Text="{Binding FinalPrice}" />
+            <Button Content="{Resx ConfirmPriced}" Height="23" HorizontalAlignment="Left" Margin="245,102,0,0" Name="btOK"
+                    VerticalAlignment="Top" Width="80" HorizontalContentAlignment="Center" Click="Save" />
+            <my:PagingControl HorizontalAlignment="Left" Margin="122,128,0,0" Name="pagingControl1"
+                              VerticalAlignment="Top" Width="340" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Premium}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="6,38,0,0"
+                   Name="label1" VerticalAlignment="Top" />
+            <Label Content="{Resx FinalPrice}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="278,38,0,0"
+                   Name="label2" VerticalAlignment="Top" />
+            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="122,162,0,0"
+                      Name="dataGrid1" VerticalAlignment="Top" Width="Auto" IsReadOnly="True" LoadingRow="DataGrid1LoadingRow">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Date}" Binding="{Binding StartDate}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Price}" Binding="{Binding Pricing,StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Currency}" Binding="{Binding Currency}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PricingReference}"
+                                        Binding="{Binding PricingBasisId, Converter={StaticResource PricingBasisConverter}}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="122,40,0,0" Name="currencyTextBox1"
+                                VerticalAlignment="Top" Width="120" Text="{Binding Premium}" IsReadOnly="True" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PricingDate}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="278,70,0,0"
+                   Name="label5" VerticalAlignment="Top" Foreground="Crimson" />
+        </Grid>
+    </ScrollViewer>
+</baseClient:ObjectBaseWindow>

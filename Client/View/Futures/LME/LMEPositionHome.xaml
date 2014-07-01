@@ -1,0 +1,79 @@
+﻿<baseClient:BasePage x:Class="Client.View.Futures.LME.LMEPositionHome"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               ResxExtension.DefaultResxName="Client.View.Futures.LME.ResLME"
+               Language="{UICulture}"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+               d:DesignHeight="520" d:DesignWidth="620" Title="{Resx ResxName=Client.Properties.Resources, Key=LMEPosition}">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+        <Grid Name="rootGrid">
+            <Label Content="{Resx LMEPositionHome}" Name="lbTitle" FontWeight="Bold" FontSize="16" Height="32" HorizontalAlignment="Left"
+                   Margin="6,6,0,0" VerticalAlignment="Top" />
+            <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Add}" Height="180" HorizontalAlignment="Left" Margin="40,40,0,0" Name="groupBox1"
+                      VerticalAlignment="Top" Width="250">
+                <Grid>
+                    <Label Content="{Resx LMECommonPosition}" Height="28" Width="100" HorizontalContentAlignment="Right"
+                           HorizontalAlignment="Left" Margin="6,46,0,0" Name="label2" VerticalAlignment="Top" />
+                    <Button Content="+" Height="23" HorizontalAlignment="Left" Margin="120,47,0,0" Name="button1"
+                            ToolTip="{Resx ResxName=Client.Properties.Resources, Key=Add}" VerticalAlignment="Top" Width="75" Click="BtnCreatePositionClick" />
+                    <Label Content="{Resx LMECarryPosition}" Height="28" HorizontalAlignment="Left" Width="100"
+                           HorizontalContentAlignment="Right" Margin="6,80,0,0" Name="label3" VerticalAlignment="Top" />
+                    <Button Content="+" Height="23" HorizontalAlignment="Left" Margin="120,81,0,0" Name="button2"
+                            ToolTip="{Resx ResxName=Client.Properties.Resources, Key=Add}" VerticalAlignment="Top" Width="75" Click="BtnCreateCarryPositionClick" />
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Reports}" Height="180" HorizontalAlignment="Left" Margin="330,40,0,0" Visibility="Hidden"
+                      Name="groupBox2" VerticalAlignment="Top" Width="250">
+                <StackPanel></StackPanel>
+            </GroupBox>
+            <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="270" HorizontalAlignment="Left" Margin="40,225,0,0" Name="groupBox3"
+                      VerticalAlignment="Top" Width="540">
+                <Grid>
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=TradeStartDate}" Height="28" Width="100" HorizontalContentAlignment="Right"
+                           HorizontalAlignment="Left" Margin="1,102,0,0" Name="label10" VerticalAlignment="Top" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=TradeEndDate}" Height="28" HorizontalAlignment="Left" Width="100"
+                           HorizontalContentAlignment="Right" Margin="267,102,0,0" Name="label11" VerticalAlignment="Top" />
+                    <DatePicker Height="23" HorizontalAlignment="Left" Margin="107,104,0,0" Name="datePicker1"
+                                SelectedDate="{Binding StartTradeDate}" VerticalAlignment="Top" Width="120" />
+                    <DatePicker Height="23" HorizontalAlignment="Left" Margin="373,104,0,0" Name="datePicker2"
+                                SelectedDate="{Binding EndTradeDate}" VerticalAlignment="Top" Width="120" />
+                    <Button Click="BtnSearchClick" Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23" HorizontalAlignment="Left"
+                            Margin="235,184,0,0" Name="btnSearch" VerticalAlignment="Top" Width="75" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=BP}" Height="28" HorizontalAlignment="Left" Width="100"
+                           HorizontalContentAlignment="Right" Margin="267,70,0,0" Name="label12" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" IsEnabled="False" Margin="373,72,0,0"
+                             Name="textBox2" Text="{Binding BPartnerName}" VerticalAlignment="Top" Width="120" />
+                    <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="497,72,0,0" Name="button3"
+                            VerticalAlignment="Top" Width="25" Click="BtnCustomerClick" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PromptStartDate}" Height="28" Width="100" HorizontalContentAlignment="Right"
+                           HorizontalAlignment="Left" Margin="1,134,0,0" Name="label4" VerticalAlignment="Top" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PromptEndDate}" Height="28" HorizontalAlignment="Left" Width="100"
+                           HorizontalContentAlignment="Right" Margin="267,134,0,0" Name="label5" VerticalAlignment="Top" />
+                    <DatePicker Height="23" HorizontalAlignment="Left" Margin="107,136,0,0" Name="datePicker3"
+                                SelectedDate="{Binding StartPromptDate}" VerticalAlignment="Top" Width="120" />
+                    <DatePicker Height="23" HorizontalAlignment="Left" Margin="373,136,0,0" Name="datePicker4"
+                                SelectedDate="{Binding EndPromptDate}" VerticalAlignment="Top" Width="120" />
+                    <ComboBox DisplayMemberPath="Name" Height="23" HorizontalAlignment="Left"
+                              ItemsSource="{Binding Metals}" Margin="107,72,0,0" Name="comboBox5" SelectedValue="{Binding SelectedMetal}"
+                              SelectedValuePath="Id" VerticalAlignment="Top" Width="120" />
+                    <ComboBox DisplayMemberPath="ShortName" Height="23" HorizontalAlignment="Left"
+                              ItemsSource="{Binding ICs}" Margin="107,40,0,0" Name="comboBox1" SelectedValue="{Binding ICId}" SelectedValuePath="Id"
+                              VerticalAlignment="Top" Width="120" />
+                    <ComboBox DisplayMemberPath="ShortName" Height="23" HorizontalAlignment="Left"
+                              ItemsSource="{Binding Brokers}" Margin="373,40,0,0" Name="comboBox2" SelectedValue="{Binding BrokerId}"
+                              SelectedValuePath="Id" VerticalAlignment="Top" Width="120" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Height="28" HorizontalAlignment="Left" Width="100"
+                           HorizontalContentAlignment="Right" Margin="1,70,0,0" Name="label6" VerticalAlignment="Top" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Height="28" HorizontalAlignment="Left" Width="100"
+                           HorizontalContentAlignment="Right" Margin="1,38,0,0" Name="label7" VerticalAlignment="Top" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Broker}" Height="28" HorizontalAlignment="Left" Width="100"
+                           HorizontalContentAlignment="Right" Margin="267,38,0,0" Name="label8" VerticalAlignment="Top" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=AdvancedQuery}" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0"
+                           VerticalAlignment="Top" FontWeight="Bold" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

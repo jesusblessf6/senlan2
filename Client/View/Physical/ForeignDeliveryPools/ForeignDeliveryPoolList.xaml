@@ -1,0 +1,72 @@
+﻿<base:ListBasePage x:Class="Client.View.Physical.ForeignDeliveryPools.ForeignDeliveryPoolList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      xmlns:base="clr-namespace:Client.Base.BaseClient"
+      xmlns:c="clr-namespace:Client.Converters"
+      d:DesignHeight="379" d:DesignWidth="701"
+	  Title="外贸提单列表" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+      xmlns:dbEntity="clr-namespace:DBEntity;assembly=DBEntity"
+      xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity">
+    
+    <Page.Resources>
+        <c:DeliveryTypeConverter x:Key="DeliveryTypeConverter" />
+        
+        <RoutedCommand x:Key="FDPEdit"></RoutedCommand>
+        <RoutedCommand x:Key="FDPDelete"></RoutedCommand>
+    </Page.Resources>
+    
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource FDPEdit}" CanExecute="ListEditCanExecute" Executed="ListEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource FDPDelete}" CanExecute="ListDeleteCanExecute" Executed="ListDeleteExecuted"></CommandBinding>
+    </Page.CommandBindings>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="外贸提单列表" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbTitle" VerticalAlignment="Top" 
+                   FontSize="16" FontWeight="Bold"/>
+            <my:PagingControl HorizontalAlignment="Left" Margin="6,44,0,0" Name="pager" VerticalAlignment="Top" />
+            <DataGrid AutoGenerateColumns="False" Height="Auto" IsReadOnly="True" HorizontalAlignment="Left" Margin="6,81,0,0" 
+                      Name="entityList" ItemsSource="{Binding}" VerticalAlignment="Top" Width="Auto" 
+                      RowDetailsVisibilityMode="Visible" LoadingRow="OnLoadRowIndex">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BLNo}" Binding="{Binding DeliveryNo}" />
+                    <DataGridTextColumn Header="标识号" Binding="{Binding MarkNo}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BLType}"
+                                        Binding="{Binding DeliveryType, Converter={StaticResource DeliveryTypeConverter}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Date}" Binding="{Binding IssueDate, StringFormat='yyyy-MM-dd'}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Binding="{Binding Commodity.Name}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Warehouse}" Binding="{Binding Warehouse.Name}" />
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="dbEntity:ForeignDeliveryPool">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="编辑" Command="{StaticResource FDPEdit}" CommandParameter="{Binding Id}"></Button>
+                                    <Button Content="删除" Command="{StaticResource FDPDelete}" CommandParameter="{Binding Id}"></Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate DataType="dbEntity:ForeignDeliveryPool">
+                        <DataGrid Name="dataGridDetail" ItemsSource="{Binding ForeignDeliveryPoolLines}"
+                                  AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="true" Margin="6,2,0,15">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=CommodityType}" Binding="{Binding CommodityType.Name}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Specification}" Binding="{Binding Specification.Name}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Binding="{Binding Brand.Name}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=CardNo}" Binding="{Binding PBNo}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=NetWeight}" Binding="{Binding NetWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=GrossWeight}" Binding="{Binding GrossWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Bundle}" Binding="{Binding PackingQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</base:ListBasePage>

@@ -1,0 +1,67 @@
+﻿<baseClient:BasePage x:Class="Client.View.Reports.BusinessPartnerContractOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      ResxExtension.DefaultResxName="Client.View.Reports.ResReport" 
+      Language="{UICulture}"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="850"
+      xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+      xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+      Title="BusinessPartnerContractOrder" >
+
+    <Page.Resources>
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="MinWidth" Value="100"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+    </Page.Resources>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="rootGrid">
+            <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Conditions}" Height="100" HorizontalAlignment="Left" Margin="6,40,0,0" Name="groupBox1" VerticalAlignment="Top" Width="800">
+                <Grid>
+                    <Label Content="内部客户" Foreground="Crimson" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,10,0,0" Name="label2" VerticalAlignment="Top" />
+                    <Label Style="{StaticResource LabelStyle}" Content="金属" Foreground="Crimson" HorizontalAlignment="Left" Margin="260,10,0,0" Name="label3" VerticalAlignment="Top" />
+                    <Label Style="{StaticResource LabelStyle}" Content="起始日期" Foreground="Crimson" HorizontalAlignment="Left" Margin="1,42,0,0" Name="label4" VerticalAlignment="Top" />
+                    <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding StartDate}" Margin="107,44,0,0" Name="datePicker1" VerticalAlignment="Top" />
+                    <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding EndDate}" Margin="366,44,0,0" Name="datePicker2" VerticalAlignment="Top" />
+                    <Label Style="{StaticResource LabelStyle}" Content="截止日期" Foreground="Crimson" HorizontalAlignment="Left" Margin="260,42,0,0" Name="label5" VerticalAlignment="Top" />
+                    <Label Style="{StaticResource LabelStyle}" Content="业务类型" Foreground="Crimson" HorizontalAlignment="Left" Margin="519,10,0,0" Name="label6" VerticalAlignment="Top" />
+                    <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding CommodityList}" DisplayMemberPath="Name" SelectedValuePath="Id"
+                          SelectedValue="{Binding CommodityId}" Margin="366,12,0,0" Name="comboBox1" VerticalAlignment="Top" />
+                    <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding ContractType}" SelectedValuePath="Value"
+                                  DisplayMemberPath="Key" SelectedValue="1" Margin="625,12,0,0" Name="comboBox2" VerticalAlignment="Top" />
+                    <Button Content="查询" Height="23" HorizontalAlignment="Left" Margin="625,44,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="Button1Click" />
+                    <ComboBox HorizontalAlignment="Left" DisplayMemberPath="ShortName" ItemsSource="{Binding InternalCustomerList}" SelectedValue="{Binding SelectedInternalCustomerId}" SelectedValuePath="Id" Margin="107,12,0,0" Name="comboBox3" VerticalAlignment="Top" />
+                </Grid>
+            </GroupBox>
+            
+            <Separator Height="17" Margin="6,146,6,0" Name="separator1" VerticalAlignment="Top" />
+
+            <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Height="auto" ItemsSource="{Binding}" Margin="6,166,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="auto" Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="客户名称" Binding="{Binding BusinessParnterName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="数量" Binding="{Binding Qty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="金额" Binding="{Binding Amount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="均价" Binding="{Binding AvgPrice,StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="客户购销排行表" FontWeight="Bold" FontSize="16" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbTitle" VerticalAlignment="Top" />
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

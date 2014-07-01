@@ -1,0 +1,41 @@
+SCC = This is a source code control file
+
+[Utility.csproj]
+SCC_Aux_Path = "P4SCC#172.20.67.133:1666##Jing.Li##Jing.Li_wing-PC_6599"
+SCC_Project_Name = Perforce Project
+
+[PriceDBEntity.csproj]
+SCC_Aux_Path = "P4SCC#172.20.67.133:1666##Jing.Li##Jing.Li_wing-PC_6599"
+SCC_Project_Name = Perforce Project
+
+[DBEntity.csproj]
+SCC_Aux_Path = "P4SCC#172.20.67.133:1666##Jing.Li##Jing.Li_wing-PC_6599"
+SCC_Project_Name = Perforce Project
+
+[Senlan2.Weixin.Services.csproj]
+SCC_Aux_Path = "P4SCC#172.20.67.133:1666##Jing.Li##Jing.Li_wing-PC_6599"
+SCC_Project_Name = Perforce Project
+
+[Senlan2.Weixin.Web.csproj]
+SCC_Aux_Path = "P4SCC#172.20.67.133:1666##Jing.Li##Jing.Li_wing-PC_6599"
+SCC_Project_Name = Perforce Project
+
+[Senlan2.Weixin.MenuGenerator.csproj]
+SCC_Aux_Path = "P4SCC#172.20.67.133:1666##Jing.Li##Jing.Li_wing-PC_6599"
+SCC_Project_Name = Perforce Project
+
+[Services.csproj]
+SCC_Aux_Path = "P4SCC#172.20.67.133:1666##Jing.Li##Jing.Li_wing-PC_6599"
+SCC_Project_Name = Perforce Project
+
+[Client.csproj]
+SCC_Aux_Path = "P4SCC#172.20.67.133:1666##Jing.Li##Jing.Li_wing-PC_6599"
+SCC_Project_Name = Perforce Project
+
+[Senlan2.Weixin.Test.csproj]
+SCC_Aux_Path = "P4SCC#172.20.67.133:1666##Jing.Li##Jing.Li_wing-PC_6599"
+SCC_Project_Name = Perforce Project
+
+[SenLan2.sln]
+SCC_Aux_Path = "P4SCC#172.20.67.133:1666##Jing.Li##Jing.Li_wing-PC_6599"
+SCC_Project_Name = Perforce Project

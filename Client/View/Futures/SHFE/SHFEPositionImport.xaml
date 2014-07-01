@@ -1,0 +1,55 @@
+﻿<Window x:Class="Client.View.Futures.SHFE.SHFEPositionImport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        ResxExtension.DefaultResxName="Client.View.Futures.SHFE.ResSHFE"
+        Language="{UICulture}"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" Height="220" Width="600" Title="{Resx ImpotPosition}"
+        WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" KeyDown="WindowKeyDown" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="MinWidth" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+    </Window.Resources>
+    <Grid x:Name="rootGrid">
+        <Label Content="{Resx ImpotPosition}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+               VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+        <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Broker}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="6,38,0,0"
+               Name="label2" VerticalAlignment="Top" />
+        <ComboBox HorizontalAlignment="Left" Margin="122,40,0,0" Name="comboBox1" VerticalAlignment="Top"
+                  ItemsSource="{Binding Brokers}" DisplayMemberPath="ShortName" SelectedValue="{Binding SelectedBrokerId}"
+                  SelectedValuePath="Id" />
+        <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="240,38,0,0"
+               Name="label3" VerticalAlignment="Top" />
+        <ComboBox HorizontalAlignment="Left" Margin="356,40,0,0" Name="comboBox2" VerticalAlignment="Top" Width="120"
+                  ItemsSource="{Binding InnerCustomer}" DisplayMemberPath="ShortName" SelectedValue="{Binding SelectedInnerCustomer}"
+                  SelectedValuePath="Id" />
+        <Label Content="{Resx Statement}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="6,70,0,0"
+               Name="label4" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="122,72,0,0" Name="textBox1" VerticalAlignment="Top"
+                 Width="303" Text="{Binding FileName}" IsReadOnly="True" />
+        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Select}" Height="23" HorizontalAlignment="Left" Margin="431,72,0,0" Name="button1"
+                VerticalAlignment="Top" Width="45" Click="Button1Click" />
+        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Confirm}" Height="23" HorizontalAlignment="Left" Margin="210,120,0,0" Name="button2"
+                VerticalAlignment="Top" Width="60" Click="Button2Click" />
+        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Height="23" HorizontalAlignment="Left" Margin="305,120,0,0" Name="button3"
+                VerticalAlignment="Top" Width="60" Click="Button3Click" />
+        <Label Content="{Resx Importing}" Height="28" HorizontalAlignment="Left" Margin="210,152,0,0" Name="lbMessage"
+               VerticalAlignment="Top" Visibility="Hidden" />
+    </Grid>
+</Window>

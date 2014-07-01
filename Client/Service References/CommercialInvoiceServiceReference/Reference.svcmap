@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c9aebd44-956e-4db5-b786-ec02b8fe4447" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Physical/CommercialInvoices/CommercialInvoiceService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CommercialInvoiceService.xsd" MetadataType="Schema" ID="8264c4b9-2d9b-4e12-af6f-270d83c1219b" SourceId="1" SourceUrl="http://localhost:1558/Physical/CommercialInvoices/CommercialInvoiceService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CommercialInvoiceService6.xsd" MetadataType="Schema" ID="23889a2b-9c92-437a-9899-a898030a1390" SourceId="1" SourceUrl="http://localhost:1558/Physical/CommercialInvoices/CommercialInvoiceService.svc?xsd=xsd6" />
+    <MetadataFile FileName="CommercialInvoiceService1.xsd" MetadataType="Schema" ID="fb3d73ed-b3a2-4079-a9ae-1bc58e9acb43" SourceId="1" SourceUrl="http://localhost:1558/Physical/CommercialInvoices/CommercialInvoiceService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CommercialInvoiceService2.xsd" MetadataType="Schema" ID="36cd5265-5825-49f9-92cc-d222cf5bfc1a" SourceId="1" SourceUrl="http://localhost:1558/Physical/CommercialInvoices/CommercialInvoiceService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CommercialInvoiceService3.xsd" MetadataType="Schema" ID="808a9717-ca50-4248-8558-018004383880" SourceId="1" SourceUrl="http://localhost:1558/Physical/CommercialInvoices/CommercialInvoiceService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CommercialInvoiceService4.xsd" MetadataType="Schema" ID="9a204308-4767-4d09-b816-1721a2ba6390" SourceId="1" SourceUrl="http://localhost:1558/Physical/CommercialInvoices/CommercialInvoiceService.svc?xsd=xsd5" />
+    <MetadataFile FileName="CommercialInvoiceService.disco" MetadataType="Disco" ID="6888ec7e-acef-4915-b627-9553a0f5fc9b" SourceId="1" SourceUrl="http://localhost:1558/Physical/CommercialInvoices/CommercialInvoiceService.svc?disco" />
+    <MetadataFile FileName="CommercialInvoiceService5.xsd" MetadataType="Schema" ID="37ebf7b0-beee-4062-b0fd-a5b6e896c62f" SourceId="1" SourceUrl="http://localhost:1558/Physical/CommercialInvoices/CommercialInvoiceService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CommercialInvoiceService.wsdl" MetadataType="Wsdl" ID="9bcbdb56-7014-4d4e-89c7-5a0f34cc2414" SourceId="1" SourceUrl="http://localhost:1558/Physical/CommercialInvoices/CommercialInvoiceService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

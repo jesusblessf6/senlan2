@@ -1,0 +1,65 @@
+﻿<baseClient:BasePage x:Class="Client.View.Finance.LetterOfCredits.LetterOfCreditList"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               ResxExtension.DefaultResxName="Client.View.Finance.LetterOfCredits.ResLetterOfCredit" Language="{UICulture}"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+                     xmlns:Converters="clr-namespace:Client.Converters" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+                     xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                     xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+                     d:DesignHeight="496" d:DesignWidth="1054" Title="{Resx LoCList}">
+
+    <Page.Resources>
+        <Converters:LCPorSConverter x:Key="LCPorSConverter" />
+        <Converters:LCStatusConverter x:Key="LCStatusConverter" />
+        <RoutedCommand x:Key="ListEdit"></RoutedCommand>
+        <RoutedCommand x:Key="ListDelete"></RoutedCommand>
+        <DataTemplate x:Key="ListActions" DataType="DBEntity:LetterOfCredit">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btListEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource ListEdit}"
+                        CommandParameter="{Binding Id}" IsEnabled="{Binding AutoGenGeneratedCanOperation}"></Button>
+                <Button Name="btListDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource ListDelete}"
+                        CommandParameter="{Binding Id}" IsEnabled="{Binding AutoGenGeneratedCanOperation}"></Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource ListEdit}" CanExecute="ListEditCanExecute"
+                        Executed="ListEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource ListDelete}" CanExecute="ListDeleteCanExecute"
+                        Executed="ListDeleteExecuted"></CommandBinding>
+    </Page.CommandBindings>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,0"
+                  HorizontalContentAlignment="Left">
+        <Grid x:Name="rootGrid">
+            <Label Content="{Resx LoCList}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            
+            <my:PagingControl x:Name="pagerList" Margin="6,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            <DataGrid Margin="6,77,0,0" x:Name="listGrid" AutoGenerateColumns="False" CanUserAddRows="False"  Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}"
+                      IsReadOnly="true" LoadingRow="ListGridLoadingRow" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=LoCNo}" Binding="{Binding LCNo}" />
+                    <DataGridTextColumn Header="批次号" Binding="{Binding Quota.QuotaNo}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Finance.LetterOfCredits.ResLetterOfCredit, Key=IssueBank}" Binding="{Binding Bank1.Name}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Finance.LetterOfCredits.ResLetterOfCredit, Key=InformBank}" Binding="{Binding Bank.Name}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Finance.LetterOfCredits.ResLetterOfCredit, Key=ApplyBP}" Binding="{Binding BusinessPartner.ShortName}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Finance.LetterOfCredits.ResLetterOfCredit, Key=BenefitBP}" Binding="{Binding BusinessPartner1.ShortName}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Finance.LetterOfCredits.ResLetterOfCredit, Key=LoCStatus}"
+                                        Binding="{Binding LCStatus, Converter={StaticResource LCStatusConverter}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=LoCAmount}" Binding="{Binding IssueAmount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                    <DataGridTextColumn Header="交单金额" Binding="{Binding PresentAmount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Currency}" Binding="{Binding Currency.Name}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Finance.LetterOfCredits.ResLetterOfCredit, Key=IssuingQty}" Binding="{Binding IssueQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Finance.LetterOfCredits.ResLetterOfCredit, Key=AcceptanceDueDate}"
+                                        Binding="{Binding AcceptanceExpiryDate,StringFormat='yyyy-MM-dd'}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Finance.LetterOfCredits.ResLetterOfCredit, Key=LoCType}"
+                                        Binding="{Binding Id, Converter={StaticResource LCPorSConverter}}" />
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                            CellTemplate="{StaticResource ListActions}"></DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

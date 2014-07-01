@@ -1,0 +1,63 @@
+﻿<baseClient:ObjectBaseWindow x:Class="Client.View.SystemSetting.ModuleSetting.ModuleDetail"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       ResxExtension.DefaultResxName="Client.View.SystemSetting.ModuleSetting.ResModuleSetting" 
+                       Language="{UICulture}"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:c="clr-namespace:Client.Converters"
+                              xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                             Title="模块" Height="330" Width="600" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <c:EmptyString2Null x:Key="EmptyString2Null"></c:EmptyString2Null>
+    </Window.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="模块" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Name}" HorizontalAlignment="Left" Margin="6,38,0,0" Name="label1" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="122,40,0,0" Name="textBox1" VerticalAlignment="Top"
+                     Text="{Binding Name}" MaxLength="50" />
+            <Label Content="ID" HorizontalAlignment="Left" Margin="278,38,0,0" Name="label5" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="394,40,0,0" Name="textBox5" VerticalAlignment="Top"
+                     Text="{Binding Id, Converter={StaticResource EmptyString2Null}}" />
+            <Label Content="中文名" HorizontalAlignment="Left" Margin="6,70,0,0" Name="label2" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="122,72,0,0" Name="textBox2" VerticalAlignment="Top"
+                     Text="{Binding DisplayName}" MaxLength="50" />
+            <Label Content="分类" HorizontalAlignment="Left" Margin="278,70,0,0" Name="label6" VerticalAlignment="Top" />
+            <ComboBox HorizontalAlignment="Left" Margin="394,72,0,0" Name="comboBox1" VerticalAlignment="Top"
+                      ItemsSource="{Binding Categories}" SelectedValue="{Binding SelectedCategoryId}" SelectedValuePath="Id"
+                      DisplayMemberPath="DisplayName" />
+            <Label Content="控件名" HorizontalAlignment="Left" Margin="6,102,0,0" Name="label4" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="122,104,0,0" Name="textBox4" VerticalAlignment="Top"
+                     Text="{Binding ControlName}" MaxLength="100" />
+            <Label Content="描述" HorizontalAlignment="Left" Margin="6,134,0,0" Name="label3" VerticalAlignment="Top" />
+            <TextBox Height="100" HorizontalAlignment="Left" Margin="122,136,0,0" Name="textBox3"
+                     VerticalAlignment="Top" Width="392" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"
+                     VerticalScrollBarVisibility="Auto" Text="{Binding Description}" MaxLength="255" />
+
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Save}" Height="25" HorizontalAlignment="Left" Margin="210,261,0,0" Name="btOK"
+                    VerticalAlignment="Top" Width="60" Click="Save" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Height="25" HorizontalAlignment="Left" Margin="305,261,0,0" Name="btCancel"
+                    VerticalAlignment="Top" Width="60" Click="Cancel" />
+
+
+        </Grid>
+    </ScrollViewer>
+</baseClient:ObjectBaseWindow>

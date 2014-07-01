@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MarketPriceService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1558/MarketPrice/MarketPriceService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1558/MarketPrice/MarketPriceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1558/MarketPrice/MarketPriceService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1558/MarketPrice/MarketPriceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DBEntity" />
+      <xsd:import schemaLocation="http://localhost:1558/MarketPrice/MarketPriceService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/PriceDBEntity" />
+      <xsd:import schemaLocation="http://localhost:1558/MarketPrice/MarketPriceService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:1558/MarketPrice/MarketPriceService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMarketPriceService_GetSelectLmeCommodity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectLmeCommodity" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSelectLmeCommodity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectLmeCommodityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSelectLMELastedPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectLMELastedPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSelectLMELastedPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectLMELastedPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLME3MSettlementPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLME3MSettlementPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLME3MSettlementPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLME3MSettlementPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLMECashSettlementPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMECashSettlementPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLMECashSettlementPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMECashSettlementPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLMEDailySettlementPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMEDailySettlementPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLMEDailySettlementPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMEDailySettlementPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLMELatestPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMELatestPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLMELatestPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMELatestPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLME3MSettlementPriceDate2Date_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLME3MSettlementPriceDate2Date" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLME3MSettlementPriceDate2Date_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLME3MSettlementPriceDate2DateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLMECashSettlementPriceDate2Date_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMECashSettlementPriceDate2Date" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLMECashSettlementPriceDate2Date_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMECashSettlementPriceDate2DateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLME3MSettlementPriceOfficialPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLME3MSettlementPriceOfficialPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLME3MSettlementPriceOfficialPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLME3MSettlementPriceOfficialPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLMECashSettlementPriceOfficialPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMECashSettlementPriceOfficialPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetLMECashSettlementPriceOfficialPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLMECashSettlementPriceOfficialPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSHFELatestPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSHFELatestPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSHFELatestPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSHFELatestPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSHFESettlementPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSHFESettlementPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSHFESettlementPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSHFESettlementPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSHFEMonthlySettlementPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSHFEMonthlySettlementPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSHFEMonthlySettlementPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSHFEMonthlySettlementPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSMMPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSMMPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSMMPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSMMPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSHMETPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSHMETPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSHMETPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSHMETPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSMMWebPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSMMWebPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSMMWebPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSMMWebPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSHMETWebPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSHMETWebPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetSHMETWebPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSHMETWebPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetPCJWebPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPCJWebPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetPCJWebPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPCJWebPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetNCWebPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNCWebPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetNCWebPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNCWebPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetCurrenctPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrenctPrice" />
+  </wsdl:message>
+  <wsdl:message name="IMarketPriceService_GetCurrenctPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrenctPriceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMarketPriceService">
+    <wsdl:operation name="GetSelectLmeCommodity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetSelectLmeCommodity" message="tns:IMarketPriceService_GetSelectLmeCommodity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetSelectLmeCommodityResponse" message="tns:IMarketPriceService_GetSelectLmeCommodity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectLMELastedPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetSelectLMELastedPrice" message="tns:IMarketPriceService_GetSelectLMELastedPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetSelectLMELastedPriceResponse" message="tns:IMarketPriceService_GetSelectLMELastedPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLME3MSettlementPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetLME3MSettlementPrice" message="tns:IMarketPriceService_GetLME3MSettlementPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetLME3MSettlementPriceResponse" message="tns:IMarketPriceService_GetLME3MSettlementPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLMECashSettlementPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetLMECashSettlementPrice" message="tns:IMarketPriceService_GetLMECashSettlementPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetLMECashSettlementPriceResponse" message="tns:IMarketPriceService_GetLMECashSettlementPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLMEDailySettlementPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetLMEDailySettlementPrice" message="tns:IMarketPriceService_GetLMEDailySettlementPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetLMEDailySettlementPriceResponse" message="tns:IMarketPriceService_GetLMEDailySettlementPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLMELatestPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetLMELatestPrice" message="tns:IMarketPriceService_GetLMELatestPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetLMELatestPriceResponse" message="tns:IMarketPriceService_GetLMELatestPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLME3MSettlementPriceDate2Date">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetLME3MSettlementPriceDate2Date" message="tns:IMarketPriceService_GetLME3MSettlementPriceDate2Date_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetLME3MSettlementPriceDate2DateResponse" message="tns:IMarketPriceService_GetLME3MSettlementPriceDate2Date_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLMECashSettlementPriceDate2Date">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetLMECashSettlementPriceDate2Date" message="tns:IMarketPriceService_GetLMECashSettlementPriceDate2Date_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetLMECashSettlementPriceDate2DateResponse" message="tns:IMarketPriceService_GetLMECashSettlementPriceDate2Date_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLME3MSettlementPriceOfficialPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetLME3MSettlementPriceOfficialPrice" message="tns:IMarketPriceService_GetLME3MSettlementPriceOfficialPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetLME3MSettlementPriceOfficialPriceResponse" message="tns:IMarketPriceService_GetLME3MSettlementPriceOfficialPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLMECashSettlementPriceOfficialPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetLMECashSettlementPriceOfficialPrice" message="tns:IMarketPriceService_GetLMECashSettlementPriceOfficialPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetLMECashSettlementPriceOfficialPriceResponse" message="tns:IMarketPriceService_GetLMECashSettlementPriceOfficialPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSHFELatestPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetSHFELatestPrice" message="tns:IMarketPriceService_GetSHFELatestPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetSHFELatestPriceResponse" message="tns:IMarketPriceService_GetSHFELatestPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSHFESettlementPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetSHFESettlementPrice" message="tns:IMarketPriceService_GetSHFESettlementPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetSHFESettlementPriceResponse" message="tns:IMarketPriceService_GetSHFESettlementPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSHFEMonthlySettlementPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetSHFEMonthlySettlementPrice" message="tns:IMarketPriceService_GetSHFEMonthlySettlementPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetSHFEMonthlySettlementPriceResponse" message="tns:IMarketPriceService_GetSHFEMonthlySettlementPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSMMPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetSMMPrice" message="tns:IMarketPriceService_GetSMMPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetSMMPriceResponse" message="tns:IMarketPriceService_GetSMMPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSHMETPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetSHMETPrice" message="tns:IMarketPriceService_GetSHMETPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetSHMETPriceResponse" message="tns:IMarketPriceService_GetSHMETPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSMMWebPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetSMMWebPrice" message="tns:IMarketPriceService_GetSMMWebPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetSMMWebPriceResponse" message="tns:IMarketPriceService_GetSMMWebPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSHMETWebPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetSHMETWebPrice" message="tns:IMarketPriceService_GetSHMETWebPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetSHMETWebPriceResponse" message="tns:IMarketPriceService_GetSHMETWebPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPCJWebPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetPCJWebPrice" message="tns:IMarketPriceService_GetPCJWebPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetPCJWebPriceResponse" message="tns:IMarketPriceService_GetPCJWebPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNCWebPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetNCWebPrice" message="tns:IMarketPriceService_GetNCWebPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetNCWebPriceResponse" message="tns:IMarketPriceService_GetNCWebPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrenctPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketPriceService/GetCurrenctPrice" message="tns:IMarketPriceService_GetCurrenctPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketPriceService/GetCurrenctPriceResponse" message="tns:IMarketPriceService_GetCurrenctPrice_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMarketPriceService" type="tns:IMarketPriceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSelectLmeCommodity">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetSelectLmeCommodity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectLMELastedPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetSelectLMELastedPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLME3MSettlementPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetLME3MSettlementPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLMECashSettlementPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetLMECashSettlementPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLMEDailySettlementPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetLMEDailySettlementPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLMELatestPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetLMELatestPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLME3MSettlementPriceDate2Date">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetLME3MSettlementPriceDate2Date" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLMECashSettlementPriceDate2Date">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetLMECashSettlementPriceDate2Date" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLME3MSettlementPriceOfficialPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetLME3MSettlementPriceOfficialPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLMECashSettlementPriceOfficialPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetLMECashSettlementPriceOfficialPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSHFELatestPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetSHFELatestPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSHFESettlementPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetSHFESettlementPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSHFEMonthlySettlementPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetSHFEMonthlySettlementPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMMPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetSMMPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSHMETPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetSHMETPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSMMWebPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetSMMWebPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSHMETWebPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetSHMETWebPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPCJWebPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetPCJWebPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNCWebPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetNCWebPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrenctPrice">
+      <soap:operation soapAction="http://tempuri.org/IMarketPriceService/GetCurrenctPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MarketPriceService">
+    <wsdl:port name="BasicHttpBinding_IMarketPriceService" binding="tns:BasicHttpBinding_IMarketPriceService">
+      <soap:address location="http://localhost:1558/MarketPrice/MarketPriceService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

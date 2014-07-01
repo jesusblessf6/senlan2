@@ -1,0 +1,21 @@
+﻿<baseClient:BaseWindow x:Class="Client.View.Physical.Contracts.MoreBrandsList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+        xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+        Title="多品牌明细" Height="301" Width="379">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="多品牌列表" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label1" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="6,40,0,0" Name="dataGrid1" ItemsSource="{Binding QuotaBrandRels}"  HorizontalScrollBarVisibility="Auto" Width="Auto" IsReadOnly="True" Height="Auto" VerticalAlignment="Top">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Width="Auto" Binding="{Binding Brand.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Specification}" Width="Auto" Binding="{Binding Specification.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Price}" Width="Auto" Binding="{Binding Price, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Quantity}" Width="Auto" Binding="{Binding Quantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Warehouse}" Width="Auto" Binding="{Binding Warehouse.Name}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BaseWindow>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1fb519f0-30ba-431c-b4e5-ca89d7adc053" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/BusinessPartnerService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BusinessPartnerService.xsd" MetadataType="Schema" ID="098e1ba5-3e43-4e5d-9e79-73774c24e324" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BusinessPartnerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BusinessPartnerService4.xsd" MetadataType="Schema" ID="caa9cf29-f302-4645-a7cd-c431fb4e8e31" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BusinessPartnerService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BusinessPartnerService1.xsd" MetadataType="Schema" ID="91ae434f-9fd8-4523-b8f3-e06e081c0c42" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BusinessPartnerService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BusinessPartnerService2.xsd" MetadataType="Schema" ID="ae681c10-7679-4515-af36-42d850503abb" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BusinessPartnerService.svc?xsd=xsd5" />
+    <MetadataFile FileName="BusinessPartnerService6.xsd" MetadataType="Schema" ID="aa0cc084-665b-4bbb-8147-2456cc9ce6e7" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BusinessPartnerService.svc?xsd=xsd6" />
+    <MetadataFile FileName="BusinessPartnerService.disco" MetadataType="Disco" ID="d64b29f4-6802-4df2-900b-05d04fb74aea" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BusinessPartnerService.svc?disco" />
+    <MetadataFile FileName="BusinessPartnerService3.xsd" MetadataType="Schema" ID="69363701-fcd5-474e-830f-52bf8ff2d7ec" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BusinessPartnerService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BusinessPartnerService.wsdl" MetadataType="Wsdl" ID="0074a89a-5fed-4cef-8499-1e53a004c784" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BusinessPartnerService.svc?wsdl" />
+    <MetadataFile FileName="BusinessPartnerService5.xsd" MetadataType="Schema" ID="f4e6031a-62bd-47cf-bb5f-941a2f7ed2d3" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BusinessPartnerService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

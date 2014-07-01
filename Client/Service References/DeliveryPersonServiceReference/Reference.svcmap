@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b620ebd7-cefb-495a-98f4-f61002c824aa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/DeliveryPersonService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DeliveryPersonService.wsdl" MetadataType="Wsdl" ID="18d8a7f2-9162-409c-a1a4-8701c02fce54" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/DeliveryPersonService.svc?wsdl" />
+    <MetadataFile FileName="DeliveryPersonService.xsd" MetadataType="Schema" ID="dea0aaa9-1d00-4ffc-8a0e-328504adcf12" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/DeliveryPersonService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DeliveryPersonService1.xsd" MetadataType="Schema" ID="bf833f3f-15f8-438a-a677-49aadd21cb4c" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/DeliveryPersonService.svc?xsd=xsd3" />
+    <MetadataFile FileName="DeliveryPersonService2.xsd" MetadataType="Schema" ID="d8de8710-db50-427f-b6db-92fea5078560" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/DeliveryPersonService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DeliveryPersonService3.xsd" MetadataType="Schema" ID="56ac69a7-951c-4cc3-83f4-8391f9ca59a6" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/DeliveryPersonService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DeliveryPersonService.disco" MetadataType="Disco" ID="dfd69e06-db74-425a-8e9b-d787eeba7439" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/DeliveryPersonService.svc?disco" />
+    <MetadataFile FileName="DeliveryPersonService4.xsd" MetadataType="Schema" ID="3beeb026-f983-47b1-87c8-d85d3212fd0d" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/DeliveryPersonService.svc?xsd=xsd4" />
+    <MetadataFile FileName="DeliveryPersonService5.xsd" MetadataType="Schema" ID="2004ac12-bb93-4fd3-94bb-1684dc3cab36" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/DeliveryPersonService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

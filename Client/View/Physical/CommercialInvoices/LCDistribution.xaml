@@ -1,0 +1,28 @@
+﻿<Window x:Class="Client.View.Physical.CommercialInvoices.LCDistribution"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+        Title="交单金额分配" Width="580" MinHeight="260"  xmlns:my="clr-namespace:Utility.Controls;assembly=Utility" 
+        Closing="ObjectBaseWindowClosing" Loaded="ObjectBaseWindowLoaded" WindowStartupLocation="CenterScreen" 
+        mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="255" SizeToContent="Height" Topmost="True">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="交单金额分配" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbTitle" VerticalAlignment="Top" FontSize="16" Width="142" FontWeight="Bold" />
+            <DataGrid AutoGenerateColumns="False" Height="auto" HorizontalAlignment="Left" Margin="28,44,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="auto" CanUserAddRows="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="信用证号" Binding="{Binding LCNo}"/>
+                    <DataGridTextColumn Header="交单金额" Binding="{Binding PresentAmount, StringFormat={x:Static local:RoundRules.STR_AMOUNT}}"/>
+                    <DataGridTextColumn Header="已分配金额" Binding="{Binding DistriButionAmount, StringFormat={x:Static local:RoundRules.STR_AMOUNT}}"/>
+                    <DataGridTextColumn Header="币种" Binding="{Binding Currency.Name}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="本次分配金额" Height="28" HorizontalAlignment="Left" Margin="295,118,0,0" Name="label2" VerticalAlignment="Top" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="383,119,0,0" Name="currencyTextBox1" VerticalAlignment="Top" Width="120" Text="{Binding Amount, StringFormat={x:Static local:RoundRules.STR_AMOUNT}}" />
+            <Button Content="确定" Height="23" HorizontalAlignment="Left" Margin="210,173,0,0" Name="button1" VerticalAlignment="Top" Width="60" Click="Button1Click" />
+            <Button Content="取消" Height="23" HorizontalAlignment="Left" Margin="305,173,0,0" Name="button2" VerticalAlignment="Top" Width="60" Click="Button2Click" />
+            <Label Content="可分配金额" Height="28" HorizontalAlignment="Left" Margin="28,118,0,0" Name="label3" VerticalAlignment="Top" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="104,119,0,0" Name="currencyTextBox2" VerticalAlignment="Top" Width="120" IsReadOnly="True" Text="{Binding AllowAmount, StringFormat={x:Static local:RoundRules.STR_AMOUNT}}" IsEnabled="False" />
+        </Grid>
+    </ScrollViewer>
+</Window>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ServerErr">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrCode" type="tns:ErrCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServerErr" nillable="true" type="tns:ServerErr" />
+  <xs:simpleType name="ErrCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoErr" />
+      <xs:enumeration value="UnkownErr" />
+      <xs:enumeration value="OptimisticConcurrencyErr" />
+      <xs:enumeration value="ServerErr" />
+      <xs:enumeration value="EndpointNotFound" />
+      <xs:enumeration value="FetchUnreadTransErr" />
+      <xs:enumeration value="TimeoutErr" />
+      <xs:enumeration value="LoginFailErr" />
+      <xs:enumeration value="ObjectNotFound" />
+      <xs:enumeration value="LoginNameExisted" />
+      <xs:enumeration value="CurrencyExisted" />
+      <xs:enumeration value="RateExisted" />
+      <xs:enumeration value="CountryExisted" />
+      <xs:enumeration value="UdfExisted" />
+      <xs:enumeration value="DeleteFKErr" />
+      <xs:enumeration value="DeleteErr" />
+      <xs:enumeration value="PortExisted" />
+      <xs:enumeration value="PaymentMeanExisted" />
+      <xs:enumeration value="VATRateExisted" />
+      <xs:enumeration value="PaymentUsageExisted" />
+      <xs:enumeration value="StringOverflow" />
+      <xs:enumeration value="RoleNameExisted" />
+      <xs:enumeration value="ApprovalConditionCollapsed" />
+      <xs:enumeration value="ApprovalNameExisted" />
+      <xs:enumeration value="FinancialAccountAddFKErr" />
+      <xs:enumeration value="FinancialAccountUpdateFKErr" />
+      <xs:enumeration value="FinancialAccountExisted" />
+      <xs:enumeration value="FinancialAccountUpdate2FKErr" />
+      <xs:enumeration value="PaymentUsagePAExisted" />
+      <xs:enumeration value="BankNameExisted" />
+      <xs:enumeration value="BankAccountUsed" />
+      <xs:enumeration value="BankAccountExisted" />
+      <xs:enumeration value="CommodityTypeExisted" />
+      <xs:enumeration value="BrandExisted" />
+      <xs:enumeration value="SpecificationExisted" />
+      <xs:enumeration value="WarehouseExisted" />
+      <xs:enumeration value="QuotaDeliveryConnected" />
+      <xs:enumeration value="QuotaWarehouseOutConnected" />
+      <xs:enumeration value="QuotaPaymentRequestConnected" />
+      <xs:enumeration value="QuotaCommercialInvoiceConnected" />
+      <xs:enumeration value="QuotaFundFlowConnected" />
+      <xs:enumeration value="QuotaVATInvoiceConnected" />
+      <xs:enumeration value="QuotaVATInvoiceRequestConnected" />
+      <xs:enumeration value="QuotaLetterOfCreditConnected" />
+      <xs:enumeration value="QuotaPricingConnected" />
+      <xs:enumeration value="QuotaHedgedNotAbleToDeleteModify" />
+      <xs:enumeration value="PaymentRequestLCConnected" />
+      <xs:enumeration value="PaymentRequestFundFlowConnected" />
+      <xs:enumeration value="DeliveryWarehouseInConnected" />
+      <xs:enumeration value="DeliveryCommercialInvoiceConnected" />
+      <xs:enumeration value="DeliveryPaymentRequestConnected" />
+      <xs:enumeration value="DeliveryDeliveryConnected" />
+      <xs:enumeration value="DeliveryLCConnected" />
+      <xs:enumeration value="WarehouseInWarehouseOutConnected" />
+      <xs:enumeration value="PricingVATInvoiceConnected" />
+      <xs:enumeration value="PricingUnpricingConnected" />
+      <xs:enumeration value="UnpricingUnpricingConnected" />
+      <xs:enumeration value="ExceedPricingDateRange" />
+      <xs:enumeration value="SaleDeliveryConnected" />
+      <xs:enumeration value="QuotaNotExisted" />
+      <xs:enumeration value="NotInApproval" />
+      <xs:enumeration value="ApprovalStageNotFound" />
+      <xs:enumeration value="UnpricingQuantityNotEnough" />
+      <xs:enumeration value="UnpricingNotFound" />
+      <xs:enumeration value="FinalInvoiceIdExisted" />
+      <xs:enumeration value="OldPasswordErr" />
+      <xs:enumeration value="PaymentRequestNotFound" />
+      <xs:enumeration value="DocumentNotFound" />
+      <xs:enumeration value="LogActionNotFound" />
+      <xs:enumeration value="VATInvoiceRequestLineConnected" />
+      <xs:enumeration value="PricingCurrencyNotMatch" />
+      <xs:enumeration value="CurrencyNotFound" />
+      <xs:enumeration value="LMEPositionNotFound" />
+      <xs:enumeration value="SHFEPositionNotFound" />
+      <xs:enumeration value="HedgeGroupNotFound" />
+      <xs:enumeration value="HedgeGroupLineQuotaNotFound" />
+      <xs:enumeration value="HedgeGroupLineLMEPositionNotFound" />
+      <xs:enumeration value="HedgeGroupLineSHFEPositionNotFound" />
+      <xs:enumeration value="HedgeGroupSettledNotForModify" />
+      <xs:enumeration value="LMEPositionHedged" />
+      <xs:enumeration value="FinancialAccountFundFlowConnected" />
+      <xs:enumeration value="FinancialAccountPaymentUsageConnected" />
+      <xs:enumeration value="LCCommercialInvoiceConnected" />
+      <xs:enumeration value="DeliveryLineNotHasTempUnitPrice" />
+      <xs:enumeration value="DeleteRelQuotaConnected" />
+      <xs:enumeration value="EditRelQuotaConnected" />
+      <xs:enumeration value="DuplicatedDeliveryPersonInfo" />
+      <xs:enumeration value="NotDuringApproval" />
+      <xs:enumeration value="ForeignDeliveryPoolNotFound" />
+      <xs:enumeration value="DuplicatedDeliveryNo" />
+      <xs:enumeration value="InvoiceHasPayMentRequest" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ErrCode" nillable="true" type="tns:ErrCode" />
+</xs:schema>

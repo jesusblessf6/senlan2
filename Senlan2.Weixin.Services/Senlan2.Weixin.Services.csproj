@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8798EF1D-250C-4DE9-9FAC-5C956BA8DEF5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Senlan2.Weixin.Services</RootNamespace>
+    <AssemblyName>Senlan2.Weixin.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApprovalServiceBase.cs" />
+    <Compile Include="ContractApprovalService.cs" />
+    <Compile Include="ContractService.cs" />
+    <Compile Include="CustomerService.cs" />
+    <Compile Include="LoginService.cs" />
+    <Compile Include="NotifierService.cs" />
+    <Compile Include="PaymentRequestApprovalService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ApprovalServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BusinessPartnerServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PaymentRequestServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\QuotaServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UserServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VATInvoiceRequestLineServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UserService.cs" />
+    <Compile Include="VATInvoiceRequestLineApprovalService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Service References\ApprovalServiceReference\ApprovalService.wsdl" />
+    <None Include="Service References\ApprovalServiceReference\ApprovalService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApprovalServiceReference\ApprovalService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApprovalServiceReference\ApprovalService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApprovalServiceReference\ApprovalService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApprovalServiceReference\ApprovalService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ApprovalServiceReference\ApprovalService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessPartnerServiceReference\BusinessPartnerService.wsdl" />
+    <None Include="Service References\BusinessPartnerServiceReference\BusinessPartnerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessPartnerServiceReference\BusinessPartnerService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessPartnerServiceReference\BusinessPartnerService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessPartnerServiceReference\BusinessPartnerService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessPartnerServiceReference\BusinessPartnerService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessPartnerServiceReference\BusinessPartnerService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BusinessPartnerServiceReference\BusinessPartnerService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentRequestServiceReference\PaymentRequestService.wsdl" />
+    <None Include="Service References\PaymentRequestServiceReference\PaymentRequestService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentRequestServiceReference\PaymentRequestService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentRequestServiceReference\PaymentRequestService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentRequestServiceReference\PaymentRequestService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentRequestServiceReference\PaymentRequestService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentRequestServiceReference\PaymentRequestService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PaymentRequestServiceReference\PaymentRequestService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotaServiceReference\QuotaService.wsdl" />
+    <None Include="Service References\QuotaServiceReference\QuotaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotaServiceReference\QuotaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotaServiceReference\QuotaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotaServiceReference\QuotaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotaServiceReference\QuotaService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotaServiceReference\QuotaService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotaServiceReference\QuotaService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotaServiceReference\QuotaService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.ARAPClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.BPartnerContractOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.DashBoardClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.DashBoardTotalClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.GetAparReportDataByQuotaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.GetDashBoardResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.GetPhysicalPNLDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.GetPricingMarginReportDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.GetQuotaAmountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.GetQuotaSumAmountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.LedgerClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.MarginLineClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QuotaServiceReference\Senlan2.Weixin.Services.QuotaServiceReference.PhysicalPNLClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserServiceReference\UserService.wsdl" />
+    <None Include="Service References\UserServiceReference\UserService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserServiceReference\UserService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserServiceReference\UserService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserServiceReference\UserService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserServiceReference\UserService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserServiceReference\UserService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VATInvoiceRequestLineServiceReference\VATInvoicedRequestLineService.wsdl" />
+    <None Include="Service References\VATInvoiceRequestLineServiceReference\VATInvoicedRequestLineService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VATInvoiceRequestLineServiceReference\VATInvoicedRequestLineService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VATInvoiceRequestLineServiceReference\VATInvoicedRequestLineService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VATInvoiceRequestLineServiceReference\VATInvoicedRequestLineService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VATInvoiceRequestLineServiceReference\VATInvoicedRequestLineService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VATInvoiceRequestLineServiceReference\VATInvoicedRequestLineService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBEntity\DBEntity.csproj">
+      <Project>{900735b5-33eb-4a48-b1b9-c80b857e4d82}</Project>
+      <Name>DBEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{72530613-eb34-481a-b249-4b21c70272e8}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{a9490c2e-b852-4a94-ba41-563b77bf9cb7}</Project>
+      <Name>Utility %28Utility\Utility%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ApprovalServiceReference\" />
+    <WCFMetadataStorage Include="Service References\BusinessPartnerServiceReference\" />
+    <WCFMetadataStorage Include="Service References\PaymentRequestServiceReference\" />
+    <WCFMetadataStorage Include="Service References\QuotaServiceReference\" />
+    <WCFMetadataStorage Include="Service References\UserServiceReference\" />
+    <WCFMetadataStorage Include="Service References\VATInvoiceRequestLineServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QuotaServiceReference\QuotaService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QuotaServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QuotaServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QuotaServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserServiceReference\UserService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BusinessPartnerServiceReference\BusinessPartnerService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BusinessPartnerServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BusinessPartnerServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BusinessPartnerServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PaymentRequestServiceReference\PaymentRequestService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PaymentRequestServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PaymentRequestServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PaymentRequestServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VATInvoiceRequestLineServiceReference\VATInvoicedRequestLineService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VATInvoiceRequestLineServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VATInvoiceRequestLineServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VATInvoiceRequestLineServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ApprovalServiceReference\ApprovalService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ApprovalServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ApprovalServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ApprovalServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

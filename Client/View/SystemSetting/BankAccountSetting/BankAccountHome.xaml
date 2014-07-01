@@ -1,0 +1,156 @@
+﻿<baseClient:BasePage x:Class="Client.View.SystemSetting.BankAccountSetting.BankAccountHome"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               ResxExtension.DefaultResxName="Client.View.SystemSetting.BankAccountSetting.ResBankAccountSetting" 
+               Language="{UICulture}"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+               xmlns:Converters="clr-namespace:Client.Converters" d:DesignHeight="459" d:DesignWidth="685" Title="{Resx BankAndAccountHome}"
+               xmlns:my="clr-namespace:Utility.Controls;assembly=Utility" xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+                     xmlns:baseClient="clr-namespace:Client.Base.BaseClient">
+
+    <Page.Resources>
+        <Converters:BankAccountTypeConverter x:Key="ConvertType" />
+        <RoutedCommand x:Key="BankEdit"></RoutedCommand>
+        <RoutedCommand x:Key="BankDelete"></RoutedCommand>
+        <RoutedCommand x:Key="BankView"></RoutedCommand>
+
+        <RoutedCommand x:Key="AccountEdit"></RoutedCommand>
+        <RoutedCommand x:Key="AccountDelete"></RoutedCommand>
+        <RoutedCommand x:Key="AccountView"></RoutedCommand>
+
+
+        <DataTemplate x:Key="BankActions" DataType="DBEntity:Bank">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btBankEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource BankEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btBankDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource BankDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="AccountActions" DataType="DBEntity:BankAccount">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btAccountEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource AccountEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btAccountDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource AccountDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="BankLink" DataType="DBEntity:Bank">
+            <TextBlock>
+                <Hyperlink Command="{StaticResource BankView}" CommandParameter="{Binding Id}">
+                    <Run Text="{Binding Name}"></Run>
+                </Hyperlink>
+            </TextBlock>
+        </DataTemplate>
+
+        <DataTemplate x:Key="AccountLink" DataType="DBEntity:BankAccount">
+            <TextBlock>
+                <Hyperlink Command="{StaticResource AccountView}" CommandParameter="{Binding Id}">
+                    <Run Text="{Binding AccountCode}"></Run>
+                </Hyperlink>
+            </TextBlock>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource BankEdit}" CanExecute="BankEditCanExecute" Executed="BankEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource BankDelete}" CanExecute="BankDeleteCanExecute"
+                        Executed="BankDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource BankView}" CanExecute="BankViewCanExecute" Executed="BankViewExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource AccountEdit}" CanExecute="AccountEditCanExecute"
+                        Executed="AccountEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource AccountDelete}" CanExecute="AccountDeleteCanExecute"
+                        Executed="AccountDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource AccountView}" CanExecute="AccountViewCanExecute"
+                        Executed="AccountViewExecuted"></CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx BankAndAccountHome}" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbTitle"
+                   Width="auto" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <TabControl Height="Auto" HorizontalAlignment="Left" Margin="6,40,0,0" Name="tabControl1"
+                        VerticalAlignment="Top" Width="auto" MinHeight="380" MinWidth="600">
+                <TabItem Header="{Resx ResxName=Client.Properties.Resources, Key=Bank}" Name="tiBank" GotFocus="TiBankGotFocus">
+                    <Grid>
+                        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0"
+                                Name="button1" VerticalAlignment="Top" Width="45" Click="Button1Click" />
+                        <my:PagingControl Margin="6,105,0,0" Name="pagingControl1" Height="31"
+                                          VerticalAlignment="Top" HorizontalAlignment="Left" />
+                        <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left"
+                                  Margin="6,142,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding}" IsReadOnly="True"
+                                  LoadingRow="DataGrid1LoadingRow" Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BankName}" Width="Auto" CanUserSort="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                        SortMemberPath="Name" CellTemplate="{StaticResource BankLink}" ></DataGridTemplateColumn>
+                                <DataGridTextColumn Header="SWIFT" Width="Auto" CanUserSort="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding Code}" ></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.BankAccountSetting.ResBankAccountSetting,Key=BankAddress}" Width="Auto" CanUserSort="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding Address}" ></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding Description}" ></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    CellTemplate="{StaticResource BankActions}" ></DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Conditions}" Height="65" HorizontalAlignment="Left" Margin="6,35,0,0" Name="groupBox1" VerticalAlignment="Top" Width="580">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="266*" />
+
+                                </Grid.ColumnDefinitions>
+                                <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Name}" Margin="6,10,0,0" Name="label2"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="28" HorizontalContentAlignment="Right" />
+                                <TextBox HorizontalAlignment="Left" Margin="72,12,0,0" Name="txtName" Text="{Binding SearchName}" VerticalAlignment="Top" Width="120" Height="23" />
+                                <Button Click="BtnSearchClick" Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23" HorizontalAlignment="left" Margin="201,12,0,0" Name="btnSearch" VerticalAlignment="Top" Width="75" IsDefault="True" />
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{Resx ResxName=Client.Properties.Resources, Key=BankAccount}" Name="tiAccount" GotFocus="TiAccountGotFocus">
+                    <Grid>
+                        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0"
+                                Name="button2" VerticalAlignment="Top" Width="45" Click="Button2Click" />
+                        <my:PagingControl Margin="6,105,0,0" Name="pagingControl2" Height="31"
+                                          VerticalAlignment="Top" HorizontalAlignment="Left" />
+                        <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left"
+                                  Margin="6,142,0,0" Name="dataGrid2" VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding}" IsReadOnly="True"
+                                  LoadingRow="DataGrid2LoadingRow" Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BankName}" Width="Auto" CanUserSort="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding Bank.Name}" ></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=AccountCode}" Width="Auto" CanUserSort="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                        SortMemberPath="AccountCode" CellTemplate="{StaticResource AccountLink}" ></DataGridTemplateColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BankAccountCurrency}" Width="Auto" CanUserSort="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding Currency.Name}" ></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=AccountUsage}" Width="Auto" CanUserSort="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding Usage, Converter={StaticResource ConvertType}}" ></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=CustomerName}" Width="Auto" CanUserSort="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding BusinessPartner.ShortName}" ></DataGridTextColumn>
+                                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Width="Auto" CanUserSort="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                    Binding="{Binding Description}" ></DataGridTextColumn>
+                                <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                        CellTemplate="{StaticResource AccountActions}" ></DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Conditions}" Height="65" HorizontalAlignment="Left" Margin="6,35,0,0" Name="groupBox2" VerticalAlignment="Top" Width="580">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="266*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Name}" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="6,10,0,0" Name="label1" VerticalAlignment="Top" Width="60" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="72,12,0,0" Name="txtBAName" Text="{Binding SearchBankAccountName}" VerticalAlignment="Top" Width="120" />
+                                <Button Click="BtnSearchAccountClick" Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23" HorizontalAlignment="Left" Margin="479,12,0,0" Name="button3" VerticalAlignment="Top" Width="75" IsDefault="True" />
+                                <Label Content="{Resx ResxName=Client.Properties.Resources, Key=CustomerName}" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="198,10,0,0" Name="label3" VerticalAlignment="Top" Width="100" />
+                                <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="428,12,0,0" Name="button4" VerticalAlignment="Top" Width="25" Click="BtnBusinessPartnerClick" />
+                                <TextBox HorizontalAlignment="Left" IsEnabled="False" Margin="304,12,0,0" Name="textBox5" Text="{Binding SearchCustomerName}" VerticalAlignment="Top" Width="120" Height="23" />
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

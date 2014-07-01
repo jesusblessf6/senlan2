@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4d2788df-6aa4-4e77-bb6b-c345cf3338fa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/LogRegistrationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LogRegistrationService.xsd" MetadataType="Schema" ID="1372de2e-97a4-4b2b-8145-05582434811b" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogRegistrationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LogRegistrationService1.xsd" MetadataType="Schema" ID="18dde70c-9e75-42bc-9ce1-1be4006d0bb3" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogRegistrationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LogRegistrationService3.xsd" MetadataType="Schema" ID="52cc4187-cffa-4c9b-94d0-70425d9720f6" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogRegistrationService.svc?xsd=xsd5" />
+    <MetadataFile FileName="LogRegistrationService.disco" MetadataType="Disco" ID="8e7c3fe7-07e1-4c3b-a5f5-f05d6d16d858" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogRegistrationService.svc?disco" />
+    <MetadataFile FileName="LogRegistrationService2.xsd" MetadataType="Schema" ID="1dbc9039-95f9-4978-ba28-59788e854084" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogRegistrationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LogRegistrationService4.xsd" MetadataType="Schema" ID="077ddb80-6d65-48f5-89c1-0898259d6f2d" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogRegistrationService.svc?xsd=xsd4" />
+    <MetadataFile FileName="LogRegistrationService.wsdl" MetadataType="Wsdl" ID="7290901b-d6cf-46c8-99ca-f03f8b6afce8" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogRegistrationService.svc?wsdl" />
+    <MetadataFile FileName="LogRegistrationService5.xsd" MetadataType="Schema" ID="ce2137a5-1770-4264-9a18-663cb01d2fbd" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/LogRegistrationService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

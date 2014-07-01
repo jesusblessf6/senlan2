@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ac0d9bf9-cc61-4ce7-aff8-ff6b6b48bff8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Physical/Pricings/PricingService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PricingService.xsd" MetadataType="Schema" ID="7b877c2b-9683-417a-b7c3-23fe5e47f2c3" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/PricingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PricingService1.xsd" MetadataType="Schema" ID="d5b6a19a-9898-443a-b309-903310874bec" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/PricingService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PricingService.wsdl" MetadataType="Wsdl" ID="871e44b5-9c43-4e93-ae23-89941a13ab47" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/PricingService.svc?wsdl" />
+    <MetadataFile FileName="PricingService2.xsd" MetadataType="Schema" ID="ac0571a3-4a0b-4624-9e92-fde94ac55f58" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/PricingService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PricingService6.xsd" MetadataType="Schema" ID="8e5d851a-3071-415c-820d-44fbd9f6e54c" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/PricingService.svc?xsd=xsd6" />
+    <MetadataFile FileName="PricingService3.xsd" MetadataType="Schema" ID="f8819529-7042-4aff-b22e-ae165c896a8f" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/PricingService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PricingService4.xsd" MetadataType="Schema" ID="0dd757ce-0d1e-4dc0-aa54-addb6ba3f91e" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/PricingService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PricingService7.xsd" MetadataType="Schema" ID="8cdf967c-3dd0-4f14-9e4a-aaac021d3caa" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/PricingService.svc?xsd=xsd7" />
+    <MetadataFile FileName="PricingService.disco" MetadataType="Disco" ID="796281df-60e3-4ff9-a43c-8b65c21e78c7" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/PricingService.svc?disco" />
+    <MetadataFile FileName="PricingService5.xsd" MetadataType="Schema" ID="ef3464d8-47fd-4aa9-ad83-9e5e2acf0b70" SourceId="1" SourceUrl="http://localhost:1558/Physical/Pricings/PricingService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

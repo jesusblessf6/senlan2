@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f610b20a-ffe0-4c6b-b812-511c9f1afde6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Futures/LME/LMEPositionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LMEPositionService.xsd" MetadataType="Schema" ID="256a83e2-f7e3-4fe9-a5fb-a08341adb461" SourceId="1" SourceUrl="http://localhost:1558/Futures/LME/LMEPositionService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LMEPositionService1.xsd" MetadataType="Schema" ID="762eefbe-7700-4c49-beed-dcc3fbec755b" SourceId="1" SourceUrl="http://localhost:1558/Futures/LME/LMEPositionService.svc?xsd=xsd4" />
+    <MetadataFile FileName="LMEPositionService3.xsd" MetadataType="Schema" ID="ba762163-5a90-429f-8855-df8b501dcc02" SourceId="1" SourceUrl="http://localhost:1558/Futures/LME/LMEPositionService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LMEPositionService6.xsd" MetadataType="Schema" ID="d6c7edd8-3c88-4f70-926d-6718b3764f1a" SourceId="1" SourceUrl="http://localhost:1558/Futures/LME/LMEPositionService.svc?xsd=xsd6" />
+    <MetadataFile FileName="LMEPositionService2.xsd" MetadataType="Schema" ID="2f219b39-f399-4181-b57d-0c9633292dfb" SourceId="1" SourceUrl="http://localhost:1558/Futures/LME/LMEPositionService.svc?xsd=xsd5" />
+    <MetadataFile FileName="LMEPositionService.wsdl" MetadataType="Wsdl" ID="91a2aef9-b51c-4ada-89f5-94fcf0510bc1" SourceId="1" SourceUrl="http://localhost:1558/Futures/LME/LMEPositionService.svc?wsdl" />
+    <MetadataFile FileName="LMEPositionService.disco" MetadataType="Disco" ID="98dfb2e1-cf8b-4f41-8444-faf1c6c4fec6" SourceId="1" SourceUrl="http://localhost:1558/Futures/LME/LMEPositionService.svc?disco" />
+    <MetadataFile FileName="LMEPositionService4.xsd" MetadataType="Schema" ID="b285d5d0-c936-4a17-8d84-278f2fe63e83" SourceId="1" SourceUrl="http://localhost:1558/Futures/LME/LMEPositionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LMEPositionService5.xsd" MetadataType="Schema" ID="d7027660-b514-4f6c-a170-451ab24405f4" SourceId="1" SourceUrl="http://localhost:1558/Futures/LME/LMEPositionService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

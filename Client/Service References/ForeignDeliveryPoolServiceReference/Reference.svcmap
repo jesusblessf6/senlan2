@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3a2e054a-698c-4dfa-ae8a-3c9dfd3d34e5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Physical/Deliveries/ForeignDeliveryPoolService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ForeignDeliveryPoolService63.xsd" MetadataType="Schema" ID="2349a746-96c2-439d-9971-03471cea7d80" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/ForeignDeliveryPoolService.svc?xsd=xsd6" />
+    <MetadataFile FileName="ForeignDeliveryPoolService.xsd" MetadataType="Schema" ID="9df17d05-d6ae-43bf-a5f7-993ac1a83148" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/ForeignDeliveryPoolService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ForeignDeliveryPoolService1.xsd" MetadataType="Schema" ID="0a83616d-059a-4882-883b-210ce4f18fd5" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/ForeignDeliveryPoolService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ForeignDeliveryPoolService2.xsd" MetadataType="Schema" ID="eeb45f4c-7ed0-4e27-8c1a-e9859cee277c" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/ForeignDeliveryPoolService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ForeignDeliveryPoolService3.xsd" MetadataType="Schema" ID="302136c1-a62a-462d-a604-0f96fac3d44f" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/ForeignDeliveryPoolService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ForeignDeliveryPoolService4.xsd" MetadataType="Schema" ID="61e54725-4c83-4cbb-ab36-1818d252d558" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/ForeignDeliveryPoolService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ForeignDeliveryPoolService5.xsd" MetadataType="Schema" ID="de3c6f06-471d-4e28-8e70-18438b660798" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/ForeignDeliveryPoolService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ForeignDeliveryPoolService.disco" MetadataType="Disco" ID="5392bfa4-7a86-4ca0-9989-592253372e8b" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/ForeignDeliveryPoolService.svc?disco" />
+    <MetadataFile FileName="ForeignDeliveryPoolService.wsdl" MetadataType="Wsdl" ID="5879a8fd-f6be-4cf7-adfe-a3c53ba0ddd2" SourceId="1" SourceUrl="http://localhost:1558/Physical/Deliveries/ForeignDeliveryPoolService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

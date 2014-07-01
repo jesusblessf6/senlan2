@@ -1,0 +1,129 @@
+﻿<baseClient:BasePage x:Class="Client.View.Physical.WarehouseOuts.WarehouseOutDetail"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" d:DesignHeight="380" d:DesignWidth="792"
+               ResxExtension.DefaultResxName="Client.View.Physical.WarehouseOuts.ResWarehouseOut" 
+               Language="{UICulture}"
+               Title="{Resx WarehouseOut}" xmlns:Converters="clr-namespace:Client.Converters"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+               xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity">
+    
+    <Page.Resources>
+
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="MinWidth" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Converters:IsVerifiedConverter x:Key="IsVerifiedConverter" />
+
+        <RoutedCommand x:Key="WarehouseOutLineEdit"></RoutedCommand>
+        <RoutedCommand x:Key="WarehouseOutLineDelete"></RoutedCommand>
+
+        <DataTemplate x:Key="WarehouseOutLineActions" DataType="DBEntity:WarehouseOutLine">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btWarehouseOutLineEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource WarehouseOutLineEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btWarehouseOutLineDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource WarehouseOutLineDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource WarehouseOutLineEdit}" CanExecute="WarehouseOutLineCanExecute"
+                        Executed="WarehouseOutLineEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource WarehouseOutLineDelete}" CanExecute="WarehouseOutLineCanExecute"
+                        Executed="WarehouseOutLineDeleteExecuted"></CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="rootGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="55*" />
+
+            </Grid.RowDefinitions>
+            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="246,40,0,0" Name="button1"
+                    VerticalAlignment="Top" Width="25" Click="Button1Click" IsEnabled="{Binding IsQuotaEnable}"  ToolTip="{Binding ContractInfo}"/>
+            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="246,72,0,0" Name="button2"
+                    VerticalAlignment="Top" Width="25" Click="Button2Click" IsEnabled="{Binding IsWarehouseEnable}" />
+            <DatePicker HorizontalAlignment="Left" Margin="394,40,0,0" Name="datePicker1" VerticalAlignment="Top"
+                        SelectedDate="{Binding WarehouseOutDate}" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="122,2,0,7" Name="button3"
+                    VerticalAlignment="Top" Width="45" Click="Button3Click" Grid.Row="1" />
+            <TextBox Height="100" HorizontalAlignment="Left" Margin="122,2,0,0" Name="textBox3" VerticalAlignment="Top"
+                     Width="392" AcceptsTab="False" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                     Text="{Binding Comment}" Grid.Row="3" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Save}" Height="23" HorizontalAlignment="Left" Margin="210,130,0,0" Name="button6"
+                    VerticalAlignment="Top" Width="60" Click="Button6Click" Grid.Row="3" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=SaveAsDraft}" Height="23" HorizontalAlignment="Left" Margin="278,130,0,0" Visibility="Hidden"
+                    Name="button4" VerticalAlignment="Top" Width="60" Grid.Row="3" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Height="23" HorizontalAlignment="Left" Margin="305,130,0,0" Name="button5"
+                    VerticalAlignment="Top" Width="60" Click="Button5Click" Grid.Row="3" />
+
+            <Label Content="{Resx WarehouseOut}" Margin="6,6,0,0" FontSize="16" FontWeight="Bold" Height="32" Name="lbTitle"
+                   VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Left"  Width="auto" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Quota}" Foreground="Crimson" HorizontalAlignment="Left" Margin="6,38,0,0" Name="label2"
+                   VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="122,40,0,0" Name="textBox1" VerticalAlignment="Top"
+                     Text="{Binding QuotaNo}" IsEnabled="False" />
+
+            <Label Content="{Resx WarehouseOutDate}" HorizontalAlignment="Left" Margin="278,38,0,0" Name="label3" VerticalAlignment="Top" />
+
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Warehouse}" Foreground="Crimson" HorizontalAlignment="Left" Margin="6,70,0,0" Name="label4"
+                   VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="122,72,0,0" Name="textBox2" VerticalAlignment="Top"
+                     Text="{Binding WarehouseName}" IsEnabled="False" />
+
+
+            <DataGrid AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="122,2,0,7" Width="auto" Height="auto"
+                      Name="dataGrid1" ItemsSource="{Binding}" VerticalAlignment="Top" HorizontalScrollBarVisibility="Auto" Grid.Row="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=CardNo}" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding WarehouseInLine.PBNo}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding WarehouseInLine.DeliveryLine.Delivery.Quota.Commodity.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=CommodityType}" Width="Auto" CanUserSort="True" Binding="{Binding CommodityType.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Width="Auto" CanUserSort="True" Binding="{Binding Brand.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Quantity}" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding Quantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ActualQuantity}" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding VerifiedQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Bundle}" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding PackingQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuantityConfirm}" Width="Auto" CanUserSort="True"
+                                        Binding="{Binding IsVerified,  Converter={StaticResource IsVerifiedConverter}}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                            CellTemplate="{StaticResource WarehouseOutLineActions}"></DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Comments}" HorizontalAlignment="Left" Margin="6,0,0,0" Name="label5" VerticalAlignment="Top"
+                   Grid.Row="3" />
+            <Label Content="{Resx WarehouseOutLine}" Grid.Row="1" HorizontalAlignment="Left" Margin="6,0,0,0" Name="label6"
+                   VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=WarehouseOutNo}" HorizontalAlignment="Left" Margin="278,70,0,0" Name="label7" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" IsEnabled="False" Margin="394,72,0,0" Name="textBox4" VerticalAlignment="Top" Text="{Binding WarehouseOutNo}" />
+            <Label Content="实际提货人" Height="28" HorizontalAlignment="Left" Margin="6,102,0,0" Name="label8" VerticalAlignment="Top" Width="110" />
+            <TextBox HorizontalAlignment="Left" Margin="122,104,0,7" Name="textBox5" Width="120" Text="{Binding BusinessPartnerName}" VerticalAlignment="Top" IsEnabled="False" />
+            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="246,104,0,7" Name="button7" VerticalAlignment="Top" Width="25" Click="Button7Click"/>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

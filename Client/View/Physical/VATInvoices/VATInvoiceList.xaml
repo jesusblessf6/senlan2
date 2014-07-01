@@ -1,0 +1,73 @@
+﻿<baseClient:BasePage x:Class="Client.View.Physical.VATInvoices.VATInvoiceList"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+               ResxExtension.DefaultResxName="Client.View.Physical.VATInvoices.ResVATInvoice" 
+               Language="{UICulture}"
+               xmlns:Converters="clr-namespace:Client.Converters" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+               xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+               d:DesignHeight="500" d:DesignWidth="900" Title="{Resx VATInvoiceList}">
+
+    <Page.Resources>
+        <Converters:VATStatusConverter x:Key="ConvertStatus" />
+        <Converters:VATInvoiceTypeConverter x:Key="ConvertVATInvoiceTypes" />
+
+        <RoutedCommand x:Key="ListEdit"></RoutedCommand>
+        <RoutedCommand x:Key="ListDelete"></RoutedCommand>
+        <DataTemplate x:Key="ListActions" DataType="DBEntity:VATInvoice">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btListEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource ListEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btListDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource ListDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource ListEdit}" CanExecute="ListEditCanExecute" Executed="ListEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource ListDelete}" CanExecute="ListDeleteCanExecute"
+                        Executed="ListDeleteExecuted"></CommandBinding>
+    </Page.CommandBindings>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="rootGrid" IsVisibleChanged="RootGridIsVisibleChanged">
+            <Label Content="{Resx VATInvoiceList}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <StackPanel Orientation="Horizontal" Margin="6,40,0,0" Grid.Row="1" HorizontalAlignment="Left" Width="Auto" Height="Auto" VerticalAlignment="Top">
+                <my:PagingControl x:Name="pagerList" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+                <Label Content="总数量" Foreground="Red" Margin="10,0,0,0" VerticalContentAlignment="Bottom"></Label>
+                <Label Content="{Binding TotalQuantity}" Margin="10,0,0,0" VerticalContentAlignment="Bottom" ></Label>
+                <Label Content="总金额" Foreground="Red" Margin="10,0,0,0" VerticalContentAlignment="Bottom"></Label>
+                <Label Content="{Binding TotalAmount}" Margin="10,0,0,0" VerticalContentAlignment="Bottom" ></Label>
+                <Button Content="导出Excel" Height="23" Name="button1" Width="75" Margin="10,0,0,0" VerticalContentAlignment="Bottom" Click="button1_Click"/>
+            </StackPanel>
+            
+            <DataGrid Margin="6,77,0,0" x:Name="listGrid" AutoGenerateColumns="False" CanUserAddRows="False"
+                      IsReadOnly="true" LoadingRow="ListGridLoadingRow" VerticalAlignment="Top" HorizontalAlignment="Left" Width="auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="Auto" Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" Binding="{Binding Quota.QuotaNo}"></DataGridTextColumn>
+
+                    <DataGridTextColumn Width="auto" Header="{Resx ResxName=Client.Properties.Resources, Key=Supplier}" Binding="{Binding VATInvoice.BusinessPartner.Name}" />
+                    <DataGridTextColumn Width="auto" Header="{Resx ResxName=Client.View.Physical.VATInvoices.ResVATInvoice, Key=InvoiceBP}" Binding="{Binding VATInvoice.BusinessPartner1.Name}" />
+                    <DataGridTextColumn Width="auto" Header="{Resx ResxName=Client.Properties.Resources, Key=InvoiceDate}"
+                                        Binding="{Binding VATInvoice.InvoicedDate,StringFormat='yyyy-MM-dd'}" />
+                    <DataGridTextColumn Width="auto" Header="批次未开数量" Binding="{Binding UnOpenedQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                    <DataGridTextColumn Width="auto" Header="{Resx ResxName=Client.View.Physical.VATInvoices.ResVATInvoice, Key=InvoiceQty}" Binding="{Binding VATInvoiceQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                    <DataGridTextColumn Width="auto" Header="{Resx ResxName=Client.View.Physical.VATInvoices.ResVATInvoice, Key=InvoicedQty}" Binding="{Binding Quota.VATInvoicedQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" Visibility="Hidden"/>
+                    <DataGridTextColumn Width="auto" Header="{Resx ResxName=Client.View.Physical.VATInvoices.ResVATInvoice, Key=InvoiceAmount}" Binding="{Binding VATAmount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                    <DataGridTextColumn Width="auto" Header="{Resx ResxName=Client.View.Physical.VATInvoices.ResVATInvoice, Key=InvoicePrice}" Binding="{Binding VATPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" />
+                    <DataGridTextColumn Width="auto" Header="{Resx ResxName=Client.View.Physical.VATInvoices.ResVATInvoice, Key=OpenInvoiceStatus}"
+                                        Binding="{Binding Quota.VATStatus,Converter={StaticResource ConvertStatus}}" />
+                    <DataGridTextColumn Width="auto" Header="开/收票"
+                                        Binding="{Binding VATInvoice.VATInvoiceType,Converter={StaticResource ConvertVATInvoiceTypes}}" />
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                            CellTemplate="{StaticResource ListActions}"></DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

@@ -1,0 +1,13 @@
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\bin\Release\DBEntity.dll.config
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\bin\Release\DBEntity.dll
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\bin\Release\DBEntity.pdb
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\bin\Release\zh-CN\DBEntity.resources.dll
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\bin\Release\PriceDBEntity.dll
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\bin\Release\PriceDBEntity.pdb
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\obj\Release\DBEntity.EnumEntity.ResEnumEntity.resources
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\obj\Release\DBEntity.EnumEntity.ResEnumEntity.zh-CN.resources
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\obj\Release\zh-CN\DBEntity.resources.dll
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\obj\Release\DBEntity.dll
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\obj\Release\DBEntity.pdb
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\obj\Release\DBEntity.csprojResolveAssemblyReference.cache
+F:\PerforceWorkspace\Jing.Li_wing-PC_6599\DEV\SourceCode\SenLan2_ChinaCopper_v2\Dev\DBEntity\obj\Release\DBEntity.csproj.GenerateResource.Cache

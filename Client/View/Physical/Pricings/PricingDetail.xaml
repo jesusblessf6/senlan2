@@ -1,0 +1,51 @@
+﻿<base:ObjectBasePage x:Class="Client.View.Physical.Pricings.PricingDetail"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:base="clr-namespace:Client.Base" mc:Ignorable="d" 
+      d:DesignHeight="466" d:DesignWidth="526"
+	Title="PricingDetail" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility">
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="手工点价" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label1" VerticalAlignment="Top" FontWeight="Bold" />
+            <Label Content="批次号" Height="28" HorizontalAlignment="Left" Margin="44,40,0,0" Name="label2" VerticalAlignment="Top" Foreground="Crimson"/>
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="96,42,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" IsReadOnly="True"
+                     Text="{Binding Path=QuotaNo}"/>
+            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="222,41,0,0" Name="button1" VerticalAlignment="Top" Width="26" Click="Button1Click" />
+            <Label Content="点价状态" Height="28" HorizontalAlignment="Left" Margin="284,40,0,0" Name="label3" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="348,42,0,0" Name="textBox2" VerticalAlignment="Top" Width="120" IsReadOnly="True" 
+                     Text="{Binding Path=PricingStatus}" />
+            <Label Content="批次数量" Height="28" HorizontalAlignment="Left" Margin="32,74,0,0" Name="label4" VerticalAlignment="Top" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="96,76,0,0" Name="currencyTextBox1" VerticalAlignment="Top" Width="120" Text="{Binding Path=QuotaQuantity}" />
+            <Label Content="已点数量" Height="28" HorizontalAlignment="Left" Margin="284,74,0,0" Name="label5" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="348,76,0,0" Name="textBox4" VerticalAlignment="Top" Width="120" IsReadOnly="True" Text="{Binding Path=PricedQuantity}" />
+            <Label Content="点价数量" Height="28" HorizontalAlignment="Left" Margin="32,108,0,0" Name="label6" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="96,110,0,0" Name="textBox5" VerticalAlignment="Top" Width="120" Text="{Binding Path=PricingQuantity}" />
+            <Label Content="点价日期" Height="28" HorizontalAlignment="Left" Margin="284,108,0,0" Name="label7" VerticalAlignment="Top" />
+            <DatePicker Height="25" HorizontalAlignment="Left" Margin="348,108,0,0" Name="datePicker1" VerticalAlignment="Top" Width="120" SelectedDate="{Binding Path=PricingDate}" />
+            <Label Content="点价基准" Height="28" HorizontalAlignment="Left" Margin="32,142,0,0" Name="label8" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="96,144,0,0" Name="textBox3" VerticalAlignment="Top" Width="120" IsReadOnly="True" Text="{Binding}"/>
+            <Label Content="基准价格" Height="28" HorizontalAlignment="Left" Margin="284,142,0,0" Name="label9" VerticalAlignment="Top" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="348,144,0,0" Name="currencyTextBox2" VerticalAlignment="Top" Width="120" Text="{Binding Path=BasicPrice}" />
+            <Label Content="调期费用" Height="28" HorizontalAlignment="Left" Margin="32,176,0,0" Name="label10" VerticalAlignment="Top" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="96,178,0,0" Name="currencyTextBox3" VerticalAlignment="Top" Width="120" Text="{Binding Path=AdjustQpFee}" />
+            <Label Content="延期费用" Height="28" HorizontalAlignment="Left" Margin="284,176,0,0" Name="label11" VerticalAlignment="Top" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="348,178,0,0" Name="currencyTextBox4" VerticalAlignment="Top" Width="120" Text="{Binding Path=DeferFee}" />
+            <Label Content="升贴水" Height="28" HorizontalAlignment="Left" Margin="44,210,0,0" Name="label12" VerticalAlignment="Top" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="96,212,0,0" Name="currencyTextBox5" VerticalAlignment="Top" Width="120" Text="{Binding Path=Premium}" IsReadOnly="True" />
+            <Label Content="最终价格" Height="28" HorizontalAlignment="Left" Margin="284,210,0,0" Name="label13" VerticalAlignment="Top" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="348,212,0,0" Name="currencyTextBox6" VerticalAlignment="Top" Width="120" Text="{Binding Path=FinalPrice}" />
+            <Label Content="点价币种" Height="28" HorizontalAlignment="Left" Margin="32,244,0,0" Name="label14" VerticalAlignment="Top" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="96,244,0,0" Name="comboBox2" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=Currencies}" DisplayMemberPath="{Binding Path=Currencies/Name}" SelectedValuePath="{Binding Path=Currencies/Id}" SelectedValue="{Binding Path=SelectedCurrencyId}" />
+            <Label Content="汇率" Height="28" HorizontalAlignment="Left" Margin="308,244,0,0" Name="label15" VerticalAlignment="Top" />
+            <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="348,246,0,0" Name="currencyTextBox7" VerticalAlignment="Top" Width="120" Text="{Binding Path=Rate}" />
+            <Label Content="备注" Height="28" HorizontalAlignment="Left" Margin="56,278,0,0" Name="label16" VerticalAlignment="Top" />
+            <TextBox Height="100" HorizontalAlignment="Left" Margin="96,280,0,0" Name="textBox12" VerticalAlignment="Top" Width="372" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Text="{Binding Path=Descripion}" />
+            <Button Content="确定" Height="23" HorizontalAlignment="Left" Margin="173,410,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="Save"/>
+            <Button Content="取消" Height="23" HorizontalAlignment="Left" Margin="284,410,0,0" Name="button3" VerticalAlignment="Top" Width="75" Click="Cancel"/>
+            
+        </Grid>
+    </ScrollViewer>
+</base:ObjectBasePage>

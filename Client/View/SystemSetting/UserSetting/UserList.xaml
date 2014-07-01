@@ -1,0 +1,75 @@
+﻿<baseClient:BasePage x:Class="Client.View.SystemSetting.UserSetting.UserList"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               ResxExtension.DefaultResxName="Client.View.SystemSetting.UserSetting.ResUserSetting" 
+               Language="{UICulture}"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" d:DesignHeight="323" d:DesignWidth="420"
+               Title="{Resx UserList}" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+                     xmlns:baseClient="clr-namespace:Client.Base.BaseClient">
+
+    <Page.Resources>
+        <RoutedCommand x:Key="EditUser"></RoutedCommand>
+        <RoutedCommand x:Key="ViewUser"></RoutedCommand>
+        <RoutedCommand x:Key="DeleteUser"></RoutedCommand>
+        <RoutedCommand x:Key="LinkCommodity"></RoutedCommand>
+        <RoutedCommand x:Key="LinkInternalCustomer"></RoutedCommand>
+
+        <DataTemplate x:Key="UserAction" DataType="DBEntity:User">
+            <StackPanel Name="spUserAction" Orientation="Horizontal">
+                <Button Name="btEditUser" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource EditUser}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btDeleteUser" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource DeleteUser}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btLinkCommodity" Content="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Command="{StaticResource LinkCommodity}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btLinkInternalCustomer" Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Command="{StaticResource LinkInternalCustomer}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="UserView" DataType="DBEntity:User">
+            <TextBlock>
+                <Hyperlink Command="{StaticResource ViewUser}" CommandParameter="{Binding Id}">
+                    <Run Text="{Binding Name}"></Run>
+                </Hyperlink>
+            </TextBlock>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource EditUser}" CanExecute="EditUserCanExecute" Executed="EditUserExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource ViewUser}" CanExecute="ViewUserCanExecute" Executed="ViewUserExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource DeleteUser}" CanExecute="DeleteUserCanExecute"
+                        Executed="DeleteUserExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource LinkCommodity}" CanExecute="LinkCommodityCanExecute"
+                        Executed="LinkCommodityExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource LinkInternalCustomer}" CanExecute="LinkICCanExecute"
+                        Executed="LinkICExecuted"></CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx UserList}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <my:PagingControl HorizontalAlignment="Left" Margin="6,70,0,0" Height="31" Name="pagingControl1"
+                              VerticalAlignment="Top" />
+            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="6,107,0,0"
+                      Name="dataGrid1" VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding}" IsReadOnly="True"
+                      LoadingRow="DataGrid1LoadingRow">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=LoginName}" CanUserSort="True" Width="Auto" Binding="{Binding LoginName}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.View.SystemSetting.UserSetting.ResUserSetting, Key=Name}" CanUserSort="True" Width="Auto"
+                                            CellTemplate="{StaticResource UserView}" SortMemberPath="Name"></DataGridTemplateColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Role}" CanUserSort="True" Width="Auto" Binding="{Binding Role.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" CanUserSort="False" Width="Auto" Binding="{Binding Description}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" CanUserSort="False" Width="Auto"
+                                            CellTemplate="{StaticResource UserAction}"></DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,40,0,0" Name="button1"
+                    VerticalAlignment="Top" Width="60" Click="Button1Click" />
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

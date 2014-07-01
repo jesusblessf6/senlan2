@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="47654faf-d6a9-46ff-8639-e2162517f4cb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Physical/WarehouseOuts/PSQuotaRelService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PSQuotaRelService.xsd" MetadataType="Schema" ID="b4754ebf-5e94-4496-aae0-991f2fa874b1" SourceId="1" SourceUrl="http://localhost:1558/Physical/WarehouseOuts/PSQuotaRelService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PSQuotaRelService1.xsd" MetadataType="Schema" ID="1f296571-9a48-4dc7-b812-e091feb5d5b9" SourceId="1" SourceUrl="http://localhost:1558/Physical/WarehouseOuts/PSQuotaRelService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PSQuotaRelService4.xsd" MetadataType="Schema" ID="224402ea-68df-4ff0-9b0a-d0ce58f641db" SourceId="1" SourceUrl="http://localhost:1558/Physical/WarehouseOuts/PSQuotaRelService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PSQuotaRelService.wsdl" MetadataType="Wsdl" ID="0b69a3e5-bc85-49c9-ba07-5e4eba152eb7" SourceId="1" SourceUrl="http://localhost:1558/Physical/WarehouseOuts/PSQuotaRelService.svc?wsdl" />
+    <MetadataFile FileName="PSQuotaRelService2.xsd" MetadataType="Schema" ID="43cb1307-c815-4d16-a9eb-948ed65be72a" SourceId="1" SourceUrl="http://localhost:1558/Physical/WarehouseOuts/PSQuotaRelService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PSQuotaRelService.disco" MetadataType="Disco" ID="b5731ef0-b1aa-4d0c-b9c0-a2bc3b8f41a6" SourceId="1" SourceUrl="http://localhost:1558/Physical/WarehouseOuts/PSQuotaRelService.svc?disco" />
+    <MetadataFile FileName="PSQuotaRelService3.xsd" MetadataType="Schema" ID="3ab075da-379b-4333-b065-482fe7939486" SourceId="1" SourceUrl="http://localhost:1558/Physical/WarehouseOuts/PSQuotaRelService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PSQuotaRelService5.xsd" MetadataType="Schema" ID="c964226c-ad12-4229-b302-15f3d925f645" SourceId="1" SourceUrl="http://localhost:1558/Physical/WarehouseOuts/PSQuotaRelService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

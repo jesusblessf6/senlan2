@@ -1,0 +1,195 @@
+﻿<base:ObjectBasePage x:Class="Client.View.Physical.ForeignDeliveryPools.ForeignDeliveryPoolDetail"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      xmlns:base="clr-namespace:Client.Base.BaseClient"
+      xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+      xmlns:dbEntity="clr-namespace:DBEntity;assembly=DBEntity"
+      d:DesignHeight="714" d:DesignWidth="597"
+	Title="ForeignDeliveryPoolDetail">
+
+    <Page.Resources>
+        <RoutedCommand x:Key="DetailLineEdit"></RoutedCommand>
+        <RoutedCommand x:Key="DetailLineDelete"></RoutedCommand>
+        <RoutedCommand x:Key="AttachmentDelete"></RoutedCommand>
+        <RoutedCommand x:Key="AttachmentDownload"></RoutedCommand>
+        <RoutedCommand x:Key="StorageDateEdit"></RoutedCommand>
+        <RoutedCommand x:Key="StorageDateDelete"></RoutedCommand>
+    </Page.Resources>
+
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource DetailLineEdit}" CanExecute="DetailLineEditCanExecute" Executed="DetailLineEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource DetailLineDelete}" CanExecute="DetailLineDeleteCanExecute" Executed="DetailLineDeleteExeCuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource AttachmentDelete}" CanExecute="AttachmentDeleteCanExecute" Executed="AttachmentDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource AttachmentDownload}" CanExecute="AttachmentDownloadCanExecute" Executed="AttachmentDownloadExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource StorageDateEdit}" CanExecute="StorageDateEditCanExecute" Executed="StorageDateEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource StorageDateDelete}" CanExecute="StorageDateDeleteCanExecute" Executed="StorageDateDeleteExecuted"></CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Content="PlaceHolder" Height="32" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbTitle" VerticalAlignment="Top" />
+            <Label Content="{Binding DeliveryNoContent, Mode=OneWay}" Height="28" HorizontalAlignment="Left" Margin="46,70,0,0" Name="lbDeliveryNo" VerticalAlignment="Top" Foreground="Crimson" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,72,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" 
+                     Text="{Binding DeliveryNo}" MaxLength="50" />
+            <Label Content="金属" Height="28" HorizontalAlignment="Left" Margin="355,38,0,0" Name="label2" VerticalAlignment="Top" Foreground="Crimson" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="395,40,0,0" Name="cbCommodity" VerticalAlignment="Top" Width="120" 
+                      ItemsSource="{Binding Commodities}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding SelectedCommodityId}" 
+                      IsEnabled="{Binding IsCommodityEnable}" />
+            <Label Content="单据类型" Height="28" HorizontalAlignment="Left" Margin="58,34,0,0" Name="label3" VerticalAlignment="Top" Grid.Row="2"/>
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,36,0,0" Name="textBox2" Width="120" IsReadOnly="True" 
+                     Text="{Binding DeliveryTypeName}" Grid.Row="2" VerticalAlignment="Top" />
+            <Label Content="发货人" Height="28" HorizontalAlignment="Left" Margin="70,0,0,0" Name="label4" VerticalAlignment="Top" Grid.Row="1" 
+                   Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,2,0,0" Name="textBox3" VerticalAlignment="Top" Width="120" IsEnabled="False" 
+                     Text="{Binding ShipperName}" Grid.Row="1" Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="246,2,0,0" Name="button1" VerticalAlignment="Top" Width="27" Grid.Row="1" 
+                    Visibility="{Binding VisibilityForBL, Mode=OneWay}" Click="Button1Click" />
+            <Label Content="船号" Height="28" HorizontalAlignment="Left" Margin="355,0,0,0" Name="label5" VerticalAlignment="Top" Grid.Row="1" 
+                   Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="395,2,0,0" Name="textBox4" VerticalAlignment="Top" Width="120" 
+                    Text="{Binding VesselNo}" Grid.Row="1" Visibility="{Binding VisibilityForBL, Mode=OneWay}" MaxLength="50" />
+            <Label Content="承运商" Height="28" HorizontalAlignment="Left" Margin="70,32,0,0" Name="label6" VerticalAlignment="Top" Grid.Row="1" 
+                   Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,34,0,7" Name="textBox5" VerticalAlignment="Top" Width="120" IsEnabled="False" 
+                    Text="{Binding ShipperPartyName}" Grid.Row="1" Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="246,34,0,7" Name="button2" VerticalAlignment="Top" Width="27" Grid.Row="1" 
+                    Visibility="{Binding VisibilityForBL, Mode=OneWay}" Click="Button2Click" />
+            <Label Content="通知人" Height="28" HorizontalAlignment="Left" Margin="343,32,0,0" Name="label7" VerticalAlignment="Top" Grid.Row="1" 
+                   Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="395,34,0,7" Name="textBox6" VerticalAlignment="Top" Width="120" IsEnabled="False" 
+                    Text="{Binding NotifyPartyName}" Grid.Row="1" Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="519,34,0,7" Name="button3" VerticalAlignment="Top" Width="27" Grid.Row="1" 
+                    Visibility="{Binding VisibilityForBL, Mode=OneWay}" Click="Button3Click" />
+            <Label Content="开具日期" Height="28" HorizontalAlignment="Left" Margin="58,0,0,0" Name="label8" VerticalAlignment="Top" Foreground="Crimson" Grid.Row="2" />
+            <DatePicker Height="25" HorizontalAlignment="Left" Margin="122,2,0,7" Name="datePicker1" VerticalAlignment="Top" Width="120" 
+                    SelectedDate="{Binding IssueDate}" Grid.Row="2" />
+            <Label Content="装运日期" Height="28" HorizontalAlignment="Left" Margin="331,0,0,0" Name="label9" VerticalAlignment="Top" 
+                   Visibility="{Binding VisibilityForBL, Mode=OneWay}" Grid.Row="2" />
+            <DatePicker Height="25" HorizontalAlignment="Left" Margin="395,2,0,7" Name="datePicker2" VerticalAlignment="Top" Width="120" 
+                    SelectedDate="{Binding OnBoardDate}" Visibility="{Binding VisibilityForBL, Mode=OneWay}" Grid.Row="2" />
+            <Label Content="仓储商" Height="28" HorizontalAlignment="Left" Margin="70,0,0,0" Name="label16" VerticalAlignment="Top" 
+                   Visibility="{Binding VisibilityForWR, Mode=OneWay}" Grid.Row="3" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,2,0,0" Name="textBox8" VerticalAlignment="Top" Width="120" IsEnabled="False" 
+                    Text="{Binding WarehouseProviderName}" Visibility="{Binding VisibilityForWR, Mode=OneWay}" Grid.Row="3" />
+            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="246,2,0,0" Name="button5" VerticalAlignment="Top" Width="27" 
+                    Visibility="{Binding VisibilityForWR, Mode=OneWay}" Grid.Row="3" Click="Button5Click" />
+            <Label Content="仓库" Height="28" HorizontalAlignment="Left" Margin="355,0,0,0" Name="label17" VerticalAlignment="Top" 
+                   Visibility="{Binding VisibilityForWR, Mode=OneWay}" Grid.Row="3" Foreground="Crimson" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="395,2,0,0" Name="textBox9" VerticalAlignment="Top" Width="120" IsEnabled="False" 
+                    Text="{Binding WarehouseName}" Visibility="{Binding VisibilityForWR, Mode=OneWay}" Grid.Row="3" />
+            <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="519,2,0,0" Name="button6" VerticalAlignment="Top" Width="27" 
+                    Visibility="{Binding VisibilityForWR, Mode=OneWay}" Grid.Row="3" Click="Button6Click" />
+
+            <Label Content="仓储日期明细" Grid.Row="3" Height="28" HorizontalAlignment="Left" Margin="34,32,0,0" Name="label1" VerticalAlignment="Top" 
+                   Visibility="{Binding VisibilityForWR, Mode=OneWay}"/>
+            <Button Content="+新增" Height="23" HorizontalAlignment="Left" Margin="122,34,0,0" Name="button10" VerticalAlignment="Top" Width="55" Grid.Row="3" 
+                    Visibility="{Binding VisibilityForWR, Mode=OneWay}" Click="Button10Click" />
+            <DataGrid AutoGenerateColumns="False" Grid.Row="3" Height="Auto" HorizontalAlignment="Left" Margin="122,66,0,7" IsReadOnly="True"
+                      Name="dgStorageDates" VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding StorageDates}" Visibility="{Binding VisibilityForWR, Mode=OneWay}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="起始日期" CanUserSort="True" Width="Auto" Binding="{Binding StartDate, StringFormat={}{0:yyyy-MM-dd}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="截止日期" CanUserSort="True" Width="Auto" Binding="{Binding EndDate, StringFormat={}{0:yyyy-MM-dd}}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="操作">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="dbEntity:FDPStorageFeeSEDate">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="编辑" Command="{StaticResource StorageDateEdit}" CommandParameter="{Binding Id}"></Button>
+                                    <Button Content="删除" Command="{StaticResource StorageDateDelete}" CommandParameter="{Binding Id}"></Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Label Content="打包规格" Height="28" HorizontalAlignment="Left" Margin="331,70,0,0" Name="label10" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="395,72,0,0" Name="textBox7" VerticalAlignment="Top" Width="120" Text="{Binding PackingStandard}" MaxLength="50" />
+            <Label Height="28" HorizontalAlignment="Left" Margin="70,0,0,0" Name="label11" VerticalAlignment="Top" Content="装运地" Grid.Row="4" 
+                   Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="122,2,0,0" Name="comboBox2" VerticalAlignment="Top" Width="120" Grid.Row="4" 
+                    ItemsSource="{Binding Countries}" DisplayMemberPath="ChineseName" SelectedValuePath="Id" SelectedValue="{Binding SelectedLoadingPlaceId}" 
+                    Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <Label Content="卸货地" Height="28" HorizontalAlignment="Left" Margin="343,0,0,0" Name="label12" VerticalAlignment="Top" Grid.Row="4" 
+                   Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="395,2,0,0" Name="comboBox3" VerticalAlignment="Top" Width="120" Grid.Row="4" 
+                ItemsSource="{Binding Countries}" DisplayMemberPath="ChineseName" SelectedValuePath="Id" SelectedValue="{Binding SelectedDischargePlaceId}"
+                Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <Label Content="装运港" Height="28" HorizontalAlignment="Left" Margin="70,32,0,0" Name="label13" VerticalAlignment="Top" Grid.Row="4" 
+                   Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="122,34,0,7" Name="comboBox4" VerticalAlignment="Top" Width="120" Grid.Row="4"
+                ItemsSource="{Binding LoadingPorts}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding SelectedLoadingPortId}"
+                      Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <Label Content="卸货港" Height="28" HorizontalAlignment="Left" Margin="343,32,0,0" Name="label14" VerticalAlignment="Top" Grid.Row="4" 
+                   Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="395,34,0,7" Name="comboBox5" VerticalAlignment="Top" Width="120" Grid.Row="4" 
+                ItemsSource="{Binding DischargePorts}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding SelectedDischargePortId}"
+                      Visibility="{Binding VisibilityForBL, Mode=OneWay}"/>
+
+            <Label Content="明细" Height="28" HorizontalAlignment="Left" Margin="82,0,0,0" Name="label15" VerticalAlignment="Top" Grid.Row="5" />
+            <Button Content="+新增" Height="23" HorizontalAlignment="Left" Margin="122,2,0,0" Name="button4" VerticalAlignment="Top" Width="55" Grid.Row="5" Click="Button4Click" 
+                    IsEnabled="{Binding IsLineNewBtnEnable}" />
+            <DataGrid AutoGenerateColumns="False" IsReadOnly="True" Height="Auto" HorizontalAlignment="Left" Margin="122,34,0,7" Name="dgDetail" VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding Details}" Grid.Row="5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="金属类型" Width="Auto" CanUserSort="True" Binding="{Binding CommodityType.Name}"/>
+                    <DataGridTextColumn Header="金属品牌" Width="Auto" CanUserSort="True" Binding="{Binding Brand.Name}"/>
+                    <DataGridTextColumn Header="原产地" Width="Auto" CanUserSort="True" Binding="{Binding OriginCountry.Name}"/>
+                    <DataGridTextColumn Header="净重" Width="Auto" CanUserSort="True" Binding="{Binding NetWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"/>
+                    <DataGridTextColumn Header="毛重" Width="Auto" CanUserSort="True" Binding="{Binding GrossWeight, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}"/>
+                    <DataGridTextColumn Header="捆数" Width="Auto" CanUserSort="True" Binding="{Binding PackingQuantity, StringFormat={x:Static enumEntity:RoundRules.STR_INTEGER}}"/>
+                    <DataGridTextColumn Header="备注" Width="Auto" CanUserSort="True" Binding="{Binding Comment}"/>
+                    <DataGridTemplateColumn Header="操作" Width="Auto" CanUserSort="False">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="dbEntity:ForeignDeliveryPoolLine">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="编辑" Command="{StaticResource DetailLineEdit}" CommandParameter="{Binding Id}"></Button>
+                                    <Button Content="删除" Command="{StaticResource DetailLineDelete}" CommandParameter="{Binding Id}"></Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Label Content="附件" Grid.Row="6" Height="28" HorizontalAlignment="Left" Margin="82,0,0,0" Name="label18" VerticalAlignment="Top" />
+            <Button Content="+新增" Grid.Row="6" Height="23" HorizontalAlignment="Left" Margin="122,2,0,0" Name="button7" VerticalAlignment="Top" Width="55" Click="Button7Click" />
+            <DataGrid AutoGenerateColumns="False" Grid.Row="6" Height="Auto" HorizontalAlignment="Left" Margin="122,34,0,7" Name="dgAttachment" VerticalAlignment="Top" Width="Auto" 
+                ItemsSource="{Binding Attachments}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="附件名" CanUserSort="True" Width="Auto" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="操作" CanUserSort="False" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="dbEntity:Attachment">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="下载" Command="{StaticResource AttachmentDownload}" CommandParameter="{Binding Id}"></Button>
+                                    <Button Content="删除" Command="{StaticResource AttachmentDelete}" CommandParameter="{Binding Id}"></Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Label Content="备注" Grid.Row="7" Height="28" HorizontalAlignment="Left" Margin="82,0,0,0" Name="label19" VerticalAlignment="Top" />
+            <TextBox Grid.Row="7" Height="107" HorizontalAlignment="Left" Margin="122,2,0,0" Name="textBox10" VerticalAlignment="Top" Width="393" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" 
+                Text="{Binding Comments}" />
+
+            <Button Content="保存" Grid.Row="7" Height="23" HorizontalAlignment="Left" Margin="210,140,0,0" Name="button8" VerticalAlignment="Top" Width="60" Click="Save" />
+            <Button Content="取消" Grid.Row="7" Height="23" HorizontalAlignment="Left" Margin="305,140,0,0" Name="button9" VerticalAlignment="Top" Width="60" Click="Cancel" />
+            <Label Content="标识号" Height="28" HorizontalAlignment="Left" Margin="70,38,0,0" Name="label20" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,40,0,0" Name="textBox11" VerticalAlignment="Top" Width="120" Text="{Binding MarkNo}"/>
+        </Grid>
+    </ScrollViewer>
+</base:ObjectBasePage>

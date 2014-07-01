@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="89a2738d-a2e0-4a01-bad4-9b56aa9bd661" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Finance/LetterOfCredits/LetterOfCreditService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="LetterOfCreditService7.xsd" MetadataType="Schema" ID="66dcf6a5-ff39-41b9-a348-3c0d882485b8" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LetterOfCreditService.svc?xsd=xsd6" />
+    <MetadataFile FileName="LetterOfCreditService6.xsd" MetadataType="Schema" ID="4610f70f-f7f6-4543-b83b-e5fc9ac7b9c6" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LetterOfCreditService.svc?xsd=xsd1" />
+    <MetadataFile FileName="LetterOfCreditService1.disco" MetadataType="Disco" ID="fdb62d05-c3a3-44f3-805d-fa6eccaa7339" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LetterOfCreditService.svc?disco" />
+    <MetadataFile FileName="LetterOfCreditService61.xsd" MetadataType="Schema" ID="e1d15c28-8ab9-4955-9331-98afb3c3c9ec" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LetterOfCreditService.svc?xsd=xsd3" />
+    <MetadataFile FileName="LetterOfCreditService62.xsd" MetadataType="Schema" ID="9ed6876e-eadb-40bd-acc9-2168a33fd2a7" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LetterOfCreditService.svc?xsd=xsd5" />
+    <MetadataFile FileName="LetterOfCreditService63.xsd" MetadataType="Schema" ID="1adcb863-fd88-4f83-8a22-da4dad32ddba" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LetterOfCreditService.svc?xsd=xsd0" />
+    <MetadataFile FileName="LetterOfCreditService64.xsd" MetadataType="Schema" ID="1ee0b5eb-745c-4e97-b680-e1756600e3b0" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LetterOfCreditService.svc?xsd=xsd2" />
+    <MetadataFile FileName="LetterOfCreditService65.xsd" MetadataType="Schema" ID="6ede46b5-d7f4-45b7-a58d-37fe4d456674" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LetterOfCreditService.svc?xsd=xsd4" />
+    <MetadataFile FileName="LetterOfCreditService1.wsdl" MetadataType="Wsdl" ID="4dd296d4-5e5a-492a-8b6a-fac644658f8d" SourceId="1" SourceUrl="http://localhost:1558/Finance/LetterOfCredits/LetterOfCreditService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

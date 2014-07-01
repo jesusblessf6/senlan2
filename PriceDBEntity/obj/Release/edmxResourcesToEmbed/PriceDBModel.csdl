@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SenLanMarketPriceModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="SenLanMarketPriceEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ExchangeRates" EntityType="SenLanMarketPriceModel.ExchangeRate" />
+    <EntitySet Name="LME_Commodity" EntityType="SenLanMarketPriceModel.LME_Commodity" />
+    <EntitySet Name="LME_EvaDay" EntityType="SenLanMarketPriceModel.LME_EvaDay" />
+    <EntitySet Name="LME_EvaMonth" EntityType="SenLanMarketPriceModel.LME_EvaMonth" />
+    <EntitySet Name="LME_EvaWeek" EntityType="SenLanMarketPriceModel.LME_EvaWeek" />
+    <EntitySet Name="LME_LastedPrice" EntityType="SenLanMarketPriceModel.LME_LastedPrice" />
+    <EntitySet Name="LME_OfficialPrice" EntityType="SenLanMarketPriceModel.LME_OfficialPrice" />
+    <EntitySet Name="SHFE_CalenderInfo" EntityType="SenLanMarketPriceModel.SHFE_CalenderInfo" />
+    <EntitySet Name="SHFE_Commodity" EntityType="SenLanMarketPriceModel.SHFE_Commodity" />
+    <EntitySet Name="SHFE_LastedPrice" EntityType="SenLanMarketPriceModel.SHFE_LastedPrice" />
+    <EntitySet Name="SHFE_MonthlySettlePrice" EntityType="SenLanMarketPriceModel.SHFE_MonthlySettlePrice" />
+    <EntitySet Name="SMM_Commodity" EntityType="SenLanMarketPriceModel.SMM_Commodity" />
+    <EntitySet Name="SMM_SMMWebPrice" EntityType="SenLanMarketPriceModel.SMM_SMMWebPrice" />
+    <EntitySet Name="Syn_UserAndCheckPoint" EntityType="SenLanMarketPriceModel.Syn_UserAndCheckPoint" />
+    <AssociationSet Name="FK_LME_EvaDay_LME_Commodity" Association="SenLanMarketPriceModel.FK_LME_EvaDay_LME_Commodity">
+      <End Role="LME_Commodity" EntitySet="LME_Commodity" />
+      <End Role="LME_EvaDay" EntitySet="LME_EvaDay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LME_EvaMonth_LME_Commodity" Association="SenLanMarketPriceModel.FK_LME_EvaMonth_LME_Commodity">
+      <End Role="LME_Commodity" EntitySet="LME_Commodity" />
+      <End Role="LME_EvaMonth" EntitySet="LME_EvaMonth" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LME_EvaWeek_LME_Commodity" Association="SenLanMarketPriceModel.FK_LME_EvaWeek_LME_Commodity">
+      <End Role="LME_Commodity" EntitySet="LME_Commodity" />
+      <End Role="LME_EvaWeek" EntitySet="LME_EvaWeek" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LME_LastedPrice_CommodityID" Association="SenLanMarketPriceModel.FK_LME_LastedPrice_CommodityID">
+      <End Role="LME_Commodity" EntitySet="LME_Commodity" />
+      <End Role="LME_LastedPrice" EntitySet="LME_LastedPrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LME_OfficialPrice_CommodityID" Association="SenLanMarketPriceModel.FK_LME_OfficialPrice_CommodityID">
+      <End Role="LME_Commodity" EntitySet="LME_Commodity" />
+      <End Role="LME_OfficialPrice" EntitySet="LME_OfficialPrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SHFE_CommodityID" Association="SenLanMarketPriceModel.FK_SHFE_CommodityID">
+      <End Role="SHFE_Commodity" EntitySet="SHFE_Commodity" />
+      <End Role="SHFE_LastedPrice" EntitySet="SHFE_LastedPrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SHFE_MonthlySettlePrice_SHFE_Commodity_ID" Association="SenLanMarketPriceModel.FK_SHFE_MonthlySettlePrice_SHFE_Commodity_ID">
+      <End Role="SHFE_Commodity" EntitySet="SHFE_Commodity" />
+      <End Role="SHFE_MonthlySettlePrice" EntitySet="SHFE_MonthlySettlePrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SMM_Commodity" Association="SenLanMarketPriceModel.FK_SMM_Commodity">
+      <End Role="SMM_Commodity" EntitySet="SMM_Commodity" />
+      <End Role="SMM_SMMWebPrice" EntitySet="SMM_SMMWebPrice" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ExchangeRate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExchangeDate" Type="DateTime" Nullable="false" />
+    <Property Name="USD" Type="Double" />
+    <Property Name="EUR" Type="Double" />
+    <Property Name="JPY" Type="Double" />
+    <Property Name="HKD" Type="Double" />
+    <Property Name="GBP" Type="Double" />
+    <Property Name="AUD" Type="Double" />
+    <Property Name="CAD" Type="Double" />
+    <Property Name="UpdateTime" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="LME_Commodity">
+    <Key>
+      <PropertyRef Name="LME_CommodityID" />
+    </Key>
+    <Property Name="LME_CommodityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="EnglishName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="NorCode" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="LME_EvaDay" Relationship="SenLanMarketPriceModel.FK_LME_EvaDay_LME_Commodity" FromRole="LME_Commodity" ToRole="LME_EvaDay" />
+    <NavigationProperty Name="LME_EvaMonth" Relationship="SenLanMarketPriceModel.FK_LME_EvaMonth_LME_Commodity" FromRole="LME_Commodity" ToRole="LME_EvaMonth" />
+    <NavigationProperty Name="LME_EvaWeek" Relationship="SenLanMarketPriceModel.FK_LME_EvaWeek_LME_Commodity" FromRole="LME_Commodity" ToRole="LME_EvaWeek" />
+    <NavigationProperty Name="LME_LastedPrice" Relationship="SenLanMarketPriceModel.FK_LME_LastedPrice_CommodityID" FromRole="LME_Commodity" ToRole="LME_LastedPrice" />
+    <NavigationProperty Name="LME_OfficialPrice" Relationship="SenLanMarketPriceModel.FK_LME_OfficialPrice_CommodityID" FromRole="LME_Commodity" ToRole="LME_OfficialPrice" />
+  </EntityType>
+  <EntityType Name="LME_EvaDay">
+    <Key>
+      <PropertyRef Name="LME_EvaDayID" />
+    </Key>
+    <Property Name="LME_EvaDayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LME_CommodityID" Type="Int32" />
+    <Property Name="TradeDate" Type="DateTime" />
+    <Property Name="PromptDate" Type="DateTime" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="UpdateTime" Type="DateTime" />
+    <NavigationProperty Name="LME_Commodity" Relationship="SenLanMarketPriceModel.FK_LME_EvaDay_LME_Commodity" FromRole="LME_EvaDay" ToRole="LME_Commodity" />
+  </EntityType>
+  <EntityType Name="LME_EvaMonth">
+    <Key>
+      <PropertyRef Name="lME_EvaMonthID" />
+    </Key>
+    <Property Name="lME_EvaMonthID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LME_CommodityID" Type="Int32" />
+    <Property Name="TradeDate" Type="DateTime" />
+    <Property Name="PromptDate" Type="DateTime" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="UpdateTime" Type="DateTime" />
+    <NavigationProperty Name="LME_Commodity" Relationship="SenLanMarketPriceModel.FK_LME_EvaMonth_LME_Commodity" FromRole="LME_EvaMonth" ToRole="LME_Commodity" />
+  </EntityType>
+  <EntityType Name="LME_EvaWeek">
+    <Key>
+      <PropertyRef Name="LME_EvaWeekID" />
+    </Key>
+    <Property Name="LME_EvaWeekID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LME_CommodityID" Type="Int32" />
+    <Property Name="TradeDate" Type="DateTime" />
+    <Property Name="PromptDate" Type="DateTime" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="UpdateTime" Type="DateTime" />
+    <NavigationProperty Name="LME_Commodity" Relationship="SenLanMarketPriceModel.FK_LME_EvaWeek_LME_Commodity" FromRole="LME_EvaWeek" ToRole="LME_Commodity" />
+  </EntityType>
+  <EntityType Name="LME_LastedPrice">
+    <Key>
+      <PropertyRef Name="LME_LastedPriceID" />
+    </Key>
+    <Property Name="LME_LastedPriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LME_CommodityID" Type="Int32" />
+    <Property Name="TradeDate" Type="DateTime" />
+    <Property Name="PriceTime" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="PZCode" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="PZCodeExplain" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LastedPrice" Type="Double" />
+    <Property Name="PreClosingPrice" Type="Double" />
+    <Property Name="PreSettledPrice" Type="Double" />
+    <Property Name="OpeningPrice" Type="Double" />
+    <Property Name="SettledPrice" Type="Double" />
+    <Property Name="HighestPrice" Type="Double" />
+    <Property Name="LowestPrice" Type="Double" />
+    <Property Name="Volume" Type="Double" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="BuyPrice1" Type="Double" />
+    <Property Name="BuyPrice2" Type="Double" />
+    <Property Name="BuyPrice3" Type="Double" />
+    <Property Name="SellPrice1" Type="Double" />
+    <Property Name="SellPrice2" Type="Double" />
+    <Property Name="SellPrice3" Type="Double" />
+    <Property Name="BuyVolume1" Type="Double" />
+    <Property Name="BuyVolume2" Type="Double" />
+    <Property Name="BuyVolume3" Type="Double" />
+    <Property Name="SellVolume1" Type="Double" />
+    <Property Name="SellVolume2" Type="Double" />
+    <Property Name="SellVolume3" Type="Double" />
+    <Property Name="UpdateTime" Type="DateTime" />
+    <NavigationProperty Name="LME_Commodity" Relationship="SenLanMarketPriceModel.FK_LME_LastedPrice_CommodityID" FromRole="LME_LastedPrice" ToRole="LME_Commodity" />
+  </EntityType>
+  <EntityType Name="LME_OfficialPrice">
+    <Key>
+      <PropertyRef Name="LME_OfficialPriceID" />
+    </Key>
+    <Property Name="LME_OfficialPriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LME_CommodityID" Type="Int32" />
+    <Property Name="TradeDate" Type="DateTime" />
+    <Property Name="CashBuy" Type="Double" />
+    <Property Name="CashSell" Type="Double" />
+    <Property Name="CashAvg" Type="Double" />
+    <Property Name="Month3Buy" Type="Double" />
+    <Property Name="Month3Sell" Type="Double" />
+    <Property Name="Month3Avg" Type="Double" />
+    <Property Name="Month15Buy" Type="Double" />
+    <Property Name="Month15Sell" Type="Double" />
+    <Property Name="Month15Avg" Type="Double" />
+    <Property Name="Month27Buy" Type="Double" />
+    <Property Name="Month27Sell" Type="Double" />
+    <Property Name="Month27Avg" Type="Double" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="UpdateTime" Type="DateTime" />
+    <NavigationProperty Name="LME_Commodity" Relationship="SenLanMarketPriceModel.FK_LME_OfficialPrice_CommodityID" FromRole="LME_OfficialPrice" ToRole="LME_Commodity" />
+  </EntityType>
+  <EntityType Name="SHFE_CalenderInfo">
+    <Key>
+      <PropertyRef Name="SHFE_Calender_ID" />
+    </Key>
+    <Property Name="SHFE_Calender_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Type" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SHFE_Commodity">
+    <Key>
+      <PropertyRef Name="SHFE_CommodityID" />
+    </Key>
+    <Property Name="SHFE_CommodityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="EnglishName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Alias" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="SHFE_LastedPrice" Relationship="SenLanMarketPriceModel.FK_SHFE_CommodityID" FromRole="SHFE_Commodity" ToRole="SHFE_LastedPrice" />
+    <NavigationProperty Name="SHFE_MonthlySettlePrice" Relationship="SenLanMarketPriceModel.FK_SHFE_MonthlySettlePrice_SHFE_Commodity_ID" FromRole="SHFE_Commodity" ToRole="SHFE_MonthlySettlePrice" />
+  </EntityType>
+  <EntityType Name="SHFE_LastedPrice">
+    <Key>
+      <PropertyRef Name="SHFE_LastedPriceID" />
+    </Key>
+    <Property Name="SHFE_LastedPriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SHFE_CommodityID" Type="Int32" />
+    <Property Name="PriceTime" Type="DateTime" />
+    <Property Name="PZCode" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="PZCodeExplain" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LastedPrice" Type="Double" />
+    <Property Name="PreClosingPrice" Type="Double" />
+    <Property Name="PreSettledPrice" Type="Double" />
+    <Property Name="OpeningPrice" Type="Double" />
+    <Property Name="SettledPrice" Type="Double" />
+    <Property Name="HighestPrice" Type="Double" />
+    <Property Name="LowestPrice" Type="Double" />
+    <Property Name="Volume" Type="Double" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="BuyPrice1" Type="Double" />
+    <Property Name="BuyPrice2" Type="Double" />
+    <Property Name="BuyPrice3" Type="Double" />
+    <Property Name="SellPrice1" Type="Double" />
+    <Property Name="SellPrice2" Type="Double" />
+    <Property Name="SellPrice3" Type="Double" />
+    <Property Name="BuyVolume1" Type="Double" />
+    <Property Name="BuyVolume2" Type="Double" />
+    <Property Name="BuyVolume3" Type="Double" />
+    <Property Name="SellVolume1" Type="Double" />
+    <Property Name="SellVolume2" Type="Double" />
+    <Property Name="SellVolume3" Type="Double" />
+    <Property Name="TradeDate" Type="DateTime" />
+    <Property Name="UpdateTime" Type="DateTime" />
+    <NavigationProperty Name="SHFE_Commodity" Relationship="SenLanMarketPriceModel.FK_SHFE_CommodityID" FromRole="SHFE_LastedPrice" ToRole="SHFE_Commodity" />
+  </EntityType>
+  <EntityType Name="SHFE_MonthlySettlePrice">
+    <Key>
+      <PropertyRef Name="SHFE_SettlePriceID" />
+    </Key>
+    <Property Name="SHFE_SettlePriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SHFE_CommodityID" Type="Int32" />
+    <Property Name="TradeDate" Type="DateTime" />
+    <Property Name="PromptYear" Type="Int32" />
+    <Property Name="PromptMonth" Type="Int32" />
+    <Property Name="SettlePrice" Type="Double" />
+    <Property Name="UpdateTime" Type="DateTime" />
+    <Property Name="ClosePrice" Type="Double" />
+    <NavigationProperty Name="SHFE_Commodity" Relationship="SenLanMarketPriceModel.FK_SHFE_MonthlySettlePrice_SHFE_Commodity_ID" FromRole="SHFE_MonthlySettlePrice" ToRole="SHFE_Commodity" />
+  </EntityType>
+  <EntityType Name="SMM_Commodity">
+    <Key>
+      <PropertyRef Name="SMM_CommodityID" />
+    </Key>
+    <Property Name="SMM_CommodityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="EnglishName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ChineseName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="SMM_SMMWebPrice" Relationship="SenLanMarketPriceModel.FK_SMM_Commodity" FromRole="SMM_Commodity" ToRole="SMM_SMMWebPrice" />
+  </EntityType>
+  <EntityType Name="SMM_SMMWebPrice">
+    <Key>
+      <PropertyRef Name="SMM_SMMWebPriceID" />
+    </Key>
+    <Property Name="SMM_SMMWebPriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SMM_CommodityID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="PriceTime" Type="DateTime" />
+    <Property Name="HighestPrice" Type="Double" />
+    <Property Name="LowestPrice" Type="Double" />
+    <Property Name="AveragePrice" Type="Double" />
+    <Property Name="PreClosingPrice" Type="Double" />
+    <Property Name="OpeningPrice" Type="Double" />
+    <Property Name="UpdateTime" Type="DateTime" />
+    <NavigationProperty Name="SMM_Commodity" Relationship="SenLanMarketPriceModel.FK_SMM_Commodity" FromRole="SMM_SMMWebPrice" ToRole="SMM_Commodity" />
+  </EntityType>
+  <EntityType Name="Syn_UserAndCheckPoint">
+    <Key>
+      <PropertyRef Name="Syn_UserAndCheckPointID" />
+    </Key>
+    <Property Name="Syn_UserAndCheckPointID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientName" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+    <Property Name="PreCheckPoint" Type="DateTime" />
+    <Property Name="LastedCheckPoint" Type="DateTime" />
+  </EntityType>
+  <Association Name="FK_LME_EvaDay_LME_Commodity">
+    <End Role="LME_Commodity" Type="SenLanMarketPriceModel.LME_Commodity" Multiplicity="0..1" />
+    <End Role="LME_EvaDay" Type="SenLanMarketPriceModel.LME_EvaDay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LME_Commodity">
+        <PropertyRef Name="LME_CommodityID" />
+      </Principal>
+      <Dependent Role="LME_EvaDay">
+        <PropertyRef Name="LME_CommodityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LME_EvaMonth_LME_Commodity">
+    <End Role="LME_Commodity" Type="SenLanMarketPriceModel.LME_Commodity" Multiplicity="0..1" />
+    <End Role="LME_EvaMonth" Type="SenLanMarketPriceModel.LME_EvaMonth" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LME_Commodity">
+        <PropertyRef Name="LME_CommodityID" />
+      </Principal>
+      <Dependent Role="LME_EvaMonth">
+        <PropertyRef Name="LME_CommodityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LME_EvaWeek_LME_Commodity">
+    <End Role="LME_Commodity" Type="SenLanMarketPriceModel.LME_Commodity" Multiplicity="0..1" />
+    <End Role="LME_EvaWeek" Type="SenLanMarketPriceModel.LME_EvaWeek" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LME_Commodity">
+        <PropertyRef Name="LME_CommodityID" />
+      </Principal>
+      <Dependent Role="LME_EvaWeek">
+        <PropertyRef Name="LME_CommodityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LME_LastedPrice_CommodityID">
+    <End Role="LME_Commodity" Type="SenLanMarketPriceModel.LME_Commodity" Multiplicity="0..1" />
+    <End Role="LME_LastedPrice" Type="SenLanMarketPriceModel.LME_LastedPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LME_Commodity">
+        <PropertyRef Name="LME_CommodityID" />
+      </Principal>
+      <Dependent Role="LME_LastedPrice">
+        <PropertyRef Name="LME_CommodityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LME_OfficialPrice_CommodityID">
+    <End Role="LME_Commodity" Type="SenLanMarketPriceModel.LME_Commodity" Multiplicity="0..1" />
+    <End Role="LME_OfficialPrice" Type="SenLanMarketPriceModel.LME_OfficialPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LME_Commodity">
+        <PropertyRef Name="LME_CommodityID" />
+      </Principal>
+      <Dependent Role="LME_OfficialPrice">
+        <PropertyRef Name="LME_CommodityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SHFE_CommodityID">
+    <End Role="SHFE_Commodity" Type="SenLanMarketPriceModel.SHFE_Commodity" Multiplicity="0..1" />
+    <End Role="SHFE_LastedPrice" Type="SenLanMarketPriceModel.SHFE_LastedPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SHFE_Commodity">
+        <PropertyRef Name="SHFE_CommodityID" />
+      </Principal>
+      <Dependent Role="SHFE_LastedPrice">
+        <PropertyRef Name="SHFE_CommodityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SHFE_MonthlySettlePrice_SHFE_Commodity_ID">
+    <End Role="SHFE_Commodity" Type="SenLanMarketPriceModel.SHFE_Commodity" Multiplicity="0..1" />
+    <End Role="SHFE_MonthlySettlePrice" Type="SenLanMarketPriceModel.SHFE_MonthlySettlePrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SHFE_Commodity">
+        <PropertyRef Name="SHFE_CommodityID" />
+      </Principal>
+      <Dependent Role="SHFE_MonthlySettlePrice">
+        <PropertyRef Name="SHFE_CommodityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SMM_Commodity">
+    <End Role="SMM_Commodity" Type="SenLanMarketPriceModel.SMM_Commodity" Multiplicity="0..1" />
+    <End Role="SMM_SMMWebPrice" Type="SenLanMarketPriceModel.SMM_SMMWebPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMM_Commodity">
+        <PropertyRef Name="SMM_CommodityID" />
+      </Principal>
+      <Dependent Role="SMM_SMMWebPrice">
+        <PropertyRef Name="SMM_CommodityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

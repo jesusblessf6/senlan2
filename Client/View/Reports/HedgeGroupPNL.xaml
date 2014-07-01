@@ -1,0 +1,77 @@
+﻿<base:BasePage x:Class="Client.View.Reports.HedgeGroupPNL"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="503" d:DesignWidth="1102"
+      xmlns:c="clr-namespace:Client.Converters"
+      xmlns:base="clr-namespace:Client.Base.BaseClient"
+	  Title="HedgeGroupPNL" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+      xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity">
+
+    <Page.Resources>
+
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="MinWidth" Value="100"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <c:ArbitrageTypeConverter x:Key="ArbitrageConverter"></c:ArbitrageTypeConverter>
+        <c:HedgeGroupStatusConverter x:Key="HGStatusConverter"></c:HedgeGroupStatusConverter>
+    </Page.Resources>
+
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="分组保值盈亏明细" Height="32" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbTitle" VerticalAlignment="Top" />
+            <GroupBox Header="查询条件" Height="100" HorizontalAlignment="Left" Margin="6,40,0,0" Name="groupBox1" VerticalAlignment="Top" Width="691">
+                <Grid>
+                    <Label Content="起始日期" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,10,0,0" Name="label2" VerticalAlignment="Top" />
+                    <DatePicker HorizontalAlignment="Left" Margin="107,12,0,0" Name="datePicker1" VerticalAlignment="Top" SelectedDate="{Binding StartDate}" />
+                    <Label Content="结束日期" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="260,10,0,0" Name="label3" VerticalAlignment="Top" />
+                    <DatePicker HorizontalAlignment="Left" Margin="366,12,0,0" Name="datePicker2" VerticalAlignment="Top"  SelectedDate="{Binding EndDate}" />
+                    <Label Content="保值类型" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="1,42,0,0" Name="label4" VerticalAlignment="Top" />
+                    <ComboBox HorizontalAlignment="Left" Margin="107,44,0,0" Name="comboBox1" VerticalAlignment="Top" 
+                              ItemsSource="{Binding HedgeTypes}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding SelectedHedgeTypeId}"/>
+                    <Label Content="结算状态" Height="28" HorizontalAlignment="Left" Margin="302,42,0,0" Name="label5" VerticalAlignment="Top" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="366,44,0,0" Name="comboBox2" VerticalAlignment="Top" Width="120" 
+                              ItemsSource="{Binding HedgeStatuses}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding SelectedHedgeStatusId}"/>
+                    <Button Content="查询" Height="23" HorizontalAlignment="Left" Margin="504,44,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="Query"/>
+                </Grid>
+            </GroupBox>
+            <Separator Height="17" Margin="6,146,6,0" Name="separator1" VerticalAlignment="Top" />
+            <my:PagingControl HorizontalAlignment="Left" Margin="6,163,0,0" Name="pagingControl1" VerticalAlignment="Top" Height="31" />
+            <DataGrid AutoGenerateColumns="False" IsReadOnly="True" LoadingRow="OnLoadingRow" Height="Auto" HorizontalAlignment="Left" ItemsSource="{Binding Lines}" Margin="6,200,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="Auto" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="分组名称" Width="Auto" CanUserSort="True" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="保值日期" Width="Auto" CanUserSort="True" Binding="{Binding HedgeDate, StringFormat={}{0:yyyy-MM-dd}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="保值类型" Width="Auto" CanUserSort="True" Binding="{Binding HedgeTypeId, Converter={StaticResource ArbitrageConverter}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="结算状态" Width="Auto" CanUserSort="True" Binding="{Binding HedgeStatusId,Converter={StaticResource HGStatusConverter}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="保本基差" Width="Auto" CanUserSort="True" Binding="{Binding BreakEvenSpread, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="现货锁定盈亏(CNY)" Width="Auto" CanUserSort="True" Binding="{Binding PhysicalFixedPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="现货浮动盈亏(CNY)" Width="Auto" CanUserSort="True" Binding="{Binding PhysicalFloatPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="SHFE锁定盈亏(CNY)" Width="Auto" CanUserSort="True" Binding="{Binding SHFEFixedPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="SHFE浮动盈亏(CNY)" Width="Auto" CanUserSort="True" Binding="{Binding SHFEFloatPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="LME锁定盈亏(USD)" Width="Auto" CanUserSort="True" Binding="{Binding LMEFixedPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="LME浮动盈亏(USD)" Width="Auto" CanUserSort="True" Binding="{Binding LMEFloatPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="总盈亏(CNY)" Width="Auto" CanUserSort="True" Binding="{Binding TotalPNL, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            
+        </Grid>
+    </ScrollViewer>
+</base:BasePage>

@@ -1,0 +1,81 @@
+﻿<baseClient:ListBasePage x:Class="Client.View.Console.LogMessages.LogMessageList"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     ResxExtension.DefaultResxName="Client.View.Console.LogMessages.ResLogMessage"
+                     Language="{UICulture}"
+                     xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity" mc:Ignorable="d"
+                     d:DesignHeight="326" d:DesignWidth="497"
+                     Title="{Resx SubscribedLog}" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+                     xmlns:baseClient="clr-namespace:Client.Base.BaseClient">
+
+    <Page.Resources>
+        <RoutedCommand x:Key="MarkAsRead"></RoutedCommand>
+        <RoutedCommand x:Key="DeleteMessage"></RoutedCommand>
+    </Page.Resources>
+
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource MarkAsRead}" CanExecute="MarkAsReadCanExecute"
+                        Executed="MarkAsReadExecuted">
+        </CommandBinding>
+        <CommandBinding Command="{StaticResource DeleteMessage}" CanExecute="ListDeleteCanExecute"
+                        Executed="ListDeleteExecuted">
+        </CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx UnreadLog}" Name="lbTitle" HorizontalAlignment="Left" Margin="6,6,0,0" Height="32"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <my:PagingControl HorizontalAlignment="Left" Margin="6,40,0,0" Name="pager"
+                              VerticalAlignment="Top" Height="31" />
+            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="6,77,0,0"
+                      Name="entityList"
+                      VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding}" IsReadOnly="True"
+                      Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}"
+                      LoadingRow="OnLoadRowIndex" MaxHeight="Infinity">
+                <DataGrid.Columns>
+                    <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Header="{Resx ResxName=Client.View.Console.LogMessages.ResLogMessage, Key=LogTime}"
+                                        Width="Auto" CanUserSort="True"
+                                        Binding="{Binding Log.LogTime, StringFormat={}{0:yyyy-MM-dd HH:mm:ss}}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Header="{Resx ResxName=Client.View.Console.LogMessages.ResLogMessage, Key=OperationType}"
+                                        Width="Auto" CanUserSort="True" Binding="{Binding Log.LogAction.Name}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Header="{Resx ResxName=Client.Properties.Resources, Key=DocumentType}"
+                                        Width="Auto" CanUserSort="True" Binding="{Binding Log.Document.Name}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Header="{Resx ResxName=Client.View.Console.LogMessages.ResLogMessage, Key=DocumentId}"
+                                        Width="Auto" CanUserSort="True" Binding="{Binding Log.ObjectId}">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Header="{Resx ResxName=Client.View.Console.LogMessages.ResLogMessage, Key=Operator}"
+                                        Width="Auto" CanUserSort="True" Binding="{Binding Log.User.Name}">
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                            Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}"
+                                            CanUserSort="False" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="DBEntity:LogMessage">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button
+                                        Content="{Resx ResxName=Client.View.Console.LogMessages.ResLogMessage, Key=MarkAsRead}"
+                                        Command="{StaticResource MarkAsRead}" CommandParameter="{Binding Id}">
+                                    </Button>
+                                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}"
+                                            Command="{StaticResource DeleteMessage}" CommandParameter="{Binding Id}">
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:ListBasePage>

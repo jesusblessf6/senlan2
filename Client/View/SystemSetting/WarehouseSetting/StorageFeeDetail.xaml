@@ -1,0 +1,35 @@
+﻿<baseClient:ObjectBaseWindow x:Class="Client.View.SystemSetting.WarehouseSetting.StorageFeeDetail"
+        xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       ResxExtension.DefaultResxName="Client.View.Physical.WarehouseOuts.ResWarehouseOut" 
+                       Language="{UICulture}"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+                              xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                             xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+                             Title="StorageFeeDetail"
+                       Height="258" Width="574" ResizeMode="NoResize">
+    <Grid x:Name="rootGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="129*" />
+            <RowDefinition Height="90*" />
+        </Grid.RowDefinitions>
+        <Label Content="仓储费明细" Name="label10" Height="32" HorizontalContentAlignment="Left"  HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+               VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+        <Label Content="开始日期" Foreground="Crimson" Height="28" HorizontalAlignment="Left" Margin="60,41,0,0" Name="label1" VerticalAlignment="Top" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="122,40,0,0" Name="datePicker1" VerticalAlignment="Top" Width="120" SelectedDate="{Binding StartDate}"/>
+        <Label Content="结束日期" Foreground="Crimson" Height="28" HorizontalAlignment="Left" Margin="330,40,0,0" Name="label2" VerticalAlignment="Top" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="394,40,0,0" Name="datePicker2" VerticalAlignment="Top" Width="120" SelectedDate="{Binding EndDate}"/>
+        <Label Content="金属" Foreground="Crimson" Height="28" HorizontalAlignment="Left" Margin="82,73,0,0" Name="label3" VerticalAlignment="Top" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="122,74,0,0" Name="comboBox1" VerticalAlignment="Top" Width="120" ItemsSource="{Binding CommodityList}" SelectedValuePath="Id" DisplayMemberPath="Name"
+                      SelectedValue="{Binding CommodityID}"/>
+        <Label Content="仓租单价" Height="28" HorizontalAlignment="Left" Margin="330,73,0,0" Name="label4" VerticalAlignment="Top" />
+        <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="394,74,0,0" Name="currencyTextBox1" VerticalAlignment="Top" Width="120" Text="{Binding PricePerUnit, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"/>
+        <Label Content="仓单费" Height="28" HorizontalAlignment="Left" Margin="72,104,0,0" Name="label5" VerticalAlignment="Top" Grid.RowSpan="2" />
+        <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="122,106,0,0" Name="currencyTextBox2" VerticalAlignment="Top" Width="120" Text="{Binding WarrantFee, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"/>
+        <Label Content="货权转移费" Height="26" HorizontalAlignment="Left" Margin="318,104,0,0" Name="label6" VerticalAlignment="Top" Grid.RowSpan="2" />
+        <my:CurrencyTextBox Height="23" HorizontalAlignment="Left" Margin="394,106,0,0" Name="currencyTextBox3" VerticalAlignment="Top" Width="120" Text="{Binding TransFerFee, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"/>
+        <Button Content="确定" Height="23" HorizontalAlignment="Left" Margin="210,25,0,0" Name="button1" VerticalAlignment="Top" Width="60" Click="BtSave" Grid.Row="1" />
+        <Button Content="取消" Height="23" HorizontalAlignment="Left" Margin="305,25,0,0" Name="button2" VerticalAlignment="Top" Width="60" Click="Button5Click" Grid.Row="1" />
+    </Grid>
+</baseClient:ObjectBaseWindow>

@@ -1,0 +1,108 @@
+﻿<baseClient2:ObjectBaseWindow x:Class="Client.View.SystemSetting.BusinessPartnerSetting.BusinessPartnerDetail"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       ResxExtension.DefaultResxName="Client.View.SystemSetting.BusinessPartnerSetting.ResBusinessPartnerSetting" 
+                       Language="{UICulture}"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       Title="{Resx ResxName=Client.Properties.Resources, Key=BP}"
+                       MinHeight="600" MinWidth="600" WindowStartupLocation="CenterScreen" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility" xmlns:Converters="clr-namespace:Client.Converters"
+                       xmlns:baseClient2="clr-namespace:Client.Base.BaseClient"
+                       SizeToContent="WidthAndHeight">
+
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="MinWidth" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Converters:BankAccountTypeConverter x:Key="ConvertType" />
+    </Window.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="rootGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="162" />
+                <RowDefinition Height="0" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=BP}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0"
+                   Width="auto" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <Label Content="{Resx BPType}" Style="{StaticResource LabelStyle}" Margin="6,40,0,0" Name="label2"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <RadioButton Content="{Resx ResxName=Client.Properties.Resources, Key=Customer}" Height="16" Margin="122,45,0,0" Name="rBtnCustomer" GroupName="Type"
+                         IsChecked="{Binding TypeCustomer}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" />
+            <RadioButton Content="{Resx ResxName=Client.Properties.Resources, Key=Broker}" GroupName="Type" Height="16" Margin="202,45,0,0" Name="rBtn1"
+                         IsChecked="{Binding TypeFuturesCompany}" HorizontalAlignment="Left" Width="60" VerticalAlignment="Top" />
+            <RadioButton Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" GroupName="Type" Height="16" Margin="282,45,0,0" Name="rBtnInnerCustomer"
+                         IsChecked="{Binding TypeInnerCustomer}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" />
+            <Label Content="{Resx BPShortName}" Style="{StaticResource LabelStyle}" Margin="6,70,0,0" Name="label3"
+                   Foreground="Crimson" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Margin="122,72,0,0" Name="txtShortName" Text="{Binding ShortName}" MaxLength="100"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label Content="{Resx BPCode}" Style="{StaticResource LabelStyle}" Margin="278,70,0,0" Name="label4"
+                   Foreground="Crimson" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Margin="394,72,0,0" Name="txtCustomerCode" Text="{Binding Code}" MaxLength="50"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label Content="{Resx BPFullName}" Style="{StaticResource LabelStyle}" Margin="6,102,0,0" Name="label5"
+                   Foreground="Crimson" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,104,0,0" Name="txtFullName"
+                     VerticalAlignment="Top" Width="392" Text="{Binding FullName}" MaxLength="100" />
+            <Label Content="{Resx EnglishFullName}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="6,134,0,0" Name="label12" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,136,0,0" Name="textBox1" VerticalAlignment="Top" Width="392" Text="{Binding EnglishName}"/>
+            <Label Content="{Resx DetailedAddress}" Style="{StaticResource LabelStyle}" Margin="6,166,0,0" Name="label6"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,168,0,0" Name="txtAddress"
+                     VerticalAlignment="Top" Width="392" Text="{Binding Address}" MaxLength="200" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=ContactPerson}" Style="{StaticResource LabelStyle}" Margin="6,230,0,0" Name="label7"
+                   HorizontalAlignment="Left" Width="60" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="122,232,0,0" Name="txtPerson" VerticalAlignment="Top"
+                     Text="{Binding Person}" MaxLength="50" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Tel}" Style="{StaticResource LabelStyle}" Margin="278,230,0,0" Name="label8"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Margin="394,232,0,0" Name="txtPhone" Text="{Binding Telephone}" MaxLength="20"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Fax}" Style="{StaticResource LabelStyle}" Margin="6,262,0,0" Name="label9"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Margin="122,264,0,0" Name="txtFax" Text="{Binding Fax}" MaxLength="20" HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PostCode}" Style="{StaticResource LabelStyle}" Margin="278,262,0,0" Name="label10"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Margin="394,264,0,0" Name="txtZip" Text="{Binding ZipCode}" MaxLength="20"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label Content="{Resx BankList}" Style="{StaticResource LabelStyle}" Margin="6,361,0,0" Name="label1"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="122,363,6,0"
+                      ItemsSource="{Binding BankAccounts}" Name="dataGridBanks" Width="Auto" IsReadOnly="True"
+                      LoadingRow="DataGrid1LoadingRow" Focusable="False" Style="{StaticResource DataGridStyle}" RowStyle="{StaticResource DataGridRowStyle}" Height="auto" VerticalAlignment="Top">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Bank}" Binding="{Binding Bank.Name}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=AccountCode}" Binding="{Binding AccountCode}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=BankAccountCurrency}" Binding="{Binding Currency.Name}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=AccountUsage}" Binding="{Binding Usage,Converter={StaticResource ConvertType}}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Binding="{Binding Description}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Style="{StaticResource LabelStyle}" Margin="6,7,0,0" Name="label11" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" />
+            <TextBox Height="100" HorizontalAlignment="Left" Margin="122,9,0,0" Name="txtRemark" VerticalAlignment="Top"
+                     Width="392" Text="{Binding Remark}" TextWrapping="Wrap" Grid.Row="1" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Confirm}" Height="25" HorizontalAlignment="Left" Margin="210,134,0,0" Name="btnOK"
+                    VerticalAlignment="Top" Width="60" Click="Save" Grid.Row="1" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Height="25" HorizontalAlignment="Left" Margin="305,134,0,0" Name="btnCancel"
+                    VerticalAlignment="Top" Width="60" Click="Cancel" Grid.Row="1" />
+            <Label Content="{Resx EnglishAddress}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="8,198,0,0" Name="label13" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,200,0,0" Name="textBox2" VerticalAlignment="Top" Width="392" Text="{Binding EnglishAddress}"/>
+            <Label Content="{Resx TaxId}" HorizontalAlignment="Left" Margin="6,294,0,0" Name="label14" Style="{StaticResource LabelStyle}" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="122,296,0,0" MaxLength="20" Name="textBox3" Text="{Binding TaxNo}" VerticalAlignment="Top" />
+            <my:PagingControl Height="31" HorizontalAlignment="Left" Margin="122,326,0,0" Name="pgBankList" VerticalAlignment="Top" />
+            <CheckBox Content="默认内部客户" Height="16" HorizontalAlignment="Left" Margin="394,299,0,0" Name="checkBox1" VerticalAlignment="Top" Visibility="{Binding IsVisible}" IsChecked="{Binding IsDefault}"/>
+        </Grid>
+    </ScrollViewer>
+</baseClient2:ObjectBaseWindow>

@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SenLanMarketPriceModelStoreContainer" CdmEntityContainer="SenLanMarketPriceEntities">
+    <EntitySetMapping Name="ExchangeRates">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.ExchangeRate">
+        <MappingFragment StoreEntitySet="ExchangeRate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExchangeDate" ColumnName="ExchangeDate" />
+          <ScalarProperty Name="USD" ColumnName="USD" />
+          <ScalarProperty Name="EUR" ColumnName="EUR" />
+          <ScalarProperty Name="JPY" ColumnName="JPY" />
+          <ScalarProperty Name="HKD" ColumnName="HKD" />
+          <ScalarProperty Name="GBP" ColumnName="GBP" />
+          <ScalarProperty Name="AUD" ColumnName="AUD" />
+          <ScalarProperty Name="CAD" ColumnName="CAD" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LME_Commodity">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.LME_Commodity">
+        <MappingFragment StoreEntitySet="LME_Commodity">
+          <ScalarProperty Name="LME_CommodityID" ColumnName="LME_CommodityID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="NorCode" ColumnName="NorCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LME_EvaDay">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.LME_EvaDay">
+        <MappingFragment StoreEntitySet="LME_EvaDay">
+          <ScalarProperty Name="LME_EvaDayID" ColumnName="LME_EvaDayID" />
+          <ScalarProperty Name="LME_CommodityID" ColumnName="LME_CommodityID" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="PromptDate" ColumnName="PromptDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LME_EvaMonth">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.LME_EvaMonth">
+        <MappingFragment StoreEntitySet="LME_EvaMonth">
+          <ScalarProperty Name="lME_EvaMonthID" ColumnName="lME_EvaMonthID" />
+          <ScalarProperty Name="LME_CommodityID" ColumnName="LME_CommodityID" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="PromptDate" ColumnName="PromptDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LME_EvaWeek">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.LME_EvaWeek">
+        <MappingFragment StoreEntitySet="LME_EvaWeek">
+          <ScalarProperty Name="LME_EvaWeekID" ColumnName="LME_EvaWeekID" />
+          <ScalarProperty Name="LME_CommodityID" ColumnName="LME_CommodityID" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="PromptDate" ColumnName="PromptDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LME_LastedPrice">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.LME_LastedPrice">
+        <MappingFragment StoreEntitySet="LME_LastedPrice">
+          <ScalarProperty Name="LME_LastedPriceID" ColumnName="LME_LastedPriceID" />
+          <ScalarProperty Name="LME_CommodityID" ColumnName="LME_CommodityID" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="PriceTime" ColumnName="PriceTime" />
+          <ScalarProperty Name="PZCode" ColumnName="PZCode" />
+          <ScalarProperty Name="PZCodeExplain" ColumnName="PZCodeExplain" />
+          <ScalarProperty Name="LastedPrice" ColumnName="LastedPrice" />
+          <ScalarProperty Name="PreClosingPrice" ColumnName="PreClosingPrice" />
+          <ScalarProperty Name="PreSettledPrice" ColumnName="PreSettledPrice" />
+          <ScalarProperty Name="OpeningPrice" ColumnName="OpeningPrice" />
+          <ScalarProperty Name="SettledPrice" ColumnName="SettledPrice" />
+          <ScalarProperty Name="HighestPrice" ColumnName="HighestPrice" />
+          <ScalarProperty Name="LowestPrice" ColumnName="LowestPrice" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="BuyPrice1" ColumnName="BuyPrice1" />
+          <ScalarProperty Name="BuyPrice2" ColumnName="BuyPrice2" />
+          <ScalarProperty Name="BuyPrice3" ColumnName="BuyPrice3" />
+          <ScalarProperty Name="SellPrice1" ColumnName="SellPrice1" />
+          <ScalarProperty Name="SellPrice2" ColumnName="SellPrice2" />
+          <ScalarProperty Name="SellPrice3" ColumnName="SellPrice3" />
+          <ScalarProperty Name="BuyVolume1" ColumnName="BuyVolume1" />
+          <ScalarProperty Name="BuyVolume2" ColumnName="BuyVolume2" />
+          <ScalarProperty Name="BuyVolume3" ColumnName="BuyVolume3" />
+          <ScalarProperty Name="SellVolume1" ColumnName="SellVolume1" />
+          <ScalarProperty Name="SellVolume2" ColumnName="SellVolume2" />
+          <ScalarProperty Name="SellVolume3" ColumnName="SellVolume3" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LME_OfficialPrice">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.LME_OfficialPrice">
+        <MappingFragment StoreEntitySet="LME_OfficialPrice">
+          <ScalarProperty Name="LME_OfficialPriceID" ColumnName="LME_OfficialPriceID" />
+          <ScalarProperty Name="LME_CommodityID" ColumnName="LME_CommodityID" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="CashBuy" ColumnName="CashBuy" />
+          <ScalarProperty Name="CashSell" ColumnName="CashSell" />
+          <ScalarProperty Name="CashAvg" ColumnName="CashAvg" />
+          <ScalarProperty Name="Month3Buy" ColumnName="Month3Buy" />
+          <ScalarProperty Name="Month3Sell" ColumnName="Month3Sell" />
+          <ScalarProperty Name="Month3Avg" ColumnName="Month3Avg" />
+          <ScalarProperty Name="Month15Buy" ColumnName="Month15Buy" />
+          <ScalarProperty Name="Month15Sell" ColumnName="Month15Sell" />
+          <ScalarProperty Name="Month15Avg" ColumnName="Month15Avg" />
+          <ScalarProperty Name="Month27Buy" ColumnName="Month27Buy" />
+          <ScalarProperty Name="Month27Sell" ColumnName="Month27Sell" />
+          <ScalarProperty Name="Month27Avg" ColumnName="Month27Avg" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHFE_CalenderInfo">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.SHFE_CalenderInfo">
+        <MappingFragment StoreEntitySet="SHFE_CalenderInfo">
+          <ScalarProperty Name="SHFE_Calender_ID" ColumnName="SHFE_Calender_ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHFE_Commodity">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.SHFE_Commodity">
+        <MappingFragment StoreEntitySet="SHFE_Commodity">
+          <ScalarProperty Name="SHFE_CommodityID" ColumnName="SHFE_CommodityID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHFE_LastedPrice">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.SHFE_LastedPrice">
+        <MappingFragment StoreEntitySet="SHFE_LastedPrice">
+          <ScalarProperty Name="SHFE_LastedPriceID" ColumnName="SHFE_LastedPriceID" />
+          <ScalarProperty Name="SHFE_CommodityID" ColumnName="SHFE_CommodityID" />
+          <ScalarProperty Name="PriceTime" ColumnName="PriceTime" />
+          <ScalarProperty Name="PZCode" ColumnName="PZCode" />
+          <ScalarProperty Name="PZCodeExplain" ColumnName="PZCodeExplain" />
+          <ScalarProperty Name="LastedPrice" ColumnName="LastedPrice" />
+          <ScalarProperty Name="PreClosingPrice" ColumnName="PreClosingPrice" />
+          <ScalarProperty Name="PreSettledPrice" ColumnName="PreSettledPrice" />
+          <ScalarProperty Name="OpeningPrice" ColumnName="OpeningPrice" />
+          <ScalarProperty Name="SettledPrice" ColumnName="SettledPrice" />
+          <ScalarProperty Name="HighestPrice" ColumnName="HighestPrice" />
+          <ScalarProperty Name="LowestPrice" ColumnName="LowestPrice" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="BuyPrice1" ColumnName="BuyPrice1" />
+          <ScalarProperty Name="BuyPrice2" ColumnName="BuyPrice2" />
+          <ScalarProperty Name="BuyPrice3" ColumnName="BuyPrice3" />
+          <ScalarProperty Name="SellPrice1" ColumnName="SellPrice1" />
+          <ScalarProperty Name="SellPrice2" ColumnName="SellPrice2" />
+          <ScalarProperty Name="SellPrice3" ColumnName="SellPrice3" />
+          <ScalarProperty Name="BuyVolume1" ColumnName="BuyVolume1" />
+          <ScalarProperty Name="BuyVolume2" ColumnName="BuyVolume2" />
+          <ScalarProperty Name="BuyVolume3" ColumnName="BuyVolume3" />
+          <ScalarProperty Name="SellVolume1" ColumnName="SellVolume1" />
+          <ScalarProperty Name="SellVolume2" ColumnName="SellVolume2" />
+          <ScalarProperty Name="SellVolume3" ColumnName="SellVolume3" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHFE_MonthlySettlePrice">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.SHFE_MonthlySettlePrice">
+        <MappingFragment StoreEntitySet="SHFE_MonthlySettlePrice">
+          <ScalarProperty Name="SHFE_SettlePriceID" ColumnName="SHFE_SettlePriceID" />
+          <ScalarProperty Name="SHFE_CommodityID" ColumnName="SHFE_CommodityID" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="PromptYear" ColumnName="PromptYear" />
+          <ScalarProperty Name="PromptMonth" ColumnName="PromptMonth" />
+          <ScalarProperty Name="SettlePrice" ColumnName="SettlePrice" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="ClosePrice" ColumnName="ClosePrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMM_Commodity">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.SMM_Commodity">
+        <MappingFragment StoreEntitySet="SMM_Commodity">
+          <ScalarProperty Name="SMM_CommodityID" ColumnName="SMM_CommodityID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="ChineseName" ColumnName="ChineseName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMM_SMMWebPrice">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.SMM_SMMWebPrice">
+        <MappingFragment StoreEntitySet="SMM_SMMWebPrice">
+          <ScalarProperty Name="SMM_SMMWebPriceID" ColumnName="SMM_SMMWebPriceID" />
+          <ScalarProperty Name="SMM_CommodityID" ColumnName="SMM_CommodityID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PriceTime" ColumnName="PriceTime" />
+          <ScalarProperty Name="HighestPrice" ColumnName="HighestPrice" />
+          <ScalarProperty Name="LowestPrice" ColumnName="LowestPrice" />
+          <ScalarProperty Name="AveragePrice" ColumnName="AveragePrice" />
+          <ScalarProperty Name="PreClosingPrice" ColumnName="PreClosingPrice" />
+          <ScalarProperty Name="OpeningPrice" ColumnName="OpeningPrice" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Syn_UserAndCheckPoint">
+      <EntityTypeMapping TypeName="SenLanMarketPriceModel.Syn_UserAndCheckPoint">
+        <MappingFragment StoreEntitySet="Syn_UserAndCheckPoint">
+          <ScalarProperty Name="Syn_UserAndCheckPointID" ColumnName="Syn_UserAndCheckPointID" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PreCheckPoint" ColumnName="PreCheckPoint" />
+          <ScalarProperty Name="LastedCheckPoint" ColumnName="LastedCheckPoint" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

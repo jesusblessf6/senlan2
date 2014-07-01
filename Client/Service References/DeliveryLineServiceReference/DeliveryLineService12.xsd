@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DBEntity.EnableProperty" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DBEntity.EnableProperty" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1558/Physical/Deliveries/DeliveryLineService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="DeliveryLineEnableProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsBrandEnable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCommodityTypeEnable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNetWeightEnable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSpecificationEnable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsVerifiedQuantityEnable" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="DeliveryLineEnableProperty" nillable="true" type="tns:DeliveryLineEnableProperty" />
+</xs:schema>

@@ -1,0 +1,26 @@
+﻿<Window x:Class="Client.View.SystemSetting.ApprovalSetting.ApprovalStageDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        ResxExtension.DefaultResxName="Client.View.SystemSetting.ApprovalSetting.ResApprovalSetting" 
+        Language="{UICulture}"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:c="clr-namespace:Client.Converters" Title="{Resx ApprovalStage}"
+        Height="212" Width="305" WindowStartupLocation="CenterScreen" Closing="ApprovalStageDetailClosing">
+
+    <Window.Resources>
+        <c:EmptyString2Null x:Key="Empty2Null"></c:EmptyString2Null>
+    </Window.Resources>
+
+    <Grid Name="rootGrid">
+        <Label Content="{Resx ApprovalStage}" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbTitle" FontSize="16" VerticalAlignment="Top" FontWeight="Bold" />
+        <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Number}" Height="28" HorizontalAlignment="Left" Margin="31,38,0,0" Name="label1" VerticalAlignment="Top" Width="60" HorizontalContentAlignment="Right" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="97,40,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" Text="{Binding StageIndex, Converter={StaticResource Empty2Null}}" />
+        <Label Content="{Resx Approver}" Height="28" Width="60" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="31,70,0,0" Name="label2"
+               VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="98,72,0,0" Name="textBox2" VerticalAlignment="Top" Width="120" Text="{Binding UserName}" IsReadOnly="True" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="222,72,0,0" Name="button1" VerticalAlignment="Top" Width="25" Click="Button1Click" />
+        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Confirm}" Height="25" HorizontalAlignment="Left" Margin="69,120,0,0" Name="button2"
+                VerticalAlignment="Top" Width="54" Click="Button2Click" />
+        <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Height="25" HorizontalAlignment="Left" Margin="152,120,0,0" Name="button3"
+                VerticalAlignment="Top" Width="54" Click="Button3Click" />
+        
+    </Grid>
+</Window>

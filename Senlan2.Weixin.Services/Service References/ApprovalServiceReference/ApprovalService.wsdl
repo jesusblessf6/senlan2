@@ -1,0 +1,1038 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ApprovalService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/ApprovalService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/ApprovalService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/ApprovalService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DBEntity" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/ApprovalService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/ApprovalService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Utility.Misc" />
+      <xsd:import schemaLocation="http://localhost:1558/SystemSetting/ApprovalService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IApprovalService_GetById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetById" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetAllCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCount" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetAllCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_FetchCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchCount" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_FetchCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCount" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRange" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_FetchById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchById" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_FetchById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_FetchAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAll" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_FetchAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_FetchAllWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_FetchAllWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchAllWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_FetchByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRange" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_FetchByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_FetchByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_FetchByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FetchByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Query_InputMessage">
+    <wsdl:part name="parameters" element="tns:Query" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Query_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_QueryByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRange" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_QueryByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_QueryByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_QueryByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Select_InputMessage">
+    <wsdl:part name="parameters" element="tns:Select" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Select_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectByRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRange" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectByRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectByRangeWithOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrder" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectByRangeWithOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectByRangeWithMultiOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrder" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectByRangeWithMultiOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectByRangeWithMultiOrderLazyLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderLazyLoad" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectByRangeWithMultiOrderLazyLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByRangeWithMultiOrderLazyLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Create_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q1:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_CreateNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNew" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_CreateNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_CreateNew_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q2:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_DeleteById_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteById" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_DeleteById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_DeleteById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q3:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Delete_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q4:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Update_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q5:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_UpdateExisted_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExisted" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_UpdateExisted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_UpdateExisted_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q6:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Remove_InputMessage">
+    <wsdl:part name="parameters" element="tns:Remove" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Remove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_Remove_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q7:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_RemoveById_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveById" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_RemoveById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_RemoveById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q8:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectSum_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectSum" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectSum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectSum_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q9:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectById_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectById" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectById_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q10:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectWithMultiOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrder" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectWithMultiOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectWithMultiOrder_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q11:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectWithMultiOrderLazyLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderLazyLoad" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectWithMultiOrderLazyLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectWithMultiOrderLazyLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_SelectWithMultiOrderLazyLoad_ServerErrFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/Utility.ErrorManagement" name="detail" element="q12:ServerErr" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetApprovableDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovableDocument" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetApprovableDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovableDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_AddNewApproval_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewApproval" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_AddNewApproval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_UpdateExistedApproval_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedApproval" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_UpdateExistedApproval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExistedApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_DeleteApproval_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteApproval" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_DeleteApproval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetApprovalConditions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovalConditions" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetApprovalConditions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovalConditionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetApprovalStages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovalStages" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_GetApprovalStages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovalStagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_ApproveQuota_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveQuota" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_ApproveQuota_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveQuotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_RejectQuota_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejectQuota" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_RejectQuota_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejectQuotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_CanEdit_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanEdit" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_CanEdit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_CanDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanDelete" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_CanDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_ApprovePaymentRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApprovePaymentRequest" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_ApprovePaymentRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApprovePaymentRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_RejectPaymentRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejectPaymentRequest" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_RejectPaymentRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejectPaymentRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_ApproveVATInvoiceRequestLine_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveVATInvoiceRequestLine" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_ApproveVATInvoiceRequestLine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveVATInvoiceRequestLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_RejectVATInvoiceRequestLine_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejectVATInvoiceRequestLine" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_RejectVATInvoiceRequestLine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejectVATInvoiceRequestLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_ApproveBP_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveBP" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_ApproveBP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApproveBPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_RejectBP_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejectBP" />
+  </wsdl:message>
+  <wsdl:message name="IApprovalService_RejectBP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejectBPResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IApprovalService">
+    <wsdl:operation name="GetById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetById" message="tns:IApprovalService_GetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetByIdResponse" message="tns:IApprovalService_GetById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetAllCount" message="tns:IApprovalService_GetAllCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetAllCountResponse" message="tns:IApprovalService_GetAllCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/FetchCount" message="tns:IApprovalService_FetchCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/FetchCountResponse" message="tns:IApprovalService_FetchCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetCount" message="tns:IApprovalService_GetCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetCountResponse" message="tns:IApprovalService_GetCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetAll" message="tns:IApprovalService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetAllResponse" message="tns:IApprovalService_GetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetAllWithOrder" message="tns:IApprovalService_GetAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetAllWithOrderResponse" message="tns:IApprovalService_GetAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetByRange" message="tns:IApprovalService_GetByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetByRangeResponse" message="tns:IApprovalService_GetByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetByRangeWithOrder" message="tns:IApprovalService_GetByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/GetByRangeWithOrderResponse" message="tns:IApprovalService_GetByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/FetchById" message="tns:IApprovalService_FetchById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/FetchByIdResponse" message="tns:IApprovalService_FetchById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/FetchAll" message="tns:IApprovalService_FetchAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/FetchAllResponse" message="tns:IApprovalService_FetchAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/FetchAllWithOrder" message="tns:IApprovalService_FetchAllWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/FetchAllWithOrderResponse" message="tns:IApprovalService_FetchAllWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/FetchByRange" message="tns:IApprovalService_FetchByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/FetchByRangeResponse" message="tns:IApprovalService_FetchByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/FetchByRangeWithOrder" message="tns:IApprovalService_FetchByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/FetchByRangeWithOrderResponse" message="tns:IApprovalService_FetchByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/Query" message="tns:IApprovalService_Query_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/QueryResponse" message="tns:IApprovalService_Query_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/QueryByRange" message="tns:IApprovalService_QueryByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/QueryByRangeResponse" message="tns:IApprovalService_QueryByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/QueryByRangeWithOrder" message="tns:IApprovalService_QueryByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/QueryByRangeWithOrderResponse" message="tns:IApprovalService_QueryByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/Select" message="tns:IApprovalService_Select_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectResponse" message="tns:IApprovalService_Select_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectByRange" message="tns:IApprovalService_SelectByRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectByRangeResponse" message="tns:IApprovalService_SelectByRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectByRangeWithOrder" message="tns:IApprovalService_SelectByRangeWithOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectByRangeWithOrderResponse" message="tns:IApprovalService_SelectByRangeWithOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectByRangeWithMultiOrder" message="tns:IApprovalService_SelectByRangeWithMultiOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectByRangeWithMultiOrderResponse" message="tns:IApprovalService_SelectByRangeWithMultiOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrderLazyLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectByRangeWithMultiOrderLazyLoad" message="tns:IApprovalService_SelectByRangeWithMultiOrderLazyLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectByRangeWithMultiOrderLazyLoadResponse" message="tns:IApprovalService_SelectByRangeWithMultiOrderLazyLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/Create" message="tns:IApprovalService_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/CreateResponse" message="tns:IApprovalService_Create_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Approval/CreateServerErrFault" name="ServerErrFault" message="tns:IApprovalService_Create_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/CreateNew" message="tns:IApprovalService_CreateNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/CreateNewResponse" message="tns:IApprovalService_CreateNew_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Approval/CreateNewServerErrFault" name="ServerErrFault" message="tns:IApprovalService_CreateNew_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/DeleteById" message="tns:IApprovalService_DeleteById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/DeleteByIdResponse" message="tns:IApprovalService_DeleteById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Approval/DeleteByIdServerErrFault" name="ServerErrFault" message="tns:IApprovalService_DeleteById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/Delete" message="tns:IApprovalService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/DeleteResponse" message="tns:IApprovalService_Delete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Approval/DeleteServerErrFault" name="ServerErrFault" message="tns:IApprovalService_Delete_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/Update" message="tns:IApprovalService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/UpdateResponse" message="tns:IApprovalService_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Approval/UpdateServerErrFault" name="ServerErrFault" message="tns:IApprovalService_Update_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/UpdateExisted" message="tns:IApprovalService_UpdateExisted_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/UpdateExistedResponse" message="tns:IApprovalService_UpdateExisted_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Approval/UpdateExistedServerErrFault" name="ServerErrFault" message="tns:IApprovalService_UpdateExisted_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/Remove" message="tns:IApprovalService_Remove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/RemoveResponse" message="tns:IApprovalService_Remove_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Approval/RemoveServerErrFault" name="ServerErrFault" message="tns:IApprovalService_Remove_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/RemoveById" message="tns:IApprovalService_RemoveById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/RemoveByIdResponse" message="tns:IApprovalService_RemoveById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Approval/RemoveByIdServerErrFault" name="ServerErrFault" message="tns:IApprovalService_RemoveById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectSum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectSum" message="tns:IApprovalService_SelectSum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectSumResponse" message="tns:IApprovalService_SelectSum_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectSumServerErrFault" name="ServerErrFault" message="tns:IApprovalService_SelectSum_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectById" message="tns:IApprovalService_SelectById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectByIdResponse" message="tns:IApprovalService_SelectById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectByIdServerErrFault" name="ServerErrFault" message="tns:IApprovalService_SelectById_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectWithMultiOrder" message="tns:IApprovalService_SelectWithMultiOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectWithMultiOrderResponse" message="tns:IApprovalService_SelectWithMultiOrder_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectWithMultiOrderServerErrFault" name="ServerErrFault" message="tns:IApprovalService_SelectWithMultiOrder_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrderLazyLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectWithMultiOrderLazyLoad" message="tns:IApprovalService_SelectWithMultiOrderLazyLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectWithMultiOrderLazyLoadResponse" message="tns:IApprovalService_SelectWithMultiOrderLazyLoad_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceOf_Approval/SelectWithMultiOrderLazyLoadServerErrFault" name="ServerErrFault" message="tns:IApprovalService_SelectWithMultiOrderLazyLoad_ServerErrFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovableDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/GetApprovableDocument" message="tns:IApprovalService_GetApprovableDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/GetApprovableDocumentResponse" message="tns:IApprovalService_GetApprovableDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewApproval">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/AddNewApproval" message="tns:IApprovalService_AddNewApproval_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/AddNewApprovalResponse" message="tns:IApprovalService_AddNewApproval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistedApproval">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/UpdateExistedApproval" message="tns:IApprovalService_UpdateExistedApproval_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/UpdateExistedApprovalResponse" message="tns:IApprovalService_UpdateExistedApproval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApproval">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/DeleteApproval" message="tns:IApprovalService_DeleteApproval_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/DeleteApprovalResponse" message="tns:IApprovalService_DeleteApproval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalConditions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/GetApprovalConditions" message="tns:IApprovalService_GetApprovalConditions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/GetApprovalConditionsResponse" message="tns:IApprovalService_GetApprovalConditions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalStages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/GetApprovalStages" message="tns:IApprovalService_GetApprovalStages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/GetApprovalStagesResponse" message="tns:IApprovalService_GetApprovalStages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveQuota">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/ApproveQuota" message="tns:IApprovalService_ApproveQuota_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/ApproveQuotaResponse" message="tns:IApprovalService_ApproveQuota_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectQuota">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/RejectQuota" message="tns:IApprovalService_RejectQuota_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/RejectQuotaResponse" message="tns:IApprovalService_RejectQuota_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanEdit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/CanEdit" message="tns:IApprovalService_CanEdit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/CanEditResponse" message="tns:IApprovalService_CanEdit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/CanDelete" message="tns:IApprovalService_CanDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/CanDeleteResponse" message="tns:IApprovalService_CanDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApprovePaymentRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/ApprovePaymentRequest" message="tns:IApprovalService_ApprovePaymentRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/ApprovePaymentRequestResponse" message="tns:IApprovalService_ApprovePaymentRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectPaymentRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/RejectPaymentRequest" message="tns:IApprovalService_RejectPaymentRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/RejectPaymentRequestResponse" message="tns:IApprovalService_RejectPaymentRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveVATInvoiceRequestLine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/ApproveVATInvoiceRequestLine" message="tns:IApprovalService_ApproveVATInvoiceRequestLine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/ApproveVATInvoiceRequestLineResponse" message="tns:IApprovalService_ApproveVATInvoiceRequestLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectVATInvoiceRequestLine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/RejectVATInvoiceRequestLine" message="tns:IApprovalService_RejectVATInvoiceRequestLine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/RejectVATInvoiceRequestLineResponse" message="tns:IApprovalService_RejectVATInvoiceRequestLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApproveBP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/ApproveBP" message="tns:IApprovalService_ApproveBP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/ApproveBPResponse" message="tns:IApprovalService_ApproveBP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectBP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApprovalService/RejectBP" message="tns:IApprovalService_RejectBP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApprovalService/RejectBPResponse" message="tns:IApprovalService_RejectBP_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IApprovalService" type="tns:IApprovalService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/GetById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/GetAllCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/FetchCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/GetCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/GetAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/GetByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/GetByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/FetchById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAll">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/FetchAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchAllWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/FetchAllWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/FetchByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FetchByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/FetchByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/Query" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/QueryByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/QueryByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Select">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/Select" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRange">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/SelectByRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/SelectByRangeWithOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/SelectByRangeWithMultiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectByRangeWithMultiOrderLazyLoad">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/SelectByRangeWithMultiOrderLazyLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNew">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/CreateNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/DeleteById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExisted">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/UpdateExisted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/Remove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/RemoveById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectSum">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/SelectSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectById">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/SelectById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrder">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/SelectWithMultiOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWithMultiOrderLazyLoad">
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Approval/SelectWithMultiOrderLazyLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServerErrFault">
+        <soap:fault use="literal" name="ServerErrFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovableDocument">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/GetApprovableDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewApproval">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/AddNewApproval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExistedApproval">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/UpdateExistedApproval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApproval">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/DeleteApproval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalConditions">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/GetApprovalConditions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalStages">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/GetApprovalStages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveQuota">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/ApproveQuota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectQuota">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/RejectQuota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanEdit">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/CanEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanDelete">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/CanDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApprovePaymentRequest">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/ApprovePaymentRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectPaymentRequest">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/RejectPaymentRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveVATInvoiceRequestLine">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/ApproveVATInvoiceRequestLine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectVATInvoiceRequestLine">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/RejectVATInvoiceRequestLine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApproveBP">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/ApproveBP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectBP">
+      <soap:operation soapAction="http://tempuri.org/IApprovalService/RejectBP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ApprovalService">
+    <wsdl:port name="BasicHttpBinding_IApprovalService" binding="tns:BasicHttpBinding_IApprovalService">
+      <soap:address location="http://localhost:1558/SystemSetting/ApprovalService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

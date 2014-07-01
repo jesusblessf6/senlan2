@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PriceDBEntity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PriceDBEntity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1558/MarketPrice/MarketPriceService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="ArrayOfLME_OfficialPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LME_OfficialPrice" nillable="true" type="tns:LME_OfficialPrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLME_OfficialPrice" nillable="true" type="tns:ArrayOfLME_OfficialPrice" />
+  <xs:complexType name="LME_OfficialPrice">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CashAvg" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="CashBuy" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="CashSell" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="LME_Commodity" nillable="true" type="tns:LME_Commodity" />
+          <xs:element minOccurs="0" name="LME_CommodityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LME_CommodityReference" nillable="true" type="q1:EntityReferenceOfLME_CommoditygsKJfjsY" />
+          <xs:element minOccurs="0" name="LME_OfficialPriceID" type="xs:int" />
+          <xs:element minOccurs="0" name="Month15Avg" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Month15Buy" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Month15Sell" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Month27Avg" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Month27Buy" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Month27Sell" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Month3Avg" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Month3Buy" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Month3Sell" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="TradeDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LME_OfficialPrice" nillable="true" type="tns:LME_OfficialPrice" />
+  <xs:complexType name="LME_Commodity">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnglishName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LME_CommodityID" type="xs:int" />
+          <xs:element minOccurs="0" name="LME_EvaDay" nillable="true" type="tns:ArrayOfLME_EvaDay" />
+          <xs:element minOccurs="0" name="LME_EvaMonth" nillable="true" type="tns:ArrayOfLME_EvaMonth" />
+          <xs:element minOccurs="0" name="LME_EvaWeek" nillable="true" type="tns:ArrayOfLME_EvaWeek" />
+          <xs:element minOccurs="0" name="LME_LastedPrice" nillable="true" type="tns:ArrayOfLME_LastedPrice" />
+          <xs:element minOccurs="0" name="LME_OfficialPrice" nillable="true" type="tns:ArrayOfLME_OfficialPrice" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NorCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LME_Commodity" nillable="true" type="tns:LME_Commodity" />
+  <xs:complexType name="ArrayOfLME_EvaDay">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LME_EvaDay" nillable="true" type="tns:LME_EvaDay" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLME_EvaDay" nillable="true" type="tns:ArrayOfLME_EvaDay" />
+  <xs:complexType name="LME_EvaDay">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LME_Commodity" nillable="true" type="tns:LME_Commodity" />
+          <xs:element minOccurs="0" name="LME_CommodityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LME_CommodityReference" nillable="true" type="q3:EntityReferenceOfLME_CommoditygsKJfjsY" />
+          <xs:element minOccurs="0" name="LME_EvaDayID" type="xs:int" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PromptDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TradeDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LME_EvaDay" nillable="true" type="tns:LME_EvaDay" />
+  <xs:complexType name="ArrayOfLME_EvaMonth">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LME_EvaMonth" nillable="true" type="tns:LME_EvaMonth" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLME_EvaMonth" nillable="true" type="tns:ArrayOfLME_EvaMonth" />
+  <xs:complexType name="LME_EvaMonth">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LME_Commodity" nillable="true" type="tns:LME_Commodity" />
+          <xs:element minOccurs="0" name="LME_CommodityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LME_CommodityReference" nillable="true" type="q4:EntityReferenceOfLME_CommoditygsKJfjsY" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PromptDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TradeDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="lME_EvaMonthID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LME_EvaMonth" nillable="true" type="tns:LME_EvaMonth" />
+  <xs:complexType name="ArrayOfLME_EvaWeek">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LME_EvaWeek" nillable="true" type="tns:LME_EvaWeek" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLME_EvaWeek" nillable="true" type="tns:ArrayOfLME_EvaWeek" />
+  <xs:complexType name="LME_EvaWeek">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LME_Commodity" nillable="true" type="tns:LME_Commodity" />
+          <xs:element minOccurs="0" name="LME_CommodityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LME_CommodityReference" nillable="true" type="q5:EntityReferenceOfLME_CommoditygsKJfjsY" />
+          <xs:element minOccurs="0" name="LME_EvaWeekID" type="xs:int" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PromptDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TradeDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LME_EvaWeek" nillable="true" type="tns:LME_EvaWeek" />
+  <xs:complexType name="ArrayOfLME_LastedPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LME_LastedPrice" nillable="true" type="tns:LME_LastedPrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLME_LastedPrice" nillable="true" type="tns:ArrayOfLME_LastedPrice" />
+  <xs:complexType name="LME_LastedPrice">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="BuyPrice1" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="BuyPrice2" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="BuyPrice3" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="BuyVolume1" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="BuyVolume2" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="BuyVolume3" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="HighestPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="LME_Commodity" nillable="true" type="tns:LME_Commodity" />
+          <xs:element minOccurs="0" name="LME_CommodityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LME_CommodityReference" nillable="true" type="q6:EntityReferenceOfLME_CommoditygsKJfjsY" />
+          <xs:element minOccurs="0" name="LME_LastedPriceID" type="xs:int" />
+          <xs:element minOccurs="0" name="LastedPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="LowestPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="OpeningPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PZCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PZCodeExplain" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PreClosingPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PreSettledPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PriceTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SellPrice1" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SellPrice2" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SellPrice3" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SellVolume1" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SellVolume2" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SellVolume3" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SettledPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="TradeDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Volume" nillable="true" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LME_LastedPrice" nillable="true" type="tns:LME_LastedPrice" />
+  <xs:complexType name="ArrayOfSHFE_MonthlySettlePrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SHFE_MonthlySettlePrice" nillable="true" type="tns:SHFE_MonthlySettlePrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSHFE_MonthlySettlePrice" nillable="true" type="tns:ArrayOfSHFE_MonthlySettlePrice" />
+  <xs:complexType name="SHFE_MonthlySettlePrice">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClosePrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PromptMonth" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PromptYear" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SHFE_Commodity" nillable="true" type="tns:SHFE_Commodity" />
+          <xs:element minOccurs="0" name="SHFE_CommodityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SHFE_CommodityReference" nillable="true" type="q7:EntityReferenceOfSHFE_CommoditygsKJfjsY" />
+          <xs:element minOccurs="0" name="SHFE_SettlePriceID" type="xs:int" />
+          <xs:element minOccurs="0" name="SettlePrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="TradeDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SHFE_MonthlySettlePrice" nillable="true" type="tns:SHFE_MonthlySettlePrice" />
+  <xs:complexType name="SHFE_Commodity">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnglishName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SHFE_CommodityID" type="xs:int" />
+          <xs:element minOccurs="0" name="SHFE_LastedPrice" nillable="true" type="tns:ArrayOfSHFE_LastedPrice" />
+          <xs:element minOccurs="0" name="SHFE_MonthlySettlePrice" nillable="true" type="tns:ArrayOfSHFE_MonthlySettlePrice" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SHFE_Commodity" nillable="true" type="tns:SHFE_Commodity" />
+  <xs:complexType name="ArrayOfSHFE_LastedPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SHFE_LastedPrice" nillable="true" type="tns:SHFE_LastedPrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSHFE_LastedPrice" nillable="true" type="tns:ArrayOfSHFE_LastedPrice" />
+  <xs:complexType name="SHFE_LastedPrice">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="BuyPrice1" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="BuyPrice2" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="BuyPrice3" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="BuyVolume1" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="BuyVolume2" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="BuyVolume3" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="HighestPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="LastedPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="LowestPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="OpeningPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PZCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PZCodeExplain" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PreClosingPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PreSettledPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PriceTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SHFE_Commodity" nillable="true" type="tns:SHFE_Commodity" />
+          <xs:element minOccurs="0" name="SHFE_CommodityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SHFE_CommodityReference" nillable="true" type="q9:EntityReferenceOfSHFE_CommoditygsKJfjsY" />
+          <xs:element minOccurs="0" name="SHFE_LastedPriceID" type="xs:int" />
+          <xs:element minOccurs="0" name="SellPrice1" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SellPrice2" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SellPrice3" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SellVolume1" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SellVolume2" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SellVolume3" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="SettledPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="TradeDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Volume" nillable="true" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SHFE_LastedPrice" nillable="true" type="tns:SHFE_LastedPrice" />
+  <xs:complexType name="ArrayOfSMM_SMMWebPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SMM_SMMWebPrice" nillable="true" type="tns:SMM_SMMWebPrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSMM_SMMWebPrice" nillable="true" type="tns:ArrayOfSMM_SMMWebPrice" />
+  <xs:complexType name="SMM_SMMWebPrice">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AveragePrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="HighestPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="LowestPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OpeningPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PreClosingPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PriceTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SMM_Commodity" nillable="true" type="tns:SMM_Commodity" />
+          <xs:element minOccurs="0" name="SMM_CommodityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SMM_CommodityReference" nillable="true" type="q10:EntityReferenceOfSMM_CommoditygsKJfjsY" />
+          <xs:element minOccurs="0" name="SMM_SMMWebPriceID" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdateTime" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SMM_SMMWebPrice" nillable="true" type="tns:SMM_SMMWebPrice" />
+  <xs:complexType name="SMM_Commodity">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChineseName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnglishName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SMM_CommodityID" type="xs:int" />
+          <xs:element minOccurs="0" name="SMM_SMMWebPrice" nillable="true" type="tns:ArrayOfSMM_SMMWebPrice" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SMM_Commodity" nillable="true" type="tns:SMM_Commodity" />
+  <xs:complexType name="CurrentPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CurrentPrice" nillable="true" type="tns:CurrentPrice" />
+</xs:schema>

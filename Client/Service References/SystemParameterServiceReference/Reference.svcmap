@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="eaebe151-7af1-4b63-a1e1-14bf77827548" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/SystemParameterService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SystemParameterService5.xsd" MetadataType="Schema" ID="a97096f8-7cff-458b-ac9e-0f7da20e464c" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SystemParameterService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SystemParameterService.xsd" MetadataType="Schema" ID="ed223fd1-495c-4cb2-b48f-6e854b187b3f" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SystemParameterService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SystemParameterService1.xsd" MetadataType="Schema" ID="34ba3a3d-f11c-4939-ba00-2224415e1ac2" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SystemParameterService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SystemParameterService2.xsd" MetadataType="Schema" ID="742845b4-d4e5-4705-a7d9-75722dacf4c8" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SystemParameterService.svc?xsd=xsd5" />
+    <MetadataFile FileName="SystemParameterService.disco" MetadataType="Disco" ID="536e07b1-7d0c-467f-bc68-b83b9238bc44" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SystemParameterService.svc?disco" />
+    <MetadataFile FileName="SystemParameterService3.xsd" MetadataType="Schema" ID="26c788bb-383e-4c2f-b156-4169c8fb3e63" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SystemParameterService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SystemParameterService.wsdl" MetadataType="Wsdl" ID="647a570b-52ff-42d5-bffc-44fd4fc5187c" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SystemParameterService.svc?wsdl" />
+    <MetadataFile FileName="SystemParameterService4.xsd" MetadataType="Schema" ID="0f98f952-d23d-4f78-a3c4-1038f234ce03" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/SystemParameterService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

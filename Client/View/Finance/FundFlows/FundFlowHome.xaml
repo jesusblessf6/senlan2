@@ -1,0 +1,122 @@
+﻿<baseClient:HomeBasePage x:Class="Client.View.Finance.FundFlows.FundFlowHome"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         ResxExtension.DefaultResxName="Client.View.Finance.FundFlows.ResFundFlow"
+                         Language="{UICulture}"
+                         mc:Ignorable="d"
+                         xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                         d:DesignHeight="546" d:DesignWidth="626"
+                         Title="{Resx ResxName=Client.Properties.Resources, Key=FundFlow}">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Label Content="{Resx FundFlowHome}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Add}" Height="180"
+                      HorizontalAlignment="Left" Margin="40,40,0,0" Name="groupBox1" VerticalAlignment="Top"
+                      Width="250">
+                <Grid>
+                    <Label Content="{Resx Receipt}" Height="28" HorizontalAlignment="Left" Width="100"
+                           HorizontalContentAlignment="Right" Margin="6,46,0,0" Name="label2" VerticalAlignment="Top" />
+                    <Button Content="+" Height="23" HorizontalAlignment="Left" Margin="120,47,0,0" Name="button1"
+                            ToolTip="{Resx AddReceipt}" VerticalAlignment="Top" Width="75"
+                            Click="BtnCreateReceiveClick" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Payment}" Height="28"
+                           HorizontalAlignment="Left" Width="100" HorizontalContentAlignment="Right" Margin="6,80,0,0"
+                           Name="label3" VerticalAlignment="Top" />
+                    <Button Content="+" Height="23" HorizontalAlignment="Left" Margin="120,81,0,0" Name="button2"
+                            ToolTip="{Resx AddPayment}" VerticalAlignment="Top" Width="75"
+                            Click="BtnCreatePaymentClick" />
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Reports}" Height="180"
+                      HorizontalAlignment="Left" Margin="330,40,0,0" Visibility="Hidden" Name="groupBox2"
+                      VerticalAlignment="Top" Width="250">
+                <StackPanel></StackPanel>
+            </GroupBox>
+            <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="300"
+                      HorizontalAlignment="Left" Margin="40,225,0,0" Name="groupBox3" VerticalAlignment="Top"
+                      Width="540">
+                <Grid>
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=QueryShortcut}" FontWeight="Bold"
+                           Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label6"
+                           VerticalAlignment="Top" />
+                    <Button Click="BtnCurrentMonthReceivablesClick" Content="{Resx CurrentMonthReceiptShort}"
+                            ToolTip="{Resx CurrentMonthReceipt}" Height="23" HorizontalAlignment="Left"
+                            Margin="30,40,0,0" Name="btnCurrentMonthList" Style="{StaticResource LinkButton}"
+                            VerticalAlignment="Top" Width="Auto" />
+                    <Button Click="BtnCurrentMonthPaymentClick" Content="{Resx CurrentMonthPaymentShort}"
+                            ToolTip="{Resx CurrentMonthPayment}" Height="23" HorizontalAlignment="Left"
+                            Margin="120,40,0,0" Name="btnLasttMonthList" Style="{StaticResource LinkButton}"
+                            VerticalAlignment="Top" Width="Auto" />
+                    <Button Click="BtnCurrentYearReceivablesClick" Content="{Resx CurrentYearReceiptShort}"
+                            ToolTip="{Resx CurrentYearReceipt}" Height="23" HorizontalAlignment="Left"
+                            Margin="210,40,0,0" Name="button4" Style="{StaticResource LinkButton}"
+                            VerticalAlignment="Top" Width="Auto" />
+                    <Button Click="BtnCurrentYearPaymentClick" Content="{Resx CurrentYearPaymentShort}"
+                            ToolTip="{Resx CurrentYearPayment}" Height="23" HorizontalAlignment="Left"
+                            Margin="300,40,0,0" Name="button5" Style="{StaticResource LinkButton}"
+                            VerticalAlignment="Top" Width="Auto" />
+
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=AdvancedQuery}" FontWeight="Bold"
+                           Height="28" HorizontalAlignment="Left" Margin="6,70,0,0" Name="label7"
+                           VerticalAlignment="Top" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=BP}" Height="28" Width="100"
+                           HorizontalContentAlignment="Right"
+                           HorizontalAlignment="Left" Margin="1,98,0,0" Name="label8" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="107,100,0,0" Name="textBox1"
+                             Text="{Binding BPartnerName}" VerticalAlignment="Top" Width="120" IsEnabled="False" />
+                    <Button Click="BtnCustomerClick" Content="..." Height="23" HorizontalAlignment="Left"
+                            Margin="231,100,0,0" Name="btnCustomer" VerticalAlignment="Top" Width="25" />
+
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=FinancialAccountShort}"
+                           ToolTip="{Resx ResxName=Client.Properties.Resources, Key=FinancialAccount}" Height="28"
+                           Width="100" HorizontalContentAlignment="Right"
+                           HorizontalAlignment="Left" Margin="267,98,0,0" Name="label9" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="373,100,0,0" Name="textBox2"
+                             Text="{Binding FinancialAccountName}"
+                             ToolTip="{Resx ResxName=Client.Properties.Resources, Key=FinancialAccount}"
+                             VerticalAlignment="Top" Width="120" IsEnabled="False" />
+                    <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="497,100,0,0" Name="button3"
+                            VerticalAlignment="Top" Width="25" Click="BtnFinancialAccountClick" />
+
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=StartDate}" Height="28" Width="100"
+                           HorizontalContentAlignment="Right"
+                           HorizontalAlignment="Left" Margin="1,130,0,0" Name="label10" VerticalAlignment="Top" />
+                    <DatePicker Height="23" HorizontalAlignment="Left" Margin="107,132,0,0" Name="datePicker1"
+                                SelectedDate="{Binding StartDate}" VerticalAlignment="Top" Width="120" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=EndDate}" Height="28" Width="100"
+                           HorizontalContentAlignment="Right"
+                           HorizontalAlignment="Left" Margin="267,130,0,0" Name="label11" VerticalAlignment="Top" />
+                    <DatePicker Height="23" HorizontalAlignment="Left" Margin="373,132,0,0" Name="datePicker2"
+                                SelectedDate="{Binding EndDate}" VerticalAlignment="Top" Width="120" />
+
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomerShort}"
+                           ToolTip="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Height="28"
+                           Width="100" HorizontalContentAlignment="Right"
+                           HorizontalAlignment="Left" Margin="1,162,0,0" Name="label12" VerticalAlignment="Top" />
+                    <ComboBox DisplayMemberPath="ShortName" Height="23"
+                              ToolTip="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}"
+                              HorizontalAlignment="Left" ItemsSource="{Binding InternalCustomers}" Margin="107,164,0,0"
+                              Name="comboBoxMetal" SelectedValue="{Binding ICId}" SelectedValuePath="Id"
+                              VerticalAlignment="Top" Width="120" />
+                    <Label Content="收/付款" Height="28" Width="100"
+                           HorizontalContentAlignment="Right"
+                           HorizontalAlignment="Left" Margin="267,162,0,0" Name="label4" VerticalAlignment="Top" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="373,164,0,0" Name="comboBox1" VerticalAlignment="Top" Width="120" ItemsSource="{Binding FundFlowTypes}"  DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding SelectFundFlowType}"/>
+                    <CheckBox Content="仅显示当前用户文档" Height="16" HorizontalAlignment="Left" Margin="107,200,0,0" Name="checkBox1" VerticalAlignment="Top" IsChecked="{Binding ContainCurrentUser}"/>
+                    
+                    <Button Click="Query" Content="{Resx ResxName=Client.Properties.Resources, Key=Query}"
+                            Height="23" HorizontalAlignment="Left" Margin="198,242,0,0" Name="btnSearch"
+                            VerticalAlignment="Top" Width="75" />
+                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Reset}" Height="23"
+                            HorizontalAlignment="Left" Margin="300,242,0,0" Name="button6" VerticalAlignment="Top"
+                            Width="75" Visibility="Visible" Click="Reset" />
+                    <Label Content="批次号" Height="28" HorizontalAlignment="Left" Margin="267,194,0,0" Width="100" Name="label1" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="373,196,0,0" Name="textBox3" VerticalAlignment="Top" Width="120" Text="{Binding QuotaNo}"/>
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </ScrollViewer>
+</baseClient:HomeBasePage>

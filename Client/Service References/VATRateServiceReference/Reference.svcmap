@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a90ddda4-1461-4756-82ad-cccc1beb38b9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/VATRateService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VATRateService.wsdl" MetadataType="Wsdl" ID="00bfa285-23c3-4d0e-9cea-e1e2e9f432c1" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/VATRateService.svc?wsdl" />
+    <MetadataFile FileName="VATRateService.xsd" MetadataType="Schema" ID="d5fb2105-3d27-4722-941c-f9f1d1676fa8" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/VATRateService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VATRateService3.xsd" MetadataType="Schema" ID="febab8f7-08f1-4738-96cc-7fbf27e61326" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/VATRateService.svc?xsd=xsd4" />
+    <MetadataFile FileName="VATRateService1.xsd" MetadataType="Schema" ID="73a67185-b964-46b9-952c-7abf3013aa36" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/VATRateService.svc?xsd=xsd2" />
+    <MetadataFile FileName="VATRateService.disco" MetadataType="Disco" ID="c2f0fa61-c7a8-4c4f-b453-6b3a3a6b842d" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/VATRateService.svc?disco" />
+    <MetadataFile FileName="VATRateService2.xsd" MetadataType="Schema" ID="3c6b96e7-23d2-4cc3-a84d-5abce26f06a8" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/VATRateService.svc?xsd=xsd5" />
+    <MetadataFile FileName="VATRateService4.xsd" MetadataType="Schema" ID="2b28c595-c1f7-43ba-9ecc-1ead161a5879" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/VATRateService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VATRateService5.xsd" MetadataType="Schema" ID="2a630503-05d3-4bd4-b5d0-ca763f8fffb7" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/VATRateService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

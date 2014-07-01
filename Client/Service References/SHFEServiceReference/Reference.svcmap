@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="74d09144-a824-42c5-9c13-179548a18efd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Futures/SHFE/SHFEService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SHFEService.xsd" MetadataType="Schema" ID="8f380292-99ee-4560-afbf-e09a184af167" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SHFEService5.xsd" MetadataType="Schema" ID="4f7aac6f-94a4-4111-8e5d-099ea783d622" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SHFEService.disco" MetadataType="Disco" ID="2400ec42-6f56-4b5e-bbd4-da3f22099b88" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEService.svc?disco" />
+    <MetadataFile FileName="SHFEService2.xsd" MetadataType="Schema" ID="ecfe7de7-297d-447f-9e43-36afe51d510b" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEService.svc?xsd=xsd5" />
+    <MetadataFile FileName="SHFEService.wsdl" MetadataType="Wsdl" ID="8b52d042-0c44-4db1-a1d2-401d8b383bad" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEService.svc?wsdl" />
+    <MetadataFile FileName="SHFEService1.xsd" MetadataType="Schema" ID="573ded94-c9d6-42ae-9fd5-e5dc56668bef" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SHFEService3.xsd" MetadataType="Schema" ID="120339e1-33c1-4aab-978b-8478b52ae754" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SHFEService4.xsd" MetadataType="Schema" ID="bd44e8c6-5ad0-4e0a-b6ba-56de3be976a6" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

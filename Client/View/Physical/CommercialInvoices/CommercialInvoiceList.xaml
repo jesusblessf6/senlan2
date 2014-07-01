@@ -1,0 +1,85 @@
+﻿<baseClient:BasePage x:Class="Client.View.Physical.CommercialInvoices.CommercialInvoiceList"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               ResxExtension.DefaultResxName="Client.View.Physical.CommercialInvoices.ResCommercialInvoice"
+               Language="{UICulture}"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+               d:DesignHeight="710" d:DesignWidth="1185" Title="{Resx CommercialInvoiceList}"
+               xmlns:my="clr-namespace:Utility.Controls;assembly=Utility" xmlns:Converters="clr-namespace:Client.Converters"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+                     xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                     xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity">
+    <Page.Resources>
+        <Converters:InvoiceTypeConverter x:Key="InvoiceTypeConverter" />
+        <Converters:InvoicePrintVisibleConverter x:Key="InvoicePrintVisibleConverter" />
+        <Converters:NullEmptyInt2BoolReverse x:Key="Null2Bool"></Converters:NullEmptyInt2BoolReverse>
+
+        <RoutedCommand x:Key="InvoiceEdit"></RoutedCommand>
+        <RoutedCommand x:Key="InvoiceDelete"></RoutedCommand>
+        <RoutedCommand x:Key="InvoicePrint"></RoutedCommand>
+        <RoutedCommand x:Key="PrintDocument"></RoutedCommand>
+        <RoutedCommand x:Key="AttachmentView"></RoutedCommand>
+
+        <DataTemplate x:Key="InvoiceActions" DataType="DBEntity:CommercialInvoice">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btInvoiceEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource InvoiceEdit}"
+                        CommandParameter="{Binding Id}" IsEnabled="{Binding BaseCommercialInvoiceId, Converter={StaticResource Null2Bool}}"></Button>
+                <Button Name="btInvoiceDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource InvoiceDelete}"
+                        CommandParameter="{Binding Id}" IsEnabled="{Binding BaseCommercialInvoiceId, Converter={StaticResource Null2Bool}}"></Button>
+                <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Attachment}"  HorizontalAlignment="Right" Name="btAttachmentView" CommandParameter="{Binding Id}" Command="{StaticResource AttachmentView}"></Button>
+                <Button Name="btInvoicePrint" Content="{Resx ResxName=Client.Properties.Resources, Key=Print}"
+                        Visibility="{Binding Quota.Contract.ContractType, Converter={StaticResource InvoicePrintVisibleConverter}}"
+                        Command="{StaticResource InvoicePrint}" CommandParameter="{Binding Id}"></Button>
+                <Button Name="btDocumentPrint" Content="打印单据"
+                        Visibility="{Binding Quota.Contract.ContractType, Converter={StaticResource InvoicePrintVisibleConverter}}"
+                        Command="{StaticResource PrintDocument}" CommandParameter="{Binding Id}"></Button>
+                
+            </StackPanel>
+        </DataTemplate>
+
+    </Page.Resources>
+
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource InvoiceEdit}" CanExecute="InvoiceCanExecute"
+                        Executed="InvoiceEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource InvoiceDelete}" CanExecute="InvoiceCanExecute"
+                        Executed="InvoiceDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource InvoicePrint}" CanExecute="InvoiceCanExecute"
+                        Executed="InvoicePrintExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource PrintDocument}" CanExecute="InvoiceCanExecute"
+                        Executed="PrintDocumentExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource AttachmentView}" CanExecute="AttachmentViewCanExecute"
+                        Executed="AttachmentViewExecuted"></CommandBinding>
+    </Page.CommandBindings>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+        <Grid Name="rootGrid">
+            <Label Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <DataGrid Margin="6,72,0,0" ItemsSource="{Binding}" x:Name="dataGrid1" AutoGenerateColumns="False"
+                      CanUserAddRows="False" IsReadOnly="True" Height="auto" VerticalAlignment="Top" HorizontalAlignment="Left" Width="auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=CommInvoiceNo}" Binding="{Binding InvoiceNo}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" Binding="{Binding Quota.QuotaNo}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Supplier}" Binding="{Binding Quota.Contract.BusinessPartner.ShortName}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Binding="{Binding Quota.Contract.InternalCustomer.ShortName}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Physical.CommercialInvoices.ResCommercialInvoice, Key=InvoiceType}"
+                                        Binding="{Binding InvoiceType, Converter={StaticResource InvoiceTypeConverter}}" />
+                    <DataGridTextColumn Header="开票日期" Binding="{Binding InvoicedDate,StringFormat='yyyy/MM/dd'}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Physical.CommercialInvoices.ResCommercialInvoice, Key=RelatedInvoiceNo}" Binding="{Binding FinalInvoice.InvoiceNo}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Binding="{Binding Quota.Commodity.Name}" />
+                    <DataGridTextColumn Header="结算金额" Binding="{Binding Amount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=SettleCurrency}" Binding="{Binding Currency.Name}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=GrossWeight}" Binding="{Binding GrossWeights, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=NetWeight}" Binding="{Binding NetWeights, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Binding="{Binding Comment}" />
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                            CellTemplate="{StaticResource InvoiceActions}"></DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <my:PagingControl HorizontalAlignment="Left" Margin="6,40,0,0" Name="pagingControl1"
+                              VerticalAlignment="Top" />
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

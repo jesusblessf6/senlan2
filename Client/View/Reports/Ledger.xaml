@@ -1,0 +1,241 @@
+﻿<baseClient:BasePage x:Class="Client.View.Reports.Ledger"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     ResxExtension.DefaultResxName="Client.View.Reports.ResReport"
+                     Language="{UICulture}"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                     xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+                     mc:Ignorable="d"
+                     d:DesignHeight="450" d:DesignWidth="2272" Title="{Resx Ledger}">
+
+    <Page.Resources>
+
+        <Style TargetType="Label" x:Key="LabelStyle">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="MinHeight" Value="28"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="MinWidth" Value="100"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+    </Page.Resources>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+        <Grid x:Name="rootGrid">
+            <Label Content="{Resx Ledger}" Name="lbTitle" HorizontalAlignment="Left" Margin="6,6,0,0" Height="32"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <GroupBox Header="{Resx ResxName=Client.Properties.Resources, Key=Conditions}" Height="100"
+                      HorizontalAlignment="Left" Margin="6,40,0,0" Name="groupBox1"
+                      VerticalAlignment="Top" Width="900">
+                <Grid>
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Commodity}"
+                           Style="{StaticResource LabelStyle}" HorizontalAlignment="Left"
+                           Margin="1,10,0,0" Name="label12" VerticalAlignment="Top" Foreground="Crimson" />
+                    <ComboBox DisplayMemberPath="Name" HorizontalAlignment="Left" ItemsSource="{Binding Metals}"
+                              Margin="107,12,0,0" Name="comboBoxMetal" SelectedValue="{Binding SelectedMetalId}"
+                              SelectedValuePath="Id"
+                              VerticalAlignment="Top" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=SignSide}"
+                           Style="{StaticResource LabelStyle}" HorizontalAlignment="Left"
+                           Margin="260,10,0,0" Name="label2" VerticalAlignment="Top" Foreground="Crimson" />
+                    <ComboBox DisplayMemberPath="ShortName" HorizontalAlignment="Left"
+                              ItemsSource="{Binding InternalCustomers}" Margin="366,12,0,0" Name="comboBox1"
+                              SelectedValue="{Binding SelectedInternalCustomersId}" SelectedValuePath="Id"
+                              VerticalAlignment="Top" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=StartDate}"
+                           Style="{StaticResource LabelStyle}" HorizontalAlignment="Left"
+                           Margin="1,42,0,0" Name="label10" VerticalAlignment="Top" />
+                    <Label Content="{Resx ResxName=Client.Properties.Resources, Key=EndDate}"
+                           Style="{StaticResource LabelStyle}"
+                           HorizontalAlignment="Left" Margin="260,42,0,0" Name="label11" VerticalAlignment="Top" />
+                    <DatePicker HorizontalAlignment="Left" Margin="107,44,0,0" Name="datePicker1"
+                                SelectedDate="{Binding StartDate}" VerticalAlignment="Top" />
+                    <DatePicker HorizontalAlignment="Left" Margin="366,44,0,0" Name="datePicker2"
+                                SelectedDate="{Binding EndDate}" VerticalAlignment="Top" />
+                    <Label Content="{Resx CustomerName}" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left"
+                           Margin="519,10,0,0" Name="label3" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="625,12,0,0" Name="textBox1"
+                             Text="{Binding CustomerName}" VerticalAlignment="Top" IsEnabled="False" />
+                    <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="749,12,0,0" Name="btnCustomer"
+                            VerticalAlignment="Top" Width="25" Click="BtnCustomerClick" />
+                    <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Query}" Height="23"
+                            HorizontalAlignment="Left" Margin="791,44,0,0" Name="button1"
+                            VerticalAlignment="Top" Width="75" Click="Button1Click" IsDefault="True" />
+                    <Label Content="采购客户" HorizontalAlignment="Left" Margin="519,42,0,0" Name="label6"
+                           Style="{StaticResource LabelStyle}" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="625,44,0,0" Name="textBox2"
+                             Text="{Binding PurchaseCustomerName}" VerticalAlignment="Top" IsEnabled="False" />
+                    <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="749,44,0,0"
+                            Name="buttonPurchaseCustomer" VerticalAlignment="Top" Width="25"
+                            Click="ButtonPurchaseCustomerClick" />
+                    <Button Content="导出Excel" Height="23" HorizontalAlignment="Left" Margin="791,13,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="button2_Click_1" />
+                </Grid>
+            </GroupBox>
+            <Separator Height="17" Margin="6,146,6,0" Name="separator1" VerticalAlignment="Top" />
+            <StackPanel Height="auto" HorizontalAlignment="Left" Margin="6,166,0,0" Name="stackPanel1"
+                        VerticalAlignment="Top" Width="auto">
+                <!--<DataGrid AutoGenerateColumns="False" CanUserSortColumns="False" Height="auto" Name="dataGrid1"
+                          ItemsSource="{Binding}" Width="auto" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=PurchaseQuotaNo}" Binding="{Binding pQuotaNo}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=PurchaseDate}" Binding="{Binding pQuotaDate, StringFormat=yyyy-MM-dd}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Supplier}" Binding="{Binding pQuotaSupplier}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Binding="{Binding metalName}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Binding="{Binding pBrandName}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaQuantity}" Binding="{Binding pQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ActualQuantity}" Binding="{Binding pVerifiedQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=SalesQty}" Binding="{Binding pSalesQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Price}" Binding="{Binding pPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Currency}" Binding="{Binding pCurrency}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Payable}" Binding="{Binding pPay, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PaidAmount}" Binding="{Binding pPaid, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=Received}" Binding="{Binding pReceived, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Settlement}" Binding="{Binding pSettle, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=SettleCurrency}" Binding="{Binding pSettleCurrency}" />
+                        <DataGridTemplateColumn Width="10">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Background="SteelBlue" Text=""></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=SalesQuotaNo}" Binding="{Binding sQuotaNo}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=SalesDate}" Binding="{Binding sQuotaDate, StringFormat=yyyy-MM-dd}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Buyer}" Binding="{Binding sQuotaBuyer}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}" Binding="{Binding sBrandName}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaQuantity}" Binding="{Binding sQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ActualQuantity}" Binding="{Binding sVerifiedQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Price}" Binding="{Binding sPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Currency}" Binding="{Binding sCurrency}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Receivable}" Binding="{Binding sReceive, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=Received}" Binding="{Binding sReceived, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PaidAmount}" Binding="{Binding sPaid, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Settlement}" Binding="{Binding sSettle, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=SettleCurrency}" Binding="{Binding sSettleCurrency}" />
+                        <DataGridTextColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=PhysicalGrossProfit}" Binding="{Binding profit, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                    </DataGrid.Columns>
+                </DataGrid>-->
+                <ListView Name="lvGrid" Height="Auto" ItemsSource="{Binding}" Loaded="LvGridLoaded">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn
+                                    Header="{Resx ResxName=Client.View.Reports.ResReport, Key=PurchaseQuotaNo}"
+                                    Width="Auto" DisplayMemberBinding="{Binding Path=PQuotaNo}" />
+                                <GridViewColumn
+                                    Header="{Resx ResxName=Client.View.Reports.ResReport, Key=PurchaseDate}"
+                                    Width="Auto" DisplayMemberBinding="{Binding PQuotaDate, StringFormat=yyyy-MM-dd}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Supplier}"
+                                                Width="Auto" DisplayMemberBinding="{Binding PQuotaSupplier}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}"
+                                                Width="Auto" DisplayMemberBinding="{Binding MetalName}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}"
+                                                Width="Auto" DisplayMemberBinding="{Binding PBrandName}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaQuantity}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding PQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                                <GridViewColumn
+                                    Header="{Resx ResxName=Client.Properties.Resources, Key=ActualQuantity}"
+                                    Width="Auto"
+                                    DisplayMemberBinding="{Binding PVerifiedQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=SalesQty}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding PSalesQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Price}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding PPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Currency}"
+                                                Width="Auto" DisplayMemberBinding="{Binding PCurrency}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Payable}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding PPay, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PaidAmount}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding PPaid, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=Received}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding PReceived, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Settlement}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding PSettle, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                                <GridViewColumn
+                                    Header="{Resx ResxName=Client.Properties.Resources, Key=SettleCurrency}"
+                                    Width="Auto" DisplayMemberBinding="{Binding PSettleCurrency}" />
+                                <GridViewColumn Width="15">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Background="SteelBlue" MinWidth="15"></TextBlock>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn
+                                    Header="{Resx ResxName=Client.View.Reports.ResReport, Key=SalesQuotaNo}"
+                                    Width="Auto" DisplayMemberBinding="{Binding SQuotaNo}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=SalesDate}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding SQuotaDate, StringFormat=yyyy-MM-dd}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Buyer}"
+                                                Width="Auto" DisplayMemberBinding="{Binding SQuotaBuyer}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Brand}"
+                                                Width="Auto" DisplayMemberBinding="{Binding SBrandName}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaQuantity}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding SQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                                <GridViewColumn
+                                    Header="{Resx ResxName=Client.Properties.Resources, Key=ActualQuantity}"
+                                    Width="Auto"
+                                    DisplayMemberBinding="{Binding SVerifiedQty, StringFormat={x:Static enumEntity:RoundRules.STR_QUANTITY}}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Price}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding SPrice, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Currency}"
+                                                Width="Auto" DisplayMemberBinding="{Binding SCurrency}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Receivable}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding SReceive, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.View.Reports.ResReport, Key=Received}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding SReceived, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PaidAmount}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding SPaid, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                                <GridViewColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Settlement}"
+                                                Width="Auto"
+                                                DisplayMemberBinding="{Binding SSettle, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                                <GridViewColumn
+                                    Header="{Resx ResxName=Client.Properties.Resources, Key=SettleCurrency}"
+                                    Width="Auto" DisplayMemberBinding="{Binding SSettleCurrency}" />
+                                <GridViewColumn
+                                    Header="{Resx ResxName=Client.View.Reports.ResReport, Key=PhysicalGrossProfit}"
+                                    Width="Auto"
+                                    DisplayMemberBinding="{Binding Profit, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}" />
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Label Content="{Resx Calculation1}" Height="25"
+                       Name="label5" Width="auto" Margin="0 10 0 0" />
+                <Label Content="{Resx Calculation2}" Height="25" Name="label4" Width="auto" />
+
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+
+</baseClient:BasePage>

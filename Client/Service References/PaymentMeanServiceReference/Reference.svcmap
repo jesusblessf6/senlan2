@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f31934e4-c9b9-4099-a616-b02b30de2022" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/PaymentMeanService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PaymentMeanService.xsd" MetadataType="Schema" ID="8624ab7e-d31e-4d40-9a85-33ced131f61e" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PaymentMeanService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PaymentMeanService1.xsd" MetadataType="Schema" ID="aab84d71-5cf4-479a-8595-ccf98d0984ad" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PaymentMeanService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PaymentMeanService3.xsd" MetadataType="Schema" ID="e869d8b6-cbe7-431c-a8d2-d3eb17d4e8dd" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PaymentMeanService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PaymentMeanService2.xsd" MetadataType="Schema" ID="029d0645-e8f2-4469-97d2-a529124aaba1" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PaymentMeanService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PaymentMeanService4.xsd" MetadataType="Schema" ID="7c2f7038-d491-4e6e-96e1-4a85320b1e12" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PaymentMeanService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PaymentMeanService5.xsd" MetadataType="Schema" ID="dbf2c956-81c1-49ba-9661-ae076a063e6d" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PaymentMeanService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PaymentMeanService.wsdl" MetadataType="Wsdl" ID="3ff1eb54-2e39-465a-9368-03cd44d8ef7d" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PaymentMeanService.svc?wsdl" />
+    <MetadataFile FileName="PaymentMeanService.disco" MetadataType="Disco" ID="2c2a4c62-41fa-48d7-9b59-af6bf572dbb2" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/PaymentMeanService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

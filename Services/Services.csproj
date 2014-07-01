@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{72530613-EB34-481A-B249-4B21C70272E8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Attachments\AttachmentService.svc" />
+    <Content Include="Finance\FundFlows\FundFlowService.svc" />
+    <Content Include="Finance\LetterOfCredits\LCAllocationService.svc" />
+    <Content Include="Finance\LetterOfCredits\LetterOfCreditService.svc" />
+    <Content Include="Futures\Hedge\HedgeGroupService.svc" />
+    <Content Include="Futures\LME\LMEPositionService.svc" />
+    <Content Include="Futures\SHFE\SHFEFundFlowService.svc" />
+    <Content Include="Futures\SHFE\SHFEPositionService.svc" />
+    <Content Include="Futures\SHFE\SHFEService.svc" />
+    <Content Include="Physical\CommercialInvoices\CommercialInvoiceService.svc" />
+    <Content Include="Physical\Contracts\ContractService.svc" />
+    <Content Include="Physical\Contracts\QuotaService.svc" />
+    <Content Include="Physical\Deliveries\DeliveryLineService.svc" />
+    <Content Include="Physical\Deliveries\DeliveryService.svc" />
+    <Content Include="MarketPrice\MarketPriceService.svc" />
+    <Content Include="Physical\Deliveries\ForeignDeliveryPoolLineService.svc" />
+    <Content Include="Physical\Deliveries\ForeignDeliveryPoolService.svc" />
+    <Content Include="Physical\Inventories\InventoryService.svc" />
+    <Content Include="Physical\Pricings\UnpricingService.svc" />
+    <Content Include="Physical\VATInvoices\VATInvoicedRequestLineService.svc" />
+    <Content Include="Physical\VATInvoices\VATInvoiceLineService.svc" />
+    <Content Include="Physical\VATInvoices\VATInvoiceRequestService.svc" />
+    <Content Include="Physical\Payments\PaymentRequestService.svc" />
+    <Content Include="Physical\Pricings\PricingService.svc" />
+    <Content Include="Physical\VATInvoices\VATInvoiceService.svc" />
+    <Content Include="Physical\WarehouseIns\WarehouseInLineService.svc" />
+    <Content Include="Physical\WarehouseIns\WarehouseInService.svc" />
+    <Content Include="Physical\WarehouseOuts\PSQuotaRelService.svc" />
+    <Content Include="Physical\WarehouseOuts\WarehouseOutLineService.svc" />
+    <Content Include="Physical\WarehouseOuts\WarehouseOutService.svc" />
+    <Content Include="SystemSetting\ApprovalService.svc" />
+    <Content Include="SystemSetting\BankAccountService.svc" />
+    <Content Include="SystemSetting\BankService.svc" />
+    <Content Include="SystemSetting\BrandService.svc" />
+    <Content Include="SystemSetting\BusinessPartnerService.svc" />
+    <Content Include="SystemSetting\CategoryService.svc" />
+    <Content Include="SystemSetting\CommissionLineService.svc" />
+    <Content Include="SystemSetting\CommissionService.svc" />
+    <Content Include="SystemSetting\CommodityService.svc" />
+    <Content Include="SystemSetting\CommodityTypeService.svc" />
+    <Content Include="SystemSetting\ContractUDFService.svc" />
+    <Content Include="SystemSetting\CountryService.svc" />
+    <Content Include="SystemSetting\CurrencyService.svc" />
+    <Content Include="SystemSetting\DeliveryPersonService.svc" />
+    <Content Include="SystemSetting\DocumentService.svc" />
+    <Content Include="SystemSetting\FinancialAccountService.svc" />
+    <Content Include="SystemSetting\FunctionService.svc" />
+    <Content Include="SystemSetting\LogMessageService.svc" />
+    <Content Include="SystemSetting\LogRegistrationService.svc" />
+    <Content Include="SystemSetting\ModuleService.svc" />
+    <Content Include="SystemSetting\PaymentMeanService.svc" />
+    <Content Include="SystemSetting\PaymentUsageService.svc" />
+    <Content Include="SystemSetting\PortService.svc" />
+    <Content Include="SystemSetting\RateService.svc" />
+    <Content Include="SystemSetting\RoleService.svc" />
+    <Content Include="SystemSetting\SpecificationService.svc" />
+    <Content Include="SystemSetting\SystemParameterService.svc" />
+    <Content Include="SystemSetting\UserService.svc" />
+    <Content Include="SystemSetting\VATRateService.svc" />
+    <Content Include="SystemSetting\WarehouseService.svc" />
+    <Content Include="Attachments\UploadService.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attachments\AttachmentService.svc.cs">
+      <DependentUpon>AttachmentService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Attachments\IAttachmentService.cs" />
+    <Compile Include="Base\BaseService.cs" />
+    <Compile Include="Base\IService.cs" />
+    <Compile Include="Finance\FundFlows\FundFlowService.svc.cs">
+      <DependentUpon>FundFlowService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Finance\FundFlows\IFundFlowService.cs" />
+    <Compile Include="Finance\LetterOfCredits\ILCAllocationService.cs" />
+    <Compile Include="Finance\LetterOfCredits\ILetterOfCreditService.cs" />
+    <Compile Include="Finance\LetterOfCredits\LCAllocationService.svc.cs">
+      <DependentUpon>LCAllocationService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Finance\LetterOfCredits\LetterOfCreditService.svc.cs">
+      <DependentUpon>LetterOfCreditService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Futures\Hedge\HedgeGroupService.svc.cs">
+      <DependentUpon>HedgeGroupService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Futures\Hedge\IHedgeGroupService.cs" />
+    <Compile Include="Futures\LME\ILMEPositionService.cs" />
+    <Compile Include="Futures\LME\LMEPositionService.svc.cs">
+      <DependentUpon>LMEPositionService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Futures\SHFE\ISHFEFundFlowService.cs" />
+    <Compile Include="Futures\SHFE\ISHFEPositionService.cs" />
+    <Compile Include="Futures\SHFE\ISHFEService.cs" />
+    <Compile Include="Futures\SHFE\SHFEFundFlowService.svc.cs">
+      <DependentUpon>SHFEFundFlowService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Futures\SHFE\SHFEPositionService.svc.cs">
+      <DependentUpon>SHFEPositionService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Futures\SHFE\SHFEService.svc.cs">
+      <DependentUpon>SHFEService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\DeliveryLineStatusHelper\DeliveryLineStatusHelper.cs" />
+    <Compile Include="Helper\DeliveryNoFormulaHelper\DeliveryNoFormulaHelper.cs" />
+    <Compile Include="Helper\DocumentNoGenerator\AMERDocumentNoGenerator.cs" />
+    <Compile Include="Helper\DocumentNoGenerator\CCIGDocumentNoGenerator.cs" />
+    <Compile Include="Helper\DocumentNoGenerator\DocumentNoGenerator.cs" />
+    <Compile Include="Helper\FuturePositionHelper\SHFEPositionHelper.cs" />
+    <Compile Include="Helper\HedgeGroupHelper\IBreakEvenSpreadBaseHandlor.cs" />
+    <Compile Include="Helper\HedgeGroupHelper\BreakEvenSpreadHandlorFactory.cs" />
+    <Compile Include="Helper\HedgeGroupHelper\CarryHandlor.cs" />
+    <Compile Include="Helper\HedgeGroupHelper\CarryRevHandlor.cs" />
+    <Compile Include="Helper\HedgeGroupHelper\FPHandlor.cs" />
+    <Compile Include="Helper\HedgeGroupHelper\FPRevHandlor.cs" />
+    <Compile Include="Helper\FuturePositionHelper\LMEPositionHelper.cs" />
+    <Compile Include="Helper\LogHelper\LogManager.cs" />
+    <Compile Include="Helper\MarketPrice\MarketPriceManager.cs" />
+    <Compile Include="Helper\Pricings\AveragePricingHandler.cs" />
+    <Compile Include="Helper\Pricings\BasePricingHandler.cs" />
+    <Compile Include="Helper\Pricings\FixPricingHandler.cs" />
+    <Compile Include="Helper\Pricings\IPricingHandler.cs" />
+    <Compile Include="Helper\Pricings\ManualPricingHandler.cs" />
+    <Compile Include="Helper\Pricings\PricingHelper.cs" />
+    <Compile Include="Helper\QuotaHelper\QuotaHelper.cs" />
+    <Compile Include="Physical\CommercialInvoices\CommercialInvoiceService.svc.cs">
+      <DependentUpon>CommercialInvoiceService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\CommercialInvoices\ICommercialInvoiceService.cs" />
+    <Compile Include="Physical\Contracts\ContractService.svc.cs">
+      <DependentUpon>ContractService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\Contracts\IContractService.cs" />
+    <Compile Include="Physical\Contracts\IQuotaService.cs" />
+    <Compile Include="Physical\Contracts\QuotaService.svc.cs">
+      <DependentUpon>QuotaService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\Deliveries\DeliveryLineService.svc.cs">
+      <DependentUpon>DeliveryLineService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\Deliveries\DeliveryService.svc.cs">
+      <DependentUpon>DeliveryService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\Deliveries\ForeignDeliveryPoolLineService.svc.cs">
+      <DependentUpon>ForeignDeliveryPoolLineService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\Deliveries\ForeignDeliveryPoolService.svc.cs">
+      <DependentUpon>ForeignDeliveryPoolService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\Deliveries\IDeliveryLineService.cs" />
+    <Compile Include="Physical\Deliveries\IDeliveryService.cs" />
+    <Compile Include="MarketPrice\IMarketPriceService.cs" />
+    <Compile Include="MarketPrice\MarketPriceService.svc.cs">
+      <DependentUpon>MarketPriceService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\Deliveries\IForeignDeliveryPoolLineService.cs" />
+    <Compile Include="Physical\Deliveries\IForeignDeliveryPoolService.cs" />
+    <Compile Include="Physical\Inventories\IInventoryService.cs" />
+    <Compile Include="Physical\Inventories\InventoryService.svc.cs">
+      <DependentUpon>InventoryService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\Pricings\IUnpricingService.cs" />
+    <Compile Include="Physical\Pricings\UnpricingService.svc.cs">
+      <DependentUpon>UnpricingService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\VATInvoices\IVATInvoicedRequestLineService.cs" />
+    <Compile Include="Physical\VATInvoices\IVATInvoiceLineService.cs" />
+    <Compile Include="Physical\VATInvoices\IVATInvoiceRequestService.cs" />
+    <Compile Include="Physical\VATInvoices\IVATInvoiceService.cs" />
+    <Compile Include="Physical\VATInvoices\VATInvoicedRequestLineService.svc.cs">
+      <DependentUpon>VATInvoicedRequestLineService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\VATInvoices\VATInvoiceLineService.svc.cs">
+      <DependentUpon>VATInvoiceLineService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\VATInvoices\VATInvoiceRequestService.svc.cs">
+      <DependentUpon>VATInvoiceRequestService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\Payments\IPaymentRequestService.cs" />
+    <Compile Include="Physical\Payments\PaymentRequestService.svc.cs">
+      <DependentUpon>PaymentRequestService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\Pricings\IPricingService.cs" />
+    <Compile Include="Physical\Pricings\PricingService.svc.cs">
+      <DependentUpon>PricingService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\VATInvoices\VATInvoiceService.svc.cs">
+      <DependentUpon>VATInvoiceService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\WarehouseIns\IWarehouseInLineService.cs" />
+    <Compile Include="Physical\WarehouseIns\IWarehouseInService.cs" />
+    <Compile Include="Physical\WarehouseIns\WarehouseInLineService.svc.cs">
+      <DependentUpon>WarehouseInLineService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\WarehouseIns\WarehouseInService.svc.cs">
+      <DependentUpon>WarehouseInService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\WarehouseOuts\IPSQuotaRelService.cs" />
+    <Compile Include="Physical\WarehouseOuts\IWarehouseOutLineService.cs" />
+    <Compile Include="Physical\WarehouseOuts\IWarehouseOutService.cs" />
+    <Compile Include="Physical\WarehouseOuts\PSQuotaRelService.svc.cs">
+      <DependentUpon>PSQuotaRelService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\WarehouseOuts\WarehouseOutLineService.svc.cs">
+      <DependentUpon>WarehouseOutLineService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Physical\WarehouseOuts\WarehouseOutService.svc.cs">
+      <DependentUpon>WarehouseOutService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\ApprovalService.svc.cs">
+      <DependentUpon>ApprovalService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\BankAccountService.svc.cs">
+      <DependentUpon>BankAccountService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\BankService.svc.cs">
+      <DependentUpon>BankService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\BrandService.svc.cs">
+      <DependentUpon>BrandService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\BusinessPartnerService.svc.cs">
+      <DependentUpon>BusinessPartnerService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\CategoryService.svc.cs">
+      <DependentUpon>CategoryService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\CommissionLineService.svc.cs">
+      <DependentUpon>CommissionLineService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\CommissionService.svc.cs">
+      <DependentUpon>CommissionService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\CommodityService.svc.cs">
+      <DependentUpon>CommodityService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\CommodityTypeService.svc.cs">
+      <DependentUpon>CommodityTypeService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\ContractUDFService.svc.cs">
+      <DependentUpon>ContractUDFService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\CountryService.svc.cs">
+      <DependentUpon>CountryService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\CurrencyService.svc.cs">
+      <DependentUpon>CurrencyService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\DeliveryPersonService.svc.cs">
+      <DependentUpon>DeliveryPersonService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\DocumentService.svc.cs">
+      <DependentUpon>DocumentService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\FinancialAccountService.svc.cs">
+      <DependentUpon>FinancialAccountService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\FunctionService.svc.cs">
+      <DependentUpon>FunctionService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\IApprovalService.cs" />
+    <Compile Include="SystemSetting\IBankAccountService.cs" />
+    <Compile Include="SystemSetting\IBankService.cs" />
+    <Compile Include="SystemSetting\IBrandService.cs" />
+    <Compile Include="SystemSetting\IBusinessPartnerService.cs" />
+    <Compile Include="SystemSetting\ICategoryService.cs" />
+    <Compile Include="SystemSetting\ICommissionLineService.cs" />
+    <Compile Include="SystemSetting\ICommissionService.cs" />
+    <Compile Include="SystemSetting\ICommodityService.cs" />
+    <Compile Include="SystemSetting\ICommodityTypeService.cs" />
+    <Compile Include="SystemSetting\IContractUDFService.cs" />
+    <Compile Include="SystemSetting\ICountryService.cs" />
+    <Compile Include="SystemSetting\ICurrencyService.cs" />
+    <Compile Include="SystemSetting\IDeliveryPersonService.cs" />
+    <Compile Include="SystemSetting\IDocumentService.cs" />
+    <Compile Include="SystemSetting\IFinancialAccountService.cs" />
+    <Compile Include="SystemSetting\IFunctionService.cs" />
+    <Compile Include="SystemSetting\ILogMessageService.cs" />
+    <Compile Include="SystemSetting\ILogRegistrationService.cs" />
+    <Compile Include="SystemSetting\IModuleService.cs" />
+    <Compile Include="SystemSetting\IPaymentMeanService.cs" />
+    <Compile Include="SystemSetting\IPaymentUsageService.cs" />
+    <Compile Include="SystemSetting\IPortService.cs" />
+    <Compile Include="SystemSetting\IRateService.cs" />
+    <Compile Include="SystemSetting\IRoleService.cs" />
+    <Compile Include="SystemSetting\ISpecificationService.cs" />
+    <Compile Include="SystemSetting\ISystemParameterService.cs" />
+    <Compile Include="SystemSetting\IUserService.cs" />
+    <Compile Include="SystemSetting\IVATRateService.cs" />
+    <Compile Include="SystemSetting\IWarehouseService.cs" />
+    <Compile Include="SystemSetting\LogMessageService.svc.cs">
+      <DependentUpon>LogMessageService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\LogRegistrationService.svc.cs">
+      <DependentUpon>LogRegistrationService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\ModuleService.svc.cs">
+      <DependentUpon>ModuleService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\PaymentMeanService.svc.cs">
+      <DependentUpon>PaymentMeanService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\PaymentUsageService.svc.cs">
+      <DependentUpon>PaymentUsageService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\PortService.svc.cs">
+      <DependentUpon>PortService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\RateService.svc.cs">
+      <DependentUpon>RateService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\RoleService.svc.cs">
+      <DependentUpon>RoleService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\SpecificationService.svc.cs">
+      <DependentUpon>SpecificationService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\SystemParameterService.svc.cs">
+      <DependentUpon>SystemParameterService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\UserService.svc.cs">
+      <DependentUpon>UserService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\VATRateService.svc.cs">
+      <DependentUpon>VATRateService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetting\WarehouseService.svc.cs">
+      <DependentUpon>WarehouseService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Attachments\IUploadService.cs" />
+    <Compile Include="Attachments\UploadService.svc.cs">
+      <DependentUpon>UploadService.svc</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBEntity\DBEntity.csproj">
+      <Project>{900735b5-33eb-4a48-b1b9-c80b857e4d82}</Project>
+      <Name>DBEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PriceDBEntity\PriceDBEntity.csproj">
+      <Project>{C5266BE1-43E2-4B08-B2E7-AD5087CED83D}</Project>
+      <Name>PriceDBEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{A9490C2E-B852-4A94-BA41-563B77BF9CB7}</Project>
+      <Name>Utility %28Utility\Utility%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\发布.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>1558</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

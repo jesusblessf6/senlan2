@@ -1,0 +1,61 @@
+﻿<baseClient:BasePage x:Class="Client.View.SystemSetting.RoleSetting.RoleList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      ResxExtension.DefaultResxName="Client.View.SystemSetting.RoleSetting.ResRoleSetting" 
+      Language="{UICulture}"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d"
+                     xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+                     xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                     d:DesignHeight="311" d:DesignWidth="492"
+	Title="{Resx RoleList}">
+    
+    <Page.Resources>
+        <RoutedCommand x:Key="EditRole"></RoutedCommand>
+        <RoutedCommand x:Key="DeleteRole"></RoutedCommand>
+        <RoutedCommand x:Key="EditPerm"></RoutedCommand>
+        <RoutedCommand x:Key="ViewRole"></RoutedCommand>
+        <RoutedCommand x:Key="ViewPerm"></RoutedCommand>
+
+        <DataTemplate x:Key="tpButtons" DataType="DBEntity:Role">
+            <StackPanel Orientation="Horizontal" Name="spButtons">
+                <Button Name="btEditRole" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource EditRole}" CommandParameter="{Binding Id}"></Button>
+                <Button Name="btDeleteRole" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource DeleteRole}" CommandParameter="{Binding Id}"></Button>
+                <Button Name="btEditPerm" Content="{Resx ModifyPermission}" Command="{StaticResource EditPerm}" CommandParameter="{Binding Id}"></Button>
+                <Button Name="btViewPerm" Content="{Resx ViewPermission}" Command="{StaticResource ViewPerm}" CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="tpViewRole" DataType="DBEntity:Role">
+            <TextBlock>
+                <Hyperlink Command="{StaticResource ViewRole}" CommandParameter="{Binding Id}">
+                    <Run Text="{Binding Name}"></Run>
+                </Hyperlink>
+            </TextBlock>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource ViewRole}" CanExecute="ViewRoleCanExecute" Executed="ViewRoleExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource EditRole}" CanExecute="EditRoleCanExecute" Executed="EditRoleExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource DeleteRole}" CanExecute="DeleteRoleCanExecute" Executed="DeleteRoleExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource EditPerm}" CanExecute="EditPermCanExecute" Executed="EditPermExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource ViewPerm}" CanExecute="ViewPermCanExecute" Executed="ViewPermExecuted"></CommandBinding>
+    </Page.CommandBindings>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Label Content="{Resx RoleList}" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Name="label1" />
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=AddWithSymbol}" Height="23" HorizontalAlignment="Left" Margin="6,40,0,0" Name="button1" VerticalAlignment="Top" Width="60" Click="Button1Click" />
+            <DataGrid AutoGenerateColumns="False" Height="Auto" HorizontalAlignment="Left" Margin="6,70,0,0" Name="dataGrid1" 
+                      VerticalAlignment="Top" Width="Auto" LoadingRow="DataGrid1LoadingRow" ItemsSource="{Binding}" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Name}" CellTemplate="{StaticResource tpViewRole}" CanUserSort="True" SortMemberPath="Name"></DataGridTemplateColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Binding="{Binding Description}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" CellTemplate="{StaticResource ResourceKey=tpButtons}"></DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

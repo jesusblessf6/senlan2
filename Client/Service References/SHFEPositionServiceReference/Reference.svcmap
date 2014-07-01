@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ec9c95f2-3dba-4dbd-a0a7-ee2ad965f0f4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Futures/SHFE/SHFEPositionService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SHFEPositionService.xsd" MetadataType="Schema" ID="36befe32-d998-4e0d-b7a9-92d19b9a98ef" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEPositionService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SHFEPositionService.disco" MetadataType="Disco" ID="c986ff6b-db9d-4597-b035-0288e16f7349" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEPositionService.svc?disco" />
+    <MetadataFile FileName="SHFEPositionService.wsdl" MetadataType="Wsdl" ID="15560722-9248-4ca7-8601-8f2b1d588fa9" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEPositionService.svc?wsdl" />
+    <MetadataFile FileName="SHFEPositionService1.xsd" MetadataType="Schema" ID="42f0b7cf-5d18-4448-aadd-f4e165703e99" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEPositionService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SHFEPositionService2.xsd" MetadataType="Schema" ID="aee3c335-5482-4076-a5b9-1e8ca40ad05c" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEPositionService.svc?xsd=xsd5" />
+    <MetadataFile FileName="SHFEPositionService4.xsd" MetadataType="Schema" ID="f0cd3355-4164-4e24-8e4d-ad035c911c6a" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEPositionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SHFEPositionService5.xsd" MetadataType="Schema" ID="c71882e5-16ad-404a-bd02-595d6b864e9b" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEPositionService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SHFEPositionService6.xsd" MetadataType="Schema" ID="865ff220-80f5-48ab-b4e5-cbc5af450ef3" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEPositionService.svc?xsd=xsd6" />
+    <MetadataFile FileName="SHFEPositionService3.xsd" MetadataType="Schema" ID="4ba842d0-b042-464f-8305-0db5395dbfa5" SourceId="1" SourceUrl="http://localhost:1558/Futures/SHFE/SHFEPositionService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

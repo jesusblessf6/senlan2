@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4e25021a-d1c8-42fe-b6c9-b7c9f45227b2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Physical/Contracts/QuotaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="QuotaService.xsd" MetadataType="Schema" ID="63a0f04c-0ba7-4ee9-9ab4-841c47ec7c35" SourceId="1" SourceUrl="http://localhost:1558/Physical/Contracts/QuotaService.svc?xsd=xsd7" />
+    <MetadataFile FileName="QuotaService1.wsdl" MetadataType="Wsdl" ID="a5d6a06b-b7bf-4013-8803-adb449265da8" SourceId="1" SourceUrl="http://localhost:1558/Physical/Contracts/QuotaService.svc?wsdl" />
+    <MetadataFile FileName="QuotaService1.disco" MetadataType="Disco" ID="79cf1fe8-685a-4bcb-95cd-1c568926038a" SourceId="1" SourceUrl="http://localhost:1558/Physical/Contracts/QuotaService.svc?disco" />
+    <MetadataFile FileName="QuotaService7.xsd" MetadataType="Schema" ID="ade6554b-7be9-4982-bd6b-f20099b56405" SourceId="1" SourceUrl="http://localhost:1558/Physical/Contracts/QuotaService.svc?xsd=xsd6" />
+    <MetadataFile FileName="QuotaService6.xsd" MetadataType="Schema" ID="d902fde5-9d6f-4d29-b713-73a741082838" SourceId="1" SourceUrl="http://localhost:1558/Physical/Contracts/QuotaService.svc?xsd=xsd5" />
+    <MetadataFile FileName="QuotaService61.xsd" MetadataType="Schema" ID="a58a4625-9e51-4a61-a6e4-f1c33a1ce691" SourceId="1" SourceUrl="http://localhost:1558/Physical/Contracts/QuotaService.svc?xsd=xsd4" />
+    <MetadataFile FileName="QuotaService62.xsd" MetadataType="Schema" ID="898b7747-4162-4290-b97a-f72d9e2e7786" SourceId="1" SourceUrl="http://localhost:1558/Physical/Contracts/QuotaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="QuotaService63.xsd" MetadataType="Schema" ID="273a0daf-29c1-4e6f-9bd2-b23bdd5c8ca0" SourceId="1" SourceUrl="http://localhost:1558/Physical/Contracts/QuotaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="QuotaService64.xsd" MetadataType="Schema" ID="51274272-9b04-4214-a053-e07dde0d4fc5" SourceId="1" SourceUrl="http://localhost:1558/Physical/Contracts/QuotaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="QuotaService65.xsd" MetadataType="Schema" ID="63262bc0-ae18-4a67-94b6-02921ab4b952" SourceId="1" SourceUrl="http://localhost:1558/Physical/Contracts/QuotaService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

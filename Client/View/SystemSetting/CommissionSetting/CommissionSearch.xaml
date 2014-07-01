@@ -1,0 +1,73 @@
+﻿<baseClient:BasePage x:Class="Client.View.SystemSetting.CommissionSetting.CommissionSearch"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+               ResxExtension.DefaultResxName="Client.View.SystemSetting.CommissionSetting.ResCommissionSetting" 
+               Language="{UICulture}"
+               xmlns:Converters="clr-namespace:Client.Converters" d:DesignHeight="500" d:DesignWidth="600" Title="{Resx CommissionSettingList}"
+               xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+               xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+               xmlns:baseClient="clr-namespace:Client.Base.BaseClient">
+    <Page.Resources>
+        <Converters:CommissionRuleTypeConverter x:Key="CommissionRuleTypeConverter" />
+
+        <RoutedCommand x:Key="CommissionLineEdit"></RoutedCommand>
+        <RoutedCommand x:Key="CommissionLineDelete"></RoutedCommand>
+
+        <DataTemplate x:Key="CommissionLineActions" DataType="DBEntity:CommissionLine">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btCommissionLineEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource CommissionLineEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btCommissionLineDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource CommissionLineDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource CommissionLineEdit}" CanExecute="CommissionLineCanExecute"
+                        Executed="CommissionLineEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource CommissionLineDelete}" CanExecute="CommissionLineCanExecute"
+                        Executed="CommissionLineDeleteExecuted"></CommandBinding>
+    </Page.CommandBindings>
+    <Grid x:Name="rootGird">
+        <Label Content="{Resx CommissionSettingList}" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" VerticalAlignment="Top"
+               FontWeight="Bold" FontSize="16" Name="lbTitle" />
+        <my:PagingControl x:Name="pagerContract" Height="31" Width="auto" Margin="6,40,0,0" HorizontalAlignment="Left"
+                          VerticalAlignment="Top" />
+        <DataGrid Margin="6,77,0,0" x:Name="commissionGrid" AutoGenerateColumns="False" CanUserAddRows="False"
+                  IsReadOnly="true" HorizontalAlignment="Left" Width="auto" Height="auto" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.CommissionSetting.ResCommissionSetting, Key=BrokerOrCustomer}" Binding="{Binding BusinessPartner.ShortName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=InternalCustomer}" Binding="{Binding InternalBP.ShortName}"></DataGridTextColumn>
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate DataType="DBEntity:Commission">
+                    <DataGrid Name="dataGridDetail" ItemsSource="{Binding CommissionLines}" AutoGenerateColumns="False"
+                              CanUserAddRows="False" IsReadOnly="true">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Commodity}" Binding="{Binding Commodity.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.CommissionSetting.ResCommissionSetting, Key=Rule}"
+                                                Binding="{Binding RuleType,  Converter={StaticResource CommissionRuleTypeConverter}}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.CommissionSetting.ResCommissionSetting, Key=CommissionRate}" Binding="{Binding RuleValue}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.CommissionSetting.ResCommissionSetting, Key=Rule2}"
+                                                Binding="{Binding RuleType2,  Converter={StaticResource CommissionRuleTypeConverter}}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="{Resx ResxName=Client.View.SystemSetting.CommissionSetting.ResCommissionSetting, Key=CommissionRate2}" Binding="{Binding RuleValue2}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="界限内规则1" Binding="{Binding InLimitRuleType1,  Converter={StaticResource CommissionRuleTypeConverter}}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="界限内费率1" Binding="{Binding InLimitRuleValue1, StringFormat={x:Static enumEntity:RoundRules.STR_RATE}}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="界限内规则2" Binding="{Binding InLimitRuleType2,  Converter={StaticResource CommissionRuleTypeConverter}}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="界限内费率2" Binding="{Binding InLimitRuleValue2, StringFormat={x:Static enumEntity:RoundRules.STR_RATE}}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="界限外规则1" Binding="{Binding OutLimitRuleType1,  Converter={StaticResource CommissionRuleTypeConverter}}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="界限外费率1" Binding="{Binding OutLimitRuleValue1, StringFormat={x:Static enumEntity:RoundRules.STR_RATE}}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="界限外规则2" Binding="{Binding OutLimitRuleType2,  Converter={StaticResource CommissionRuleTypeConverter}}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="界限外费率2" Binding="{Binding OutLimitRuleValue2, StringFormat={x:Static enumEntity:RoundRules.STR_RATE}}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Binding="{Binding Comment}"></DataGridTextColumn>
+                            <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" CellTemplate="{StaticResource CommissionLineActions}"></DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+    </Grid>
+</baseClient:BasePage>

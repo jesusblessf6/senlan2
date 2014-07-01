@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="27e1cd91-4962-4d83-84be-31054d445a79" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/CommissionLineService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CommissionLineService5.xsd" MetadataType="Schema" ID="dafbfbe7-1106-43d6-ad39-cdbc45ebe22b" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommissionLineService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CommissionLineService.wsdl" MetadataType="Wsdl" ID="1ebe140c-b96e-4b3f-a670-41eb08709e65" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommissionLineService.svc?wsdl" />
+    <MetadataFile FileName="CommissionLineService.xsd" MetadataType="Schema" ID="c8b745fb-46fa-418e-8136-8afe2f035851" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommissionLineService.svc?xsd=xsd5" />
+    <MetadataFile FileName="CommissionLineService1.xsd" MetadataType="Schema" ID="52d2ddfe-4d38-46af-9375-8a021885cbab" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommissionLineService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CommissionLineService2.xsd" MetadataType="Schema" ID="19840ffb-6a13-4939-b714-89513913ed71" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommissionLineService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CommissionLineService3.xsd" MetadataType="Schema" ID="c70c1587-12a2-4a4b-957a-f7514d5399a5" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommissionLineService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CommissionLineService4.xsd" MetadataType="Schema" ID="fd1a7ab1-8aeb-4d0c-a1d5-9a2e2a4472ec" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommissionLineService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CommissionLineService.disco" MetadataType="Disco" ID="b5e8c7c6-6f70-4f7d-8f30-b247a44b7ffd" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/CommissionLineService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

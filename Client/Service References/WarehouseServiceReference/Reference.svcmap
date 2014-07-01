@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1bcc1d9d-d422-4454-a53e-59b9dba131a8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/WarehouseService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WarehouseService5.xsd" MetadataType="Schema" ID="982cc455-33e4-4902-9eda-926a07d13baf" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/WarehouseService.svc?xsd=xsd5" />
+    <MetadataFile FileName="WarehouseService.xsd" MetadataType="Schema" ID="619add66-e89e-4d68-b0c4-bf6993ee1a50" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/WarehouseService.svc?xsd=xsd0" />
+    <MetadataFile FileName="WarehouseService1.xsd" MetadataType="Schema" ID="1341f1b6-cadb-4c8b-bafd-2d5edba276f9" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/WarehouseService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WarehouseService2.xsd" MetadataType="Schema" ID="1c5e2417-af77-4733-84aa-a1f4afa7fe2f" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/WarehouseService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WarehouseService3.xsd" MetadataType="Schema" ID="e5c3810f-69fb-4543-ac78-8136d567f377" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/WarehouseService.svc?xsd=xsd3" />
+    <MetadataFile FileName="WarehouseService4.xsd" MetadataType="Schema" ID="2a0ae60c-349d-49bd-ba06-86fcf9eb0fdd" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/WarehouseService.svc?xsd=xsd4" />
+    <MetadataFile FileName="WarehouseService.wsdl" MetadataType="Wsdl" ID="f20d766b-a96e-4cef-b088-41269a4c56d1" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/WarehouseService.svc?wsdl" />
+    <MetadataFile FileName="WarehouseService.disco" MetadataType="Disco" ID="0392acb2-e4f6-4d26-8200-b7ef8957a682" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/WarehouseService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

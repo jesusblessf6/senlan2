@@ -1,0 +1,102 @@
+﻿<baseClient:ObjectBaseWindow x:Class="Client.View.SystemSetting.WarehouseSetting.WarehouseDetail"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       ResxExtension.DefaultResxName="Client.View.SystemSetting.WarehouseSetting.ResWarehouseSetting" 
+                       Language="{UICulture}"
+                      xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                             Title="{Resx ResxName=Client.Properties.Resources, Key=Warehouse}" Height="auto"
+                       Width="600" WindowStartupLocation="CenterScreen">
+    <baseClient:ObjectBaseWindow.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="28"></Setter>
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Right"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Width" Value="120"></Setter>
+        </Style>
+
+        <RoutedCommand x:Key="StorageFeeRuleEdit"></RoutedCommand>
+        <RoutedCommand x:Key="StorageFeeRuleDelete"></RoutedCommand>
+
+        <DataTemplate x:Key="StorageFeeRulesActions" DataType="DBEntity:StorageFeeRule">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btStorageFeeRuleEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource StorageFeeRuleEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btStorageFeeRuleDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource StorageFeeRuleDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+            </StackPanel>
+        </DataTemplate>
+    </baseClient:ObjectBaseWindow.Resources>
+
+    <baseClient:ObjectBaseWindow.CommandBindings>
+        <CommandBinding Command="{StaticResource StorageFeeRuleEdit}" CanExecute="StorageFeeRuleCanExecute"
+                        Executed="StorageFeeRuleEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource StorageFeeRuleDelete}" CanExecute="StorageFeeRuleCanExecute"
+                        Executed="StorageFeeRuleDeleteExecuted"></CommandBinding>
+    </baseClient:ObjectBaseWindow.CommandBindings>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Name="rootGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="195" />
+                <RowDefinition Height="34" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="55*" />
+            </Grid.RowDefinitions>
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Warehouse}" Name="lbTitle" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <Label Content="{Resx ShortName}" Margin="6,38,0,0" Name="label2" Foreground="Crimson" HorizontalAlignment="Left"
+                   VerticalAlignment="Top" />
+            <TextBox Margin="122,40,0,0" Name="textBox1" Text="{Binding Name}" MaxLength="20" HorizontalAlignment="Left"
+                     VerticalAlignment="Top" />
+            <Label Content="{Resx FullName}" Margin="6,70,0,0" Name="label3" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,72,0,0" Name="textBox2" VerticalAlignment="Top"
+                     Width="392" Text="{Binding FullName}" MaxLength="50" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=ContactPerson}" Margin="6,102,0,0" Name="label4" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Margin="122,104,0,0" Name="textBox3" Text="{Binding ContactPerson}" MaxLength="20"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Tel}" Margin="278,102,0,0" Name="label8" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Margin="394,104,0,0" Name="textBox7" Text="{Binding Phone}" MaxLength="20"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Fax}" Margin="6,134,0,0" Name="label5" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="122,136,0,0" Name="textBox4" VerticalAlignment="Top"
+                     Text="{Binding Fax}" MaxLength="20" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=PostCode}" Margin="278,134,0,0" Name="label1" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="394,136,0,0" Name="textBox8" VerticalAlignment="Top"
+                     Text="{Binding PostCode}" MaxLength="10" />
+            <Label Content="{Resx Address}" Margin="6,166,0,0" Name="label6" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="122,168,0,0" Name="textBox5" VerticalAlignment="Top"
+                     Width="392" Text="{Binding Address}" MaxLength="200" />
+            <Label Content="{Resx ResxName=Client.Properties.Resources, Key=Comments}" Grid.Row="3" Margin="6,6,0,0" Name="label7" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBox Height="100" HorizontalAlignment="Left" Margin="122,8,0,0" Name="textBox6"
+                     VerticalAlignment="Top" Width="392" AcceptsTab="False" AcceptsReturn="True" TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto" Text="{Binding Description}" MaxLength="200" Grid.Row="3"/>
+
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Confirm}" Height="25" HorizontalAlignment="Left" Margin="210,123,0,0" Name="btOK"
+                    VerticalAlignment="Top" Width="60" Click="Save" Grid.Row="3"/>
+            <Button Content="{Resx ResxName=Client.Properties.Resources, Key=Cancel}" Height="25" HorizontalAlignment="Left" Margin="305,123,0,0" Name="btCancel"
+                    VerticalAlignment="Top" Width="60" Click="Cancel" Grid.Row="3" />
+            <Label Content="币种" Foreground="Crimson" Height="28" HorizontalAlignment="Left" Margin="320,35,0,0" Name="label9" VerticalAlignment="Top" Width="68" />
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="394,35,0,0" Name="comboBox1" VerticalAlignment="Top" Width="120" ItemsSource="{Binding CurrencyList}" SelectedValuePath="Id" DisplayMemberPath="Name"
+                      SelectedValue="{Binding CurrencyId}"/>
+            <Label Content="仓储费" Height="28" HorizontalAlignment="Left" Margin="6,0,0,2" Name="label10" VerticalAlignment="Bottom" Width="110" Grid.Row="1" />
+            <Button Content="新增" Height="23" Grid.Row="1" HorizontalAlignment="Left" Margin="122,0,0,6" Name="button1" VerticalAlignment="Bottom" Width="45" Click="button1_Click" />
+            <DataGrid AutoGenerateColumns="False" Height="auto" Grid.Row="2" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="122,0,0,0" Name="dataGrid1" VerticalAlignment="Bottom" Width="auto" IsReadOnly="True" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="金属" Binding="{Binding Commodity.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="开始日期" Binding="{Binding StartDate,StringFormat='yyyy/MM/dd'}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="结束日期" Binding="{Binding EndDate,StringFormat='yyyy/MM/dd'}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="仓租单价" Binding="{Binding PricePerUnit, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="货权转移费" Binding="{Binding TransferFee, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="仓单费" Binding="{Binding WarrantFee, StringFormat={x:Static enumEntity:RoundRules.STR_PRICE}}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="Auto" CanUserSort="False"
+                                        CellTemplate="{StaticResource StorageFeeRulesActions}"></DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:ObjectBaseWindow>

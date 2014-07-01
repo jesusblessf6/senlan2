@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2474ad97-0710-4227-ae7d-4984731aabdb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Physical/Payments/PaymentRequestService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PaymentRequestService1.wsdl" MetadataType="Wsdl" ID="f12f4c10-3891-4749-b5a1-168effacbc44" SourceId="1" SourceUrl="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?wsdl" />
+    <MetadataFile FileName="PaymentRequestService1.disco" MetadataType="Disco" ID="1e53d0e7-44df-4488-93db-bf4ab370fd9d" SourceId="1" SourceUrl="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?disco" />
+    <MetadataFile FileName="PaymentRequestService6.xsd" MetadataType="Schema" ID="2ff82fd3-25a2-4805-be6e-4ee172310758" SourceId="1" SourceUrl="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PaymentRequestService61.xsd" MetadataType="Schema" ID="ef5f4a93-ca89-42fb-96b9-084caf2b4cd6" SourceId="1" SourceUrl="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PaymentRequestService7.xsd" MetadataType="Schema" ID="fb3a964c-1ea8-48f8-bba3-3a4cdaef5443" SourceId="1" SourceUrl="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd6" />
+    <MetadataFile FileName="PaymentRequestService62.xsd" MetadataType="Schema" ID="7dbb96d6-5f15-4a32-a5a1-ce4ae02af294" SourceId="1" SourceUrl="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PaymentRequestService63.xsd" MetadataType="Schema" ID="9ff36133-9031-42a5-9123-36823f9e27f9" SourceId="1" SourceUrl="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PaymentRequestService64.xsd" MetadataType="Schema" ID="86e7d087-3e9c-4b14-aaeb-b2b97836c424" SourceId="1" SourceUrl="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PaymentRequestService65.xsd" MetadataType="Schema" ID="f6ff3707-ea67-4d7d-8f1b-8c4db47520ab" SourceId="1" SourceUrl="http://localhost:1558/Physical/Payments/PaymentRequestService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="630949a3-f524-445d-9814-313ecf6c4ea6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/SystemSetting/BankAccountService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BankAccountService6.xsd" MetadataType="Schema" ID="3de594fb-4814-4f11-be5b-edf2c3b1237f" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BankAccountService.svc?xsd=xsd6" />
+    <MetadataFile FileName="BankAccountService.xsd" MetadataType="Schema" ID="a441b4b4-102f-43af-bb7f-c638f20ae239" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BankAccountService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BankAccountService2.xsd" MetadataType="Schema" ID="3ca35ce7-00fd-409d-8a96-93e1ace9847d" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BankAccountService.svc?xsd=xsd4" />
+    <MetadataFile FileName="BankAccountService3.xsd" MetadataType="Schema" ID="a0a21c27-59eb-4acc-afe5-2ea8e575bc3c" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BankAccountService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BankAccountService.disco" MetadataType="Disco" ID="c89a3377-629b-4b27-8489-a4a28f13acdc" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BankAccountService.svc?disco" />
+    <MetadataFile FileName="BankAccountService4.xsd" MetadataType="Schema" ID="14e38482-22e2-4a3e-9fb0-01e544e141dc" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BankAccountService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BankAccountService1.xsd" MetadataType="Schema" ID="5851701a-60c6-4519-8383-2fb35bd854b7" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BankAccountService.svc?xsd=xsd5" />
+    <MetadataFile FileName="BankAccountService.wsdl" MetadataType="Wsdl" ID="e08fef03-9ffa-4efa-9e85-1dba9fe13270" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BankAccountService.svc?wsdl" />
+    <MetadataFile FileName="BankAccountService5.xsd" MetadataType="Schema" ID="bba9de5d-6e57-481a-a231-f370b690ad29" SourceId="1" SourceUrl="http://localhost:1558/SystemSetting/BankAccountService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

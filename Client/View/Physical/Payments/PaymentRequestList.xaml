@@ -1,0 +1,114 @@
+﻿<baseClient:BasePage x:Class="Client.View.Physical.Payments.PaymentRequestList"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               ResxExtension.DefaultResxName="Client.View.Physical.Payments.ResPayment" 
+               Language="{UICulture}"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:Converters="clr-namespace:Client.Converters" mc:Ignorable="d" d:DesignHeight="504" d:DesignWidth="1437"
+               Title="{Resx PaymentRequestList}" xmlns:my="clr-namespace:Utility.Controls;assembly=Utility"
+               xmlns:DBEntity="clr-namespace:DBEntity;assembly=DBEntity"
+                     xmlns:baseClient="clr-namespace:Client.Base.BaseClient"
+                     xmlns:enumEntity="clr-namespace:DBEntity.EnumEntity;assembly=DBEntity">
+
+    <Page.Resources>
+        <Converters:ApproveStatusConverter x:Key="ApproveStatusConverter" />
+        <Converters:PaymentRequestStatusConverter x:Key="PaymentRequestStatusConverter" />
+
+        <RoutedCommand x:Key="PaymentRequestEdit"></RoutedCommand>
+        <RoutedCommand x:Key="PaymentRequestDelete"></RoutedCommand>
+        <RoutedCommand x:Key="PaymentRequestPrint"></RoutedCommand>
+
+        <DataTemplate x:Key="PaymentRequestActions" DataType="DBEntity:PaymentRequest">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btPaymentRequestEdit" Content="{Resx ResxName=Client.Properties.Resources, Key=Edit}" Command="{StaticResource PaymentRequestEdit}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btPaymentRequestDelete" Content="{Resx ResxName=Client.Properties.Resources, Key=Delete}" Command="{StaticResource PaymentRequestDelete}"
+                        CommandParameter="{Binding Id}"></Button>
+                <Button Name="btPaymentRequestPrint" Content="打印" Command="{StaticResource PaymentRequestPrint}"
+                        CommandParameter="{Binding Id}" Visibility="Hidden"></Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Page.CommandBindings>
+        <CommandBinding Command="{StaticResource PaymentRequestEdit}" CanExecute="PaymentRequestEditCanExecute"
+                        Executed="PaymentRequestEditExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource PaymentRequestDelete}" CanExecute="PaymentRequestDeleteCanExecute"
+                        Executed="PaymentRequestDeleteExecuted"></CommandBinding>
+        <CommandBinding Command="{StaticResource PaymentRequestPrint}" CanExecute="PaymentRequestPrintCanExecute"
+                        Executed="PaymentRequestPrintExecuted"></CommandBinding>
+    </Page.CommandBindings>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="0,0"
+                  HorizontalContentAlignment="Left">
+        <Grid x:Name="rootGrid">
+            <StackPanel Orientation="Horizontal" Margin="6,40,0,0" Height="Auto" Width="Auto" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <my:PagingControl HorizontalAlignment="Left" Name="pagingControl1"
+                              VerticalAlignment="Top" />
+                <Button Content="打印付款申请" Margin="10,0,0,0" Click="ButtonClick" Height="23"></Button>
+            </StackPanel>
+            
+            <Label Content="{Resx PaymentRequestList}" Name="label1" Height="32" HorizontalAlignment="Left" Margin="6,6,0,0" Width="auto"
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="16" />
+            <DataGrid AutoGenerateColumns="False" Margin="6,77,0,0" x:Name="contractGrid" VerticalAlignment="Top"
+                      IsReadOnly="True" LoadingRow="DataGrid1LoadingRow" HorizontalAlignment="Left" Style="{StaticResource DataGridStyle}"
+                      RowStyle="{StaticResource DataGridRowStyle}" ItemsSource="{Binding}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="Auto" IsReadOnly="True">
+                        <DataGridTemplateColumn.Header>
+                            <CheckBox IsChecked="{Binding IsSelectAll}" Name="cbSelectAll" Content="全选" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="DBEntity:PaymentRequest">
+                                <CheckBox IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Center" IsEnabled="{Binding Printable}" Tag="{Binding Id}" VerticalAlignment="Center" Unchecked="CheckBox_Unchecked" Checked="CheckBox_Checked" Click="CheckBox_Click"></CheckBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=QuotaNo}" Binding="{Binding Quota.QuotaNo}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ApplyDateShort}" Binding="{Binding RequestDate,StringFormat=yyyy-MM-dd}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ReceiptBP}" Binding="{Binding ReceiveBusinessPartner.ShortName}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PaymentBP}" Binding="{Binding PayBusinessPartner.ShortName}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=AppliedAmount}" Binding="{Binding RequestAmount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PaymentCurrency}" Binding="{Binding Currency.Name}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PaidAmount}"
+                                        Binding="{Binding PaidAmount, StringFormat={x:Static enumEntity:RoundRules.STR_AMOUNT}}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PaymentMean}" Binding="{Binding PaymentMean.Name}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=PaymentUsage}" Binding="{Binding PaymentUsage.Name}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Physical.Payments.ResPayment, Key=PaymentStatus}"
+                                        Binding="{Binding IsPaid, Converter={StaticResource PaymentRequestStatusConverter}}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.View.Physical.Payments.ResPayment, Key=Applicant}" Binding="{Binding User.Name}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Approval}" Binding="{Binding Approval.Name}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+                    
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ApprovalDetail}" CanUserSort="False"
+                                            HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate DataType="DBEntity:PaymentRequest">
+                                <TextBlock>
+                                    <Run Foreground="Green" Text="{Binding CustomerStrField1}"></Run>
+                                    <Run Foreground="Red" Text="{Binding CustomerStrField2}"></Run>
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=ApprovalStatus}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                        Binding="{Binding ApproveStatus,Converter={StaticResource ApproveStatusConverter}}" />
+                    <DataGridTextColumn Header="{Resx ResxName=Client.Properties.Resources, Key=RejectReason}" Binding="{Binding RejectReason}"
+                                        HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"></DataGridTextColumn>
+                    <DataGridTemplateColumn Header="{Resx ResxName=Client.Properties.Resources, Key=Operation}" Width="auto" CanUserSort="False"
+                                            HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" CellTemplate="{StaticResource PaymentRequestActions}"></DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </ScrollViewer>
+</baseClient:BasePage>

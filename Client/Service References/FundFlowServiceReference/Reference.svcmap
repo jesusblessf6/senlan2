@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="daef0dd4-529a-431f-bb43-062b90307eeb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1558/Finance/FundFlows/FundFlowService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FundFlowService61.xsd" MetadataType="Schema" ID="340b7dbd-13c9-413f-8d0c-da1708d2499f" SourceId="1" SourceUrl="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FundFlowService1.wsdl" MetadataType="Wsdl" ID="39372949-2de8-4cd4-be01-7776ef3ad9e1" SourceId="1" SourceUrl="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?wsdl" />
+    <MetadataFile FileName="FundFlowService6.xsd" MetadataType="Schema" ID="791a5a66-3128-4478-87e5-0e9d70c57791" SourceId="1" SourceUrl="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd4" />
+    <MetadataFile FileName="FundFlowService65.xsd" MetadataType="Schema" ID="3059118a-ec6f-42cf-8ace-21f7d6bd51db" SourceId="1" SourceUrl="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd3" />
+    <MetadataFile FileName="FundFlowService7.xsd" MetadataType="Schema" ID="a4474ada-c9ab-4391-991b-4f5a0241136b" SourceId="1" SourceUrl="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd6" />
+    <MetadataFile FileName="FundFlowService1.disco" MetadataType="Disco" ID="865bb12a-32fb-4a52-abda-01a426c27a7b" SourceId="1" SourceUrl="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?disco" />
+    <MetadataFile FileName="FundFlowService62.xsd" MetadataType="Schema" ID="e71062db-bef9-4c8b-846d-99a8b974ffb9" SourceId="1" SourceUrl="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FundFlowService63.xsd" MetadataType="Schema" ID="30b7b089-5da4-43a7-a44b-447e45e5ce4c" SourceId="1" SourceUrl="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FundFlowService64.xsd" MetadataType="Schema" ID="05342bf1-bde7-4f66-a48d-377e48a28e57" SourceId="1" SourceUrl="http://localhost:1558/Finance/FundFlows/FundFlowService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
